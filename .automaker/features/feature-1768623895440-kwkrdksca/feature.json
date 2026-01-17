@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "Remove the container around this text:\n\nBuilt by a senior web developer, not an agency. Modern React + SEO-first builds designed, built, and optimized in Houston.",
+  "title": "Remove container styling from website footer text",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1768623895440-kwkrdksca",
+  "descriptionHistory": [
+    {
+      "description": "Remove the container around this text:\n\nBuilt by a senior web developer, not an agency. Modern React + SEO-first builds designed, built, and optimized in Houston.",
+      "timestamp": "2026-01-17T04:24:55.506Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-17T04:26:01.381Z",
+  "updatedAt": "2026-01-17T04:26:37.380Z",
+  "justFinishedAt": "2026-01-17T04:26:37.380Z"
+}

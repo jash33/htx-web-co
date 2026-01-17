@@ -1,0 +1,29 @@
+{
+  "category": "Uncategorized",
+  "description": "Please make the following changes, where possible, to the home page.\n\nHere’s what I’d do next.\n\nFirst, the copy is basically done. The H1 is tight, outcome-focused, and specific. The subheadline is excellent—technical enough to signal competence, plain enough for business owners. Don’t keep iterating copy unless you’re A/B testing.\n\nNow the improvements.\n\n1. The hero still lacks a focal artifact\nYou’ve added texture (nice skyline + radial gradient), but there’s nothing that visually proves “this person builds modern websites.”\n\nOne strong move:\nAdd a single, understated browser mockup (right side or slightly offset) showing a real project or tasteful fake. Even blurred content works. It instantly reframes you from “marketing site” to “builder.”\n\nThis is the single biggest visual upgrade you can make.\n\n2. CTA hierarchy is good, but spacing can do more work\nThe buttons are right, but they’re floating in empty space.\n\nConsider:\n\nSlightly more vertical separation between copy block and CTAs\n\nOr a faint container / glow behind the primary CTA only\n\nThis increases perceived clickability without louder colors.\n\n3. The “Built by a senior web developer…” line is gold—surface it more\nThat sentence is doing heavy lifting, but it’s visually quiet.\n\nOptions:\n\nAdd a small icon (checkmark / bolt / code glyph)\n\nIncrease font weight slightly\n\nSplit it into two lines for scannability\n\nThis is your differentiation vs agencies and Wix freelancers—don’t hide it.\n\n4. The Houston footer tag is clever, but too subtle\nThe coordinates + “Serving the Greater Houston Area” is a nice touch, but right now it feels like an Easter egg.\n\nI’d either:\n\nIncrease contrast just a bit\n\nOr move it slightly higher so it reads as intentional, not decorative\n\nYou want users to notice it subconsciously.\n\n5. Add one micro-interaction\nRight now it’s static. One motion cue will bring it to life:\n\nVery slow gradient drift\n\nFade/slide-in on first load (headline → sub → CTA)\n\nSubtle hover animation on primary CTA\n\nOne. Not three. This is about polish, not flair.\n\n6. One optional but powerful trust nudge\nIf you have anything factual:\n\n“10+ years experience”\n\n“Built X+ production sites”\n\n“React / TypeScript specialist”\n\nPut it in tiny text near the CTAs. Even vague-but-true beats silence.",
+  "title": "Update home page hero with visual artifact and micro-interactions",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1768622262361-zfzjx4443",
+  "descriptionHistory": [
+    {
+      "description": "Please make the following changes, where possible, to the home page.\n\nHere’s what I’d do next.\n\nFirst, the copy is basically done. The H1 is tight, outcome-focused, and specific. The subheadline is excellent—technical enough to signal competence, plain enough for business owners. Don’t keep iterating copy unless you’re A/B testing.\n\nNow the improvements.\n\n1. The hero still lacks a focal artifact\nYou’ve added texture (nice skyline + radial gradient), but there’s nothing that visually proves “this person builds modern websites.”\n\nOne strong move:\nAdd a single, understated browser mockup (right side or slightly offset) showing a real project or tasteful fake. Even blurred content works. It instantly reframes you from “marketing site” to “builder.”\n\nThis is the single biggest visual upgrade you can make.\n\n2. CTA hierarchy is good, but spacing can do more work\nThe buttons are right, but they’re floating in empty space.\n\nConsider:\n\nSlightly more vertical separation between copy block and CTAs\n\nOr a faint container / glow behind the primary CTA only\n\nThis increases perceived clickability without louder colors.\n\n3. The “Built by a senior web developer…” line is gold—surface it more\nThat sentence is doing heavy lifting, but it’s visually quiet.\n\nOptions:\n\nAdd a small icon (checkmark / bolt / code glyph)\n\nIncrease font weight slightly\n\nSplit it into two lines for scannability\n\nThis is your differentiation vs agencies and Wix freelancers—don’t hide it.\n\n4. The Houston footer tag is clever, but too subtle\nThe coordinates + “Serving the Greater Houston Area” is a nice touch, but right now it feels like an Easter egg.\n\nI’d either:\n\nIncrease contrast just a bit\n\nOr move it slightly higher so it reads as intentional, not decorative\n\nYou want users to notice it subconsciously.\n\n5. Add one micro-interaction\nRight now it’s static. One motion cue will bring it to life:\n\nVery slow gradient drift\n\nFade/slide-in on first load (headline → sub → CTA)\n\nSubtle hover animation on primary CTA\n\nOne. Not three. This is about polish, not flair.\n\n6. One optional but powerful trust nudge\nIf you have anything factual:\n\n“10+ years experience”\n\n“Built X+ production sites”\n\n“React / TypeScript specialist”\n\nPut it in tiny text near the CTAs. Even vague-but-true beats silence.",
+      "timestamp": "2026-01-17T03:57:42.496Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-17T04:23:52.517Z",
+  "updatedAt": "2026-01-17T04:23:52.771Z"
+}

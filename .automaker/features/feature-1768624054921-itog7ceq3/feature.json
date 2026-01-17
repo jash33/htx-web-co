@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "Scan the app for information that is \"too technical\" for buisness owners. For example, a business owner isn't going to know what react is, and we shouldn't mention it. \n\nPlease revise text like this in favor of buisness owner friendly terminology, that apperals to their interests.",
+  "title": "Simplify technical language for business owner clarity",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1768624054921-itog7ceq3",
+  "descriptionHistory": [
+    {
+      "description": "Scan the app for information that is \"too technical\" for buisness owners. For example, a business owner isn't going to know what react is, and we shouldn't mention it. \n\nPlease revise text like this in favor of buisness owner friendly terminology, that apperals to their interests.",
+      "timestamp": "2026-01-17T04:27:35.058Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-17T04:27:36.350Z",
+  "updatedAt": "2026-01-17T04:31:20.867Z",
+  "justFinishedAt": "2026-01-17T04:31:20.867Z"
+}

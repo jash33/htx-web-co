@@ -15,7 +15,7 @@
   "dependencies": [],
   "workMode": "current",
   "titleGenerating": false,
-  "status": "backlog",
+  "status": "verified",
   "id": "feature-1768620829146-24ykw6nu1",
   "descriptionHistory": [
     {
@@ -23,5 +23,8 @@
       "timestamp": "2026-01-17T03:33:49.275Z",
       "source": "initial"
     }
-  ]
+  ],
+  "startedAt": "2026-01-17T03:44:01.027Z",
+  "updatedAt": "2026-01-17T03:48:03.159Z",
+  "justFinishedAt": "2026-01-17T03:48:03.159Z"
 }

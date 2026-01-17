@@ -26,7 +26,9 @@
 import type { HeroSectionProps } from '../types/hero';
 import Button from './Button.astro';
 
-interface Props extends HeroSectionProps {}
+interface Props extends HeroSectionProps {
+  trustBadges?: Array<{ icon: 'experience' | 'projects' | 'tech'; text: string; }>;
+}
 
 const {
   headline,
@@ -36,65 +38,110 @@ const {
   secondaryCTA,
   id = 'hero',
   class: className = '',
+  trustBadges = [
+    { icon: 'experience', text: '10+ Years Experience' },
+    { icon: 'projects', text: '50+ Local Businesses Helped' },
+    { icon: 'tech', text: 'Fast & Search-Friendly Sites' },
+  ],
 } = Astro.props;
 
-// Build CSS classes
-const sectionClasses = [
-  'hero',
-  className,
-].filter(Boolean).join(' ');
+const sectionClasses = ['hero', className].filter(Boolean).join(' ');
+
+const trustIcons: Record<string, string> = {
+  experience: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+  projects: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>`,
+  tech: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>`,
+};
 ---
 
 <section class={sectionClasses} id={id} aria-labelledby={`${id}-headline`}>
   <div class="hero__container">
-    <div class="hero__content">
-      <!-- Main Headline -->
-      <h1 id={`${id}-headline`} class="hero__headline">
-        {headline}
-      </h1>
+    <div class="hero__grid">
+      <div class="hero__content">
+        <h1 id={`${id}-headline`} class="hero__headline">{headline}</h1>
 
-      <!-- Value Proposition -->
-      {valueProposition && (
-        <p class="hero__value-prop">
-          {valueProposition}
-        </p>
-      )}
+        {valueProposition && (
+          <p class="hero__value-prop">{valueProposition}</p>
+        )}
 
-      <!-- Subheadline -->
-      {subheadline && (
-        <p class="hero__subheadline">
-          {subheadline}
-        </p>
-      )}
+        {subheadline && (
+          <p class="hero__subheadline">
+            <svg class="hero__subheadline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+            </svg>
+            <span>{subheadline}</span>
+          </p>
+        )}
 
-      <!-- CTA Buttons -->
-      {(primaryCTA || secondaryCTA) && (
-        <div class="hero__cta-group">
-          {primaryCTA && (
-            <Button
-              text={primaryCTA.text}
-              href={primaryCTA.href}
-              variant={primaryCTA.variant || 'primary'}
-              size="large"
-              class="hero__cta hero__cta--primary"
-            />
-          )}
-          {secondaryCTA && (
-            <Button
-              text={secondaryCTA.text}
-              href={secondaryCTA.href}
-              variant={secondaryCTA.variant || 'secondary'}
-              size="large"
-              class="hero__cta hero__cta--secondary"
-            />
-          )}
+        {(primaryCTA || secondaryCTA) && (
+          <div class="hero__cta-wrapper">
+            <div class="hero__cta-group">
+              {primaryCTA && (
+                <div class="hero__cta-primary-wrapper">
+                  <Button text={primaryCTA.text} href={primaryCTA.href} variant={primaryCTA.variant || 'primary'} size="large" class="hero__cta hero__cta--primary" />
+                </div>
+              )}
+              {secondaryCTA && (
+                <Button text={secondaryCTA.text} href={secondaryCTA.href} variant={secondaryCTA.variant || 'secondary'} size="large" class="hero__cta hero__cta--secondary" />
+              )}
+            </div>
+            {trustBadges && trustBadges.length > 0 && (
+              <div class="hero__trust-badges" aria-label="Credentials">
+                {trustBadges.map((badge) => (
+                  <div class="hero__trust-badge">
+                    <span class="hero__trust-badge-icon" set:html={trustIcons[badge.icon]} />
+                    <span class="hero__trust-badge-text">{badge.text}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        <div class="hero__location-cue">
+          <svg class="hero__location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          <span class="hero__location-text">Serving the Greater Houston Area</span>
+          <span class="hero__coordinates">29.7604° N, 95.3698° W</span>
         </div>
-      )}
+      </div>
+
+      <div class="hero__mockup" aria-hidden="true">
+        <div class="hero__browser">
+          <div class="hero__browser-chrome">
+            <div class="hero__browser-dots">
+              <span class="hero__browser-dot hero__browser-dot--red"></span>
+              <span class="hero__browser-dot hero__browser-dot--yellow"></span>
+              <span class="hero__browser-dot hero__browser-dot--green"></span>
+            </div>
+            <div class="hero__browser-url">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+              <span>yourbusiness.com</span>
+            </div>
+          </div>
+          <div class="hero__browser-content">
+            <div class="hero__mock-header"><div class="hero__mock-logo"></div><div class="hero__mock-nav"><span></span><span></span><span></span></div></div>
+            <div class="hero__mock-hero"><div class="hero__mock-headline"></div><div class="hero__mock-text"></div><div class="hero__mock-cta"></div></div>
+            <div class="hero__mock-cards">
+              <div class="hero__mock-card"><div class="hero__mock-card-icon"></div><div class="hero__mock-card-lines"><span></span><span></span></div></div>
+              <div class="hero__mock-card"><div class="hero__mock-card-icon"></div><div class="hero__mock-card-lines"><span></span><span></span></div></div>
+              <div class="hero__mock-card"><div class="hero__mock-card-icon"></div><div class="hero__mock-card-lines"><span></span><span></span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__mockup-glow"></div>
+      </div>
     </div>
   </div>
 
-  <!-- Decorative background element -->
   <div class="hero__background" aria-hidden="true"></div>
+  <div class="hero__skyline" aria-hidden="true">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,120 L0,100 L50,100 L50,80 L70,80 L70,90 L90,90 L90,70 L100,70 L100,85 L120,85 L120,60 L140,60 L140,75 L160,75 L160,50 L170,50 L170,40 L180,40 L180,50 L190,50 L190,65 L210,65 L210,45 L220,45 L220,55 L240,55 L240,70 L260,70 L260,55 L280,55 L280,65 L300,65 L300,50 L310,50 L310,35 L320,35 L320,25 L330,25 L330,35 L340,35 L340,50 L360,50 L360,60 L380,60 L380,45 L400,45 L400,55 L420,55 L420,40 L430,40 L430,30 L440,30 L440,20 L450,20 L450,15 L460,15 L460,20 L470,20 L470,30 L480,30 L480,45 L500,45 L500,55 L520,55 L520,65 L540,65 L540,50 L560,50 L560,60 L580,60 L580,45 L590,45 L590,35 L600,35 L600,25 L610,25 L610,35 L620,35 L620,50 L640,50 L640,60 L660,60 L660,70 L680,70 L680,55 L700,55 L700,45 L720,45 L720,55 L740,55 L740,40 L750,40 L750,30 L760,30 L760,25 L770,25 L770,30 L780,30 L780,45 L800,45 L800,55 L820,55 L820,65 L840,65 L840,50 L860,50 L860,60 L880,60 L880,70 L900,70 L900,55 L920,55 L920,65 L940,65 L940,75 L960,75 L960,60 L980,60 L980,70 L1000,70 L1000,80 L1020,80 L1020,90 L1040,90 L1040,75 L1060,75 L1060,85 L1080,85 L1080,95 L1100,95 L1100,85 L1120,85 L1120,90 L1140,90 L1140,100 L1160,100 L1160,95 L1180,95 L1180,100 L1200,100 L1200,120 Z" fill="currentColor"/>
+    </svg>
+  </div>
+  <div class="hero__accent-shape" aria-hidden="true"></div>
 </section>
 
 <style>
@@ -120,6 +167,8 @@ const sectionClasses = [
       var(--color-primary-700) 50%,
       var(--color-primary-800) 100%
     );
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
   }
 
   /* Decorative background */
@@ -146,6 +195,13 @@ const sectionClasses = [
     width: 100%;
     max-width: var(--container-7xl);
     margin: 0 auto;
+  }
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+    align-items: center;
   }
 
   .hero__content {
@@ -188,30 +244,68 @@ const sectionClasses = [
     border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
-  /* Subheadline */
+  /* Subheadline with icon */
   .hero__subheadline {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-2);
     font-family: var(--font-body);
     font-size: var(--font-size-base);
-    font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-medium);
     line-height: var(--line-height-relaxed);
-    color: var(--color-primary-100);
+    color: var(--color-text-inverse);
     margin: 0;
     max-width: 50ch;
-    opacity: 0.9;
+    padding: var(--spacing-3) var(--spacing-4);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-primary-300);
+  }
+
+  .hero__subheadline-icon {
+    flex-shrink: 0;
+    color: var(--color-primary-300);
+    margin-top: 2px;
   }
 
   /* =================================================================
-   * CTA BUTTONS
+   * CTA SECTION
    * =================================================================
    */
+
+  .hero__cta-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-6);
+    margin-top: var(--spacing-2);
+  }
 
   .hero__cta-group {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-4);
-    margin-top: var(--spacing-4);
     width: 100%;
+  }
+
+  .hero__cta-primary-wrapper {
+    position: relative;
+  }
+
+  .hero__cta-primary-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.25) 0%,
+      transparent 70%
+    );
+    border-radius: var(--radius-xl);
+    filter: blur(12px);
+    z-index: -1;
+    opacity: 0.8;
   }
 
   /* Full width CTAs on mobile */
@@ -225,18 +319,21 @@ const sectionClasses = [
     background-color: var(--color-background);
     color: var(--color-primary-700);
     box-shadow: var(--shadow-lg);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hero :global(.btn--primary:hover:not(.btn--disabled)) {
     background-color: var(--color-primary-50);
     color: var(--color-primary-800);
-    box-shadow: var(--shadow-xl);
-    transform: translateY(-2px);
+    box-shadow:
+      var(--shadow-xl),
+      0 0 30px rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px) scale(1.02);
   }
 
   .hero :global(.btn--primary:active:not(.btn--disabled)) {
     background-color: var(--color-primary-100);
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 
   .hero :global(.btn--primary:focus-visible) {
@@ -249,12 +346,304 @@ const sectionClasses = [
     background-color: transparent;
     color: var(--color-text-inverse);
     border-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hero :global(.btn--secondary:hover:not(.btn--disabled)) {
     background-color: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.8);
     color: var(--color-text-inverse);
+    transform: translateY(-2px);
+  }
+
+  /* =================================================================
+   * TRUST BADGES
+   * =================================================================
+   */
+
+  .hero__trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-3);
+  }
+
+  .hero__trust-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-3);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    color: var(--color-primary-100);
+    white-space: nowrap;
+  }
+
+  .hero__trust-badge-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-300);
+  }
+
+  .hero__trust-badge-text {
+    font-weight: var(--font-weight-medium);
+  }
+
+  /* =================================================================
+   * LOCATION CUE
+   * =================================================================
+   */
+
+  .hero__location-cue {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-4);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    margin-top: var(--spacing-4);
+  }
+
+  .hero__location-icon {
+    color: var(--color-primary-200);
+  }
+
+  .hero__location-text {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-inverse);
+  }
+
+  .hero__coordinates {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-mono, monospace);
+    color: var(--color-primary-200);
+    padding: var(--spacing-1) var(--spacing-2);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-sm);
+  }
+
+  /* =================================================================
+   * BROWSER MOCKUP
+   * =================================================================
+   */
+
+  .hero__mockup {
+    display: none;
+    position: relative;
+    animation: mockupSlideIn 0.8s ease-out 0.3s backwards;
+  }
+
+  .hero__browser {
+    position: relative;
+    background: var(--color-background);
+    border-radius: var(--radius-xl);
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.5s ease;
+  }
+
+  .hero__browser:hover {
+    transform: perspective(1000px) rotateY(-2deg) rotateX(1deg);
+  }
+
+  .hero__browser-chrome {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) var(--spacing-4);
+    background: var(--color-gray-100);
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .hero__browser-dots {
+    display: flex;
+    gap: var(--spacing-2);
+  }
+
+  .hero__browser-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .hero__browser-dot--red { background: #ff5f57; }
+  .hero__browser-dot--yellow { background: #febc2e; }
+  .hero__browser-dot--green { background: #28c840; }
+
+  .hero__browser-url {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-3);
+    background: var(--color-background);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-500);
+  }
+
+  .hero__browser-url svg { color: var(--color-success-600); }
+
+  .hero__browser-content {
+    padding: var(--spacing-6);
+    min-height: 280px;
+    background: linear-gradient(180deg, var(--color-background) 0%, var(--color-gray-50) 100%);
+  }
+
+  .hero__mock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-6);
+  }
+
+  .hero__mock-logo {
+    width: 80px;
+    height: 24px;
+    background: linear-gradient(90deg, var(--color-primary-600), var(--color-primary-400));
+    border-radius: var(--radius-sm);
+  }
+
+  .hero__mock-nav {
+    display: flex;
+    gap: var(--spacing-3);
+  }
+
+  .hero__mock-nav span {
+    width: 50px;
+    height: 8px;
+    background: var(--color-gray-200);
+    border-radius: var(--radius-sm);
+  }
+
+  .hero__mock-hero {
+    text-align: center;
+    margin-bottom: var(--spacing-6);
+  }
+
+  .hero__mock-headline {
+    width: 70%;
+    height: 20px;
+    margin: 0 auto var(--spacing-3);
+    background: var(--color-gray-800);
+    border-radius: var(--radius-sm);
+  }
+
+  .hero__mock-text {
+    width: 50%;
+    height: 12px;
+    margin: 0 auto var(--spacing-4);
+    background: var(--color-gray-300);
+    border-radius: var(--radius-sm);
+  }
+
+  .hero__mock-cta {
+    width: 100px;
+    height: 32px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, var(--color-primary-600), var(--color-primary-500));
+    border-radius: var(--radius-md);
+  }
+
+  .hero__mock-cards {
+    display: flex;
+    gap: var(--spacing-3);
+  }
+
+  .hero__mock-card {
+    flex: 1;
+    padding: var(--spacing-3);
+    background: var(--color-background);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .hero__mock-card-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: var(--spacing-2);
+    background: var(--color-primary-100);
+    border-radius: var(--radius-md);
+  }
+
+  .hero__mock-card-lines {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+  }
+
+  .hero__mock-card-lines span:first-child {
+    width: 80%;
+    height: 8px;
+    background: var(--color-gray-300);
+    border-radius: var(--radius-xs);
+  }
+
+  .hero__mock-card-lines span:last-child {
+    width: 60%;
+    height: 8px;
+    background: var(--color-gray-200);
+    border-radius: var(--radius-xs);
+  }
+
+  .hero__mockup-glow {
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(ellipse at center, rgba(54, 83, 149, 0.3) 0%, transparent 60%);
+    z-index: -1;
+    filter: blur(40px);
+  }
+
+  /* =================================================================
+   * HOUSTON SKYLINE
+   * =================================================================
+   */
+
+  .hero__skyline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    color: rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+  }
+
+  .hero__skyline svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* =================================================================
+   * ACCENT SHAPE
+   * =================================================================
+   */
+
+  .hero__accent-shape {
+    position: absolute;
+    top: 10%;
+    right: -5%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: accentFloat 8s ease-in-out infinite;
   }
 
   /* =================================================================
@@ -289,11 +678,19 @@ const sectionClasses = [
     .hero__cta-group {
       flex-direction: row;
       justify-content: center;
-      margin-top: var(--spacing-6);
     }
 
     .hero__cta {
       width: auto;
+    }
+
+    .hero__trust-badges {
+      gap: var(--spacing-4);
+    }
+
+    .hero__trust-badge {
+      font-size: var(--font-size-sm);
+      padding: var(--spacing-2) var(--spacing-4);
     }
   }
 
@@ -308,8 +705,15 @@ const sectionClasses = [
       min-height: 60vh;
     }
 
+    .hero__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-12);
+    }
+
     .hero__content {
-      gap: var(--spacing-8);
+      align-items: flex-start;
+      text-align: left;
+      gap: var(--spacing-6);
     }
 
     .hero__headline {
@@ -324,12 +728,32 @@ const sectionClasses = [
 
     .hero__subheadline {
       font-size: var(--font-size-lg);
-      max-width: 60ch;
+      max-width: 50ch;
+    }
+
+    .hero__cta-wrapper {
+      align-items: flex-start;
     }
 
     .hero__cta-group {
-      gap: var(--spacing-6);
-      margin-top: var(--spacing-8);
+      justify-content: flex-start;
+      gap: var(--spacing-4);
+    }
+
+    .hero__trust-badges {
+      justify-content: flex-start;
+    }
+
+    .hero__location-cue {
+      justify-content: flex-start;
+    }
+
+    .hero__mockup {
+      display: block;
+    }
+
+    .hero__skyline {
+      height: 100px;
     }
   }
 
@@ -343,6 +767,10 @@ const sectionClasses = [
       min-height: 70vh;
     }
 
+    .hero__grid {
+      gap: var(--spacing-16);
+    }
+
     .hero__headline {
       font-size: var(--font-size-6xl);
     }
@@ -354,13 +782,41 @@ const sectionClasses = [
     .hero__subheadline {
       font-size: var(--font-size-xl);
     }
+
+    .hero__browser-content {
+      min-height: 320px;
+    }
+
+    .hero__skyline {
+      height: 120px;
+    }
   }
 
   /* =================================================================
    * ANIMATIONS
-   * Staggered fade-in for visual interest
    * =================================================================
    */
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes mockupSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(40px) perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    }
+  }
+
+  @keyframes accentFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-20px, 20px); }
+  }
 
   .hero__headline {
     animation: heroFadeIn 0.6s ease-out 0.1s backwards;
@@ -374,8 +830,16 @@ const sectionClasses = [
     animation: heroFadeIn 0.6s ease-out 0.3s backwards;
   }
 
-  .hero__cta-group {
+  .hero__cta-wrapper {
     animation: heroFadeIn 0.6s ease-out 0.4s backwards;
+  }
+
+  .hero__location-cue {
+    animation: heroFadeIn 0.6s ease-out 0.5s backwards;
+  }
+
+  .hero__trust-badges {
+    animation: heroFadeIn 0.6s ease-out 0.5s backwards;
   }
 
   @keyframes heroFadeIn {
@@ -396,14 +860,33 @@ const sectionClasses = [
    */
 
   @media (prefers-reduced-motion: reduce) {
+    .hero {
+      animation: none;
+    }
+
     .hero__headline,
     .hero__value-prop,
     .hero__subheadline,
-    .hero__cta-group {
+    .hero__cta-wrapper,
+    .hero__location-cue,
+    .hero__trust-badges,
+    .hero__mockup {
+      animation: none;
+    }
+
+    .hero__accent-shape {
       animation: none;
     }
 
     .hero :global(.btn:hover:not(.btn--disabled)) {
+      transform: none;
+    }
+
+    .hero__browser {
+      transform: none;
+    }
+
+    .hero__browser:hover {
       transform: none;
     }
   }
@@ -422,16 +905,23 @@ const sectionClasses = [
 
     .hero__headline,
     .hero__value-prop,
-    .hero__subheadline {
+    .hero__subheadline,
+    .hero__location-text {
       color: CanvasText;
     }
 
-    .hero__value-prop {
+    .hero__value-prop,
+    .hero__subheadline,
+    .hero__location-cue,
+    .hero__trust-badge {
       border: 1px solid CanvasText;
       background: transparent;
     }
 
-    .hero__background {
+    .hero__background,
+    .hero__skyline,
+    .hero__accent-shape,
+    .hero__mockup-glow {
       display: none;
     }
   }
@@ -447,25 +937,31 @@ const sectionClasses = [
       padding: var(--spacing-8) 0;
       background: transparent;
       color: var(--color-text-primary);
+      animation: none;
     }
 
     .hero__headline,
     .hero__value-prop,
-    .hero__subheadline {
+    .hero__subheadline,
+    .hero__location-text {
       color: var(--color-text-primary);
       animation: none;
     }
 
-    .hero__value-prop {
+    .hero__value-prop,
+    .hero__subheadline {
       background: transparent;
       border: 1px solid var(--color-border);
     }
 
-    .hero__background {
+    .hero__background,
+    .hero__skyline,
+    .hero__accent-shape,
+    .hero__mockup {
       display: none;
     }
 
-    .hero__cta-group {
+    .hero__cta-wrapper {
       display: none;
     }
   }
