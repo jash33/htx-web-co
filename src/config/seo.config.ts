@@ -14,13 +14,13 @@ export const localBusinessSchema: LocalBusinessSchema = {
   type: 'ProfessionalService',
   name: 'Houston Web Services',
   legalName: 'Houston Web Services',
-  description: 'Professional web design and development services for small businesses in West Houston. We specialize in custom websites, SEO optimization, and digital solutions for the Energy Corridor, Katy, Memorial, and surrounding areas.',
+  description: 'Professional web design and development services for small businesses in Houston. We specialize in custom websites, SEO optimization, and digital solutions for Houston businesses.',
   slogan: 'Building Digital Success for Houston Businesses',
   url: 'https://houstonwebservices.com',
   telephone: '+1-832-XXX-XXXX', // TODO: Update with actual phone
   email: 'info@houstonwebservices.com', // TODO: Update with actual email
   address: {
-    streetAddress: '1234 Energy Corridor Blvd', // TODO: Update with actual address
+    streetAddress: '1234 Main Street', // TODO: Update with actual address
     addressLocality: 'Houston',
     addressRegion: 'TX',
     postalCode: '77077',
@@ -31,10 +31,7 @@ export const localBusinessSchema: LocalBusinessSchema = {
     longitude: -95.6091,
   },
   areaServed: [
-    { type: 'PostalCode', postalCode: '77077', addressCountry: 'US' },
-    { type: 'PostalCode', postalCode: ['77079', '77024', '77042', '77063', '77082', '77083', '77084', '77094', '77449', '77450'], addressCountry: 'US' },
     { type: 'City', name: 'Houston', addressLocality: 'Houston', addressRegion: 'TX', addressCountry: 'US' },
-    { type: 'City', name: 'Katy', addressLocality: 'Katy', addressRegion: 'TX', addressCountry: 'US' },
   ],
   openingHoursSpecification: [
     { dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:00' },
@@ -51,7 +48,7 @@ export const localBusinessSchema: LocalBusinessSchema = {
     email: 'info@houstonwebservices.com', // TODO: Update
     contactType: 'customer service',
     availableLanguage: ['English', 'Spanish'],
-    areaServed: ['Houston', 'Katy', 'Memorial', 'Energy Corridor'],
+    areaServed: ['Houston'],
   },
   makesOffer: ['Web Design', 'Web Development', 'SEO Optimization', 'E-commerce Solutions', 'Website Maintenance', 'Digital Marketing'],
   knowsAbout: ['Web Design', 'Web Development', 'Search Engine Optimization', 'User Experience Design', 'Responsive Design', 'E-commerce'],

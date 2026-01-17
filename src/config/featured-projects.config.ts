@@ -21,12 +21,12 @@ import type { Project } from '../types/portfolio';
  */
 export const FEATURED_PROJECTS: Project[] = [
   {
-    id: 'energy-corridor-consulting',
-    title: 'Energy Corridor Consulting',
+    id: 'houston-energy-consulting',
+    title: 'Houston Energy Consulting',
     description: 'A professional website for a Houston-based energy consulting firm featuring a modern design, custom CMS integration, and lead generation forms that increased client inquiries by 150%.',
     thumbnail: {
       src: '/portfolio/energy-consulting.svg',
-      alt: 'Energy Corridor Consulting website homepage showing professional dark blue design with energy industry imagery',
+      alt: 'Houston Energy Consulting website homepage showing professional dark blue design with energy industry imagery',
       width: 600,
       height: 400,
     },
@@ -44,12 +44,12 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
   },
   {
-    id: 'katy-dental-care',
-    title: 'Katy Family Dental Care',
-    description: 'Complete website redesign for a dental practice in Katy, TX. Includes online appointment booking, patient portal integration, and HIPAA-compliant contact forms.',
+    id: 'houston-dental-care',
+    title: 'Houston Family Dental Care',
+    description: 'Complete website redesign for a dental practice in Houston, TX. Includes online appointment booking, patient portal integration, and HIPAA-compliant contact forms.',
     thumbnail: {
       src: '/portfolio/dental-care.svg',
-      alt: 'Katy Family Dental Care website with bright, welcoming design and appointment booking interface',
+      alt: 'Houston Family Dental Care website with bright, welcoming design and appointment booking interface',
       width: 600,
       height: 400,
     },

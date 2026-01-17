@@ -1,0 +1,134 @@
+{
+  "category": "Uncategorized",
+  "description": "Consolidate Service Routes into Unified Services Page\n\nMerge the four separate service pages (website design, SEO optimization, website maintenance, and web hosting) currently located in the services directory into a single, consolidated services page with condensed content.\n\nRequirements:\n- Identify and locate all four existing service route files in the services directory\n- Combine content from all service pages into one unified page structure\n- Condense and summarize each service section to reduce verbosity while retaining key information\n- Organize services in a scannable format (e.g., sections, cards, or accordion layout)\n- Remove redundant or overly technical content, especially in SEO section\n- Keep content concise and beginner-friendly - avoid lengthy explanations\n- Maintain essential service descriptions that communicate value to potential clients\n- Update routing configuration to point to the new consolidated page\n- Remove or redirect old individual service routes to prevent 404 errors\n- Ensure the consolidated page length remains reasonable (not excessively long)\n\nConsiderations:\n- Prioritize clarity over comprehensive detail\n- Balance brevity with providing enough information for users to understand each service\n- Consider visual hierarchy to distinguish between the four service categories\n- Ensure mobile responsiveness for the consolidated layout",
+  "title": "Consolidate service routes into unified page",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "full",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1768630036185-5z5hcdsvw",
+  "descriptionHistory": [
+    {
+      "description": "Consolidate Service Routes into Unified Services Page\n\nMerge the four separate service pages (website design, SEO optimization, website maintenance, and web hosting) currently located in the services directory into a single, consolidated services page with condensed content.\n\nRequirements:\n- Identify and locate all four existing service route files in the services directory\n- Combine content from all service pages into one unified page structure\n- Condense and summarize each service section to reduce verbosity while retaining key information\n- Organize services in a scannable format (e.g., sections, cards, or accordion layout)\n- Remove redundant or overly technical content, especially in SEO section\n- Keep content concise and beginner-friendly - avoid lengthy explanations\n- Maintain essential service descriptions that communicate value to potential clients\n- Update routing configuration to point to the new consolidated page\n- Remove or redirect old individual service routes to prevent 404 errors\n- Ensure the consolidated page length remains reasonable (not excessively long)\n\nConsiderations:\n- Prioritize clarity over comprehensive detail\n- Balance brevity with providing enough information for users to understand each service\n- Consider visual hierarchy to distinguish between the four service categories\n- Ensure mobile responsiveness for the consolidated layout",
+      "timestamp": "2026-01-17T06:07:16.257Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-17T06:24:38.881Z",
+  "updatedAt": "2026-01-17T06:36:57.469Z",
+  "planSpec": {
+    "status": "approved",
+    "version": 1,
+    "reviewedByUser": false,
+    "content": "🔧 Tool: Glob\nInput: {\n  \"pattern\": \"**/services/**/*\"\n}\n\n🔧 Tool: Glob\nInput: {\n  \"pattern\": \"**/*route*\"\n}\n\n🔧 Tool: Glob\nInput: {\n  \"pattern\": \"**/app/**/*.{ts,tsx,js,jsx}\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\pages\\\\services\\\\website-design.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\pages\\\\services\\\\seo.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\pages\\\\services\\\\maintenance.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\pages\\\\services\\\\hosting.astro\"\n}\n\n🔧 Tool: Glob\nInput: {\n  \"pattern\": \"src/pages/services/index.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\layouts\\\\Layout.astro\"\n}\n\n🔧 Tool: Glob\nInput: {\n  \"pattern\": \"src/components/*.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\ServiceCard.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\HeroSection.astro\"\n}\n\n🔧 Tool: Glob\nInput: {\n  \"pattern\": \"src/pages/*.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\pages\\\\services.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\ContactCTA.astro\"\n}\n# Specification: Consolidate Service Routes into Unified Services Page\n\n## 1. Problem Statement\n\nThe website currently has four separate service pages (website design, SEO optimization, website maintenance, and web hosting) located in the `/services/` directory, each with verbose content spanning 700-1100+ lines. This creates a fragmented user experience and excessive page length. Users need a single, consolidated services page with condensed, scannable content that provides an overview of all services without requiring navigation between multiple pages.\n\n## 2. User Story\n\n**As a** potential client visiting the Houston Web Services website,  \n**I want** to view all available services on a single, organized page,  \n**So that** I can quickly understand what services are offered without navigating between multiple pages and reading lengthy technical explanations.\n\n## 3. Acceptance Criteria\n\n### Happy Path\n- **GIVEN** a user visits `/services`, **WHEN** the page loads, **THEN** they see a hero section followed by four service sections (Website Design, SEO, Maintenance, Hosting) in a card/section-based layout\n- **GIVEN** a user views any service section, **WHEN** they read the content, **THEN** they see a concise description (2-3 sentences), key benefits (3-4 bullet points), and starting price\n- **GIVEN** a user wants more details, **WHEN** they click the \"Learn More\" or \"Get Started\" CTA on any service card, **THEN** they are directed to the contact page with the appropriate service pre-selected\n\n### Edge Cases\n- **GIVEN** a user has bookmarked an old URL like `/services/website-design`, **WHEN** they visit that URL, **THEN** they are redirected to `/services#website-design` anchor\n- **GIVEN** a user accesses the page on mobile, **WHEN** viewing service cards, **THEN** cards stack vertically with maintained visual hierarchy\n\n### Error Handling\n- **GIVEN** a search engine has indexed the old service pages, **WHEN** a crawler visits `/services/seo`, **THEN** it receives a 301 redirect to `/services#seo`\n\n## 4. Technical Context\n\n| Aspect | Value |\n|--------|-------|\n| Affected Files | `src/pages/services.astro` (modify), `src/pages/services/website-design.astro` (remove), `src/pages/services/seo.astro` (remove), `src/pages/services/maintenance.astro` (remove), `src/pages/services/hosting.astro` (remove) |\n| Dependencies | Existing components: `Layout.astro`, `HeroSection.astro`, `Button.astro`, `ContactCTA.astro`, `ServiceCard.astro` |\n| Constraints | Must maintain SEO value, keep page length reasonable (~500-700 lines max), preserve pricing section, ensure 301 redirects for old URLs |\n| Patterns to Follow | BEM CSS naming, mobile-first responsive design, design system CSS variables, existing component patterns |\n\n## 5. Non-Goals\n\n- **NOT** creating detailed individual service pages (content should be condensed only)\n- **NOT** changing the pricing packages section (this stays as-is in services.astro)\n- **NOT** modifying any components (using existing components only)\n- **NOT** adding new interactive features like accordions or tabs\n- **NOT** changing the contact form or process timeline sections\n\n## 6. Implementation Tasks\n\n```tasks\n## Phase 1: Foundation - Create Consolidated Services Content\n- [ ] T001: Create consolidated service data arrays with condensed content for all 4 services | File: src/pages/services.astro\n- [ ] T002: Add services overview grid section with service cards below existing \"What We Offer\" section | File: src/pages/services.astro\n\n## Phase 2: Integration - Build Service Detail Sections\n- [ ] T003: Create Website Design condensed section with anchor ID, benefits, and starting price | File: src/pages/services.astro\n- [ ] T004: Create SEO Optimization condensed section with anchor ID, benefits, and starting price | File: src/pages/services.astro\n- [ ] T005: Create Website Maintenance condensed section with anchor ID, benefits, and starting price | File: src/pages/services.astro\n- [ ] T006: Create Web Hosting condensed section with anchor ID, benefits, and starting price | File: src/pages/services.astro\n- [ ] T007: Add responsive CSS styles for new service detail sections | File: src/pages/services.astro\n\n## Phase 3: Cleanup & Redirects\n- [ ] T008: Create redirect stub pages for old service routes (website-design, seo, maintenance, hosting) | File: src/pages/services/\n- [ ] T009: Remove detailed content from individual service pages, replace with redirect meta tags | File: src/pages/services/website-design.astro\n- [ ] T010: Remove detailed content from SEO page, replace with redirect | File: src/pages/services/seo.astro\n- [ ] T011: Remove detailed content from Maintenance page, replace with redirect | File: src/pages/services/maintenance.astro\n- [ ] T012: Remove detailed content from Hosting page, replace with redirect | File: src/pages/services/hosting.astro\n- [ ] T013: Test build to ensure no broken imports or references | File: N/A\n```\n\n## 7. Success Metrics\n\n| Metric | Target |\n|--------|--------|\n| Page length (services.astro) | Under 800 lines total |\n| Service section word count | ~100-150 words per service |\n| Load time impact | No degradation from current |\n| All old URLs redirect properly | 100% redirect to anchors |\n| Mobile responsiveness | Full responsive layout works |\n| Build passes | Zero errors or warnings |\n\n## 8. Risks & Mitigations\n\n| Risk | Mitigation |\n|------|------------|\n| Loss of SEO ranking from removing detailed pages | Implement proper 301 redirects with canonical URLs; condensed content still contains key terms |\n| Content too condensed to convey value | Include \"starting at\" prices and 3-4 key benefits per service to maintain value proposition |\n| Users expect separate service pages | Clear anchor navigation and visual separation between service sections |\n| Broken internal links | Search codebase for references to old service URLs and update them |\n\n---",
+    "generatedAt": "2026-01-17T06:25:42.393Z",
+    "tasks": [
+      {
+        "id": "T001",
+        "description": "Create consolidated service data arrays with condensed content for all 4 services",
+        "filePath": "src/pages/services.astro",
+        "phase": "Phase 1: Foundation - Create Consolidated Services Content",
+        "status": "pending"
+      },
+      {
+        "id": "T002",
+        "description": "Add services overview grid section with service cards below existing \"What We Offer\" section",
+        "filePath": "src/pages/services.astro",
+        "phase": "Phase 1: Foundation - Create Consolidated Services Content",
+        "status": "pending"
+      },
+      {
+        "id": "T003",
+        "description": "Create Website Design condensed section with anchor ID, benefits, and starting price",
+        "filePath": "src/pages/services.astro",
+        "phase": "Phase 2: Integration - Build Service Detail Sections",
+        "status": "pending"
+      },
+      {
+        "id": "T004",
+        "description": "Create SEO Optimization condensed section with anchor ID, benefits, and starting price",
+        "filePath": "src/pages/services.astro",
+        "phase": "Phase 2: Integration - Build Service Detail Sections",
+        "status": "pending"
+      },
+      {
+        "id": "T005",
+        "description": "Create Website Maintenance condensed section with anchor ID, benefits, and starting price",
+        "filePath": "src/pages/services.astro",
+        "phase": "Phase 2: Integration - Build Service Detail Sections",
+        "status": "pending"
+      },
+      {
+        "id": "T006",
+        "description": "Create Web Hosting condensed section with anchor ID, benefits, and starting price",
+        "filePath": "src/pages/services.astro",
+        "phase": "Phase 2: Integration - Build Service Detail Sections",
+        "status": "pending"
+      },
+      {
+        "id": "T007",
+        "description": "Add responsive CSS styles for new service detail sections",
+        "filePath": "src/pages/services.astro",
+        "phase": "Phase 2: Integration - Build Service Detail Sections",
+        "status": "pending"
+      },
+      {
+        "id": "T008",
+        "description": "Create redirect stub pages for old service routes (website-design, seo, maintenance, hosting)",
+        "filePath": "src/pages/services/",
+        "phase": "Phase 3: Cleanup & Redirects",
+        "status": "pending"
+      },
+      {
+        "id": "T009",
+        "description": "Remove detailed content from individual service pages, replace with redirect meta tags",
+        "filePath": "src/pages/services/website-design.astro",
+        "phase": "Phase 3: Cleanup & Redirects",
+        "status": "pending"
+      },
+      {
+        "id": "T010",
+        "description": "Remove detailed content from SEO page, replace with redirect",
+        "filePath": "src/pages/services/seo.astro",
+        "phase": "Phase 3: Cleanup & Redirects",
+        "status": "pending"
+      },
+      {
+        "id": "T011",
+        "description": "Remove detailed content from Maintenance page, replace with redirect",
+        "filePath": "src/pages/services/maintenance.astro",
+        "phase": "Phase 3: Cleanup & Redirects",
+        "status": "pending"
+      },
+      {
+        "id": "T012",
+        "description": "Remove detailed content from Hosting page, replace with redirect",
+        "filePath": "src/pages/services/hosting.astro",
+        "phase": "Phase 3: Cleanup & Redirects",
+        "status": "pending"
+      },
+      {
+        "id": "T013",
+        "description": "Test build to ensure no broken imports or references",
+        "filePath": "N/A",
+        "phase": "Phase 3: Cleanup & Redirects",
+        "status": "pending"
+      }
+    ],
+    "tasksTotal": 13,
+    "tasksCompleted": 13,
+    "approvedAt": "2026-01-17T06:25:42.394Z",
+    "currentTaskId": "T013"
+  },
+  "justFinishedAt": "2026-01-17T06:36:57.469Z"
+}

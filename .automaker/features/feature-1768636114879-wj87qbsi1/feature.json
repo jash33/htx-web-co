@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "the services page should not have two rows of those 4 cards. should just be one row, its redundant.\n\nie the custom design card",
+  "title": "Remove duplicate card rows on services page",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1768636114879-wj87qbsi1",
+  "descriptionHistory": [
+    {
+      "description": "the services page should not have two rows of those 4 cards. should just be one row, its redundant.\n\nie the custom design card",
+      "timestamp": "2026-01-17T07:48:35.020Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-17T07:48:41.366Z",
+  "updatedAt": "2026-01-17T07:50:25.159Z",
+  "justFinishedAt": "2026-01-17T07:50:25.159Z"
+}

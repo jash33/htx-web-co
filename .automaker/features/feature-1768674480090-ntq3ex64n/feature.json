@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "I really like the top sections of both the home page and the services page. I think the layout looks really nice. Can we also add that same appearance /layout to the portfolio page?",
+  "title": "Add portfolio page header layout redesign",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1768674480090-ntq3ex64n",
+  "descriptionHistory": [
+    {
+      "description": "I really like the top sections of both the home page and the services page. I think the layout looks really nice. Can we also add that same appearance /layout to the portfolio page?",
+      "timestamp": "2026-01-17T18:28:00.162Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-17T18:28:02.955Z",
+  "updatedAt": "2026-01-17T18:29:59.779Z",
+  "justFinishedAt": "2026-01-17T18:29:59.779Z"
+}

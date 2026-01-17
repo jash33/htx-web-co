@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "Redesign Services Page Hero Section\n\nUpdate the services page to have a distinct visual identity that differentiates it from the home page, similar to how the portfolio page has its own unique styling.\n\nRequirements:\n- Remove or replace the blue colored hero section currently shared with the home page\n- Design a new hero layout unique to the services page\n- Maintain visual consistency with other unique pages (e.g., portfolio page)\n- Ensure the new design clearly communicates the services page purpose\n- Update \"above the fold\" content (first screen before scrolling) to be visually distinct from home page\n- Preserve brand consistency while creating differentiation\n- Ensure responsive design works across all device sizes\n\nConsiderations:\n- Review portfolio page implementation as reference for creating page-specific identity\n- Consider what content/messaging should be prioritized in the services hero\n- Maintain navigation and core UI elements consistent with site-wide patterns\n- Test visual hierarchy ensures key service information is prominent",
+  "title": "Create unique services page hero with distinct visual identity",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1768632799778-zqjtsxwvm",
+  "descriptionHistory": [
+    {
+      "description": "Redesign Services Page Hero Section\n\nUpdate the services page to have a distinct visual identity that differentiates it from the home page, similar to how the portfolio page has its own unique styling.\n\nRequirements:\n- Remove or replace the blue colored hero section currently shared with the home page\n- Design a new hero layout unique to the services page\n- Maintain visual consistency with other unique pages (e.g., portfolio page)\n- Ensure the new design clearly communicates the services page purpose\n- Update \"above the fold\" content (first screen before scrolling) to be visually distinct from home page\n- Preserve brand consistency while creating differentiation\n- Ensure responsive design works across all device sizes\n\nConsiderations:\n- Review portfolio page implementation as reference for creating page-specific identity\n- Consider what content/messaging should be prioritized in the services hero\n- Maintain navigation and core UI elements consistent with site-wide patterns\n- Test visual hierarchy ensures key service information is prominent",
+      "timestamp": "2026-01-17T06:53:19.933Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-17T06:53:21.184Z",
+  "updatedAt": "2026-01-17T06:56:55.835Z",
+  "justFinishedAt": "2026-01-17T06:56:55.835Z"
+}

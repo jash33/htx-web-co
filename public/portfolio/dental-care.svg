@@ -10,7 +10,7 @@
     <circle cx="100" cy="350" r="100"/>
     <circle cx="550" cy="50" r="70"/>
   </g>
-  <text x="300" y="180" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">Katy Family</text>
+  <text x="300" y="180" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">Houston Family</text>
   <text x="300" y="215" font-family="system-ui, sans-serif" font-size="18" fill="#e0f2fe" text-anchor="middle">Dental Care App</text>
   <rect x="200" y="250" width="200" height="40" rx="8" fill="#ffffff" opacity="0.2"/>
   <text x="300" y="277" font-family="system-ui, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">View Project</text>

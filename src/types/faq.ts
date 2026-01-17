@@ -109,7 +109,7 @@ export const DEFAULT_FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-local-focus',
     question: 'Do you only work with Houston-area businesses?',
-    answer: `While we specialize in serving small businesses in West Houston, the Energy Corridor, Katy, and Memorial areas, we work with clients throughout Texas and beyond. Our local focus means we understand the Houston market deeply, but we can work with you remotely just as effectively. We're happy to meet in person locally or connect via video call.`,
+    answer: `While we specialize in serving small businesses in Houston, we work with clients throughout Texas and beyond. Our local focus means we understand the Houston market deeply, but we can work with you remotely just as effectively. We're happy to meet in person locally or connect via video call.`,
     category: 'general',
   },
 ];

@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "remove references to the katy, memorial, and energy corridor areas. this business serves houston\n",
+  "title": "Remove area references from Houston business",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1768636229406-jtosulm4q",
+  "descriptionHistory": [
+    {
+      "description": "remove references to the katy, memorial, and energy corridor areas. this business serves houston\n",
+      "timestamp": "2026-01-17T07:50:29.546Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-17T07:50:33.773Z",
+  "updatedAt": "2026-01-17T07:54:19.993Z",
+  "justFinishedAt": "2026-01-17T07:54:19.993Z"
+}

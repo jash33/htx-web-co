@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "The home page has some nice animations on load...can we add these same animations on the services and portfolio page?",
+  "title": "Add page load animations to services and portfolio",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1768675774360-4f2ym7tp8",
+  "descriptionHistory": [
+    {
+      "description": "The home page has some nice animations on load...can we add these same animations on the services and portfolio page?",
+      "timestamp": "2026-01-17T18:49:34.436Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-17T18:49:35.461Z",
+  "updatedAt": "2026-01-17T18:51:24.891Z",
+  "justFinishedAt": "2026-01-17T18:51:24.891Z"
+}

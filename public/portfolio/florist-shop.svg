@@ -10,7 +10,7 @@
     <circle cx="500" cy="300" r="90"/>
     <circle cx="80" cy="80" r="60"/>
   </g>
-  <text x="300" y="180" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">Memorial Florist</text>
+  <text x="300" y="180" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">Houston Florist</text>
   <text x="300" y="215" font-family="system-ui, sans-serif" font-size="18" fill="#fce7f3" text-anchor="middle">E-Commerce Store</text>
   <rect x="200" y="250" width="200" height="40" rx="8" fill="#ffffff" opacity="0.2"/>
   <text x="300" y="277" font-family="system-ui, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">View Project</text>

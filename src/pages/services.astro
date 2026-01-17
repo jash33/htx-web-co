@@ -13,14 +13,103 @@
  */
 
 import Layout from '../layouts/Layout.astro';
-import HeroSection from '../components/HeroSection.astro';
 import PricingCard from '../components/PricingCard.astro';
 import AddonsTable from '../components/AddonsTable.astro';
 import ProcessTimeline from '../components/ProcessTimeline.astro';
 import Button from '../components/Button.astro';
+import ServiceCard from '../components/ServiceCard.astro';
 import type { PricingCardProps } from '../components/PricingCard.astro';
 import type { Addon } from '../components/AddonsTable.astro';
 import type { ProcessPhase } from '../components/ProcessTimeline.astro';
+
+/**
+ * Consolidated service data for the unified services page.
+ * Each service includes condensed content extracted from the individual service pages.
+ */
+
+interface ServiceData {
+  id: string;
+  name: string;
+  slug: string;
+  shortDescription: string;
+  benefits: string[];
+  startingPrice: string;
+  priceNote: string;
+  icon: string;
+  ctaText: string;
+  ctaHref: string;
+}
+
+const services: ServiceData[] = [
+  {
+    id: 'website-design',
+    name: 'Website Design',
+    slug: 'website-design',
+    shortDescription: 'Stand out from the competition with a stunning, mobile-responsive website designed specifically for your brand. We build high-performing websites that turn local traffic into leads.',
+    benefits: [
+      'Custom design tailored to your brand identity',
+      'Mobile-responsive on all devices',
+      'SEO-optimized to help you get found online',
+      'Fast-loading and secure',
+    ],
+    startingPrice: '$499',
+    priceNote: 'One-time',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2H4zm0 2h16v9H4V6zm0 11h16v1H4v-1z"/><path d="M6 8h3v3H6V8zm5 0h7v1h-7V8zm0 2h5v1h-5v-1z"/></svg>`,
+    ctaText: 'Get Started',
+    ctaHref: '/contact?service=website-design',
+  },
+  {
+    id: 'seo',
+    name: 'SEO Optimization',
+    slug: 'seo',
+    shortDescription: 'Boost your online visibility with proven SEO strategies tailored for local businesses in Houston. Get found by more qualified leads.',
+    benefits: [
+      'Local SEO to dominate Houston search results',
+      'Keyword research and on-page optimization',
+      'Google Business Profile management',
+      'Monthly reporting and analytics',
+    ],
+    startingPrice: '$179',
+    priceNote: '/month',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>`,
+    ctaText: 'Improve Rankings',
+    ctaHref: '/contact?service=seo',
+  },
+  {
+    id: 'maintenance',
+    name: 'Website Maintenance',
+    slug: 'maintenance',
+    shortDescription: 'Focus on running your business while we handle the technical details. Our maintenance plans keep your website secure, fast, and always up-to-date.',
+    benefits: [
+      'Regular security updates and patches',
+      'Daily automated backups',
+      'Performance optimization and monitoring',
+      'Priority support when you need help',
+    ],
+    startingPrice: '$49',
+    priceNote: '/month',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>`,
+    ctaText: 'Protect Your Site',
+    ctaHref: '/contact?service=maintenance',
+  },
+  {
+    id: 'hosting',
+    name: 'Web Hosting',
+    slug: 'hosting',
+    shortDescription: 'Keep your website running smoothly with our reliable hosting solutions. Enjoy lightning-fast speeds, automatic backups, and dedicated support from our Houston-based team.',
+    benefits: [
+      '99.9% uptime guarantee',
+      'Free SSL certificates included',
+      'Daily automated backups',
+      'Local Houston-based support',
+    ],
+    startingPrice: '$10',
+    priceNote: '/month',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4s1.79-4 4-4h.71C7.37 7.69 9.48 6 12 6c3.04 0 5.5 2.46 5.5 5.5v.5H19c1.66 0 3 1.34 3 3s-1.34 3-3 3z"/></svg>`,
+    ctaText: 'Get Hosting',
+    ctaHref: '/contact?service=hosting',
+  },
+];
 
 // Pricing tier data
 const pricingTiers: PricingCardProps[] = [
@@ -203,21 +292,88 @@ const processPhases: ProcessPhase[] = [
   }}
 >
   <main>
-    <!-- Hero Section -->
-    <HeroSection
-      id="services-hero"
-      headline="Web Solutions That Grow With Your Business"
-      valueProposition="Transparent pricing, no hidden costs"
-      subheadline="From simple single-page sites to full-featured e-commerce platforms, we offer flexible packages designed for Houston small businesses at every stage of growth."
-      primaryCTA={{
-        text: "View Pricing",
-        href: "#pricing",
-      }}
-      secondaryCTA={{
-        text: "Our Process",
-        href: "#process",
-      }}
-    />
+    <!-- Services Hero Section - Unique to Services Page -->
+    <section class="services-hero" aria-labelledby="services-hero-heading">
+      <div class="services-hero__container">
+        <div class="services-hero__content">
+          <div class="services-hero__badge">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+            <span>Transparent Pricing • No Hidden Costs</span>
+          </div>
+          <h1 id="services-hero-heading" class="services-hero__title">
+            Web Solutions That<br/>
+            <span class="services-hero__title-highlight">Grow With Your Business</span>
+          </h1>
+          <p class="services-hero__description">
+            From simple single-page sites to full-featured e-commerce platforms, we offer flexible packages designed for Houston small businesses at every stage of growth.
+          </p>
+          <div class="services-hero__cta-group">
+            <Button
+              text="View Pricing"
+              href="#pricing"
+              variant="primary"
+              size="large"
+            />
+            <Button
+              text="Our Process"
+              href="#process"
+              variant="secondary"
+              size="large"
+            />
+          </div>
+          <div class="services-hero__stats">
+            <div class="services-hero__stat">
+              <span class="services-hero__stat-value">$499</span>
+              <span class="services-hero__stat-label">Starting price</span>
+            </div>
+            <div class="services-hero__stat-divider"></div>
+            <div class="services-hero__stat">
+              <span class="services-hero__stat-value">2-4 wks</span>
+              <span class="services-hero__stat-label">Typical delivery</span>
+            </div>
+            <div class="services-hero__stat-divider"></div>
+            <div class="services-hero__stat">
+              <span class="services-hero__stat-value">100%</span>
+              <span class="services-hero__stat-label">Satisfaction</span>
+            </div>
+          </div>
+        </div>
+        <div class="services-hero__visual" aria-hidden="true">
+          <div class="services-hero__cards-preview">
+            <div class="services-hero__preview-card services-hero__preview-card--1">
+              <div class="services-hero__preview-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                  <path d="M4 4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2H4zm0 2h16v9H4V6zm0 11h16v1H4v-1z"/>
+                </svg>
+              </div>
+              <span class="services-hero__preview-label">Website Design</span>
+              <span class="services-hero__preview-price">From $499</span>
+            </div>
+            <div class="services-hero__preview-card services-hero__preview-card--2">
+              <div class="services-hero__preview-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                  <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+              </div>
+              <span class="services-hero__preview-label">SEO Optimization</span>
+              <span class="services-hero__preview-price">From $179/mo</span>
+            </div>
+            <div class="services-hero__preview-card services-hero__preview-card--3">
+              <div class="services-hero__preview-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                  <path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                </svg>
+              </div>
+              <span class="services-hero__preview-label">Maintenance</span>
+              <span class="services-hero__preview-price">From $49/mo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="services-hero__decoration" aria-hidden="true"></div>
+    </section>
 
     <!-- Services Overview Section -->
     <section class="services-overview" aria-labelledby="services-overview-heading">
@@ -227,49 +383,171 @@ const processPhases: ProcessPhase[] = [
             What We Offer
           </h2>
           <p class="services-overview__description">
-            We specialize in creating custom websites for small businesses in the Energy Corridor, Katy, and Memorial areas. Every project includes personalized service, modern design, and code built to last.
+            We specialize in creating custom websites for small businesses in Houston. Every project includes personalized service, modern design, and code built to last.
           </p>
         </header>
 
-        <div class="services-overview__features">
-          <div class="feature-item">
-            <div class="feature-item__icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-            </div>
-            <h3 class="feature-item__title">Custom Design</h3>
-            <p class="feature-item__description">No templates. Every website is designed specifically for your brand and business goals.</p>
-          </div>
+        <!-- Services Cards Grid -->
+        <div class="services-overview__cards">
+          {services.map((service) => (
+            <ServiceCard
+              id={service.id}
+              title={service.name}
+              description={service.shortDescription}
+              icon={service.icon}
+              cta={{
+                text: service.ctaText,
+                href: service.ctaHref,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
 
-          <div class="feature-item">
-            <div class="feature-item__icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
-              </svg>
-            </div>
-            <h3 class="feature-item__title">Mobile First</h3>
-            <p class="feature-item__description">Every site looks perfect on phones, tablets, and desktops. Over 60% of web traffic is mobile.</p>
+    <!-- Website Design Detail Section -->
+    <section id="website-design" class="service-detail" aria-labelledby="website-design-heading">
+      <div class="service-detail__container">
+        <div class="service-detail__content">
+          <div class="service-detail__icon" aria-hidden="true" set:html={services[0].icon} />
+          <h2 id="website-design-heading" class="service-detail__heading">
+            {services[0].name}
+          </h2>
+          <p class="service-detail__description">
+            {services[0].shortDescription}
+          </p>
+          <ul class="service-detail__benefits">
+            {services[0].benefits.map((benefit) => (
+              <li class="service-detail__benefit">
+                <svg class="service-detail__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+          <div class="service-detail__pricing">
+            <span class="service-detail__price">{services[0].startingPrice}</span>
+            <span class="service-detail__price-note">{services[0].priceNote}</span>
           </div>
-
-          <div class="feature-item">
-            <div class="feature-item__icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-            </div>
-            <h3 class="feature-item__title">SEO Optimized</h3>
-            <p class="feature-item__description">Built-in search engine optimization to help your business get found by local customers.</p>
+          <div class="service-detail__cta">
+            <Button
+              text={services[0].ctaText}
+              href={services[0].ctaHref}
+              variant="primary"
+              size="large"
+            />
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="feature-item">
-            <div class="feature-item__icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
-              </svg>
-            </div>
-            <h3 class="feature-item__title">Secure & Fast</h3>
-            <p class="feature-item__description">Modern, secure code with optimized performance. Your site will be fast and protected.</p>
+    <!-- SEO Optimization Detail Section -->
+    <section id="seo" class="service-detail" aria-labelledby="seo-heading">
+      <div class="service-detail__container">
+        <div class="service-detail__content">
+          <div class="service-detail__icon" aria-hidden="true" set:html={services[1].icon} />
+          <h2 id="seo-heading" class="service-detail__heading">
+            {services[1].name}
+          </h2>
+          <p class="service-detail__description">
+            {services[1].shortDescription}
+          </p>
+          <ul class="service-detail__benefits">
+            {services[1].benefits.map((benefit) => (
+              <li class="service-detail__benefit">
+                <svg class="service-detail__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+          <div class="service-detail__pricing">
+            <span class="service-detail__price">{services[1].startingPrice}</span>
+            <span class="service-detail__price-note">{services[1].priceNote}</span>
+          </div>
+          <div class="service-detail__cta">
+            <Button
+              text={services[1].ctaText}
+              href={services[1].ctaHref}
+              variant="primary"
+              size="large"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Website Maintenance Detail Section -->
+    <section id="maintenance" class="service-detail" aria-labelledby="maintenance-heading">
+      <div class="service-detail__container">
+        <div class="service-detail__content">
+          <div class="service-detail__icon" aria-hidden="true" set:html={services[2].icon} />
+          <h2 id="maintenance-heading" class="service-detail__heading">
+            {services[2].name}
+          </h2>
+          <p class="service-detail__description">
+            {services[2].shortDescription}
+          </p>
+          <ul class="service-detail__benefits">
+            {services[2].benefits.map((benefit) => (
+              <li class="service-detail__benefit">
+                <svg class="service-detail__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+          <div class="service-detail__pricing">
+            <span class="service-detail__price">{services[2].startingPrice}</span>
+            <span class="service-detail__price-note">{services[2].priceNote}</span>
+          </div>
+          <div class="service-detail__cta">
+            <Button
+              text={services[2].ctaText}
+              href={services[2].ctaHref}
+              variant="primary"
+              size="large"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Web Hosting Detail Section -->
+    <section id="hosting" class="service-detail" aria-labelledby="hosting-heading">
+      <div class="service-detail__container">
+        <div class="service-detail__content">
+          <div class="service-detail__icon" aria-hidden="true" set:html={services[3].icon} />
+          <h2 id="hosting-heading" class="service-detail__heading">
+            {services[3].name}
+          </h2>
+          <p class="service-detail__description">
+            {services[3].shortDescription}
+          </p>
+          <ul class="service-detail__benefits">
+            {services[3].benefits.map((benefit) => (
+              <li class="service-detail__benefit">
+                <svg class="service-detail__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+          <div class="service-detail__pricing">
+            <span class="service-detail__price">{services[3].startingPrice}</span>
+            <span class="service-detail__price-note">{services[3].priceNote}</span>
+          </div>
+          <div class="service-detail__cta">
+            <Button
+              text={services[3].ctaText}
+              href={services[3].ctaHref}
+              variant="primary"
+              size="large"
+            />
           </div>
         </div>
       </div>
@@ -366,6 +644,224 @@ const processPhases: ProcessPhase[] = [
    */
 
   /* =================================================================
+   * SERVICES HERO SECTION - Unique to Services Page
+   * ================================================================= */
+
+  .services-hero {
+    position: relative;
+    padding: var(--spacing-16) var(--spacing-4) var(--spacing-20);
+    background: linear-gradient(
+      135deg,
+      var(--color-background) 0%,
+      var(--color-primary-50) 50%,
+      var(--color-background) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+    overflow: hidden;
+  }
+
+  .services-hero__container {
+    max-width: var(--container-7xl);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-10);
+    align-items: center;
+  }
+
+  .services-hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-5);
+  }
+
+  .services-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-4);
+    background-color: var(--color-success-50);
+    border: 1px solid var(--color-success-200);
+    border-radius: var(--radius-full);
+    color: var(--color-success-700);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .services-hero__badge svg {
+    color: var(--color-success-600);
+  }
+
+  .services-hero__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    line-height: var(--line-height-tight);
+    margin: 0;
+  }
+
+  .services-hero__title-highlight {
+    color: var(--color-primary);
+    display: block;
+  }
+
+  .services-hero__description {
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    max-width: 50ch;
+    margin: 0;
+  }
+
+  .services-hero__cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .services-hero__stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4) var(--spacing-6);
+    background-color: var(--color-background-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--spacing-2);
+  }
+
+  .services-hero__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-1);
+  }
+
+  .services-hero__stat-value {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+  }
+
+  .services-hero__stat-label {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .services-hero__stat-divider {
+    width: 1px;
+    height: var(--spacing-8);
+    background-color: var(--color-border);
+  }
+
+  /* Visual/Cards Preview */
+  .services-hero__visual {
+    display: none;
+  }
+
+  .services-hero__cards-preview {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+    padding: var(--spacing-6);
+    background: var(--color-background-elevated);
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-xl);
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+  }
+
+  .services-hero__preview-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: transform var(--duration-200) var(--ease-out),
+                box-shadow var(--duration-200) var(--ease-out);
+  }
+
+  .services-hero__preview-card:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .services-hero__preview-card--1 .services-hero__preview-icon {
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-600);
+  }
+
+  .services-hero__preview-card--2 .services-hero__preview-icon {
+    background-color: var(--color-success-100);
+    color: var(--color-success-600);
+  }
+
+  .services-hero__preview-card--3 .services-hero__preview-icon {
+    background-color: var(--color-warning-100);
+    color: var(--color-warning-600);
+  }
+
+  .services-hero__preview-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--spacing-12);
+    height: var(--spacing-12);
+    border-radius: var(--radius-lg);
+    flex-shrink: 0;
+  }
+
+  .services-hero__preview-label {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    flex: 1;
+  }
+
+  .services-hero__preview-price {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+    background-color: var(--color-primary-50);
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--radius-full);
+  }
+
+  /* Decorative element */
+  .services-hero__decoration {
+    position: absolute;
+    bottom: -50%;
+    right: -20%;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(
+      ellipse at center,
+      var(--color-primary-100) 0%,
+      transparent 70%
+    );
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* =================================================================
    * SERVICES OVERVIEW SECTION
    * ================================================================= */
 
@@ -402,59 +898,131 @@ const processPhases: ProcessPhase[] = [
     line-height: var(--line-height-relaxed);
   }
 
-  .services-overview__features {
+  /* Services Cards Grid */
+  .services-overview__cards {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-6);
   }
 
-  .feature-item {
-    background-color: var(--color-background-elevated);
-    padding: var(--spacing-6);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--color-border);
+  /* =================================================================
+   * SERVICE DETAIL SECTIONS
+   * ================================================================= */
+
+  .service-detail {
+    padding: var(--spacing-16) var(--spacing-4);
+    background-color: var(--color-background);
+    scroll-margin-top: var(--spacing-16);
+  }
+
+  .service-detail:nth-of-type(even) {
+    background-color: var(--color-background-subtle);
+  }
+
+  .service-detail__container {
+    max-width: var(--container-4xl);
+    margin: 0 auto;
+  }
+
+  .service-detail__content {
     text-align: center;
-    transition:
-      box-shadow var(--duration-200) var(--ease-in-out),
-      transform var(--duration-200) var(--ease-in-out);
   }
 
-  .feature-item:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-  }
-
-  .feature-item__icon {
+  .service-detail__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--spacing-14);
-    height: var(--spacing-14);
-    margin: 0 auto var(--spacing-4);
+    width: var(--spacing-16);
+    height: var(--spacing-16);
+    margin: 0 auto var(--spacing-6);
     background-color: var(--color-primary-50);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     color: var(--color-primary);
+    transition: background-color var(--duration-200) var(--ease-in-out);
   }
 
-  .feature-item__icon svg {
-    width: var(--spacing-7);
-    height: var(--spacing-7);
+  .service-detail:hover .service-detail__icon {
+    background-color: var(--color-primary-100);
   }
 
-  .feature-item__title {
+  .service-detail__icon :global(svg) {
+    width: var(--spacing-8);
+    height: var(--spacing-8);
+  }
+
+  .service-detail__heading {
     font-family: var(--font-heading);
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
-    margin: 0 0 var(--spacing-2) 0;
+    margin: 0 0 var(--spacing-4) 0;
+    line-height: var(--line-height-tight);
   }
 
-  .feature-item__description {
+  .service-detail__description {
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+    color: var(--color-text-secondary);
+    max-width: 60ch;
+    margin: 0 auto var(--spacing-8);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .service-detail__benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto var(--spacing-8);
+    max-width: 40ch;
+    text-align: left;
+  }
+
+  .service-detail__benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-3);
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     color: var(--color-text-secondary);
-    margin: 0;
+    margin-bottom: var(--spacing-3);
     line-height: var(--line-height-relaxed);
+  }
+
+  .service-detail__benefit:last-child {
+    margin-bottom: 0;
+  }
+
+  .service-detail__check {
+    flex-shrink: 0;
+    width: var(--spacing-5);
+    height: var(--spacing-5);
+    color: var(--color-success);
+    margin-top: 2px;
+  }
+
+  .service-detail__pricing {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-6);
+  }
+
+  .service-detail__price {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+  }
+
+  .service-detail__price-note {
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+    color: var(--color-text-secondary);
+  }
+
+  .service-detail__cta {
+    display: flex;
+    justify-content: center;
   }
 
   /* =================================================================
@@ -644,8 +1212,43 @@ const processPhases: ProcessPhase[] = [
    * ================================================================= */
 
   @media screen and (min-width: 640px) {
-    .services-overview__features {
+    /* Services Hero - Tablet */
+    .services-hero {
+      padding: var(--spacing-20) var(--spacing-6) var(--spacing-24);
+    }
+
+    .services-hero__title {
+      font-size: var(--font-size-4xl);
+    }
+
+    .services-hero__cta-group {
+      flex-direction: row;
+      max-width: none;
+      width: auto;
+    }
+
+    .services-hero__stats {
+      gap: var(--spacing-6);
+    }
+
+    .services-hero__stat-value {
+      font-size: var(--font-size-2xl);
+    }
+
+    .services-overview__cards {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Service Detail Sections - Tablet */
+    .service-detail__benefits {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-3) var(--spacing-6);
+      max-width: 60ch;
+    }
+
+    .service-detail__benefit {
+      margin-bottom: 0;
     }
 
     .cta-section__buttons {
@@ -659,12 +1262,47 @@ const processPhases: ProcessPhase[] = [
    * ================================================================= */
 
   @media screen and (min-width: 768px) {
+    /* Services Hero - Medium Tablet */
+    .services-hero__title {
+      font-size: var(--font-size-5xl);
+    }
+
+    .services-hero__description {
+      font-size: var(--font-size-xl);
+    }
+
     .services-overview {
       padding: var(--spacing-20) var(--spacing-6);
     }
 
     .services-overview__heading {
       font-size: var(--font-size-3xl);
+    }
+
+    .service-detail {
+      padding: var(--spacing-20) var(--spacing-6);
+    }
+
+    .service-detail__icon {
+      width: var(--spacing-20);
+      height: var(--spacing-20);
+    }
+
+    .service-detail__icon :global(svg) {
+      width: var(--spacing-10);
+      height: var(--spacing-10);
+    }
+
+    .service-detail__heading {
+      font-size: var(--font-size-3xl);
+    }
+
+    .service-detail__description {
+      font-size: var(--font-size-lg);
+    }
+
+    .service-detail__price {
+      font-size: var(--font-size-4xl);
     }
 
     .pricing-section {
@@ -701,8 +1339,102 @@ const processPhases: ProcessPhase[] = [
    * ================================================================= */
 
   @media screen and (min-width: 1024px) {
-    .services-overview__features {
+    /* Services Hero - Desktop */
+    .services-hero {
+      padding: var(--spacing-24) var(--spacing-8) var(--spacing-28);
+    }
+
+    .services-hero__container {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-12);
+    }
+
+    .services-hero__content {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .services-hero__visual {
+      display: block;
+    }
+
+    .services-hero__stats {
+      align-self: flex-start;
+    }
+
+    .services-overview__cards {
       grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Service Detail Sections - Desktop */
+    .service-detail {
+      padding: var(--spacing-24) var(--spacing-8);
+    }
+
+    .service-detail__container {
+      max-width: var(--container-6xl);
+    }
+
+    .service-detail__content {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto auto auto;
+      gap: var(--spacing-4) var(--spacing-8);
+      text-align: left;
+      align-items: start;
+    }
+
+    .service-detail__icon {
+      grid-row: 1 / 3;
+      margin: 0;
+    }
+
+    .service-detail__heading {
+      font-size: var(--font-size-4xl);
+      align-self: end;
+      margin: 0;
+    }
+
+    .service-detail__description {
+      margin: 0;
+      max-width: none;
+    }
+
+    .service-detail__benefits {
+      grid-column: 1 / -1;
+      max-width: none;
+      margin: var(--spacing-4) 0 var(--spacing-6);
+    }
+
+    .service-detail__pricing {
+      grid-column: 1 / -1;
+      justify-content: flex-start;
+      margin-bottom: var(--spacing-4);
+    }
+
+    .service-detail__cta {
+      grid-column: 1 / -1;
+      justify-content: flex-start;
+    }
+
+    /* Alternate layout for even service sections */
+    .service-detail:nth-of-type(even) .service-detail__content {
+      grid-template-columns: 1fr auto;
+    }
+
+    .service-detail:nth-of-type(even) .service-detail__icon {
+      grid-column: 2;
+      grid-row: 1 / 3;
+    }
+
+    .service-detail:nth-of-type(even) .service-detail__heading {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .service-detail:nth-of-type(even) .service-detail__description {
+      grid-column: 1;
+      grid-row: 2;
     }
 
     .pricing-section__grid {
@@ -721,16 +1453,93 @@ const processPhases: ProcessPhase[] = [
   }
 
   /* =================================================================
+   * ANIMATIONS
+   * ================================================================= */
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes heroFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes cardsSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(40px) perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    }
+    to {
+      opacity: 1;
+      transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    }
+  }
+
+  /* Hero section staggered animations */
+  .services-hero__badge {
+    animation: heroFadeIn 0.6s ease-out 0.1s backwards;
+  }
+
+  .services-hero__title {
+    animation: heroFadeIn 0.6s ease-out 0.2s backwards;
+  }
+
+  .services-hero__description {
+    animation: heroFadeIn 0.6s ease-out 0.3s backwards;
+  }
+
+  .services-hero__cta-group {
+    animation: heroFadeIn 0.6s ease-out 0.4s backwards;
+  }
+
+  .services-hero__stats {
+    animation: heroFadeIn 0.6s ease-out 0.5s backwards;
+  }
+
+  .services-hero__cards-preview {
+    animation: cardsSlideIn 0.8s ease-out 0.3s backwards;
+  }
+
+  /* =================================================================
    * REDUCED MOTION
    * ================================================================= */
 
   @media (prefers-reduced-motion: reduce) {
-    .feature-item {
+    .services-hero {
+      animation: none;
+    }
+
+    .services-hero__badge,
+    .services-hero__title,
+    .services-hero__description,
+    .services-hero__cta-group,
+    .services-hero__stats,
+    .services-hero__cards-preview {
+      animation: none;
+    }
+
+    .services-hero__preview-card {
       transition: none;
     }
 
-    .feature-item:hover {
+    .services-hero__preview-card:hover {
       transform: none;
+    }
+
+    .services-hero__cards-preview {
+      transform: none;
+    }
+
+    .service-detail__icon {
+      transition: none;
     }
 
     .pricing-section__grid :global(.pricing-card--popular),
@@ -748,7 +1557,22 @@ const processPhases: ProcessPhase[] = [
    * ================================================================= */
 
   @media print {
+    .services-hero {
+      background: none;
+      padding: var(--spacing-8) 0;
+    }
+
+    .services-hero__visual,
+    .services-hero__decoration {
+      display: none;
+    }
+
+    .services-hero__cta-group {
+      display: none;
+    }
+
     .services-overview,
+    .service-detail,
     .pricing-section,
     .addons-section-wrapper,
     .process-section-wrapper {
@@ -759,10 +1583,13 @@ const processPhases: ProcessPhase[] = [
       display: none;
     }
 
-    .feature-item,
     .pricing-section__grid :global(.pricing-card--popular) {
       transform: none;
       box-shadow: none;
+    }
+
+    .service-detail__cta {
+      display: none;
     }
   }
 </style>
