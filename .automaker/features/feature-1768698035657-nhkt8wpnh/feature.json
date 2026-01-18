@@ -1,0 +1,29 @@
+{
+  "category": "Uncategorized",
+  "description": "can we replace the animated moving spheres on the home page with something a little more aligned with our goals for small businesses?\n\nSome potential ideas:\nCross-hatch grid animation: implies advanced technology\nConnecting grid nodes like a neural network: implies connection and outreach\n\nConsider the best idea, may be create new ones, and implement it.",
+  "title": "Replace animated spheres with business network animation",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "full",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1768698035657-nhkt8wpnh",
+  "descriptionHistory": [
+    {
+      "description": "can we replace the animated moving spheres on the home page with something a little more aligned with our goals for small businesses?\n\nSome potential ideas:\nCross-hatch grid animation: implies advanced technology\nConnecting grid nodes like a neural network: implies connection and outreach\n\nConsider the best idea, may be create new ones, and implement it.",
+      "timestamp": "2026-01-18T01:00:35.814Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-18T01:00:40.303Z",
+  "updatedAt": "2026-01-18T01:00:40.468Z"
+}
