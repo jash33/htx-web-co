@@ -83,23 +83,53 @@ const cardClasses = [
     /* Box model */
     padding: var(--spacing-6);
 
+    /* Positioning for pseudo-elements */
+    position: relative;
+
     /* Visual */
     background-color: var(--color-background-elevated);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
 
+    /* Overflow for shine effect */
+    overflow: hidden;
+
     /* Animation */
     transition:
-      box-shadow var(--duration-200) var(--ease-in-out),
-      transform var(--duration-200) var(--ease-in-out),
-      border-color var(--duration-200) var(--ease-in-out);
+      box-shadow var(--duration-300) var(--ease-out),
+      transform var(--duration-300) var(--ease-out),
+      border-color var(--duration-300) var(--ease-out);
+  }
+
+  /* Shine sweep effect - diagonal sweep across card on hover */
+  .differentiator-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    transform: skewX(-20deg);
+    transition: left var(--duration-700) var(--ease-out);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .differentiator-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
-    border-color: var(--color-primary-200);
+    box-shadow: var(--shadow-lg), var(--glow-card-hover);
+    transform: translateY(-6px);
+    border-color: var(--color-primary-300);
+  }
+
+  .differentiator-card:hover::after {
+    left: 150%;
   }
 
   /* Icon Container */
@@ -109,22 +139,72 @@ const cardClasses = [
     justify-content: center;
     width: var(--spacing-16);
     height: var(--spacing-16);
-    background-color: var(--color-primary-50);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-50) 0%,
+      var(--color-primary-100) 100%
+    );
     border-radius: var(--radius-full);
     color: var(--color-primary);
+    position: relative;
+    z-index: 2;
     transition:
-      background-color var(--duration-200) var(--ease-in-out),
-      transform var(--duration-200) var(--ease-in-out);
+      background var(--duration-300) var(--ease-out),
+      transform var(--duration-300) var(--ease-spring-soft),
+      box-shadow var(--duration-300) var(--ease-out);
+  }
+
+  /* Pulse ring effect - animated ring that expands outward */
+  .differentiator-card__icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-full);
+    background: transparent;
+    border: 2px solid var(--color-primary-300);
+    opacity: 0;
+    transform: scale(1);
+    transition:
+      opacity var(--duration-300) var(--ease-out),
+      transform var(--duration-500) var(--ease-out);
   }
 
   .differentiator-card:hover .differentiator-card__icon {
-    background-color: var(--color-primary-100);
-    transform: scale(1.08);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-100) 0%,
+      var(--color-primary-200) 100%
+    );
+    transform: scale(1.1);
+    box-shadow: var(--glow-primary-sm);
+  }
+
+  .differentiator-card:hover .differentiator-card__icon::before {
+    opacity: 0;
+    transform: scale(1.5);
+    animation: icon-pulse 1.2s var(--ease-out) infinite;
+  }
+
+  /* Icon pulse keyframes */
+  @keyframes icon-pulse {
+    0% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.6);
+    }
   }
 
   .differentiator-card__icon :global(svg) {
     width: var(--spacing-8);
     height: var(--spacing-8);
+    transition: transform var(--duration-300) var(--ease-spring-soft);
+  }
+
+  .differentiator-card:hover .differentiator-card__icon :global(svg) {
+    transform: scale(1.1);
   }
 
   /* Content Area */
@@ -133,6 +213,8 @@ const cardClasses = [
     flex-direction: column;
     gap: var(--spacing-2);
     flex: 1;
+    position: relative;
+    z-index: 2;
   }
 
   .differentiator-card__title {
@@ -142,6 +224,11 @@ const cardClasses = [
     color: var(--color-text-primary);
     margin: 0;
     line-height: var(--line-height-tight);
+    transition: color var(--duration-200) var(--ease-out);
+  }
+
+  .differentiator-card:hover .differentiator-card__title {
+    color: var(--color-primary);
   }
 
   .differentiator-card__description {
@@ -150,6 +237,11 @@ const cardClasses = [
     color: var(--color-text-secondary);
     line-height: var(--line-height-relaxed);
     margin: 0;
+    transition: color var(--duration-200) var(--ease-out);
+  }
+
+  .differentiator-card:hover .differentiator-card__description {
+    color: var(--color-text-primary);
   }
 
   /* =================================================================
@@ -186,15 +278,34 @@ const cardClasses = [
    */
   @media (prefers-reduced-motion: reduce) {
     .differentiator-card,
-    .differentiator-card__icon {
+    .differentiator-card__icon,
+    .differentiator-card__title,
+    .differentiator-card__description,
+    .differentiator-card__icon :global(svg) {
       transition: none;
+    }
+
+    .differentiator-card::after {
+      display: none;
     }
 
     .differentiator-card:hover {
       transform: none;
+      /* Keep subtle visual feedback without motion */
+      box-shadow: var(--shadow-lg);
     }
 
     .differentiator-card:hover .differentiator-card__icon {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .differentiator-card:hover .differentiator-card__icon::before {
+      animation: none;
+      display: none;
+    }
+
+    .differentiator-card:hover .differentiator-card__icon :global(svg) {
       transform: none;
     }
   }

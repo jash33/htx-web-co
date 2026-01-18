@@ -27,7 +27,29 @@
  * 5. Shadows
  * 6. Transitions
  * 7. Z-Index Scale
- * 8. Dark Mode Preparation
+ * 8. Container & Layout
+ * 9. Focus Styles (Accessibility)
+ * 10. Design Flair - Gradients
+ *    - Primary Gradients
+ *    - Accent Gradients
+ *    - Hero/Feature Gradients
+ *    - Decorative Gradients
+ *    - Border/Accent Line Gradients
+ * 11. Design Flair - Glow Effects
+ *    - Primary Glow
+ *    - Accent Glow
+ *    - Alt Accent Glow
+ *    - Combined/Mixed Glow
+ *    - Card/Element Glow
+ *    - Text Glow
+ * 12. Design Flair - Animation Timings
+ *    - Animation Durations
+ *    - Animation Delays
+ *    - Easing Functions
+ *    - Hover/Interaction Transitions
+ *    - Reveal/Entrance Transitions
+ *    - Transform Presets
+ * 13. Dark Mode
  *
  * =================================================================
  */
@@ -368,6 +390,179 @@
   --focus-ring-offset: 2px;
   --focus-ring-color: var(--color-primary-500);
   --focus-ring: 0 0 0 var(--focus-ring-offset) var(--color-background), 0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color);
+
+  /* =================================================================
+   * 10. DESIGN FLAIR - GRADIENTS
+   * =================================================================
+   * Gradient definitions for accent effects, backgrounds, and decorative
+   * elements. These gradients use the brand colors for consistency.
+   */
+
+  /* -----------------------------------------------------------------
+   * Primary Gradients - Brand-aligned directional gradients
+   * ----------------------------------------------------------------- */
+  --gradient-primary: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+  --gradient-primary-reverse: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-500) 100%);
+  --gradient-primary-vertical: linear-gradient(180deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+  --gradient-primary-horizontal: linear-gradient(90deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+
+  /* -----------------------------------------------------------------
+   * Accent Gradients - Purple/Teal accent combinations
+   * ----------------------------------------------------------------- */
+  --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  --gradient-accent-alt: linear-gradient(135deg, var(--color-accent-alt) 0%, var(--color-accent-alt-dark) 100%);
+  --gradient-accent-mixed: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
+
+  /* -----------------------------------------------------------------
+   * Hero/Feature Gradients - Multi-stop gradients for hero sections
+   * ----------------------------------------------------------------- */
+  --gradient-hero: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 50%, var(--color-primary-500) 100%);
+  --gradient-hero-animated: linear-gradient(270deg, var(--color-primary-900), var(--color-primary-700), var(--color-primary-500), var(--color-primary-700));
+  --gradient-hero-radial: radial-gradient(ellipse at 30% 20%, var(--color-primary-700) 0%, var(--color-primary-900) 50%, var(--color-primary-950) 100%);
+
+  /* -----------------------------------------------------------------
+   * Decorative Gradients - Subtle backgrounds and overlays
+   * ----------------------------------------------------------------- */
+  --gradient-subtle: linear-gradient(180deg, var(--color-background-subtle) 0%, var(--color-background) 100%);
+  --gradient-section-fade: linear-gradient(180deg, transparent 0%, var(--color-background-subtle) 10%, var(--color-background-subtle) 90%, transparent 100%);
+  --gradient-overlay-dark: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+  --gradient-overlay-light: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%);
+
+  /* -----------------------------------------------------------------
+   * Border/Accent Line Gradients - For decorative borders and lines
+   * ----------------------------------------------------------------- */
+  --gradient-border-accent: linear-gradient(90deg, var(--color-primary-500) 0%, var(--color-accent) 50%, var(--color-accent-alt) 100%);
+  --gradient-border-fade: linear-gradient(90deg, transparent 0%, var(--color-primary-500) 50%, transparent 100%);
+  --gradient-underline: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
+
+  /* =================================================================
+   * 11. DESIGN FLAIR - GLOW EFFECTS
+   * =================================================================
+   * Glow and shadow effects for hover states, focus indicators,
+   * and decorative accents. Use sparingly for maximum impact.
+   */
+
+  /* -----------------------------------------------------------------
+   * Primary Glow - Brand-colored glow effects
+   * ----------------------------------------------------------------- */
+  --glow-primary-sm: 0 0 10px rgba(54, 83, 149, 0.3);
+  --glow-primary-md: 0 0 20px rgba(54, 83, 149, 0.4);
+  --glow-primary-lg: 0 0 30px rgba(54, 83, 149, 0.5);
+  --glow-primary-xl: 0 0 40px rgba(54, 83, 149, 0.5), 0 0 60px rgba(54, 83, 149, 0.3);
+
+  /* -----------------------------------------------------------------
+   * Accent Glow - Purple accent glow effects
+   * ----------------------------------------------------------------- */
+  --glow-accent-sm: 0 0 10px rgba(139, 92, 246, 0.3);
+  --glow-accent-md: 0 0 20px rgba(139, 92, 246, 0.4);
+  --glow-accent-lg: 0 0 30px rgba(139, 92, 246, 0.5);
+  --glow-accent-xl: 0 0 40px rgba(139, 92, 246, 0.5), 0 0 60px rgba(139, 92, 246, 0.3);
+
+  /* -----------------------------------------------------------------
+   * Alt Accent Glow - Teal/Cyan glow effects
+   * ----------------------------------------------------------------- */
+  --glow-accent-alt-sm: 0 0 10px rgba(6, 182, 212, 0.3);
+  --glow-accent-alt-md: 0 0 20px rgba(6, 182, 212, 0.4);
+  --glow-accent-alt-lg: 0 0 30px rgba(6, 182, 212, 0.5);
+
+  /* -----------------------------------------------------------------
+   * Combined/Mixed Glow - Multi-color glow combinations
+   * ----------------------------------------------------------------- */
+  --glow-mixed: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(6, 182, 212, 0.2);
+  --glow-mixed-lg: 0 0 30px rgba(139, 92, 246, 0.4), 0 0 60px rgba(6, 182, 212, 0.3);
+
+  /* -----------------------------------------------------------------
+   * Card/Element Glow - For card hover states
+   * ----------------------------------------------------------------- */
+  --glow-card-hover: 0 0 0 1px rgba(54, 83, 149, 0.1), 0 4px 20px rgba(54, 83, 149, 0.15);
+  --glow-card-active: 0 0 0 2px rgba(54, 83, 149, 0.2), 0 8px 30px rgba(54, 83, 149, 0.2);
+
+  /* -----------------------------------------------------------------
+   * Text Glow - For glowing text effects (use sparingly)
+   * ----------------------------------------------------------------- */
+  --glow-text-subtle: 0 0 10px rgba(255, 255, 255, 0.5);
+  --glow-text-accent: 0 0 20px rgba(139, 92, 246, 0.6);
+
+  /* =================================================================
+   * 12. DESIGN FLAIR - ANIMATION TIMINGS
+   * =================================================================
+   * Standardized animation durations and easing functions for
+   * consistent motion design across all components.
+   */
+
+  /* -----------------------------------------------------------------
+   * Animation Durations - Extended timing scale
+   * ----------------------------------------------------------------- */
+  --animation-duration-instant: 50ms;
+  --animation-duration-fast: 150ms;
+  --animation-duration-normal: 300ms;
+  --animation-duration-slow: 500ms;
+  --animation-duration-slower: 700ms;
+  --animation-duration-slowest: 1000ms;
+
+  /* Extended durations for special effects */
+  --animation-duration-hero: 1500ms;
+  --animation-duration-gradient: 3000ms;
+  --animation-duration-float: 6000ms;
+  --animation-duration-pulse: 2000ms;
+  --animation-duration-shimmer: 2500ms;
+
+  /* -----------------------------------------------------------------
+   * Animation Delays - Stagger timing for sequential animations
+   * ----------------------------------------------------------------- */
+  --animation-delay-1: 100ms;
+  --animation-delay-2: 200ms;
+  --animation-delay-3: 300ms;
+  --animation-delay-4: 400ms;
+  --animation-delay-5: 500ms;
+  --animation-stagger: 100ms;
+
+  /* -----------------------------------------------------------------
+   * Easing Functions - Specialized curves for different motions
+   * ----------------------------------------------------------------- */
+  /* Standard easings (aliases for existing) */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+  /* Entrance/Exit easings */
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-enter-emphasized: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --ease-exit-emphasized: cubic-bezier(0.3, 0, 0.8, 0.15);
+
+  /* Spring-like easings */
+  --ease-spring-soft: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring-medium: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-spring-strong: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* -----------------------------------------------------------------
+   * Hover/Interaction Transitions - Pre-composed for common uses
+   * ----------------------------------------------------------------- */
+  --transition-hover: all var(--animation-duration-fast) var(--ease-smooth);
+  --transition-hover-lift: transform var(--animation-duration-fast) var(--ease-spring-soft), box-shadow var(--animation-duration-fast) var(--ease-smooth);
+  --transition-hover-glow: box-shadow var(--animation-duration-normal) var(--ease-smooth);
+  --transition-hover-color: color var(--animation-duration-fast) var(--ease-smooth), background-color var(--animation-duration-fast) var(--ease-smooth);
+
+  /* -----------------------------------------------------------------
+   * Reveal/Entrance Transitions - For scroll-reveal and page transitions
+   * ----------------------------------------------------------------- */
+  --transition-reveal: opacity var(--animation-duration-slow) var(--ease-enter), transform var(--animation-duration-slow) var(--ease-enter-emphasized);
+  --transition-reveal-fast: opacity var(--animation-duration-normal) var(--ease-enter), transform var(--animation-duration-normal) var(--ease-enter);
+
+  /* -----------------------------------------------------------------
+   * Transform Presets - Common transform values for animations
+   * ----------------------------------------------------------------- */
+  --transform-hover-lift: translateY(-4px);
+  --transform-hover-lift-sm: translateY(-2px);
+  --transform-hover-lift-lg: translateY(-8px);
+  --transform-hover-scale: scale(1.02);
+  --transform-hover-scale-sm: scale(1.01);
+  --transform-hover-scale-lg: scale(1.05);
+  --transform-reveal-up: translateY(20px);
+  --transform-reveal-down: translateY(-20px);
+  --transform-reveal-left: translateX(20px);
+  --transform-reveal-right: translateX(-20px);
 }
 
 /* =================================================================
@@ -443,6 +638,39 @@ html[data-theme="dark"] {
 
   /* Selection color for dark mode */
   color-scheme: dark;
+
+  /* -----------------------------------------------------------------
+   * Dark Mode - Gradient Adjustments
+   * ----------------------------------------------------------------- */
+  --gradient-subtle: linear-gradient(180deg, var(--color-background-subtle) 0%, var(--color-background) 100%);
+  --gradient-overlay-dark: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+  --gradient-overlay-light: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.9) 100%);
+
+  /* -----------------------------------------------------------------
+   * Dark Mode - Glow Adjustments (more visible against dark backgrounds)
+   * ----------------------------------------------------------------- */
+  --glow-primary-sm: 0 0 15px rgba(84, 109, 165, 0.4);
+  --glow-primary-md: 0 0 25px rgba(84, 109, 165, 0.5);
+  --glow-primary-lg: 0 0 35px rgba(84, 109, 165, 0.6);
+  --glow-primary-xl: 0 0 45px rgba(84, 109, 165, 0.6), 0 0 70px rgba(84, 109, 165, 0.4);
+
+  --glow-accent-sm: 0 0 15px rgba(167, 139, 250, 0.4);
+  --glow-accent-md: 0 0 25px rgba(167, 139, 250, 0.5);
+  --glow-accent-lg: 0 0 35px rgba(167, 139, 250, 0.6);
+  --glow-accent-xl: 0 0 45px rgba(167, 139, 250, 0.6), 0 0 70px rgba(167, 139, 250, 0.4);
+
+  --glow-accent-alt-sm: 0 0 15px rgba(34, 211, 238, 0.4);
+  --glow-accent-alt-md: 0 0 25px rgba(34, 211, 238, 0.5);
+  --glow-accent-alt-lg: 0 0 35px rgba(34, 211, 238, 0.6);
+
+  --glow-mixed: 0 0 25px rgba(167, 139, 250, 0.4), 0 0 45px rgba(34, 211, 238, 0.3);
+  --glow-mixed-lg: 0 0 35px rgba(167, 139, 250, 0.5), 0 0 70px rgba(34, 211, 238, 0.4);
+
+  --glow-card-hover: 0 0 0 1px rgba(84, 109, 165, 0.2), 0 4px 25px rgba(84, 109, 165, 0.25);
+  --glow-card-active: 0 0 0 2px rgba(84, 109, 165, 0.3), 0 8px 35px rgba(84, 109, 165, 0.3);
+
+  --glow-text-subtle: 0 0 15px rgba(248, 250, 252, 0.4);
+  --glow-text-accent: 0 0 25px rgba(167, 139, 250, 0.7);
 }
 
 /* Selection styling for dark mode */

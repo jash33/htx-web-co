@@ -71,7 +71,7 @@ const sectionClasses = [
 >
   <div class="faq-container">
     <!-- Section Header -->
-    <header class="faq-header">
+    <header class="faq-header section-heading--decorated">
       <h2 id={`${id}-heading`} class="faq-title">{heading}</h2>
       {subheading && (
         <p class="faq-description">{subheading}</p>
@@ -192,19 +192,74 @@ const sectionClasses = [
    * FAQ ITEM
    * ================================================================= */
   .faq-item {
+    position: relative;
     background-color: var(--color-background);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
-    transition: box-shadow var(--duration-200) var(--ease-in-out);
+    transition:
+      box-shadow var(--duration-300) var(--ease-out),
+      transform var(--duration-300) var(--ease-out);
+  }
+
+  /* Left accent border - gradient line */
+  .faq-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(
+      180deg,
+      var(--color-primary) 0%,
+      var(--color-accent) 100%
+    );
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition:
+      opacity var(--duration-300) var(--ease-out),
+      transform var(--duration-300) var(--ease-out);
+    border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+  }
+
+  /* Shine effect overlay */
+  .faq-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 100%
+    );
+    transform: skewX(-20deg);
+    transition: left var(--duration-700) var(--ease-out);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .faq-item:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-md), var(--glow-primary-sm);
+    transform: translateY(-2px);
+  }
+
+  .faq-item:hover::after {
+    left: 150%;
   }
 
   .faq-item[data-expanded="true"] {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-md), var(--glow-primary-sm);
+  }
+
+  .faq-item[data-expanded="true"]::before {
+    opacity: 1;
+    transform: scaleY(1);
   }
 
   /* =================================================================
@@ -229,12 +284,14 @@ const sectionClasses = [
     text-align: left;
 
     /* Layout */
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--spacing-4);
     width: 100%;
     padding: var(--spacing-5) var(--spacing-6);
+    padding-left: calc(var(--spacing-6) + 4px); /* Account for accent border */
 
     /* Typography */
     font-family: var(--font-heading);
@@ -245,11 +302,13 @@ const sectionClasses = [
 
     /* Interaction */
     cursor: pointer;
+    z-index: 2;
 
     /* Transition */
     transition:
-      background-color var(--duration-150) var(--ease-in-out),
-      color var(--duration-150) var(--ease-in-out);
+      background-color var(--duration-200) var(--ease-out),
+      color var(--duration-200) var(--ease-out),
+      padding-left var(--duration-300) var(--ease-out);
   }
 
   .faq-item__trigger:hover {
@@ -275,6 +334,7 @@ const sectionClasses = [
   .faq-item__trigger[aria-expanded="true"] {
     background-color: var(--color-primary-50);
     color: var(--color-primary);
+    padding-left: calc(var(--spacing-6) + 8px); /* Slight indent when expanded */
   }
 
   /* =================================================================
@@ -293,20 +353,34 @@ const sectionClasses = [
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
     color: var(--color-primary);
-    transition: transform var(--duration-300) var(--ease-in-out);
+    background: var(--color-primary-50);
+    border-radius: var(--radius-full);
+    transition:
+      transform var(--duration-300) var(--ease-spring-soft),
+      background-color var(--duration-200) var(--ease-out),
+      box-shadow var(--duration-200) var(--ease-out);
   }
 
   .faq-item__icon-svg {
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 60%;
   }
 
-  /* Rotate icon when expanded */
+  /* Icon hover enhancement */
+  .faq-item__trigger:hover .faq-item__icon {
+    background: var(--color-primary-100);
+    box-shadow: var(--glow-primary-sm);
+  }
+
+  /* Rotate icon when expanded with spring animation */
   .faq-item__trigger[aria-expanded="true"] .faq-item__icon {
     transform: rotate(180deg);
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    box-shadow: var(--glow-primary-md);
   }
 
   /* =================================================================
@@ -315,8 +389,8 @@ const sectionClasses = [
   .faq-item__panel {
     overflow: hidden;
     transition:
-      max-height var(--duration-300) var(--ease-in-out),
-      opacity var(--duration-200) var(--ease-in-out);
+      max-height var(--duration-500) var(--ease-out),
+      opacity var(--duration-300) var(--ease-out);
   }
 
   .faq-item__panel[hidden] {
@@ -336,10 +410,26 @@ const sectionClasses = [
    * CONTENT
    * ================================================================= */
   .faq-item__content {
+    position: relative;
     padding: var(--spacing-4) var(--spacing-6) var(--spacing-6);
+    padding-left: calc(var(--spacing-6) + 8px); /* Align with expanded trigger */
     font-size: var(--font-size-base);
     color: var(--color-text-secondary);
     line-height: var(--line-height-relaxed);
+    z-index: 2;
+    /* Subtle fade-in animation for content */
+    animation: faq-content-reveal var(--duration-300) var(--ease-out);
+  }
+
+  @keyframes faq-content-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* Style inline HTML content */
@@ -360,6 +450,7 @@ const sectionClasses = [
     color: var(--color-primary);
     text-decoration: underline;
     text-underline-offset: 0.2em;
+    transition: color var(--duration-150) var(--ease-out);
   }
 
   .faq-item__content :global(a:hover) {
@@ -409,11 +500,17 @@ const sectionClasses = [
 
     .faq-item__trigger {
       padding: var(--spacing-4) var(--spacing-4);
+      padding-left: calc(var(--spacing-4) + 4px);
       font-size: var(--font-size-base);
+    }
+
+    .faq-item__trigger[aria-expanded="true"] {
+      padding-left: calc(var(--spacing-4) + 6px);
     }
 
     .faq-item__content {
       padding: var(--spacing-3) var(--spacing-4) var(--spacing-4);
+      padding-left: calc(var(--spacing-4) + 6px);
       font-size: var(--font-size-sm);
     }
 
@@ -421,6 +518,16 @@ const sectionClasses = [
     .faq-item__icon {
       width: 2rem;
       height: 2rem;
+    }
+
+    /* Disable shine effect on mobile for performance */
+    .faq-item::after {
+      display: none;
+    }
+
+    /* Disable hover lift on touch devices */
+    .faq-item:hover {
+      transform: none;
     }
   }
 
@@ -431,11 +538,22 @@ const sectionClasses = [
 
     .faq-item__trigger {
       padding: var(--spacing-6) var(--spacing-8);
+      padding-left: calc(var(--spacing-8) + 4px);
       font-size: var(--font-size-lg);
+    }
+
+    .faq-item__trigger[aria-expanded="true"] {
+      padding-left: calc(var(--spacing-8) + 10px);
     }
 
     .faq-item__content {
       padding: var(--spacing-4) var(--spacing-8) var(--spacing-8);
+      padding-left: calc(var(--spacing-8) + 10px);
+    }
+
+    .faq-item__icon {
+      width: 2rem;
+      height: 2rem;
     }
   }
 
@@ -444,14 +562,32 @@ const sectionClasses = [
    * ================================================================= */
   @media (prefers-reduced-motion: reduce) {
     .faq-item,
+    .faq-item::before,
+    .faq-item::after,
     .faq-item__trigger,
     .faq-item__icon,
     .faq-item__panel {
       transition: none;
     }
 
+    .faq-item__content {
+      animation: none;
+    }
+
+    .faq-item:hover {
+      transform: none;
+    }
+
+    .faq-item:hover::after {
+      left: -100%;
+    }
+
     .faq-item__trigger[aria-expanded="true"] .faq-item__icon {
       transform: rotate(180deg);
+    }
+
+    .faq-item[data-expanded="true"]::before {
+      transform: scaleY(1);
     }
   }
 
@@ -463,6 +599,11 @@ const sectionClasses = [
       border: 2px solid CanvasText;
     }
 
+    .faq-item::before,
+    .faq-item::after {
+      display: none;
+    }
+
     .faq-item__trigger:focus-visible {
       outline: 3px solid Highlight;
       outline-offset: -3px;
@@ -471,6 +612,11 @@ const sectionClasses = [
     .faq-item__trigger[aria-expanded="true"] {
       background-color: Highlight;
       color: HighlightText;
+    }
+
+    .faq-item__icon {
+      background: transparent;
+      border: 2px solid currentColor;
     }
   }
 
@@ -487,6 +633,11 @@ const sectionClasses = [
       box-shadow: none;
       border: 1px solid var(--color-border);
       page-break-inside: avoid;
+    }
+
+    .faq-item::before,
+    .faq-item::after {
+      display: none;
     }
 
     .faq-item__panel[hidden] {

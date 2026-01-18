@@ -106,11 +106,11 @@ const funFacts = [
     <!-- Hero Section -->
     <section class="about-hero" aria-labelledby="about-hero-heading">
       <div class="about-hero__container">
-        <span class="about-hero__eyebrow">About Us</span>
-        <h1 id="about-hero-heading" class="about-hero__title">
+        <span class="about-hero__eyebrow reveal reveal--up">About Us</span>
+        <h1 id="about-hero-heading" class="about-hero__title reveal reveal--up reveal--delay-1">
           Your  Houston<br />Web Partner
         </h1>
-        <p class="about-hero__subtitle">
+        <p class="about-hero__subtitle reveal reveal--up reveal--delay-2">
           Building beautiful, effective websites for local businesses since 2016.
           We're not just developers — we're your neighbors.
         </p>
@@ -121,7 +121,7 @@ const funFacts = [
     <section class="about-intro" aria-labelledby="about-intro-heading">
       <div class="about-intro__container">
         <div class="about-intro__content">
-          <div class="about-intro__photo-wrapper">
+          <div class="about-intro__photo-wrapper reveal reveal--left">
             <!-- Professional Photo Placeholder -->
             <div class="about-intro__photo" role="img" aria-label="Professional headshot of the Houston Web Services founder">
               <svg class="about-intro__photo-placeholder" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -136,7 +136,7 @@ const funFacts = [
             </div>
           </div>
 
-          <div class="about-intro__text">
+          <div class="about-intro__text reveal reveal--up reveal--delay-1">
             <h2 id="about-intro-heading" class="about-intro__heading">
               Hi, I'm James — and I'm Passionate About Helping Local Businesses Succeed Online
             </h2>
@@ -185,8 +185,8 @@ const funFacts = [
       <div class="about-stats__container">
         <h2 id="about-stats-heading" class="sr-only">Our Achievements in Numbers</h2>
         <div class="about-stats__grid">
-          {achievements.map((stat) => (
-            <div class="about-stats__item">
+          {achievements.map((stat, index) => (
+            <div class={`about-stats__item reveal reveal--scale-up reveal--delay-${index + 1}`}>
               <span class="about-stats__number">{stat.number}</span>
               <span class="about-stats__label">{stat.label}</span>
             </div>
@@ -198,7 +198,7 @@ const funFacts = [
     <!-- Skills & Expertise Section -->
     <section class="about-skills" aria-labelledby="about-skills-heading">
       <div class="about-skills__container">
-        <div class="about-skills__header">
+        <div class="about-skills__header section-heading--decorated reveal reveal--up">
           <h2 id="about-skills-heading" class="about-skills__title">
             How I Help Your Business
           </h2>
@@ -209,8 +209,8 @@ const funFacts = [
         </div>
 
         <div class="about-skills__grid">
-          {skillCategories.map((category) => (
-            <div class="about-skills__category">
+          {skillCategories.map((category, index) => (
+            <div class={`about-skills__category reveal reveal--up reveal--delay-${index + 1}`}>
               <h3 class="about-skills__category-title">{category.title}</h3>
               <ul class="about-skills__list" role="list">
                 {category.skills.map((skill) => (
@@ -229,7 +229,7 @@ const funFacts = [
     <!-- Community & Personal Touch Section -->
     <section class="about-community" aria-labelledby="about-community-heading">
       <div class="about-community__container">
-        <div class="about-community__header">
+        <div class="about-community__header section-heading--decorated reveal reveal--up">
           <h2 id="about-community-heading" class="about-community__title">
             Rooted in  Houston
           </h2>
@@ -239,8 +239,8 @@ const funFacts = [
         </div>
 
         <div class="about-community__grid">
-          {communityHighlights.map((item) => (
-            <article class="about-community__card">
+          {communityHighlights.map((item, index) => (
+            <article class={`about-community__card reveal reveal--up reveal--delay-${index + 1}`}>
               <div class="about-community__icon" aria-hidden="true" set:html={item.icon} />
               <h3 class="about-community__card-title">{item.title}</h3>
               <p class="about-community__card-text">{item.description}</p>
@@ -249,11 +249,11 @@ const funFacts = [
         </div>
 
         <!-- Fun Facts -->
-        <div class="about-funfacts">
+        <div class="about-funfacts reveal reveal--up">
           <h3 class="about-funfacts__title">A Few Fun Facts</h3>
           <ul class="about-funfacts__list" role="list">
-            {funFacts.map((fact) => (
-              <li class="about-funfacts__item">
+            {funFacts.map((fact, index) => (
+              <li class={`about-funfacts__item reveal reveal--left reveal--delay-${index + 1}`}>
                 <span class="about-funfacts__bullet" aria-hidden="true">☕</span>
                 {fact}
               </li>
@@ -266,14 +266,14 @@ const funFacts = [
     <!-- Call to Action Section -->
     <section class="about-cta" aria-labelledby="about-cta-heading">
       <div class="about-cta__container">
-        <h2 id="about-cta-heading" class="about-cta__title">
+        <h2 id="about-cta-heading" class="about-cta__title reveal reveal--up">
           Ready to Work with a Local Expert?
         </h2>
-        <p class="about-cta__description">
+        <p class="about-cta__description reveal reveal--up reveal--delay-1">
           Let's sit down — virtually or at your favorite  Houston coffee shop — and discuss
           how we can help your business grow online. The first consultation is always free.
         </p>
-        <div class="about-cta__buttons">
+        <div class="about-cta__buttons reveal reveal--up reveal--delay-2">
           <Button
             text="Schedule a Free Consultation"
             href="/contact"
@@ -898,12 +898,67 @@ const funFacts = [
   }
 
   /* =================================================================
+   * SCROLL-REVEAL ANIMATION ENHANCEMENTS
+   * =================================================================
+   * Additional styles to enhance reveal animations on About page
+   * ================================================================= */
+
+  /* Override decoration positioning for About page headers that use section-heading--decorated */
+  .about-skills__header.section-heading--decorated,
+  .about-community__header.section-heading--decorated {
+    padding-top: var(--spacing-4);
+  }
+
+  /* Ensure the title and subtitle within decorated headers display properly */
+  .about-skills__header.section-heading--decorated .about-skills__title,
+  .about-skills__header.section-heading--decorated .about-skills__subtitle,
+  .about-community__header.section-heading--decorated .about-community__title,
+  .about-community__header.section-heading--decorated .about-community__subtitle {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Add subtle hover lift to skill categories and community cards */
+  .about-skills__category,
+  .about-community__card {
+    transition:
+      box-shadow var(--duration-200) var(--ease-in-out),
+      transform var(--duration-300) var(--ease-out);
+  }
+
+  .about-skills__category:hover,
+  .about-community__card:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Stats counter animation effect */
+  .about-stats__number {
+    display: inline-block;
+  }
+
+  /* Fun facts list stagger container */
+  .about-funfacts__list {
+    position: relative;
+  }
+
+  /* =================================================================
    * REDUCED MOTION
    * ================================================================= */
   @media (prefers-reduced-motion: reduce) {
     .about-skills__category,
     .about-community__card {
       transition: none;
+    }
+
+    .about-skills__category:hover,
+    .about-community__card:hover {
+      transform: none;
+    }
+
+    /* Ensure reveal elements are visible without animation */
+    .reveal {
+      opacity: 1;
+      transform: none;
     }
   }
 

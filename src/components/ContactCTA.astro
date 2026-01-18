@@ -130,7 +130,11 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
   </div>
 
   <!-- Decorative background element -->
-  <div class="contact-cta__background" aria-hidden="true"></div>
+  <div class="contact-cta__background" aria-hidden="true">
+    <div class="contact-cta__bg-pattern"></div>
+    <div class="contact-cta__bg-glow contact-cta__bg-glow--1"></div>
+    <div class="contact-cta__bg-glow contact-cta__bg-glow--2"></div>
+  </div>
 </section>
 
 <style>
@@ -162,22 +166,133 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
     );
   }
 
-  /* Decorative background for contrast variant */
-  .contact-cta--contrast .contact-cta__background {
+  /* Decorative background container */
+  .contact-cta__background {
     position: absolute;
     inset: 0;
     pointer-events: none;
+    overflow: hidden;
+  }
+
+  /* Animated dot/grid pattern background */
+  .contact-cta__bg-pattern {
+    position: absolute;
+    inset: 0;
     background-image:
       radial-gradient(
-        ellipse 80% 50% at 20% 20%,
-        rgba(255, 255, 255, 0.05) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        ellipse 60% 40% at 80% 80%,
-        rgba(54, 83, 149, 0.2) 0%,
-        transparent 50%
+        circle at center,
+        rgba(255, 255, 255, 0.08) 1px,
+        transparent 1px
       );
+    background-size: 32px 32px;
+    opacity: 0;
+    transition: opacity var(--duration-500) var(--ease-out);
+  }
+
+  .contact-cta--contrast .contact-cta__bg-pattern {
+    opacity: 1;
+    animation: ctaPatternFloat 20s linear infinite;
+  }
+
+  .contact-cta:not(.contact-cta--contrast) .contact-cta__bg-pattern {
+    background-image:
+      radial-gradient(
+        circle at center,
+        var(--color-primary-200) 1px,
+        transparent 1px
+      );
+    opacity: 0.3;
+  }
+
+  /* Animated glow orbs */
+  .contact-cta__bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0;
+    transition: opacity var(--duration-700) var(--ease-out);
+  }
+
+  .contact-cta--contrast .contact-cta__bg-glow {
+    opacity: 1;
+  }
+
+  .contact-cta__bg-glow--1 {
+    width: 500px;
+    height: 500px;
+    top: -150px;
+    left: -100px;
+    background: radial-gradient(
+      circle,
+      rgba(139, 92, 246, 0.25) 0%,
+      transparent 70%
+    );
+    animation: ctaGlowPulse1 8s ease-in-out infinite;
+  }
+
+  .contact-cta__bg-glow--2 {
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    right: -50px;
+    background: radial-gradient(
+      circle,
+      rgba(6, 182, 212, 0.2) 0%,
+      transparent 70%
+    );
+    animation: ctaGlowPulse2 10s ease-in-out infinite;
+  }
+
+  /* Non-contrast variant glow adjustments */
+  .contact-cta:not(.contact-cta--contrast) .contact-cta__bg-glow--1 {
+    opacity: 0.5;
+    background: radial-gradient(
+      circle,
+      rgba(54, 83, 149, 0.15) 0%,
+      transparent 70%
+    );
+  }
+
+  .contact-cta:not(.contact-cta--contrast) .contact-cta__bg-glow--2 {
+    opacity: 0.4;
+    background: radial-gradient(
+      circle,
+      rgba(139, 92, 246, 0.12) 0%,
+      transparent 70%
+    );
+  }
+
+  /* Background pattern animation */
+  @keyframes ctaPatternFloat {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 32px 32px;
+    }
+  }
+
+  /* Glow pulse animations */
+  @keyframes ctaGlowPulse1 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.25;
+    }
+    50% {
+      transform: translate(30px, 20px) scale(1.1);
+      opacity: 0.35;
+    }
+  }
+
+  @keyframes ctaGlowPulse2 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translate(-20px, -15px) scale(1.15);
+      opacity: 0.3;
+    }
   }
 
   .contact-cta__container {
@@ -248,38 +363,158 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
   }
 
   .contact-cta__trust-signal {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-1);
     padding: var(--spacing-3) var(--spacing-4);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     min-width: 140px;
+    overflow: hidden;
+    transition:
+      transform var(--duration-300) var(--ease-out),
+      background-color var(--duration-300) var(--ease-out),
+      border-color var(--duration-300) var(--ease-out),
+      box-shadow var(--duration-300) var(--ease-out);
   }
 
+  /* Shine effect overlay for trust signals */
+  .contact-cta__trust-signal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    transform: skewX(-20deg);
+    transition: left var(--duration-700) var(--ease-out);
+    pointer-events: none;
+  }
+
+  /* Subtle gradient accent at top */
+  .contact-cta__trust-signal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--color-accent) 0%,
+      var(--color-accent-alt) 100%
+    );
+    opacity: 0;
+    transition: opacity var(--duration-300) var(--ease-out);
+  }
+
+  /* Hover states for contrast variant */
+  .contact-cta--contrast .contact-cta__trust-signal:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .contact-cta--contrast .contact-cta__trust-signal:hover::before {
+    left: 150%;
+  }
+
+  .contact-cta--contrast .contact-cta__trust-signal:hover::after {
+    opacity: 0.8;
+  }
+
+  /* Non-contrast variant styling */
   .contact-cta:not(.contact-cta--contrast) .contact-cta__trust-signal {
     background: var(--color-background);
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-sm);
   }
 
+  .contact-cta:not(.contact-cta--contrast) .contact-cta__trust-signal::before {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(54, 83, 149, 0.08) 50%,
+      transparent 100%
+    );
+  }
+
+  .contact-cta:not(.contact-cta--contrast) .contact-cta__trust-signal::after {
+    background: linear-gradient(
+      90deg,
+      var(--color-primary) 0%,
+      var(--color-accent) 100%
+    );
+  }
+
+  .contact-cta:not(.contact-cta--contrast) .contact-cta__trust-signal:hover {
+    background: var(--color-background-subtle);
+    border-color: var(--color-primary-200);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md), 0 0 0 1px rgba(54, 83, 149, 0.1);
+  }
+
+  .contact-cta:not(.contact-cta--contrast) .contact-cta__trust-signal:hover::before {
+    left: 150%;
+  }
+
+  .contact-cta:not(.contact-cta--contrast) .contact-cta__trust-signal:hover::after {
+    opacity: 1;
+  }
+
+  /* Icon container with subtle glow on hover */
   .contact-cta__trust-icon {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
     color: var(--color-primary-300);
     margin-bottom: var(--spacing-1);
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.05);
+    transition:
+      background-color var(--duration-300) var(--ease-out),
+      transform var(--duration-300) var(--ease-out),
+      box-shadow var(--duration-300) var(--ease-out);
+  }
+
+  .contact-cta--contrast .contact-cta__trust-signal:hover .contact-cta__trust-icon {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
   }
 
   .contact-cta:not(.contact-cta--contrast) .contact-cta__trust-icon {
     color: var(--color-primary);
+    background: var(--color-primary-50);
+  }
+
+  .contact-cta:not(.contact-cta--contrast) .contact-cta__trust-signal:hover .contact-cta__trust-icon {
+    background: var(--color-primary-100);
+    transform: scale(1.1);
+    box-shadow: var(--glow-primary-sm);
   }
 
   .contact-cta__trust-icon :global(svg) {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform var(--duration-300) var(--ease-out);
+  }
+
+  .contact-cta__trust-signal:hover .contact-cta__trust-icon :global(svg) {
+    transform: scale(1.05);
   }
 
   .contact-cta__trust-value {
@@ -288,6 +523,11 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
     font-weight: var(--font-weight-bold);
     color: var(--color-text-inverse);
     line-height: var(--line-height-none);
+    transition: transform var(--duration-300) var(--ease-out);
+  }
+
+  .contact-cta__trust-signal:hover .contact-cta__trust-value {
+    transform: scale(1.02);
   }
 
   .contact-cta:not(.contact-cta--contrast) .contact-cta__trust-value {
@@ -296,11 +536,17 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
 
   .contact-cta__trust-label {
     font-family: var(--font-body);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
     color: var(--color-primary-200);
     text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wide);
+    letter-spacing: var(--letter-spacing-wider);
+    opacity: 0.9;
+    transition: opacity var(--duration-300) var(--ease-out);
+  }
+
+  .contact-cta__trust-signal:hover .contact-cta__trust-label {
+    opacity: 1;
   }
 
   .contact-cta:not(.contact-cta--contrast) .contact-cta__trust-label {
@@ -399,6 +645,16 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
       min-width: 160px;
     }
 
+    .contact-cta__trust-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+
+    .contact-cta__trust-icon :global(svg) {
+      width: 1.375rem;
+      height: 1.375rem;
+    }
+
     .contact-cta__buttons {
       flex-direction: row;
       justify-content: center;
@@ -443,13 +699,22 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
       padding: var(--spacing-5) var(--spacing-8);
     }
 
+    .contact-cta__trust-icon {
+      width: 3rem;
+      height: 3rem;
+    }
+
     .contact-cta__trust-icon :global(svg) {
-      width: 1.75rem;
-      height: 1.75rem;
+      width: 1.5rem;
+      height: 1.5rem;
     }
 
     .contact-cta__trust-value {
       font-size: var(--font-size-2xl);
+    }
+
+    .contact-cta__trust-label {
+      font-size: var(--font-size-sm);
     }
 
     .contact-cta__buttons {
@@ -531,6 +796,37 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
     .contact-cta :global(.btn:hover:not(.btn--disabled)) {
       transform: none;
     }
+
+    /* Disable background animations */
+    .contact-cta__bg-pattern {
+      animation: none;
+    }
+
+    .contact-cta__bg-glow--1,
+    .contact-cta__bg-glow--2 {
+      animation: none;
+    }
+
+    /* Disable trust signal hover transforms */
+    .contact-cta__trust-signal:hover {
+      transform: none;
+    }
+
+    .contact-cta__trust-signal::before {
+      display: none;
+    }
+
+    .contact-cta__trust-signal:hover .contact-cta__trust-icon {
+      transform: none;
+    }
+
+    .contact-cta__trust-signal:hover .contact-cta__trust-value {
+      transform: none;
+    }
+
+    .contact-cta__trust-signal:hover .contact-cta__trust-icon :global(svg) {
+      transform: none;
+    }
   }
 
   /* =================================================================
@@ -553,6 +849,16 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
     .contact-cta__trust-signal {
       border: 1px solid CanvasText;
       background: transparent;
+    }
+
+    .contact-cta__trust-signal::before,
+    .contact-cta__trust-signal::after {
+      display: none;
+    }
+
+    .contact-cta__trust-icon {
+      background: transparent;
+      border: 1px solid CanvasText;
     }
 
     .contact-cta__trust-value,
@@ -588,6 +894,16 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
     }
 
     .contact-cta__trust-signal {
+      background: transparent;
+      border: 1px solid var(--color-border);
+    }
+
+    .contact-cta__trust-signal::before,
+    .contact-cta__trust-signal::after {
+      display: none;
+    }
+
+    .contact-cta__trust-icon {
       background: transparent;
       border: 1px solid var(--color-border);
     }

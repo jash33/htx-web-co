@@ -78,6 +78,9 @@ const platformNames: Record<SocialPlatform, string> = {
 ---
 
 <footer class="footer" role="contentinfo">
+  <!-- Decorative gradient accent line at top of footer -->
+  <div class="footer__accent-line" aria-hidden="true"></div>
+
   <div class="footer__container">
     <div class="footer__content">
       <!-- Contact Information Section -->
@@ -166,10 +169,43 @@ const platformNames: Record<SocialPlatform, string> = {
    */
 
   .footer {
+    position: relative;
     background-color: var(--color-primary-900);
     color: var(--color-text-inverse);
     padding: var(--spacing-12) var(--spacing-4);
+    padding-top: calc(var(--spacing-12) + 4px); /* Account for accent line */
     margin-top: auto; /* Pushes footer to bottom when using flexbox on parent */
+  }
+
+  /* -----------------------------------------------------------------
+   * Decorative Gradient Accent Line
+   * Animated gradient line at the top of the footer
+   * ----------------------------------------------------------------- */
+  .footer__accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--color-primary-700) 0%,
+      var(--color-accent) 25%,
+      var(--color-accent-alt) 50%,
+      var(--color-accent) 75%,
+      var(--color-primary-700) 100%
+    );
+    background-size: 200% 100%;
+    animation: footer-accent-shimmer 8s ease-in-out infinite;
+  }
+
+  @keyframes footer-accent-shimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 
   .footer__container {
@@ -197,6 +233,25 @@ const platformNames: Record<SocialPlatform, string> = {
     color: var(--color-text-inverse);
     margin: 0 0 var(--spacing-2);
     letter-spacing: var(--letter-spacing-wide);
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Subtle gradient underline for headings */
+  .footer__heading::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 2rem;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--color-accent) 0%,
+      var(--color-accent-alt) 100%
+    );
+    border-radius: var(--radius-full);
+    opacity: 0.7;
   }
 
   /* Contact Section */
@@ -231,12 +286,35 @@ const platformNames: Record<SocialPlatform, string> = {
   .footer__link {
     color: var(--color-primary-100);
     text-decoration: none;
-    transition: color var(--duration-150) var(--ease-in-out);
+    position: relative;
+    transition:
+      color var(--animation-duration-fast) var(--ease-smooth);
+  }
+
+  /* Animated underline for links */
+  .footer__link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      var(--color-accent) 0%,
+      var(--color-accent-alt) 100%
+    );
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--animation-duration-fast) var(--ease-spring-soft);
   }
 
   .footer__link:hover {
     color: var(--color-text-inverse);
-    text-decoration: underline;
+  }
+
+  .footer__link:hover::after {
+    transform: scaleX(1);
   }
 
   .footer__link:focus-visible {
@@ -301,26 +379,84 @@ const platformNames: Record<SocialPlatform, string> = {
     background-color: var(--color-primary-700);
     border-radius: var(--radius-lg);
     color: var(--color-primary-100);
+    position: relative;
+    overflow: hidden;
     transition:
-      background-color var(--duration-150) var(--ease-in-out),
-      color var(--duration-150) var(--ease-in-out),
-      transform var(--duration-150) var(--ease-in-out);
+      background-color var(--animation-duration-fast) var(--ease-smooth),
+      color var(--animation-duration-fast) var(--ease-smooth),
+      transform var(--animation-duration-fast) var(--ease-spring-soft),
+      box-shadow var(--animation-duration-normal) var(--ease-smooth);
+  }
+
+  /* Gradient overlay on hover */
+  .footer__social-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      var(--color-accent) 0%,
+      var(--color-accent-alt) 100%
+    );
+    opacity: 0;
+    transition: opacity var(--animation-duration-normal) var(--ease-smooth);
+    z-index: 0;
+  }
+
+  /* Shine sweep effect */
+  .footer__social-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 100%
+    );
+    transition: left var(--animation-duration-slow) var(--ease-smooth);
+    z-index: 2;
   }
 
   .footer__social-link:hover {
     background-color: var(--color-primary-600);
     color: var(--color-text-inverse);
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--glow-accent-md);
+  }
+
+  .footer__social-link:hover::before {
+    opacity: 0.9;
+  }
+
+  .footer__social-link:hover::after {
+    left: 100%;
+  }
+
+  .footer__social-link:active {
+    transform: translateY(-1px) scale(1.02);
+    transition-duration: var(--animation-duration-instant);
   }
 
   .footer__social-link:focus-visible {
     outline: var(--focus-ring-width) solid var(--color-primary-300);
     outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--glow-accent-sm);
   }
 
   .footer__social-link :global(svg) {
     width: var(--spacing-5);
     height: var(--spacing-5);
+    position: relative;
+    z-index: 1;
+    transition: transform var(--animation-duration-fast) var(--ease-spring-soft);
+  }
+
+  .footer__social-link:hover :global(svg) {
+    transform: scale(1.1);
   }
 
   /* Bottom Bar */
@@ -346,6 +482,7 @@ const platformNames: Record<SocialPlatform, string> = {
   @media screen and (min-width: 768px) {
     .footer {
       padding: var(--spacing-16) var(--spacing-8);
+      padding-top: calc(var(--spacing-16) + 4px);
     }
 
     .footer__content {
@@ -375,6 +512,7 @@ const platformNames: Record<SocialPlatform, string> = {
   @media screen and (min-width: 1280px) {
     .footer {
       padding: var(--spacing-20) var(--spacing-8);
+      padding-top: calc(var(--spacing-20) + 4px);
     }
   }
 
@@ -391,6 +529,14 @@ const platformNames: Record<SocialPlatform, string> = {
       padding: var(--spacing-8) 0;
     }
 
+    .footer__accent-line {
+      display: none;
+    }
+
+    .footer__heading::after {
+      display: none;
+    }
+
     .footer__link,
     .footer__contact-item,
     .footer__area-item,
@@ -404,6 +550,55 @@ const platformNames: Record<SocialPlatform, string> = {
 
     .footer__bottom {
       border-top-color: var(--color-border);
+    }
+  }
+
+  /* =================================================================
+   * REDUCED MOTION PREFERENCES
+   * =================================================================
+   * Disable animations for users who prefer reduced motion
+   */
+
+  @media (prefers-reduced-motion: reduce) {
+    .footer__accent-line {
+      animation: none;
+    }
+
+    .footer__social-link {
+      transition: none;
+    }
+
+    .footer__social-link::before,
+    .footer__social-link::after {
+      transition: none;
+    }
+
+    .footer__social-link::after {
+      display: none;
+    }
+
+    .footer__social-link:hover {
+      transform: none;
+    }
+
+    .footer__social-link:active {
+      transform: none;
+    }
+
+    .footer__social-link :global(svg) {
+      transition: none;
+    }
+
+    .footer__social-link:hover :global(svg) {
+      transform: none;
+    }
+
+    .footer__link {
+      transition: none;
+    }
+
+    .footer__link::after {
+      transition: none;
     }
   }
 </style>

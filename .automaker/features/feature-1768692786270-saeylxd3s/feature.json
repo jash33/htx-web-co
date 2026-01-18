@@ -1,0 +1,134 @@
+{
+  "category": "Uncategorized",
+  "description": "This project is for a web design company and it's supposed to, I think, demonstrate my abilities in web design. So, where possible, I would like you to try to keep the same content that we have in all these pages, but to add something that will impress small business owners who look at this with my design ability, without making things just too busy or chaotic, things should still look clean and orderly, these pages, but they should also have some little bits of flair to, again, show that I am a designer and things aren't going to be completely basic and simple. So, please go through the application and look for opportunities to add, you know, impressive design features to the application without being overwhelming or going over the top.",
+  "title": "Add subtle design enhancements to showcase portfolio capabilities",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "full",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1768692786270-saeylxd3s",
+  "descriptionHistory": [
+    {
+      "description": "This project is for a web design company and it's supposed to, I think, demonstrate my abilities in web design. So, where possible, I would like you to try to keep the same content that we have in all these pages, but to add something that will impress small business owners who look at this with my design ability, without making things just too busy or chaotic, things should still look clean and orderly, these pages, but they should also have some little bits of flair to, again, show that I am a designer and things aren't going to be completely basic and simple. So, please go through the application and look for opportunities to add, you know, impressive design features to the application without being overwhelming or going over the top.",
+      "timestamp": "2026-01-17T23:33:06.356Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-17T23:33:16.349Z",
+  "updatedAt": "2026-01-17T23:58:28.659Z",
+  "planSpec": {
+    "status": "approved",
+    "version": 1,
+    "reviewedByUser": false,
+    "content": "🔧 Tool: Glob\nInput: {\n  \"pattern\": \"**/*.{html,css,js,jsx,ts,tsx,vue,svelte}\"\n}\n\n🔧 Tool: Glob\nInput: {\n  \"pattern\": \"**/package.json\"\n}\n\n🔧 Tool: Glob\nInput: {\n  \"pattern\": \"**/*.{scss,sass,less}\"\n}\n\n🔧 Tool: Glob\nInput: {\n  \"pattern\": \"src/**/*.{html,css,js,jsx,ts,tsx,astro}\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\package.json\"\n}\n\n🔧 Tool: Bash\nInput: {\n  \"command\": \"ls -la \\\"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\"\",\n  \"description\": \"List root directory contents\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\pages\\\\index.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\styles\\\\globals.css\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\styles\\\\variables.css\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\layouts\\\\Layout.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\HeroSection.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\Header.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\ServiceCard.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\Button.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\Footer.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\ContactCTA.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\FAQAccordion.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\DifferentiatorCard.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\pages\\\\about.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\pages\\\\services.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\pages\\\\contact.astro\"\n}\n\n🔧 Tool: Read\nInput: {\n  \"file_path\": \"C:\\\\Users\\\\James\\\\Repos\\\\houston-web-services\\\\src\\\\components\\\\ProjectCard.astro\"\n}\nNow I have a comprehensive understanding of the codebase. Let me generate the specification.\n\n---\n\n# Comprehensive Specification: Design Flair Enhancements for Houston Web Services\n\n## 1. Problem Statement\n\nThis web design company portfolio site currently has a professional but basic look. As a designer's portfolio, it needs subtle but impressive design touches that demonstrate advanced design capabilities to potential small business clients, without overwhelming them or making the site feel chaotic. The goal is to add polished, tasteful design flair that showcases creativity while maintaining the clean, professional aesthetic.\n\n## 2. User Story\n\nAs a **web designer seeking new clients**, I want **my portfolio website to showcase impressive design techniques through subtle visual enhancements**, so that **potential small business clients can see I have the creativity and skill to make their business stand out online**.\n\n## 3. Acceptance Criteria\n\n### Happy Path\n- **GIVEN** a visitor lands on the homepage, **WHEN** they view the hero section, **THEN** they see an engaging animated gradient background with subtle floating particles\n- **GIVEN** a user scrolls down the page, **WHEN** content sections come into view, **THEN** elements animate smoothly into place with staggered timing\n- **GIVEN** a user hovers over service/differentiator cards, **WHEN** they interact, **THEN** cards display refined micro-interactions with smooth transforms and subtle glow effects\n- **GIVEN** a user views the portfolio section, **WHEN** they see project cards, **THEN** images have a subtle reveal animation on hover\n- **GIVEN** a user views any page, **WHEN** they look at section headings, **THEN** headings have a stylish accent decoration that adds visual interest\n\n### Edge Cases\n- **GIVEN** a user has `prefers-reduced-motion: reduce` enabled, **WHEN** viewing the site, **THEN** all animations are disabled/minimized while maintaining visual appeal\n- **GIVEN** a user views on mobile, **WHEN** hover effects aren't available, **THEN** tap/touch interactions still provide feedback\n- **GIVEN** the site is viewed in dark mode, **WHEN** design enhancements are displayed, **THEN** they adapt appropriately to the dark color scheme\n\n### Error Handling\n- **GIVEN** CSS animations fail to load, **WHEN** user views the site, **THEN** content remains fully accessible and legible\n- **GIVEN** JavaScript for any interactive enhancement fails, **WHEN** user interacts with elements, **THEN** basic CSS fallbacks provide acceptable UX\n\n## 4. Technical Context\n\n| Aspect | Value |\n|--------|-------|\n| **Affected Files** | `src/styles/globals.css`, `src/styles/variables.css`, `src/components/HeroSection.astro`, `src/components/ServiceCard.astro`, `src/components/DifferentiatorCard.astro`, `src/components/ProjectCard.astro`, `src/components/FAQAccordion.astro`, `src/components/ContactCTA.astro`, `src/components/Header.astro`, `src/components/Footer.astro`, `src/pages/index.astro`, `src/pages/about.astro`, `src/pages/services.astro` |\n| **Dependencies** | None - pure CSS/HTML enhancements |\n| **Constraints** | Must preserve existing content, maintain WCAG 2.1 AA accessibility, respect reduced motion preferences, work in both light/dark modes |\n| **Patterns to Follow** | BEM naming convention, CSS custom properties from variables.css, mobile-first responsive design, existing animation keyframe patterns |\n\n## 5. Non-Goals\n\n- **NOT** changing the overall layout or information architecture\n- **NOT** adding new content or pages\n- **NOT** requiring JavaScript libraries or frameworks\n- **NOT** implementing complex animations that could impact performance\n- **NOT** changing the color scheme or brand identity\n- **NOT** adding excessive decorative elements that distract from content\n\n## 6. Implementation Tasks\n\n```tasks\n## Phase 1: Foundation - Global Enhancements\n- [ ] T001: Add CSS utility classes for scroll-reveal animations and decorative elements | File: src/styles/globals.css\n- [ ] T002: Create new CSS custom properties for gradient accents, glow effects, and animation timings | File: src/styles/variables.css\n\n## Phase 2: Hero & Header Polish\n- [ ] T003: Enhance Hero section with subtle floating particle effect and improved gradient animation | File: src/components/HeroSection.astro\n- [ ] T004: Add refined logo hover animation and navigation link underline effects to Header | File: src/components/Header.astro\n\n## Phase 3: Card Component Enhancements\n- [ ] T005: Add gradient border glow effect and refined hover micro-interactions to ServiceCard | File: src/components/ServiceCard.astro\n- [ ] T006: Enhance DifferentiatorCard with icon pulse animation and card shine effect on hover | File: src/components/DifferentiatorCard.astro\n- [ ] T007: Add image parallax tilt effect and refined overlay transitions to ProjectCard | File: src/components/ProjectCard.astro\n\n## Phase 4: Section & Interactive Enhancements\n- [ ] T008: Add stylish section heading decorations with animated accent lines | File: src/pages/index.astro\n- [ ] T009: Enhance FAQ accordion with smooth expand animations and subtle visual polish | File: src/components/FAQAccordion.astro\n- [ ] T010: Add animated background pattern and refined trust signal styling to ContactCTA | File: src/components/ContactCTA.astro\n\n## Phase 5: Footer & Supporting Pages\n- [ ] T011: Add subtle gradient accent and refined social link hover effects to Footer | File: src/components/Footer.astro\n- [ ] T012: Apply scroll-reveal animations to About page sections with staggered timing | File: src/pages/about.astro\n- [ ] T013: Add visual polish to Services page hero preview cards and pricing section | File: src/pages/services.astro\n```\n\n## 7. Success Metrics\n\n| Metric | Target |\n|--------|--------|\n| Visual Impact | Site visitors immediately notice refined design quality without feeling overwhelmed |\n| Performance | Lighthouse Performance score remains 90+ |\n| Accessibility | WCAG 2.1 AA compliance maintained, all animations respect reduced motion |\n| Browser Support | Enhancements work in Chrome, Firefox, Safari, Edge (graceful degradation for older browsers) |\n| Mobile Experience | All enhancements adapt appropriately to touch interfaces |\n| Dark Mode | All enhancements work correctly in both light and dark themes |\n\n## 8. Risks & Mitigations\n\n| Risk | Mitigation |\n|------|------------|\n| Performance degradation from animations | Use CSS `will-change` sparingly, prefer `transform` and `opacity` for animations, test Lighthouse scores |\n| Accessibility issues with animations | Wrap all animations in `prefers-reduced-motion` media queries, ensure content is never hidden by animation states |\n| Over-designing and creating visual clutter | Focus on subtle, purposeful enhancements; each effect should serve a UX purpose |\n| Inconsistent dark mode appearance | Test each enhancement in both themes, use CSS custom properties for theme-aware colors |\n| CSS bloat from new styles | Keep enhancements modular within component styles, reuse utility classes where possible |\n\n---",
+    "generatedAt": "2026-01-17T23:34:43.735Z",
+    "tasks": [
+      {
+        "id": "T001",
+        "description": "Add CSS utility classes for scroll-reveal animations and decorative elements",
+        "filePath": "src/styles/globals.css",
+        "phase": "Phase 1: Foundation - Global Enhancements",
+        "status": "pending"
+      },
+      {
+        "id": "T002",
+        "description": "Create new CSS custom properties for gradient accents, glow effects, and animation timings",
+        "filePath": "src/styles/variables.css",
+        "phase": "Phase 1: Foundation - Global Enhancements",
+        "status": "pending"
+      },
+      {
+        "id": "T003",
+        "description": "Enhance Hero section with subtle floating particle effect and improved gradient animation",
+        "filePath": "src/components/HeroSection.astro",
+        "phase": "Phase 2: Hero & Header Polish",
+        "status": "pending"
+      },
+      {
+        "id": "T004",
+        "description": "Add refined logo hover animation and navigation link underline effects to Header",
+        "filePath": "src/components/Header.astro",
+        "phase": "Phase 2: Hero & Header Polish",
+        "status": "pending"
+      },
+      {
+        "id": "T005",
+        "description": "Add gradient border glow effect and refined hover micro-interactions to ServiceCard",
+        "filePath": "src/components/ServiceCard.astro",
+        "phase": "Phase 3: Card Component Enhancements",
+        "status": "pending"
+      },
+      {
+        "id": "T006",
+        "description": "Enhance DifferentiatorCard with icon pulse animation and card shine effect on hover",
+        "filePath": "src/components/DifferentiatorCard.astro",
+        "phase": "Phase 3: Card Component Enhancements",
+        "status": "pending"
+      },
+      {
+        "id": "T007",
+        "description": "Add image parallax tilt effect and refined overlay transitions to ProjectCard",
+        "filePath": "src/components/ProjectCard.astro",
+        "phase": "Phase 3: Card Component Enhancements",
+        "status": "pending"
+      },
+      {
+        "id": "T008",
+        "description": "Add stylish section heading decorations with animated accent lines",
+        "filePath": "src/pages/index.astro",
+        "phase": "Phase 4: Section & Interactive Enhancements",
+        "status": "pending"
+      },
+      {
+        "id": "T009",
+        "description": "Enhance FAQ accordion with smooth expand animations and subtle visual polish",
+        "filePath": "src/components/FAQAccordion.astro",
+        "phase": "Phase 4: Section & Interactive Enhancements",
+        "status": "pending"
+      },
+      {
+        "id": "T010",
+        "description": "Add animated background pattern and refined trust signal styling to ContactCTA",
+        "filePath": "src/components/ContactCTA.astro",
+        "phase": "Phase 4: Section & Interactive Enhancements",
+        "status": "pending"
+      },
+      {
+        "id": "T011",
+        "description": "Add subtle gradient accent and refined social link hover effects to Footer",
+        "filePath": "src/components/Footer.astro",
+        "phase": "Phase 5: Footer & Supporting Pages",
+        "status": "pending"
+      },
+      {
+        "id": "T012",
+        "description": "Apply scroll-reveal animations to About page sections with staggered timing",
+        "filePath": "src/pages/about.astro",
+        "phase": "Phase 5: Footer & Supporting Pages",
+        "status": "pending"
+      },
+      {
+        "id": "T013",
+        "description": "Add visual polish to Services page hero preview cards and pricing section",
+        "filePath": "src/pages/services.astro",
+        "phase": "Phase 5: Footer & Supporting Pages",
+        "status": "pending"
+      }
+    ],
+    "tasksTotal": 13,
+    "tasksCompleted": 13,
+    "approvedAt": "2026-01-17T23:34:43.737Z",
+    "currentTaskId": "T013"
+  },
+  "justFinishedAt": "2026-01-17T23:58:28.659Z"
+}

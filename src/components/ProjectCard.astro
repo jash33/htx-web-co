@@ -87,8 +87,8 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
 ---
 
 <article class={cardClasses} id={`project-${id}`}>
-  <!-- Image Container with hover effects -->
-  <div class="project-card__image-container">
+  <!-- Image Container with hover effects and parallax tilt -->
+  <div class="project-card__image-container" data-tilt>
     {showLoadingState && (
       <div class="project-card__image-placeholder" aria-hidden="true">
         <svg class="project-card__loading-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,21 +99,23 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
       </div>
     )}
 
-    <picture>
-      {thumbnail.srcWebP && (
-        <source srcset={thumbnail.srcWebP} type="image/webp" />
-      )}
-      <img
-        src={thumbnail.src}
-        alt={thumbnail.alt}
-        width={thumbnail.width || 600}
-        height={thumbnail.height || 400}
-        loading="lazy"
-        decoding="async"
-        class="project-card__image"
-        onload="this.parentElement.parentElement.classList.add('project-card__image-container--loaded')"
-      />
-    </picture>
+    <div class="project-card__image-wrapper">
+      <picture>
+        {thumbnail.srcWebP && (
+          <source srcset={thumbnail.srcWebP} type="image/webp" />
+        )}
+        <img
+          src={thumbnail.src}
+          alt={thumbnail.alt}
+          width={thumbnail.width || 600}
+          height={thumbnail.height || 400}
+          loading="lazy"
+          decoding="async"
+          class="project-card__image"
+          onload="this.parentElement.parentElement.parentElement.classList.add('project-card__image-container--loaded')"
+        />
+      </picture>
+    </div>
 
     <!-- Hover overlay -->
     <div class="project-card__overlay" aria-hidden="true">
@@ -192,6 +194,9 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
     flex-direction: column;
     height: 100%;
 
+    /* Positioning for pseudo-elements */
+    position: relative;
+
     /* Visual */
     background-color: var(--color-background-elevated);
     border: 1px solid var(--color-border);
@@ -201,15 +206,39 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
 
     /* Animation */
     transition:
-      box-shadow var(--duration-200) var(--ease-in-out),
-      transform var(--duration-200) var(--ease-in-out),
-      border-color var(--duration-200) var(--ease-in-out);
+      box-shadow var(--duration-300) var(--ease-out),
+      transform var(--duration-300) var(--ease-out),
+      border-color var(--duration-300) var(--ease-out);
+  }
+
+  /* Shine sweep effect - diagonal sweep across card on hover */
+  .project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.06) 50%,
+      transparent 100%
+    );
+    transform: skewX(-20deg);
+    transition: left var(--duration-700) var(--ease-out);
+    pointer-events: none;
+    z-index: 10;
   }
 
   .project-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg), var(--glow-card-hover);
+    transform: translateY(-6px);
     border-color: var(--color-primary-200);
+  }
+
+  .project-card:hover::after {
+    left: 150%;
   }
 
   .project-card--featured {
@@ -218,17 +247,26 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
 
   .project-card--featured:hover {
     border-color: var(--color-primary-400);
-    box-shadow: var(--shadow-xl), var(--shadow-primary);
+    box-shadow: var(--shadow-xl), var(--shadow-primary), var(--glow-primary-sm);
   }
 
   /* =================================================================
-   * IMAGE CONTAINER
+   * IMAGE CONTAINER - Parallax Tilt Effect
    * ================================================================= */
   .project-card__image-container {
     position: relative;
     aspect-ratio: 16 / 10;
     overflow: hidden;
     background-color: var(--color-background-muted);
+
+    /* Enable 3D transforms for tilt effect */
+    transform-style: preserve-3d;
+    perspective: 1000px;
+
+    /* CSS variables for tilt - controlled by JS or CSS hover */
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    --tilt-scale: 1;
   }
 
   .project-card__image-placeholder {
@@ -259,19 +297,54 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
     50% { opacity: 0.8; }
   }
 
+  /* Image wrapper for parallax tilt transform */
+  .project-card__image-wrapper {
+    position: absolute;
+    inset: -10px; /* Slightly larger to prevent edge visibility during tilt */
+    transition: transform var(--duration-300) var(--ease-out);
+    will-change: transform;
+  }
+
   .project-card__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--duration-300) var(--ease-out);
+    transition: transform var(--duration-500) var(--ease-out);
   }
 
+  /* Hover state: scale up image with subtle parallax tilt */
   .project-card:hover .project-card__image {
-    transform: scale(1.05);
+    transform: scale(1.08);
+  }
+
+  /* Parallax inner movement - subtle shift based on CSS variables */
+  .project-card:hover .project-card__image-wrapper {
+    transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) scale(var(--tilt-scale));
+  }
+
+  /* Light reflection overlay for 3D depth effect */
+  .project-card__image-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+    opacity: 0;
+    z-index: 3;
+    pointer-events: none;
+    transition: opacity var(--duration-300) var(--ease-out);
+  }
+
+  .project-card:hover .project-card__image-container::before {
+    opacity: 1;
   }
 
   /* =================================================================
-   * HOVER OVERLAY
+   * HOVER OVERLAY - Refined Transitions
    * ================================================================= */
   .project-card__overlay {
     position: absolute;
@@ -279,10 +352,21 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-background-overlay);
+    z-index: 4;
+
+    /* Multi-layer gradient overlay for depth */
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(19, 37, 100, 0.75) 0%,
+        rgba(10, 22, 64, 0.9) 100%
+      );
+    backdrop-filter: blur(2px);
+
     opacity: 0;
-    transition: opacity var(--duration-200) var(--ease-in-out);
-    z-index: 2;
+    transition:
+      opacity var(--duration-300) var(--ease-out),
+      backdrop-filter var(--duration-300) var(--ease-out);
   }
 
   .project-card:hover .project-card__overlay {
@@ -296,15 +380,71 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
     font-weight: var(--font-weight-semibold);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wider);
-    padding: var(--spacing-2) var(--spacing-4);
-    border: 2px solid var(--color-text-inverse);
-    border-radius: var(--radius-md);
-    transform: translateY(10px);
-    transition: transform var(--duration-200) var(--ease-out);
+    padding: var(--spacing-2) var(--spacing-5);
+
+    /* Enhanced border with gradient effect */
+    border: 2px solid transparent;
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(rgba(19, 37, 100, 0.8), rgba(19, 37, 100, 0.8)) padding-box,
+      linear-gradient(
+        135deg,
+        var(--color-primary-300) 0%,
+        var(--color-accent-light) 50%,
+        var(--color-accent-alt-light) 100%
+      ) border-box;
+
+    /* Subtle glow effect */
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+
+    /* Animation states */
+    transform: translateY(15px) scale(0.95);
+    opacity: 0;
+    transition:
+      transform var(--duration-300) var(--ease-spring-soft),
+      opacity var(--duration-300) var(--ease-out),
+      box-shadow var(--duration-300) var(--ease-out);
   }
 
   .project-card:hover .project-card__overlay-text {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.5), 0 0 60px rgba(6, 182, 212, 0.2);
+  }
+
+  /* Overlay decorative corners */
+  .project-card__overlay::before,
+  .project-card__overlay::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: var(--color-primary-300);
+    border-style: solid;
+    opacity: 0;
+    transition:
+      opacity var(--duration-300) var(--ease-out),
+      transform var(--duration-300) var(--ease-spring-soft);
+  }
+
+  .project-card__overlay::before {
+    top: var(--spacing-4);
+    left: var(--spacing-4);
+    border-width: 2px 0 0 2px;
+    transform: translate(-10px, -10px);
+  }
+
+  .project-card__overlay::after {
+    bottom: var(--spacing-4);
+    right: var(--spacing-4);
+    border-width: 0 2px 2px 0;
+    transform: translate(10px, 10px);
+  }
+
+  .project-card:hover .project-card__overlay::before,
+  .project-card:hover .project-card__overlay::after {
+    opacity: 0.7;
+    transform: translate(0, 0);
   }
 
   /* =================================================================
@@ -498,6 +638,7 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
   @media (prefers-reduced-motion: reduce) {
     .project-card,
     .project-card__image,
+    .project-card__image-wrapper,
     .project-card__overlay,
     .project-card__overlay-text,
     .project-card__tag,
@@ -505,12 +646,31 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
       transition: none;
     }
 
+    /* Hide animated pseudo-elements */
+    .project-card::after,
+    .project-card__image-container::before,
+    .project-card__overlay::before,
+    .project-card__overlay::after {
+      display: none;
+    }
+
     .project-card:hover {
       transform: none;
+      /* Keep subtle visual feedback without motion */
+      box-shadow: var(--shadow-lg);
     }
 
     .project-card:hover .project-card__image {
       transform: none;
+    }
+
+    .project-card:hover .project-card__image-wrapper {
+      transform: none;
+    }
+
+    .project-card:hover .project-card__overlay-text {
+      transform: none;
+      opacity: 1;
     }
 
     .project-card__loading-icon {
@@ -530,6 +690,11 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
       page-break-inside: avoid;
     }
 
+    .project-card::after,
+    .project-card__image-container::before {
+      display: none;
+    }
+
     .project-card:hover {
       transform: none;
       box-shadow: none;
@@ -545,6 +710,11 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
 
     .project-card__image-placeholder {
       display: none;
+    }
+
+    .project-card__image-wrapper {
+      position: static;
+      inset: auto;
     }
   }
 
@@ -569,3 +739,87 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
     }
   }
 </style>
+
+<script>
+  /**
+   * Interactive Parallax Tilt Effect for Project Cards
+   * Adds subtle 3D tilt to the image container on mouse move
+   */
+  function initProjectCardTilt() {
+    // Respect reduced motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const imageContainers = document.querySelectorAll('.project-card__image-container[data-tilt]');
+
+    imageContainers.forEach((container) => {
+      const card = container.closest('.project-card');
+      if (!card) return;
+
+      // Tilt configuration
+      const maxTilt = 4; // Maximum tilt in degrees
+      const scale = 1.02; // Scale on hover
+
+      let rafId: number | null = null;
+      let isHovering = false;
+
+      const handleMouseMove = (e: MouseEvent) => {
+        if (!isHovering) return;
+
+        // Cancel any pending animation frame
+        if (rafId) cancelAnimationFrame(rafId);
+
+        rafId = requestAnimationFrame(() => {
+          const rect = container.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+
+          // Calculate mouse position relative to center (-1 to 1)
+          const mouseX = (e.clientX - centerX) / (rect.width / 2);
+          const mouseY = (e.clientY - centerY) / (rect.height / 2);
+
+          // Calculate tilt angles (inverted for natural feel)
+          const tiltX = -mouseY * maxTilt;
+          const tiltY = mouseX * maxTilt;
+
+          // Apply tilt via CSS custom properties
+          (container as HTMLElement).style.setProperty('--tilt-x', `${tiltX}deg`);
+          (container as HTMLElement).style.setProperty('--tilt-y', `${tiltY}deg`);
+          (container as HTMLElement).style.setProperty('--tilt-scale', `${scale}`);
+        });
+      };
+
+      const handleMouseEnter = () => {
+        isHovering = true;
+      };
+
+      const handleMouseLeave = () => {
+        isHovering = false;
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+
+        // Reset tilt with smooth transition
+        (container as HTMLElement).style.setProperty('--tilt-x', '0deg');
+        (container as HTMLElement).style.setProperty('--tilt-y', '0deg');
+        (container as HTMLElement).style.setProperty('--tilt-scale', '1');
+      };
+
+      // Attach event listeners to the card (not just the image container)
+      card.addEventListener('mouseenter', handleMouseEnter);
+      card.addEventListener('mousemove', handleMouseMove);
+      card.addEventListener('mouseleave', handleMouseLeave);
+    });
+  }
+
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectCardTilt);
+  } else {
+    initProjectCardTilt();
+  }
+
+  // Re-initialize on Astro page transitions (View Transitions API)
+  document.addEventListener('astro:page-load', initProjectCardTilt);
+</script>

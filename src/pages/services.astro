@@ -379,9 +379,11 @@ const processPhases: ProcessPhase[] = [
     <section class="services-overview" aria-labelledby="services-overview-heading">
       <div class="services-overview__container">
         <header class="services-overview__header">
-          <h2 id="services-overview-heading" class="services-overview__heading">
-            What We Offer
-          </h2>
+          <div class="services-overview__header-wrapper">
+            <h2 id="services-overview-heading" class="services-overview__heading">
+              What We Offer
+            </h2>
+          </div>
           <p class="services-overview__description">
             We specialize in creating custom websites for small businesses in Houston. Every project includes personalized service, modern design, and code built to last.
           </p>
@@ -557,9 +559,11 @@ const processPhases: ProcessPhase[] = [
     <section id="pricing" class="pricing-section" aria-labelledby="pricing-heading">
       <div class="pricing-section__container">
         <header class="pricing-section__header">
-          <h2 id="pricing-heading" class="pricing-section__heading">
-            Choose Your Package
-          </h2>
+          <div class="pricing-section__header-wrapper">
+            <h2 id="pricing-heading" class="pricing-section__heading">
+              Choose Your Package
+            </h2>
+          </div>
           <p class="pricing-section__description">
             Select the package that best fits your business needs. All packages include our quality guarantee and dedicated support.
           </p>
@@ -774,6 +778,7 @@ const processPhases: ProcessPhase[] = [
   }
 
   .services-hero__cards-preview {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-4);
@@ -783,9 +788,65 @@ const processPhases: ProcessPhase[] = [
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-xl);
     transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    overflow: hidden;
+  }
+
+  /* Gradient border glow effect on hover */
+  .services-hero__cards-preview::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-400) 0%,
+      var(--color-accent) 50%,
+      var(--color-accent-alt) 100%
+    );
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--duration-300) var(--ease-out);
+    filter: blur(8px);
+  }
+
+  .services-hero__cards-preview:hover::before {
+    opacity: 0.4;
+  }
+
+  /* Shine sweep effect */
+  .services-hero__cards-preview::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    transform: skewX(-20deg);
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .services-hero__cards-preview:hover::after {
+    animation: previewCardShine 0.8s ease-out forwards;
+  }
+
+  @keyframes previewCardShine {
+    from {
+      left: -100%;
+    }
+    to {
+      left: 150%;
+    }
   }
 
   .services-hero__preview-card {
+    position: relative;
     display: flex;
     align-items: center;
     gap: var(--spacing-4);
@@ -793,13 +854,39 @@ const processPhases: ProcessPhase[] = [
     background: var(--color-background);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    transition: transform var(--duration-200) var(--ease-out),
-                box-shadow var(--duration-200) var(--ease-out);
+    transition:
+      transform var(--duration-200) var(--ease-out),
+      box-shadow var(--duration-200) var(--ease-out),
+      border-color var(--duration-200) var(--ease-out);
+    overflow: hidden;
   }
 
   .services-hero__preview-card:hover {
-    transform: translateX(4px);
+    transform: translateX(6px);
     box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-200);
+  }
+
+  /* Staggered floating animation for preview cards */
+  .services-hero__preview-card--1 {
+    animation: previewCardFloat 6s ease-in-out infinite;
+  }
+
+  .services-hero__preview-card--2 {
+    animation: previewCardFloat 6s ease-in-out infinite 1s;
+  }
+
+  .services-hero__preview-card--3 {
+    animation: previewCardFloat 6s ease-in-out infinite 2s;
+  }
+
+  @keyframes previewCardFloat {
+    0%, 100% {
+      transform: translateX(0) translateY(0);
+    }
+    50% {
+      transform: translateX(4px) translateY(-3px);
+    }
   }
 
   .services-hero__preview-card--1 .services-hero__preview-icon {
@@ -818,6 +905,7 @@ const processPhases: ProcessPhase[] = [
   }
 
   .services-hero__preview-icon {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -825,6 +913,12 @@ const processPhases: ProcessPhase[] = [
     height: var(--spacing-12);
     border-radius: var(--radius-lg);
     flex-shrink: 0;
+    transition: transform var(--duration-200) var(--ease-out);
+  }
+
+  /* Icon pulse on card hover */
+  .services-hero__preview-card:hover .services-hero__preview-icon {
+    transform: scale(1.1);
   }
 
   .services-hero__preview-label {
@@ -833,6 +927,11 @@ const processPhases: ProcessPhase[] = [
     font-weight: var(--font-weight-semibold);
     color: var(--color-text-primary);
     flex: 1;
+    transition: color var(--duration-200) var(--ease-out);
+  }
+
+  .services-hero__preview-card:hover .services-hero__preview-label {
+    color: var(--color-primary);
   }
 
   .services-hero__preview-price {
@@ -843,6 +942,16 @@ const processPhases: ProcessPhase[] = [
     background-color: var(--color-primary-50);
     padding: var(--spacing-1) var(--spacing-3);
     border-radius: var(--radius-full);
+    transition:
+      background-color var(--duration-200) var(--ease-out),
+      color var(--duration-200) var(--ease-out),
+      transform var(--duration-200) var(--ease-out);
+  }
+
+  .services-hero__preview-card:hover .services-hero__preview-price {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    transform: scale(1.05);
   }
 
   /* Decorative element */
@@ -866,18 +975,71 @@ const processPhases: ProcessPhase[] = [
    * ================================================================= */
 
   .services-overview {
+    position: relative;
     padding: var(--spacing-16) var(--spacing-4);
     background-color: var(--color-background-subtle);
+    overflow: hidden;
   }
 
   .services-overview__container {
+    position: relative;
     max-width: var(--container-7xl);
     margin: 0 auto;
+    z-index: 1;
   }
 
   .services-overview__header {
     text-align: center;
     margin-bottom: var(--spacing-12);
+  }
+
+  /* Header wrapper for decorative elements */
+  .services-overview__header-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Decorative dots */
+  .services-overview__header-wrapper::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    margin-bottom: var(--spacing-3);
+    background: var(--color-accent);
+    border-radius: var(--radius-full);
+    box-shadow:
+      -12px 0 0 var(--color-primary),
+      12px 0 0 var(--color-accent-alt);
+    opacity: 0.8;
+  }
+
+  /* Animated accent line */
+  .services-overview__header-wrapper::after {
+    content: '';
+    display: block;
+    width: 4rem;
+    height: 3px;
+    margin-top: var(--spacing-4);
+    background: linear-gradient(
+      90deg,
+      var(--color-primary) 0%,
+      var(--color-accent) 50%,
+      var(--color-accent-alt) 100%
+    );
+    background-size: 200% 100%;
+    border-radius: var(--radius-full);
+    animation: overviewAccentShimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes overviewAccentShimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 
   .services-overview__heading {
@@ -903,6 +1065,36 @@ const processPhases: ProcessPhase[] = [
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-6);
+  }
+
+  /* Staggered reveal for service cards */
+  .services-overview__cards :global(.service-card) {
+    opacity: 0;
+    transform: translateY(var(--spacing-6));
+    animation: serviceCardReveal 0.6s var(--ease-out) forwards;
+  }
+
+  .services-overview__cards :global(.service-card:nth-child(1)) {
+    animation-delay: 0.1s;
+  }
+
+  .services-overview__cards :global(.service-card:nth-child(2)) {
+    animation-delay: 0.2s;
+  }
+
+  .services-overview__cards :global(.service-card:nth-child(3)) {
+    animation-delay: 0.3s;
+  }
+
+  .services-overview__cards :global(.service-card:nth-child(4)) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes serviceCardReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* =================================================================
@@ -1030,18 +1222,98 @@ const processPhases: ProcessPhase[] = [
    * ================================================================= */
 
   .pricing-section {
+    position: relative;
     padding: var(--spacing-16) var(--spacing-4);
     background-color: var(--color-background);
+    overflow: hidden;
+  }
+
+  /* Decorative background gradient orbs */
+  .pricing-section::before,
+  .pricing-section::after {
+    content: '';
+    position: absolute;
+    border-radius: var(--radius-full);
+    pointer-events: none;
+    filter: blur(80px);
+    opacity: 0.08;
+  }
+
+  .pricing-section::before {
+    top: 10%;
+    left: -5%;
+    width: 300px;
+    height: 300px;
+    background: var(--color-accent);
+  }
+
+  .pricing-section::after {
+    bottom: 10%;
+    right: -5%;
+    width: 250px;
+    height: 250px;
+    background: var(--color-accent-alt);
   }
 
   .pricing-section__container {
+    position: relative;
     max-width: var(--container-7xl);
     margin: 0 auto;
+    z-index: 1;
   }
 
   .pricing-section__header {
     text-align: center;
     margin-bottom: var(--spacing-12);
+  }
+
+  /* Apply section heading decoration */
+  .pricing-section__header-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Decorative dots above heading */
+  .pricing-section__header-wrapper::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    margin-bottom: var(--spacing-3);
+    background: var(--color-accent);
+    border-radius: var(--radius-full);
+    box-shadow:
+      -12px 0 0 var(--color-primary),
+      12px 0 0 var(--color-accent-alt);
+    opacity: 0.8;
+  }
+
+  /* Animated accent line below heading */
+  .pricing-section__header-wrapper::after {
+    content: '';
+    display: block;
+    width: 4rem;
+    height: 3px;
+    margin-top: var(--spacing-4);
+    background: linear-gradient(
+      90deg,
+      var(--color-primary) 0%,
+      var(--color-accent) 50%,
+      var(--color-accent-alt) 100%
+    );
+    background-size: 200% 100%;
+    border-radius: var(--radius-full);
+    animation: pricingAccentShimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes pricingAccentShimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 
   .pricing-section__heading {
@@ -1069,12 +1341,81 @@ const processPhases: ProcessPhase[] = [
     margin-bottom: var(--spacing-10);
   }
 
+  /* Staggered reveal animation for pricing cards */
+  .pricing-section__grid :global(.pricing-card) {
+    opacity: 0;
+    transform: translateY(var(--spacing-6));
+    animation: pricingCardReveal 0.6s var(--ease-out) forwards;
+  }
+
+  .pricing-section__grid :global(.pricing-card:nth-child(1)) {
+    animation-delay: 0.1s;
+  }
+
+  .pricing-section__grid :global(.pricing-card:nth-child(2)) {
+    animation-delay: 0.25s;
+  }
+
+  .pricing-section__grid :global(.pricing-card:nth-child(3)) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes pricingCardReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Enhanced pricing card hover with glow */
+  .pricing-section__grid :global(.pricing-card:hover) {
+    box-shadow: var(--shadow-lg), var(--glow-card-hover);
+  }
+
+  .pricing-section__grid :global(.pricing-card--popular:hover) {
+    box-shadow: var(--shadow-xl), var(--glow-primary-md);
+  }
+
   .pricing-section__note {
+    position: relative;
     text-align: center;
     padding: var(--spacing-6);
     background-color: var(--color-background-subtle);
     border-radius: var(--radius-xl);
     border: 1px solid var(--color-border);
+    overflow: hidden;
+    transition:
+      border-color var(--duration-200) var(--ease-out),
+      box-shadow var(--duration-200) var(--ease-out);
+  }
+
+  .pricing-section__note:hover {
+    border-color: var(--color-primary-200);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Subtle gradient accent on note */
+  .pricing-section__note::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-primary) 20%,
+      var(--color-accent) 50%,
+      var(--color-primary) 80%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity var(--duration-200) var(--ease-out);
+  }
+
+  .pricing-section__note:hover::before {
+    opacity: 1;
   }
 
   .pricing-section__note p {
@@ -1093,6 +1434,7 @@ const processPhases: ProcessPhase[] = [
     color: var(--color-primary);
     text-decoration: underline;
     text-underline-offset: 2px;
+    transition: color var(--duration-150) var(--ease-out);
   }
 
   .pricing-section__note a:hover {
@@ -1528,9 +1870,24 @@ const processPhases: ProcessPhase[] = [
 
     .services-hero__preview-card {
       transition: none;
+      animation: none;
     }
 
     .services-hero__preview-card:hover {
+      transform: none;
+    }
+
+    .services-hero__preview-card:hover .services-hero__preview-icon {
+      transform: none;
+    }
+
+    .services-hero__preview-card:hover .services-hero__preview-label {
+      color: var(--color-text-primary);
+    }
+
+    .services-hero__preview-card:hover .services-hero__preview-price {
+      background-color: var(--color-primary-50);
+      color: var(--color-primary);
       transform: none;
     }
 
@@ -1538,8 +1895,43 @@ const processPhases: ProcessPhase[] = [
       transform: none;
     }
 
+    .services-hero__cards-preview::before,
+    .services-hero__cards-preview::after {
+      display: none;
+    }
+
+    .services-hero__cards-preview:hover::after {
+      animation: none;
+    }
+
     .service-detail__icon {
       transition: none;
+    }
+
+    /* Services overview reduced motion */
+    .services-overview__header-wrapper::after {
+      animation: none;
+    }
+
+    .services-overview__cards :global(.service-card) {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    /* Pricing section reduced motion */
+    .pricing-section__header-wrapper::after {
+      animation: none;
+    }
+
+    .pricing-section__grid :global(.pricing-card) {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .pricing-section__grid :global(.pricing-card:hover) {
+      box-shadow: var(--shadow-lg);
     }
 
     .pricing-section__grid :global(.pricing-card--popular),
@@ -1547,9 +1939,40 @@ const processPhases: ProcessPhase[] = [
       transform: none;
     }
 
+    .pricing-section__note {
+      transition: none;
+    }
+
+    .pricing-section__note::before {
+      display: none;
+    }
+
     .cta-section :global(.btn:hover) {
       transform: none;
     }
+  }
+
+  /* =================================================================
+   * DARK MODE ADJUSTMENTS
+   * ================================================================= */
+
+  :global(html[data-theme="dark"]) .pricing-section::before,
+  :global(html[data-theme="dark"]) .pricing-section::after {
+    opacity: 0.05;
+  }
+
+  :global(html[data-theme="dark"]) .services-hero__cards-preview {
+    border-color: var(--color-border);
+    background: var(--color-background-elevated);
+  }
+
+  :global(html[data-theme="dark"]) .services-hero__preview-card {
+    background: var(--color-background-subtle);
+    border-color: var(--color-border);
+  }
+
+  :global(html[data-theme="dark"]) .services-hero__preview-card:hover {
+    border-color: var(--color-primary-400);
   }
 
   /* =================================================================
@@ -1577,6 +2000,23 @@ const processPhases: ProcessPhase[] = [
     .addons-section-wrapper,
     .process-section-wrapper {
       padding: var(--spacing-8) 0;
+    }
+
+    /* Hide decorative elements in print */
+    .services-overview__header-wrapper::before,
+    .services-overview__header-wrapper::after,
+    .pricing-section__header-wrapper::before,
+    .pricing-section__header-wrapper::after,
+    .pricing-section::before,
+    .pricing-section::after {
+      display: none;
+    }
+
+    .services-overview__cards :global(.service-card),
+    .pricing-section__grid :global(.pricing-card) {
+      opacity: 1;
+      transform: none;
+      animation: none;
     }
 
     .cta-section {

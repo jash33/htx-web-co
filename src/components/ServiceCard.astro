@@ -98,23 +98,75 @@ const cardClasses = [
     /* Box model */
     padding: var(--spacing-6);
 
+    /* Positioning for pseudo-elements */
+    position: relative;
+
     /* Visual */
     background-color: var(--color-background-elevated);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
 
+    /* Overflow for shine effect */
+    overflow: hidden;
+
     /* Animation */
     transition:
-      box-shadow var(--duration-200) var(--ease-in-out),
-      transform var(--duration-200) var(--ease-in-out),
-      border-color var(--duration-200) var(--ease-in-out);
+      box-shadow var(--duration-300) var(--ease-out),
+      transform var(--duration-300) var(--ease-out),
+      border-color var(--duration-300) var(--ease-out);
+  }
+
+  /* Gradient border glow effect - appears on hover */
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-400) 0%,
+      var(--color-accent) 50%,
+      var(--color-accent-alt) 100%
+    );
+    border-radius: calc(var(--radius-xl) + 2px);
+    opacity: 0;
+    z-index: -1;
+    filter: blur(8px);
+    transition: opacity var(--duration-300) var(--ease-out);
+  }
+
+  /* Shine sweep effect */
+  .service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 100%
+    );
+    transform: skewX(-20deg);
+    transition: left var(--duration-700) var(--ease-out);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .service-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
-    border-color: var(--color-primary-200);
+    box-shadow: var(--shadow-lg), var(--glow-card-hover);
+    transform: translateY(-6px);
+    border-color: var(--color-primary-300);
+  }
+
+  .service-card:hover::before {
+    opacity: 0.35;
+  }
+
+  .service-card:hover::after {
+    left: 150%;
   }
 
   /* Icon Container */
@@ -124,22 +176,38 @@ const cardClasses = [
     justify-content: center;
     width: var(--spacing-14);
     height: var(--spacing-14);
-    background-color: var(--color-primary-50);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-50) 0%,
+      var(--color-primary-100) 100%
+    );
     border-radius: var(--radius-lg);
     color: var(--color-primary);
+    position: relative;
     transition:
-      background-color var(--duration-200) var(--ease-in-out),
-      transform var(--duration-200) var(--ease-in-out);
+      background var(--duration-300) var(--ease-out),
+      transform var(--duration-300) var(--ease-spring-soft),
+      box-shadow var(--duration-300) var(--ease-out);
   }
 
   .service-card:hover .service-card__icon {
-    background-color: var(--color-primary-100);
-    transform: scale(1.05);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-100) 0%,
+      var(--color-primary-200) 100%
+    );
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: var(--glow-primary-sm);
   }
 
   .service-card__icon :global(svg) {
     width: var(--spacing-7);
     height: var(--spacing-7);
+    transition: transform var(--duration-300) var(--ease-spring-soft);
+  }
+
+  .service-card:hover .service-card__icon :global(svg) {
+    transform: scale(1.05);
   }
 
   /* Content Area */
@@ -157,6 +225,11 @@ const cardClasses = [
     color: var(--color-text-primary);
     margin: 0;
     line-height: var(--line-height-tight);
+    transition: color var(--duration-200) var(--ease-out);
+  }
+
+  .service-card:hover .service-card__title {
+    color: var(--color-primary);
   }
 
   .service-card__description {
@@ -165,6 +238,11 @@ const cardClasses = [
     color: var(--color-text-secondary);
     line-height: var(--line-height-relaxed);
     margin: 0;
+    transition: color var(--duration-200) var(--ease-out);
+  }
+
+  .service-card:hover .service-card__description {
+    color: var(--color-text-primary);
   }
 
   /* Footer with CTA */
@@ -207,15 +285,30 @@ const cardClasses = [
    */
   @media (prefers-reduced-motion: reduce) {
     .service-card,
-    .service-card__icon {
+    .service-card__icon,
+    .service-card__title,
+    .service-card__description,
+    .service-card__icon :global(svg) {
       transition: none;
+    }
+
+    .service-card::before,
+    .service-card::after {
+      display: none;
     }
 
     .service-card:hover {
       transform: none;
+      /* Keep subtle visual feedback without motion */
+      box-shadow: var(--shadow-lg);
     }
 
     .service-card:hover .service-card__icon {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .service-card:hover .service-card__icon :global(svg) {
       transform: none;
     }
   }
