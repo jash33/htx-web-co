@@ -11,15 +11,23 @@
  * - Semantic HTML structure for accessibility and SEO
  * - Smooth responsive scaling without horizontal scroll
  * - Optional secondary CTA button
+ * - Animated grid background with moving glow effect
  * - Floating gradient orbs background animation
  *
  * Background Animation:
- * The hero features elegant floating gradient orbs that create a modern,
- * calming tech aesthetic. The animation consists of:
- * - 5 large, soft, blurred gradient circles in purple/blue/cyan tones
- * - Each orb has a unique slow floating path for organic movement
- * - Orbs scale up on larger screens for a richer visual experience
- * - GPU-accelerated transforms for smooth 60fps performance
+ * The hero features two layered background animations:
+ *
+ * 1. Animated Grid:
+ *    - Subtle grid lines that slowly move diagonally
+ *    - A glowing highlight that travels across the grid
+ *    - Responsive grid sizing (50px mobile → 80px desktop)
+ *    - Creates a modern tech/digital aesthetic
+ *
+ * 2. Floating Gradient Orbs:
+ *    - 5 large, soft, blurred gradient circles in purple/blue/cyan tones
+ *    - Each orb has a unique slow floating path for organic movement
+ *    - Orbs scale up on larger screens for a richer visual experience
+ *    - GPU-accelerated transforms for smooth 60fps performance
  *
  * Accessibility:
  * - Animation respects `prefers-reduced-motion` (static fallback)
@@ -151,6 +159,12 @@ const trustIcons: Record<string, string> = {
   </div>
 
   <div class="hero__background" aria-hidden="true"></div>
+
+  <!-- Animated Grid Background -->
+  <div class="hero__grid-bg" aria-hidden="true">
+    <div class="hero__grid-lines"></div>
+    <div class="hero__grid-glow"></div>
+  </div>
 
   <!-- Floating Gradient Orbs Animation -->
   <div class="hero__orbs" aria-hidden="true">
@@ -677,6 +691,188 @@ const trustIcons: Record<string, string> = {
   }
 
   /* =================================================================
+   * ANIMATED GRID BACKGROUND
+   * =================================================================
+   * A subtle, animated grid pattern that creates depth and tech aesthetic.
+   * Features a pulsing glow effect that travels across the grid.
+   * Uses CSS gradients for performance and GPU-accelerated animations.
+   */
+
+  .hero__grid-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    opacity: 0.6;
+  }
+
+  .hero__grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 8s linear infinite, gridPulse 2s ease-in-out infinite;
+  }
+
+  /* Glowing highlight that moves across the grid
+   * Uses multiple layered gradients with staggered animations
+   * for smoother, more organic movement */
+  .hero__grid-glow {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Primary glow - moves in a smooth circular path */
+  .hero__grid-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        ellipse 500px 350px at 50% 50%,
+        rgba(139, 92, 246, 0.2) 0%,
+        rgba(59, 130, 246, 0.12) 40%,
+        transparent 70%
+      );
+    animation: gridGlowFloat1 12s ease-in-out infinite;
+    opacity: 0.8;
+  }
+
+  /* Secondary glow - moves in opposite direction for depth */
+  .hero__grid-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        ellipse 400px 300px at 50% 50%,
+        rgba(99, 102, 241, 0.18) 0%,
+        rgba(139, 92, 246, 0.1) 40%,
+        transparent 70%
+      );
+    animation: gridGlowFloat2 15s ease-in-out infinite;
+    opacity: 0.7;
+  }
+
+  @keyframes gridMove {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(50px, 50px);
+    }
+  }
+
+  @keyframes gridPulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  /* Smooth circular motion for primary glow */
+  @keyframes gridGlowFloat1 {
+    0% {
+      transform: translate(-20%, -15%);
+    }
+    25% {
+      transform: translate(25%, -10%);
+    }
+    50% {
+      transform: translate(20%, 20%);
+    }
+    75% {
+      transform: translate(-15%, 15%);
+    }
+    100% {
+      transform: translate(-20%, -15%);
+    }
+  }
+
+  /* Counter-rotating motion for secondary glow */
+  @keyframes gridGlowFloat2 {
+    0% {
+      transform: translate(15%, 20%);
+    }
+    33% {
+      transform: translate(-20%, 5%);
+    }
+    66% {
+      transform: translate(10%, -20%);
+    }
+    100% {
+      transform: translate(15%, 20%);
+    }
+  }
+
+  /* Responsive grid sizing */
+  @media screen and (min-width: 640px) {
+    .hero__grid-lines {
+      background-size: 60px 60px;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+    }
+
+    @keyframes gridMove {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(60px, 60px);
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .hero__grid-bg {
+      opacity: 0.7;
+    }
+
+    .hero__grid-lines {
+      background-size: 80px 80px;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    }
+
+    @keyframes gridMove {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(80px, 80px);
+      }
+    }
+
+    /* Larger glows on desktop */
+    .hero__grid-glow::before {
+      background:
+        radial-gradient(
+          ellipse 700px 450px at 50% 50%,
+          rgba(139, 92, 246, 0.25) 0%,
+          rgba(59, 130, 246, 0.15) 40%,
+          transparent 70%
+        );
+    }
+
+    .hero__grid-glow::after {
+      background:
+        radial-gradient(
+          ellipse 550px 400px at 50% 50%,
+          rgba(99, 102, 241, 0.2) 0%,
+          rgba(139, 92, 246, 0.12) 40%,
+          transparent 70%
+        );
+    }
+  }
+
+  /* =================================================================
    * FLOATING GRADIENT ORBS
    * =================================================================
    * Elegant, large gradient orbs that slowly float and pulse.
@@ -1183,6 +1379,14 @@ const trustIcons: Record<string, string> = {
       animation: none;
     }
 
+    /* Disable animated grid - all animations including pulse and glow */
+    .hero__grid-lines,
+    .hero__grid-glow,
+    .hero__grid-glow::before,
+    .hero__grid-glow::after {
+      animation: none !important;
+    }
+
     .hero :global(.btn:hover:not(.btn--disabled)) {
       transform: none;
     }
@@ -1231,7 +1435,8 @@ const trustIcons: Record<string, string> = {
     .hero__skyline,
     .hero__accent-shape,
     .hero__mockup-glow,
-    .hero__orbs {
+    .hero__orbs,
+    .hero__grid-bg {
       display: none;
     }
   }
@@ -1272,7 +1477,8 @@ const trustIcons: Record<string, string> = {
     .hero__skyline,
     .hero__accent-shape,
     .hero__mockup,
-    .hero__orbs {
+    .hero__orbs,
+    .hero__grid-bg {
       display: none;
     }
 

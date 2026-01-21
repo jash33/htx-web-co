@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "fix typescript errors in analytics.ts file.",
+  "title": "Fix TypeScript errors in analytics module",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1768701665746-u00mvh8x8",
+  "descriptionHistory": [
+    {
+      "description": "fix typescript errors in analytics.ts file.",
+      "timestamp": "2026-01-18T02:01:05.913Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-18T02:01:06.929Z",
+  "updatedAt": "2026-01-18T02:02:22.052Z",
+  "justFinishedAt": "2026-01-18T02:02:22.052Z"
+}

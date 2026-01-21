@@ -119,6 +119,8 @@ export interface GA4ConsentMode {
   wait_for_update?: number;
   /** Regions for this consent configuration */
   region?: string[];
+  /** Index signature for gtag compatibility */
+  [key: string]: ConsentStatus | number | string[] | undefined;
 }
 
 // =================================================================
@@ -278,6 +280,8 @@ export interface UserProperties {
   /** Consent status */
   consent_analytics?: boolean;
   consent_marketing?: boolean;
+  /** Index signature for gtag compatibility */
+  [key: string]: string | boolean | undefined;
 }
 
 // =================================================================
