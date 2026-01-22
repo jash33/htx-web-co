@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "notifications": [
+    {
+      "id": "d6599eea-8018-4245-b705-541a665b0939",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1769060644704-gzttgd8ez\" is ready for your review and approval.",
+      "createdAt": "2026-01-22T05:46:02.286Z",
+      "read": false,
+      "dismissed": true,
+      "featureId": "feature-1769060644704-gzttgd8ez",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    }
+  ]
+}

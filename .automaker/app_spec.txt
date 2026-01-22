@@ -83,6 +83,10 @@
         <location>.vscode/launch.json</location>
       </file_locations>
     </feature>
+    <feature>
+      <name>Remove diamond shape from fancy border</name>
+      <description>on the home page, the fancy border has a diamond shape at the bottom-center. could you remove it </description>
+    </feature>
   </implemented_features>
 
   <additional_requirements>

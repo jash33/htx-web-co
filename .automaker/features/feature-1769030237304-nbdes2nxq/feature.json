@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "Add more detail to the little website-mockup thing on the home page.",
+  "title": "Enhance website mockup component with additional details",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1769030237304-nbdes2nxq",
+  "descriptionHistory": [
+    {
+      "description": "Add more detail to the little website-mockup thing on the home page.",
+      "timestamp": "2026-01-21T21:17:17.459Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-21T22:34:37.184Z",
+  "updatedAt": "2026-01-21T22:40:05.433Z",
+  "justFinishedAt": "2026-01-21T22:40:05.433Z"
+}

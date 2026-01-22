@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "on the home page, the fancy border has a diamond shape at the bottom-center. could you remove it ",
+  "title": "Remove diamond shape from fancy border",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "master",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1769060644704-gzttgd8ez",
+  "descriptionHistory": [
+    {
+      "description": "on the home page, the fancy border has a diamond shape at the bottom-center. could you remove it ",
+      "timestamp": "2026-01-22T05:44:04.748Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-22T05:44:07.569Z",
+  "updatedAt": "2026-01-22T05:44:07.769Z"
+}

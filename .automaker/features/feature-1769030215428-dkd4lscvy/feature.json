@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "make the moving grid background slightly more prominent (more brightness?)",
+  "title": "Make moving grid background more prominent",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1769030215428-dkd4lscvy",
+  "descriptionHistory": [
+    {
+      "description": "make the moving grid background slightly more prominent (more brightness?)",
+      "timestamp": "2026-01-21T21:16:55.595Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-21T21:16:56.579Z",
+  "updatedAt": "2026-01-21T21:18:27.745Z",
+  "justFinishedAt": "2026-01-21T21:18:27.745Z"
+}

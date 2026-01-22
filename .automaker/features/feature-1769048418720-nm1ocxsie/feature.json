@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "can you make the \"skyline\" effect on the homepage taller and more prominent?",
+  "title": "Increase homepage skyline effect height and prominence",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1769048418720-nm1ocxsie",
+  "descriptionHistory": [
+    {
+      "description": "can you make the \"skyline\" effect on the homepage taller and more prominent?",
+      "timestamp": "2026-01-22T02:20:18.809Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-22T03:46:06.216Z",
+  "updatedAt": "2026-01-22T03:47:07.876Z",
+  "justFinishedAt": "2026-01-22T03:47:07.876Z"
+}

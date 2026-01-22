@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "events": [
+    {
+      "id": "evt-1769060762297-421abf63",
+      "trigger": "feature_success",
+      "timestamp": "2026-01-22T05:46:02.297Z",
+      "featureName": "",
+      "featureId": "feature-1769060644704-gzttgd8ez"
+    },
+    {
+      "id": "evt-1769060644754-45ec7f6c",
+      "trigger": "feature_created",
+      "timestamp": "2026-01-22T05:44:04.754Z",
+      "featureId": "feature-1769060644704-gzttgd8ez"
+    }
+  ]
+}

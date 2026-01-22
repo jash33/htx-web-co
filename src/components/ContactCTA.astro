@@ -135,6 +135,51 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
     <div class="contact-cta__bg-glow contact-cta__bg-glow--1"></div>
     <div class="contact-cta__bg-glow contact-cta__bg-glow--2"></div>
   </div>
+
+  <!-- Fancy Interior Border -->
+  <div class="contact-cta__interior-border" aria-hidden="true">
+    <div class="contact-cta__border-line contact-cta__border-line--top"></div>
+    <div class="contact-cta__border-line contact-cta__border-line--right"></div>
+    <div class="contact-cta__border-line contact-cta__border-line--bottom"></div>
+    <div class="contact-cta__border-line contact-cta__border-line--left"></div>
+    <div class="contact-cta__border-corner contact-cta__border-corner--top-left">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 40V0H40" stroke="currentColor" stroke-width="2" fill="none"/>
+        <circle cx="0" cy="0" r="4" fill="currentColor"/>
+        <path d="M8 0L0 8" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 0L0 16" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="contact-cta__border-corner contact-cta__border-corner--top-right">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 40V0H0" stroke="currentColor" stroke-width="2" fill="none"/>
+        <circle cx="40" cy="0" r="4" fill="currentColor"/>
+        <path d="M32 0L40 8" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M24 0L40 16" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="contact-cta__border-corner contact-cta__border-corner--bottom-left">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0V40H40" stroke="currentColor" stroke-width="2" fill="none"/>
+        <circle cx="0" cy="40" r="4" fill="currentColor"/>
+        <path d="M8 40L0 32" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 40L0 24" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="contact-cta__border-corner contact-cta__border-corner--bottom-right">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 0V40H0" stroke="currentColor" stroke-width="2" fill="none"/>
+        <circle cx="40" cy="40" r="4" fill="currentColor"/>
+        <path d="M32 40L40 32" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M24 40L40 24" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="contact-cta__border-diamond contact-cta__border-diamond--top">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 0L16 8L8 16L0 8L8 0Z" fill="currentColor"/>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -611,6 +656,143 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
   }
 
   /* =================================================================
+   * FANCY INTERIOR BORDER
+   * =================================================================
+   * An elegant white ornamental border that frames the CTA section
+   * with decorative corners and diamond accents (matches HeroSection)
+   */
+
+  .contact-cta__interior-border {
+    position: absolute;
+    inset: var(--spacing-4);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity var(--duration-500) var(--ease-out);
+  }
+
+  .contact-cta--contrast .contact-cta__interior-border {
+    opacity: 1;
+  }
+
+  /* Border lines with gradient fade effect */
+  .contact-cta__border-line {
+    position: absolute;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.15) 10%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.15) 90%,
+      transparent 100%
+    );
+  }
+
+  .contact-cta__border-line--top,
+  .contact-cta__border-line--bottom {
+    left: 50px;
+    right: 50px;
+    height: 1px;
+  }
+
+  .contact-cta__border-line--top {
+    top: 0;
+  }
+
+  .contact-cta__border-line--bottom {
+    bottom: 0;
+  }
+
+  .contact-cta__border-line--left,
+  .contact-cta__border-line--right {
+    top: 50px;
+    bottom: 50px;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.15) 10%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.15) 90%,
+      transparent 100%
+    );
+  }
+
+  .contact-cta__border-line--left {
+    left: 0;
+  }
+
+  .contact-cta__border-line--right {
+    right: 0;
+  }
+
+  /* Decorative corner ornaments */
+  .contact-cta__border-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color var(--duration-300) var(--ease-out);
+  }
+
+  .contact-cta__border-corner svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .contact-cta__border-corner--top-left {
+    top: 0;
+    left: 0;
+  }
+
+  .contact-cta__border-corner--top-right {
+    top: 0;
+    right: 0;
+  }
+
+  .contact-cta__border-corner--bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+
+  .contact-cta__border-corner--bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+
+  /* Diamond accent ornaments */
+  .contact-cta__border-diamond {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+    animation: ctaDiamondPulse 3s ease-in-out infinite;
+  }
+
+  .contact-cta__border-diamond svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .contact-cta__border-diamond--top {
+    top: -6px;
+  }
+
+  @keyframes ctaDiamondPulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(-50%) scale(1.2);
+    }
+  }
+
+  /* =================================================================
    * RESPONSIVE STYLES - Tablet (640px+)
    * =================================================================
    */
@@ -618,6 +800,36 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
   @media screen and (min-width: 640px) {
     .contact-cta {
       padding: var(--spacing-20) var(--spacing-6);
+    }
+
+    .contact-cta__interior-border {
+      inset: var(--spacing-6);
+    }
+
+    .contact-cta__border-corner {
+      width: 50px;
+      height: 50px;
+    }
+
+    .contact-cta__border-line--top,
+    .contact-cta__border-line--bottom {
+      left: 60px;
+      right: 60px;
+    }
+
+    .contact-cta__border-line--left,
+    .contact-cta__border-line--right {
+      top: 60px;
+      bottom: 60px;
+    }
+
+    .contact-cta__border-diamond {
+      width: 14px;
+      height: 14px;
+    }
+
+    .contact-cta__border-diamond--top {
+      top: -7px;
     }
 
     .contact-cta__content {
@@ -720,6 +932,61 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
     .contact-cta__buttons {
       gap: var(--spacing-6);
       margin-top: var(--spacing-6);
+    }
+
+    /* Interior border - desktop enhancements */
+    .contact-cta__interior-border {
+      inset: var(--spacing-8);
+    }
+
+    .contact-cta__border-corner {
+      width: 60px;
+      height: 60px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .contact-cta__border-line {
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 15%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.2) 85%,
+        transparent 100%
+      );
+    }
+
+    .contact-cta__border-line--left,
+    .contact-cta__border-line--right {
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 15%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.2) 85%,
+        transparent 100%
+      );
+    }
+
+    .contact-cta__border-line--top,
+    .contact-cta__border-line--bottom {
+      left: 80px;
+      right: 80px;
+    }
+
+    .contact-cta__border-line--left,
+    .contact-cta__border-line--right {
+      top: 80px;
+      bottom: 80px;
+    }
+
+    .contact-cta__border-diamond {
+      width: 16px;
+      height: 16px;
+    }
+
+    .contact-cta__border-diamond--top {
+      top: -8px;
     }
   }
 
@@ -827,6 +1094,11 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
     .contact-cta__trust-signal:hover .contact-cta__trust-icon :global(svg) {
       transform: none;
     }
+
+    /* Disable interior border diamond animation */
+    .contact-cta__border-diamond {
+      animation: none;
+    }
   }
 
   /* =================================================================
@@ -867,6 +1139,10 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
     }
 
     .contact-cta__background {
+      display: none;
+    }
+
+    .contact-cta__interior-border {
       display: none;
     }
   }
@@ -918,6 +1194,10 @@ const displayTrustSignals = trustSignals.length > 0 ? trustSignals : defaultTrus
     }
 
     .contact-cta__buttons {
+      display: none;
+    }
+
+    .contact-cta__interior-border {
       display: none;
     }
   }

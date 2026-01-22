@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "Let's continue to iterate on the little micro-website example shown on the homepage. It could still use a little more detail, but what we have so far is excellent.",
+  "title": "Enhance homepage micro-website example with additional details",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1769056884100-0mns9246c",
+  "descriptionHistory": [
+    {
+      "description": "Let's continue to iterate on the little micro-website example shown on the homepage. It could still use a little more detail, but what we have so far is excellent.",
+      "timestamp": "2026-01-22T04:41:24.259Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-22T05:28:44.715Z",
+  "updatedAt": "2026-01-22T05:29:42.303Z",
+  "justFinishedAt": "2026-01-22T05:29:42.303Z"
+}
