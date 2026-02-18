@@ -25,7 +25,7 @@ export const FEATURED_PROJECTS: Project[] = [
     title: 'Houston Energy Consulting',
     description: 'A professional website for a Houston-based energy consulting firm featuring a modern design, custom CMS integration, and lead generation forms that increased client inquiries by 150%.',
     thumbnail: {
-      src: '/portfolio/energy-consulting.svg',
+      src: '/htx-web-co/portfolio/energy-consulting.svg',
       alt: 'Houston Energy Consulting website homepage showing professional dark blue design with energy industry imagery',
       width: 600,
       height: 400,
@@ -48,7 +48,7 @@ export const FEATURED_PROJECTS: Project[] = [
     title: 'Houston Family Dental Care',
     description: 'Complete website redesign for a dental practice in Houston, TX. Includes online appointment booking, patient portal integration, and HIPAA-compliant contact forms.',
     thumbnail: {
-      src: '/portfolio/dental-care.svg',
+      src: '/htx-web-co/portfolio/dental-care.svg',
       alt: 'Houston Family Dental Care website with bright, welcoming design and appointment booking interface',
       width: 600,
       height: 400,
@@ -64,7 +64,7 @@ export const FEATURED_PROJECTS: Project[] = [
     completedDate: '2024-10-20',
     links: [
       { text: 'View Live Site', href: 'https://example-dental.com', type: 'live-site', openInNewTab: true },
-      { text: 'Case Study', href: '/case-studies/dental-care', type: 'case-study' },
+      { text: 'Case Study', href: '/htx-web-co/case-studies/dental-care', type: 'case-study' },
     ],
   },
   {
@@ -72,7 +72,7 @@ export const FEATURED_PROJECTS: Project[] = [
     title: 'Texas Realty Partners',
     description: 'Real estate listing platform with MLS integration, property search filters, virtual tour support, and agent dashboard. Built for mobile-first browsing experience.',
     thumbnail: {
-      src: '/portfolio/real-estate.svg',
+      src: '/htx-web-co/portfolio/real-estate.svg',
       alt: 'Texas Realty Partners website with property listings and advanced search functionality',
       width: 600,
       height: 400,
@@ -107,7 +107,7 @@ export const FEATURED_PROJECTS_CONFIG = {
   viewAllText: 'View All Projects',
 
   /** URL for the "View All" call-to-action button */
-  viewAllHref: '/portfolio',
+  viewAllHref: '/htx-web-co/portfolio',
 
   /** Section ID for anchor linking */
   id: 'featured-projects',

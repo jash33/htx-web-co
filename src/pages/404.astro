@@ -26,19 +26,19 @@ const searchParams = Astro.url.searchParams;
 
 // Navigation links for quick access
 const quickLinks = [
-  { href: '/', label: 'Homepage', description: 'Return to our main page' },
-  { href: '/services', label: 'Services', description: 'Explore our web solutions' },
-  { href: '/portfolio', label: 'Portfolio', description: 'View our recent projects' },
-  { href: '/contact', label: 'Contact Us', description: 'Get in touch with our team' },
-  { href: '/about', label: 'About Us', description: 'Learn more about our company' },
+  { href: '/htx-web-co/', label: 'Homepage', description: 'Return to our main page' },
+  { href: '/htx-web-co/services', label: 'Services', description: 'Explore our web solutions' },
+  { href: '/htx-web-co/portfolio', label: 'Portfolio', description: 'View our recent projects' },
+  { href: '/htx-web-co/contact', label: 'Contact Us', description: 'Get in touch with our team' },
+  { href: '/htx-web-co/about', label: 'About Us', description: 'Learn more about our company' },
 ];
 
 // Popular/suggested pages
 const popularPages = [
-  { href: '/services', label: 'Web Design Services' },
-  { href: '/services', label: 'SEO Optimization' },
-  { href: '/portfolio', label: 'Our Work' },
-  { href: '/contact', label: 'Request a Quote' },
+  { href: '/htx-web-co/services', label: 'Web Design Services' },
+  { href: '/htx-web-co/services', label: 'SEO Optimization' },
+  { href: '/htx-web-co/portfolio', label: 'Our Work' },
+  { href: '/htx-web-co/contact', label: 'Request a Quote' },
 ];
 
 // Helper function to get contextual suggestions based on URL pattern
@@ -49,35 +49,35 @@ function getContextualSuggestion(path: string): { message: string; suggestedLink
   if (pathLower.includes('service') || pathLower.includes('pricing') || pathLower.includes('plan')) {
     return {
       message: 'Looking for our services?',
-      suggestedLink: { href: '/services', label: 'View Our Services' }
+      suggestedLink: { href: '/htx-web-co/services', label: 'View Our Services' }
     };
   }
 
   if (pathLower.includes('portfolio') || pathLower.includes('project') || pathLower.includes('work') || pathLower.includes('case')) {
     return {
       message: 'Want to see our work?',
-      suggestedLink: { href: '/portfolio', label: 'View Our Portfolio' }
+      suggestedLink: { href: '/htx-web-co/portfolio', label: 'View Our Portfolio' }
     };
   }
 
   if (pathLower.includes('contact') || pathLower.includes('quote') || pathLower.includes('inquiry') || pathLower.includes('email')) {
     return {
       message: 'Need to get in touch?',
-      suggestedLink: { href: '/contact', label: 'Contact Us' }
+      suggestedLink: { href: '/htx-web-co/contact', label: 'Contact Us' }
     };
   }
 
   if (pathLower.includes('about') || pathLower.includes('team') || pathLower.includes('company') || pathLower.includes('who')) {
     return {
       message: 'Want to learn more about us?',
-      suggestedLink: { href: '/about', label: 'About Our Company' }
+      suggestedLink: { href: '/htx-web-co/about', label: 'About Our Company' }
     };
   }
 
   if (pathLower.includes('blog') || pathLower.includes('article') || pathLower.includes('news') || pathLower.includes('post')) {
     return {
       message: 'Looking for articles or news?',
-      suggestedLink: { href: '/', label: 'Visit Our Homepage' }
+      suggestedLink: { href: '/htx-web-co/', label: 'Visit Our Homepage' }
     };
   }
 
@@ -152,7 +152,7 @@ const icons = {
         <div class="error-page__actions">
           <Button
             text="Go to Homepage"
-            href="/"
+            href="/htx-web-co/"
             variant="primary"
             size="large"
           >
@@ -160,7 +160,7 @@ const icons = {
           </Button>
           <Button
             text="Contact Support"
-            href="/contact"
+            href="/htx-web-co/contact"
             variant="secondary"
             size="large"
           />
@@ -240,7 +240,7 @@ const icons = {
       <div class="error-page__help">
         <p class="error-page__help-text">
           Still can't find what you're looking for?
-          <a href="/contact" class="error-page__help-link">Contact us</a> and we'll help you find it.
+          <a href="/htx-web-co/contact" class="error-page__help-link">Contact us</a> and we'll help you find it.
         </p>
       </div>
     </div>
