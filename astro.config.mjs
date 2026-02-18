@@ -8,7 +8,7 @@ export default defineConfig({
   site: "https://jash33.github.io", // TODO: Set this to your actual production domain
   base: "/htx-web-co",
 
-  // Build optimizations
+  // Build optimizations!
   build: {
     // Inline stylesheets smaller than 4kb
     inlineStylesheets: "auto",
