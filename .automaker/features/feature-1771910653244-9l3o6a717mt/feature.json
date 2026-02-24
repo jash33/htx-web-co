@@ -1,0 +1,32 @@
+{
+  "category": "Uncategorized",
+  "description": "can we modify the logo.svg so that we pull the portion on the right (outsidde the dark container) down a few pixels so it looks vertically centered?",
+  "title": "Update logo.svg right portion vertical alignment",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771910653244-9l3o6a717mt",
+  "descriptionHistory": [
+    {
+      "description": "can we modify the logo.svg so that we pull the portion on the right (outsidde the dark container) down a few pixels so it looks vertically centered?",
+      "timestamp": "2026-02-24T05:24:13.875Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T05:24:13.894Z",
+  "updatedAt": "2026-02-24T05:24:50.857Z",
+  "justFinishedAt": "2026-02-24T05:24:50.844Z",
+  "summary": "## Summary: Vertically center logo wordmark text\n\n### Changes Implemented\n- Adjusted the y-coordinate of the \"HTX\" wordmark text from y=\"85\" to y=\"90\" (moved down 5 pixels)\n- Adjusted the y-coordinate of the \"WEB CO.\" subtitle text from y=\"120\" to y=\"125\" (moved down 5 pixels)\n- Both text elements maintain their relative positioning to each other while being shifted down to appear more vertically centered with the dark container on the left\n\n### Files Modified\n- `src/assets/logo.svg`\n\n### Notes for Developer\n- The text was shifted down by 5 pixels which should provide a more balanced vertical alignment with the monogram container (which spans y=40 to y=140, centered at y=90)\n- If further adjustment is needed, the y values can be fine-tuned - increase the y values to move text further down, decrease to move up"
+}

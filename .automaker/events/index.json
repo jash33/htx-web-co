@@ -2,6 +2,306 @@
   "version": 1,
   "events": [
     {
+      "id": "evt-1771910690871-13fa4c84",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T05:24:50.871Z",
+      "featureName": "Update logo.svg right portion vertical alignment",
+      "featureId": "feature-1771910653244-9l3o6a717mt"
+    },
+    {
+      "id": "evt-1771910653877-729019a0",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T05:24:13.877Z",
+      "featureName": "Untitled Feature",
+      "featureId": "feature-1771910653244-9l3o6a717mt"
+    },
+    {
+      "id": "evt-1771910605277-a518b4fb",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T05:23:25.277Z",
+      "featureName": "Make navbar white in light mode",
+      "featureId": "feature-1771910485289-xrhyvei1qx"
+    },
+    {
+      "id": "evt-1771910485311-ddd63a83",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T05:21:25.311Z",
+      "featureName": "Untitled Feature",
+      "featureId": "feature-1771910485289-xrhyvei1qx"
+    },
+    {
+      "id": "evt-1771910332682-a9567b4f",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T05:18:52.682Z",
+      "featureName": "Fix contact email addresses to james@htxweb.com",
+      "featureId": "feature-1771910278065-0icpvgl8h0n8"
+    },
+    {
+      "id": "evt-1771910279373-1656c3ba",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T05:17:59.373Z",
+      "featureName": "Remove Houston skyline from hero section",
+      "featureId": "feature-1771910118049-5zy1cd3wev5"
+    },
+    {
+      "id": "evt-1771910278083-887b116a",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T05:17:58.083Z",
+      "featureName": "Untitled Feature",
+      "featureId": "feature-1771910278065-0icpvgl8h0n8"
+    },
+    {
+      "id": "evt-1771910201719-7898cc43",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T05:16:41.719Z",
+      "featureName": "Fix oversized SVG logo in navbar",
+      "featureId": "feature-1771909614642-n4sb5ot1y1"
+    },
+    {
+      "id": "evt-1771910196215-473e19aa",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T05:16:36.215Z",
+      "featureName": "I'd be happy to help, but I don't see a screenshot attached to your message. Could you please share the screenshot so I can see the cards and the \"Learn More\" button visibility issue you're describing?\n\nOnce you provide the image, I'll generate a concise title for the feature.",
+      "featureId": "feature-1771910094265-ftemffrrgp9"
+    },
+    {
+      "id": "evt-1771910126255-e4a66d75",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T05:15:26.255Z",
+      "featureName": "Increase navbar logo size to double",
+      "featureId": "feature-1771910036259-6jdhagzf9qa"
+    },
+    {
+      "id": "evt-1771910118068-03d73d7f",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T05:15:18.068Z",
+      "featureName": "Untitled Feature",
+      "featureId": "feature-1771910118049-5zy1cd3wev5"
+    },
+    {
+      "id": "evt-1771910094291-669f7dfd",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T05:14:54.292Z",
+      "featureName": "Untitled Feature",
+      "featureId": "feature-1771910094265-ftemffrrgp9"
+    },
+    {
+      "id": "evt-1771910036280-e335e4be",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T05:13:56.280Z",
+      "featureName": "Untitled Feature",
+      "featureId": "feature-1771910036259-6jdhagzf9qa"
+    },
+    {
+      "id": "evt-1771909695228-c68c415f",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T05:08:15.228Z",
+      "featureName": "Fix oversized SVG logo in navbar",
+      "featureId": "feature-1771909614642-n4sb5ot1y1"
+    },
+    {
+      "id": "evt-1771909614665-9630f513",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T05:06:54.665Z",
+      "featureName": "Untitled Feature",
+      "featureId": "feature-1771909614642-n4sb5ot1y1"
+    },
+    {
+      "id": "evt-1771909558816-f96e115b",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T05:05:58.816Z",
+      "featureName": "Increase favicon size in browser tab",
+      "featureId": "feature-1771909488750-qthxmts0joh"
+    },
+    {
+      "id": "evt-1771909489074-ed18389f",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T05:04:49.074Z",
+      "featureName": "Untitled Feature",
+      "featureId": "feature-1771909488750-qthxmts0joh"
+    },
+    {
+      "id": "evt-1771909351249-93017512",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T05:02:31.249Z",
+      "featureName": "Adjust card layout to horizontal rectangular format",
+      "featureId": "feature-1771905580701-td9y4xn7m"
+    },
+    {
+      "id": "evt-1771906540175-c2d94007",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T04:15:40.175Z",
+      "featureName": "",
+      "featureId": "feature-1771906426560-2siuwa1se"
+    },
+    {
+      "id": "evt-1771906426586-0bbf1264",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T04:13:46.586Z",
+      "featureId": "feature-1771906426560-2siuwa1se"
+    },
+    {
+      "id": "evt-1771906341678-d9896f70",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T04:12:21.678Z",
+      "featureName": "Fix logo visibility on light mode",
+      "featureId": "feature-1771906022843-d0lv7isji"
+    },
+    {
+      "id": "evt-1771906295159-8f916ae7",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T04:11:35.159Z",
+      "featureName": "",
+      "featureId": "feature-1771906235087-wxzilwyxm"
+    },
+    {
+      "id": "evt-1771906235104-78290e6a",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T04:10:35.104Z",
+      "featureId": "feature-1771906235087-wxzilwyxm"
+    },
+    {
+      "id": "evt-1771906205206-c837170f",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T04:10:05.206Z",
+      "featureName": "Fix logo visibility on light mode",
+      "featureId": "feature-1771906022843-d0lv7isji"
+    },
+    {
+      "id": "evt-1771906162543-447846d5",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T04:09:22.543Z",
+      "featureName": "Adjust card layout to horizontal rectangular format",
+      "featureId": "feature-1771905580701-td9y4xn7m"
+    },
+    {
+      "id": "evt-1771906105128-7a7adc6d",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T04:08:25.128Z",
+      "featureName": "Adjust card layout to horizontal rectangular format",
+      "featureId": "feature-1771905580701-td9y4xn7m"
+    },
+    {
+      "id": "evt-1771906098117-801e5ae5",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T04:08:18.117Z",
+      "featureName": "",
+      "featureId": "feature-1771906022843-d0lv7isji"
+    },
+    {
+      "id": "evt-1771906022863-ced79a5b",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T04:07:02.863Z",
+      "featureId": "feature-1771906022843-d0lv7isji"
+    },
+    {
+      "id": "evt-1771905985810-7976ea68",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T04:06:25.810Z",
+      "featureName": "Fix navbar logo size overflow issue",
+      "featureId": "feature-1771905756855-2tse0jh2w"
+    },
+    {
+      "id": "evt-1771905866443-fe682dd9",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T04:04:26.443Z",
+      "featureName": "",
+      "featureId": "feature-1771905756855-2tse0jh2w"
+    },
+    {
+      "id": "evt-1771905756872-248db35e",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T04:02:36.872Z",
+      "featureId": "feature-1771905756855-2tse0jh2w"
+    },
+    {
+      "id": "evt-1771905723105-a54f594f",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T04:02:03.105Z",
+      "featureName": "Add logo to navbar, footer, and favicon",
+      "featureId": "feature-1771904926119-jgu2vtoo8"
+    },
+    {
+      "id": "evt-1771905683054-a354bad5",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T04:01:23.054Z",
+      "featureName": "",
+      "featureId": "feature-1771905580701-td9y4xn7m"
+    },
+    {
+      "id": "evt-1771905580719-f609de44",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T03:59:40.719Z",
+      "featureId": "feature-1771905580701-td9y4xn7m"
+    },
+    {
+      "id": "evt-1771905579253-a0bc22c9",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T03:59:39.253Z",
+      "featureName": "Add logo to navbar, footer, and favicon",
+      "featureId": "feature-1771904926119-jgu2vtoo8"
+    },
+    {
+      "id": "evt-1771905527709-1645c93a",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T03:58:47.709Z",
+      "featureName": "Update site theme to match logo colors",
+      "featureId": "feature-1771904978154-2p1mj1nip"
+    },
+    {
+      "id": "evt-1771905264076-b583e550",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T03:54:24.076Z",
+      "featureName": "Update site theme to match logo colors",
+      "featureId": "feature-1771904978154-2p1mj1nip"
+    },
+    {
+      "id": "evt-1771905131152-45af22e2",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T03:52:11.152Z",
+      "featureName": "",
+      "featureId": "feature-1771904926119-jgu2vtoo8"
+    },
+    {
+      "id": "evt-1771905085554-f284a9bb",
+      "trigger": "feature_error",
+      "timestamp": "2026-02-24T03:51:25.554Z",
+      "featureName": "",
+      "featureId": "feature-1771904978154-2p1mj1nip"
+    },
+    {
+      "id": "evt-1771905044768-4078d6d5",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T03:50:44.768Z",
+      "featureName": "Add background imagery to hero section",
+      "featureId": "feature-1771904852940-xk43w88wx"
+    },
+    {
+      "id": "evt-1771904978173-ac132ee1",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T03:49:38.173Z",
+      "featureId": "feature-1771904978154-2p1mj1nip"
+    },
+    {
+      "id": "evt-1771904958250-ec58b9b0",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T03:49:18.250Z",
+      "featureName": "",
+      "featureId": "feature-1771904852940-xk43w88wx"
+    },
+    {
+      "id": "evt-1771904926145-bada21f5",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T03:48:46.145Z",
+      "featureId": "feature-1771904926119-jgu2vtoo8"
+    },
+    {
+      "id": "evt-1771904852969-0b08b89e",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T03:47:32.969Z",
+      "featureId": "feature-1771904852940-xk43w88wx"
+    },
+    {
       "id": "evt-1769109014675-5de74d8f",
       "trigger": "feature_success",
       "timestamp": "2026-01-22T19:10:14.675Z",

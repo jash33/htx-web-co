@@ -18,6 +18,7 @@
  */
 
 import ThemeToggle from './ThemeToggle.astro';
+import logoImage from '../assets/logo.svg';
 
 interface Props {
   /** Current page path for active link styling (e.g., "/", "/about") */
@@ -39,8 +40,8 @@ const navLinks = [
 <header class="header" role="banner">
   <div class="header__container">
     <!-- Logo/Brand -->
-    <a href="/htx-web-co/" class="header__logo" aria-label="Houston Web Services - Go to homepage">
-      <span class="header__logo-text">HWS</span>
+    <a href="/htx-web-co/" class="header__logo" aria-label="HTX Web Co. - Go to homepage">
+      <img src={logoImage.src} alt="HTX Web Co." class="header__logo-image" width="auto" height="86" />
     </a>
 
     <!-- Desktop Navigation -->
@@ -126,18 +127,28 @@ const navLinks = [
     left: 0;
     right: 0;
     z-index: var(--z-sticky);
-    background-color: var(--color-background);
+    background-color: #ffffff;
     border-bottom: 1px solid var(--color-border);
     box-shadow: var(--shadow-sm);
+    overflow: visible; /* Allow logo to overflow */
+  }
+
+  /* Dark mode header styling */
+  :global(html[data-theme="dark"]) .header {
+    background-color: var(--color-primary-900);
+    border-bottom-color: var(--color-primary-800);
   }
 
   .header__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--spacing-4);
     max-width: var(--container-7xl);
     margin: 0 auto;
-    padding: var(--spacing-4) var(--spacing-6);
+    padding: var(--spacing-2) var(--spacing-6);
+    height: 70px; /* Fixed navbar height */
+    position: relative;
   }
 
   /* -----------------------------------------------------------------
@@ -148,27 +159,19 @@ const navLinks = [
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--color-primary);
-    font-family: var(--font-heading);
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-xl);
-    letter-spacing: var(--letter-spacing-tight);
     min-height: 44px;
     min-width: 44px;
-    padding: var(--spacing-1) var(--spacing-2);
+    padding: var(--spacing-1);
     border-radius: var(--radius-md);
     position: relative;
-    transition: color var(--animation-duration-fast) var(--ease-smooth),
-                background-color var(--animation-duration-fast) var(--ease-smooth),
-                transform var(--animation-duration-fast) var(--ease-spring-soft),
+    z-index: 1;
+    flex-shrink: 0;
+    transition: transform var(--animation-duration-fast) var(--ease-spring-soft),
                 box-shadow var(--animation-duration-normal) var(--ease-smooth);
   }
 
   .header__logo:hover {
-    color: var(--color-primary-hover);
-    background-color: var(--color-primary-50);
-    transform: scale(1.05);
-    box-shadow: var(--glow-primary-sm);
+    transform: scale(1.03);
   }
 
   .header__logo:active {
@@ -180,17 +183,18 @@ const navLinks = [
     outline-offset: var(--focus-ring-offset);
   }
 
-  .header__logo-text {
+  .header__logo-image {
     display: block;
-    position: relative;
+    height: 72px;
+    width: auto;
+    object-fit: contain;
   }
 
-  /* Gradient text effect on hover */
-  .header__logo:hover .header__logo-text {
-    background: var(--gradient-accent-mixed);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* Responsive logo sizing */
+  @media screen and (min-width: 769px) {
+    .header__logo-image {
+      height: 86px;
+    }
   }
 
   /* -----------------------------------------------------------------
@@ -231,6 +235,11 @@ const navLinks = [
                 background-color var(--animation-duration-fast) var(--ease-smooth);
   }
 
+  /* Dark mode nav link styling */
+  :global(html[data-theme="dark"]) .header__nav-link {
+    color: var(--color-primary-100);
+  }
+
   /* Animated underline element */
   .header__nav-link::after {
     content: '';
@@ -251,6 +260,12 @@ const navLinks = [
     background-color: var(--color-primary-50);
   }
 
+  /* Dark mode nav link hover */
+  :global(html[data-theme="dark"]) .header__nav-link:hover {
+    color: #ffffff;
+    background-color: var(--color-primary-700);
+  }
+
   /* Underline slides in from left on hover */
   .header__nav-link:hover::after {
     transform: scaleX(1);
@@ -268,10 +283,16 @@ const navLinks = [
     background-color: var(--color-primary-50);
   }
 
+  /* Dark mode active nav link */
+  :global(html[data-theme="dark"]) .header__nav-link--active {
+    color: #ffffff;
+    background-color: var(--color-primary-700);
+  }
+
   /* Active link always has the underline visible */
   .header__nav-link--active::after {
     transform: scaleX(1);
-    background: var(--color-primary);
+    background: var(--color-accent-alt);
   }
 
   /* -----------------------------------------------------------------
@@ -294,6 +315,11 @@ const navLinks = [
 
   .header__menu-toggle:hover {
     background-color: var(--color-primary-50);
+  }
+
+  /* Dark mode menu toggle hover */
+  :global(html[data-theme="dark"]) .header__menu-toggle:hover {
+    background-color: var(--color-primary-700);
   }
 
   .header__menu-toggle:focus-visible {
@@ -321,6 +347,11 @@ const navLinks = [
     transform-origin: center;
   }
 
+  /* Dark mode hamburger menu bars */
+  :global(html[data-theme="dark"]) .header__menu-bar {
+    background-color: var(--color-primary-100);
+  }
+
   /* Hamburger to X transformation when menu is open */
   .header__menu-toggle[aria-expanded="true"] .header__menu-bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
@@ -341,7 +372,7 @@ const navLinks = [
 
   .header__mobile-nav {
     position: fixed;
-    top: calc(44px + var(--spacing-4) * 2 + 1px); /* Header height + border */
+    top: 71px; /* Fixed header height (70px) + border (1px) */
     left: 0;
     right: 0;
     bottom: 0;

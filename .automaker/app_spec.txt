@@ -85,7 +85,41 @@
     </feature>
     <feature>
       <name>Remove diamond shape from fancy border</name>
-      <description>on the home page, the fancy border has a diamond shape at the bottom-center. could you remove it </description>
+      <description>on the home page, the fancy border has a diamond shape at the bottom-center. could you remove it</description>
+    </feature>
+    <feature>
+      <name>Add background imagery to hero section</name>
+      <description>Our little site mockup feature that we have on the front page is kind of lacking some detail in what looks to be the little hero section. There needs to be something in the background, I&apos;m not sure if it needs to be an image or a pattern or just something but right now there&apos;s just way too much white.</description>
+    </feature>
+    <feature>
+      <name>Add logo to navbar, footer, and favicon</name>
+      <description>I&apos;ve added this logo, which I&apos;d like you to use for this site. It&apos;s currently being used for the favicon, but the favicon kind of looks too small. So if we could address that, that would be nice. Also please add this logo wherever it makes sense throughout the site. Probably just like navbar and footer, but anywhere else you can think of too that makes sense.</description>
+    </feature>
+    <feature>
+      <name>Update site theme to match logo colors</name>
+      <description>Please replace our theming with the orange and blue that the baseball team, the Houston Astros use. We basically want Astro&apos;s themed content throughout the site, not actual licensed Astro stuff. We don&apos;t want to get sued, but just like the same color blue and orange that they use.</description>
+    </feature>
+    <feature>
+      <name>Fix navbar logo size overflow issue</name>
+      <description>this logo is making our nanvar huge. can we keep it big without making the navbar big?
+
+see screenshot</description>
+    </feature>
+    <feature>
+      <name>Fix logo visibility on light mode</name>
+      <description>logo is super hard to see on light moe</description>
+    </feature>
+    <feature>
+      <name>Increase hero mockup tilt on default state</name>
+      <description>Can you add more tilt to our little mini mockup in the hero section? It starts out like slightly tilted, I think, to one direction. I just want to add even more tilt and it kind of straightens up when you hover over it. I just want the default state to have a little extra tilt. Thank you.</description>
+    </feature>
+    <feature>
+      <name>Fix dark mode contrast issues on homepage hero</name>
+      <description>I&apos;ve included screenshots of light mode and dark mode on the homepage hero section. Please note how the dark mode is basically unreadable because there&apos;s not enough contrast. I don&apos;t have a good solution for fixing this, but we need some way to improve the contrast.</description>
+    </feature>
+    <feature>
+      <name>Increase favicon size in browser tab</name>
+      <description>can I enlarge how my favicon appears in the tab? it looks small</description>
     </feature>
   </implemented_features>
 

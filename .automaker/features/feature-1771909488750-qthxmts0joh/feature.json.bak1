@@ -1,0 +1,32 @@
+{
+  "category": "Uncategorized",
+  "description": "can I enlarge how my favicon appears in the tab? it looks small",
+  "title": "Increase favicon size in browser tab",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771909488750-qthxmts0joh",
+  "descriptionHistory": [
+    {
+      "description": "can I enlarge how my favicon appears in the tab? it looks small",
+      "timestamp": "2026-02-24T05:04:49.072Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T05:04:49.092Z",
+  "updatedAt": "2026-02-24T05:05:58.801Z",
+  "justFinishedAt": "2026-02-24T05:05:58.788Z",
+  "summary": "## Summary: Increase favicon size in browser tab\n\n### Changes Implemented\n- Redesigned the favicon SVG to fill the entire 32x32 viewport instead of having excessive padding\n- The previous favicon had a 180x180 viewBox with the logo content only occupying a 100x100 area starting at position (40,40), making it appear small\n- The new favicon uses a 32x32 viewBox with the \"HX\" logo filling the entire space from edge to edge\n- Fixed the MIME type in the link tag from `image/png` to `image/svg+xml`\n- Rebuilt the project to apply changes to the dist folder\n\n### Files Modified\n- `public/favicon.svg` - Completely redesigned to maximize logo visibility in the browser tab\n- `src/layouts/Layout.astro` - Fixed MIME type from `image/png` to `image/svg+xml`\n\n### Notes for Developer\n- The favicon now displays the \"HX\" letters much larger in the browser tab\n- SVG favicons are scalable and will look crisp at any display density\n- The background remains the dark navy (#0F172A) with white letters to match the brand\n- Clear your browser cache or force refresh to see the updated favicon"
+}

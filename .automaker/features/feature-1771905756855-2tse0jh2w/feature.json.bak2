@@ -1,0 +1,37 @@
+{
+  "category": "Uncategorized",
+  "description": "this logo is making our nanvar huge. can we keep it big without making the navbar big?\n\nsee screenshot",
+  "title": "Fix navbar logo size overflow issue",
+  "images": [],
+  "imagePaths": [
+    {
+      "id": "img-1771905748309-p8a26owjh",
+      "path": "C:\\Users\\James\\Repos\\houston-web-services\\.automaker\\features\\feature-1771905756855-2tse0jh2w\\images\\pasted-image-2026-02-24T04-02-28-289Z-1771905748307.png",
+      "filename": "pasted-image-2026-02-24T04-02-28-289Z.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1771905756855-2tse0jh2w",
+  "descriptionHistory": [
+    {
+      "description": "this logo is making our nanvar huge. can we keep it big without making the navbar big?\n\nsee screenshot",
+      "timestamp": "2026-02-24T04:02:36.871Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T04:05:24.413Z",
+  "updatedAt": "2026-02-24T04:05:24.552Z"
+}

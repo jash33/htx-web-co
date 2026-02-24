@@ -1,0 +1,22 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<!-- Container -->
+	<rect x="40" y="40" width="100" height="100" rx="20" fill="#0F172A"/>
+
+	<!-- Centered Letter Group -->
+	<g stroke="#FFFFFF" stroke-width="6" stroke-linecap="round">
+
+		<!-- H -->
+		<path d="M54 70V110"/>
+		<path d="M54 90H72"/>
+		<path d="M72 70V110"/>
+
+		<!-- T -->
+		<path d="M82 70H102"/>
+		<path d="M92 70V110"/>
+
+		<!-- X -->
+		<path d="M112 70L130 110"/>
+		<path d="M130 70L112 110"/>
+
+	</g>
+</svg>

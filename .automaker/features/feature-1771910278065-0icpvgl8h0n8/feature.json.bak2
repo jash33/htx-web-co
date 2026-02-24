@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "fix all email addresses for contact on teh site to this:\n\n\"james@htxweb.com\"",
+  "title": "Fix contact email addresses to james@htxweb.com",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1771910278065-0icpvgl8h0n8",
+  "descriptionHistory": [
+    {
+      "description": "fix all email addresses for contact on teh site to this:\n\n\"james@htxweb.com\"",
+      "timestamp": "2026-02-24T05:17:58.081Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T05:17:58.105Z",
+  "updatedAt": "2026-02-24T05:17:58.632Z"
+}

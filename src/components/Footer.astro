@@ -17,6 +17,7 @@
  */
 
 import { seoConfig } from '../config/seo.config';
+import logoImage from '../assets/logo.svg';
 
 // Define the social platform types
 type SocialPlatform = 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'youtube';
@@ -82,6 +83,14 @@ const platformNames: Record<SocialPlatform, string> = {
   <div class="footer__accent-line" aria-hidden="true"></div>
 
   <div class="footer__container">
+    <!-- Brand Section with Logo -->
+    <div class="footer__brand">
+      <a href="/htx-web-co/" class="footer__brand-link" aria-label="HTX Web Co. - Go to homepage">
+        <img src={logoImage.src} alt="HTX Web Co." class="footer__logo" width="180" height="auto" />
+      </a>
+      <p class="footer__tagline">Web design and digital solutions for Houston businesses</p>
+    </div>
+
     <div class="footer__content">
       <!-- Contact Information Section -->
       <section class="footer__section footer__contact" aria-labelledby="footer-contact-heading">
@@ -211,6 +220,47 @@ const platformNames: Record<SocialPlatform, string> = {
   .footer__container {
     max-width: var(--container-7xl);
     margin: 0 auto;
+  }
+
+  /* Brand Section */
+  .footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: var(--spacing-8);
+    padding-bottom: var(--spacing-8);
+    border-bottom: 1px solid var(--color-primary-700);
+  }
+
+  .footer__brand-link {
+    display: inline-block;
+    transition: transform var(--animation-duration-fast) var(--ease-spring-soft);
+  }
+
+  .footer__brand-link:hover {
+    transform: scale(1.03);
+  }
+
+  .footer__brand-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--color-primary-300);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: var(--radius-md);
+  }
+
+  .footer__logo {
+    display: block;
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: var(--spacing-4);
+  }
+
+  .footer__tagline {
+    color: var(--color-primary-200);
+    font-size: var(--font-size-base);
+    margin: 0;
+    max-width: 300px;
   }
 
   .footer__content {
@@ -483,6 +533,17 @@ const platformNames: Record<SocialPlatform, string> = {
     .footer {
       padding: var(--spacing-16) var(--spacing-8);
       padding-top: calc(var(--spacing-16) + 4px);
+    }
+
+    .footer__brand {
+      align-items: flex-start;
+      text-align: left;
+      margin-bottom: var(--spacing-12);
+      padding-bottom: var(--spacing-12);
+    }
+
+    .footer__logo {
+      height: 240px;
     }
 
     .footer__content {

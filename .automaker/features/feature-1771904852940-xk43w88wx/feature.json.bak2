@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "Our little site mockup feature that we have on the front page is kind of lacking some detail in what looks to be the little hero section. There needs to be something in the background, I'm not sure if it needs to be an image or a pattern or just something but right now there's just way too much white.",
+  "title": "Add background imagery to hero section",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1771904852940-xk43w88wx",
+  "descriptionHistory": [
+    {
+      "description": "Our little site mockup feature that we have on the front page is kind of lacking some detail in what looks to be the little hero section. There needs to be something in the background, I'm not sure if it needs to be an image or a pattern or just something but right now there's just way too much white.",
+      "timestamp": "2026-02-24T03:47:32.966Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T03:50:04.367Z",
+  "updatedAt": "2026-02-24T03:50:04.538Z"
+}

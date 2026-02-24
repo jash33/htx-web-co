@@ -63,90 +63,90 @@ import SEO from '../components/SEO.astro';
 
 ### Required Props
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `title` | `string` | Page title. Combined with site name using titleTemplate. |
+| Prop          | Type     | Description                                                            |
+| ------------- | -------- | ---------------------------------------------------------------------- |
+| `title`       | `string` | Page title. Combined with site name using titleTemplate.               |
 | `description` | `string` | Meta description for search engines (recommended: 150-160 characters). |
 
 ### Optional Meta Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `keywords` | `string` | - | Comma-separated meta keywords. |
-| `robots` | `string` | `'index, follow'` | Robots directive. |
-| `author` | `string` | - | Content author. |
+| Prop       | Type     | Default           | Description                    |
+| ---------- | -------- | ----------------- | ------------------------------ |
+| `keywords` | `string` | -                 | Comma-separated meta keywords. |
+| `robots`   | `string` | `'index, follow'` | Robots directive.              |
+| `author`   | `string` | -                 | Content author.                |
 
 ### URL Configuration
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `canonicalUrl` | `string` | Current page URL | Canonical URL for the page. |
-| `siteUrl` | `string` | From config | Base URL for making relative URLs absolute. |
+| Prop           | Type     | Default          | Description                                 |
+| -------------- | -------- | ---------------- | ------------------------------------------- |
+| `canonicalUrl` | `string` | Current page URL | Canonical URL for the page.                 |
+| `siteUrl`      | `string` | From config      | Base URL for making relative URLs absolute. |
 
 ### Title Configuration
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `titleTemplate` | `string` | `'%s \| Site Name'` | Template for page title. Use `%s` as placeholder. |
-| `noTitleTemplate` | `boolean` | `false` | Disable title template for this page. |
+| Prop              | Type      | Default             | Description                                       |
+| ----------------- | --------- | ------------------- | ------------------------------------------------- |
+| `titleTemplate`   | `string`  | `'%s \| Site Name'` | Template for page title. Use `%s` as placeholder. |
+| `noTitleTemplate` | `boolean` | `false`             | Disable title template for this page.             |
 
 ### Image Configuration
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `image` | `string` | Default from config | Image URL for social sharing. |
-| `imageAlt` | `string` | - | Alt text for the image. |
+| Prop       | Type     | Default             | Description                   |
+| ---------- | -------- | ------------------- | ----------------------------- |
+| `image`    | `string` | Default from config | Image URL for social sharing. |
+| `imageAlt` | `string` | -                   | Alt text for the image.       |
 
 ### Open Graph Configuration
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `openGraph.title` | `string` | OG title (defaults to page title). |
-| `openGraph.description` | `string` | OG description (defaults to meta description). |
-| `openGraph.image` | `string` | OG image URL. |
-| `openGraph.imageAlt` | `string` | Alt text for OG image. |
-| `openGraph.imageWidth` | `number` | Image width in pixels. |
-| `openGraph.imageHeight` | `number` | Image height in pixels. |
-| `openGraph.url` | `string` | Canonical URL for OG. |
-| `openGraph.type` | `string` | Content type (website, article, product, etc.). |
-| `openGraph.siteName` | `string` | Site name for OG. |
-| `openGraph.locale` | `string` | Locale (e.g., 'en_US'). |
-| `openGraph.localeAlternate` | `string[]` | Alternate locales. |
+| Prop                        | Type       | Description                                     |
+| --------------------------- | ---------- | ----------------------------------------------- |
+| `openGraph.title`           | `string`   | OG title (defaults to page title).              |
+| `openGraph.description`     | `string`   | OG description (defaults to meta description).  |
+| `openGraph.image`           | `string`   | OG image URL.                                   |
+| `openGraph.imageAlt`        | `string`   | Alt text for OG image.                          |
+| `openGraph.imageWidth`      | `number`   | Image width in pixels.                          |
+| `openGraph.imageHeight`     | `number`   | Image height in pixels.                         |
+| `openGraph.url`             | `string`   | Canonical URL for OG.                           |
+| `openGraph.type`            | `string`   | Content type (website, article, product, etc.). |
+| `openGraph.siteName`        | `string`   | Site name for OG.                               |
+| `openGraph.locale`          | `string`   | Locale (e.g., 'en_US').                         |
+| `openGraph.localeAlternate` | `string[]` | Alternate locales.                              |
 
 ### Twitter Card Configuration
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `twitter.card` | `string` | `'summary_large_image'` | Card type. |
-| `twitter.site` | `string` | From config | @username of the website. |
-| `twitter.creator` | `string` | - | @username of content creator. |
-| `twitter.title` | `string` | OG/page title | Title for Twitter. |
-| `twitter.description` | `string` | OG/meta description | Description for Twitter. |
-| `twitter.image` | `string` | OG image | Image URL for Twitter. |
-| `twitter.imageAlt` | `string` | - | Alt text for Twitter image. |
+| Prop                  | Type     | Default                 | Description                   |
+| --------------------- | -------- | ----------------------- | ----------------------------- |
+| `twitter.card`        | `string` | `'summary_large_image'` | Card type.                    |
+| `twitter.site`        | `string` | From config             | @username of the website.     |
+| `twitter.creator`     | `string` | -                       | @username of content creator. |
+| `twitter.title`       | `string` | OG/page title           | Title for Twitter.            |
+| `twitter.description` | `string` | OG/meta description     | Description for Twitter.      |
+| `twitter.image`       | `string` | OG image                | Image URL for Twitter.        |
+| `twitter.imageAlt`    | `string` | -                       | Alt text for Twitter image.   |
 
 ### Language & Locale
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `lang` | `string` | `'en'` | HTML lang attribute. |
-| `alternateLanguages` | `Array` | - | hreflang alternate versions. |
+| Prop                 | Type     | Default | Description                  |
+| -------------------- | -------- | ------- | ---------------------------- |
+| `lang`               | `string` | `'en'`  | HTML lang attribute.         |
+| `alternateLanguages` | `Array`  | -       | hreflang alternate versions. |
 
 ### Structured Data
 
-| Prop | Type | Description |
-|------|------|-------------|
+| Prop     | Type                             | Description                        |
+| -------- | -------------------------------- | ---------------------------------- |
 | `jsonLd` | `JsonLdSchema \| JsonLdSchema[]` | JSON-LD structured data schema(s). |
 
 ### Additional Configuration
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `additionalMetaTags` | `CustomMetaTag[]` | Custom additional meta tags. |
-| `additionalLinkTags` | `Array` | Additional link tags. |
-| `charset` | `string` | Character set (default: 'UTF-8'). |
-| `viewport` | `string` | Viewport content. |
-| `themeColor` | `string` | Browser theme color. |
+| Prop                 | Type              | Description                       |
+| -------------------- | ----------------- | --------------------------------- |
+| `additionalMetaTags` | `CustomMetaTag[]` | Custom additional meta tags.      |
+| `additionalLinkTags` | `Array`           | Additional link tags.             |
+| `charset`            | `string`          | Character set (default: 'UTF-8'). |
+| `viewport`           | `string`          | Viewport content.                 |
+| `themeColor`         | `string`          | Browser theme color.              |
 
 ## Usage Examples
 
@@ -171,7 +171,7 @@ import Layout from '../layouts/Layout.astro';
     type: 'Organization',
     name: 'Houston Web Services',
     url: 'https://houstonwebservices.com',
-    logo: 'https://houstonwebservices.com/images/logo.png',
+    logo: 'https://houstonwebservices.com/images/logo.svg',
     description: 'Professional web design services in West Houston.',
     sameAs: [
       'https://www.facebook.com/houstonwebservices',
@@ -358,7 +358,7 @@ Supports: `Article`, `NewsArticle`, `BlogPosting`
   image: '/images/article.jpg',
   publisher: {
     name: 'Publisher Name',
-    logo: '/images/logo.png',
+    logo: '/images/logo.svg',
   },
   articleSection: 'Technology',
   wordCount: 1500,
@@ -375,7 +375,7 @@ Supports: `Organization`, `LocalBusiness`
   name: 'Business Name',
   description: 'Business description',
   url: 'https://example.com',
-  logo: '/images/logo.png',
+  logo: '/images/logo.svg',
   contactPoint: {
     telephone: '+1-555-555-5555',
     email: 'contact@example.com',
@@ -453,19 +453,19 @@ Edit `src/config/seo.config.ts` to configure site-wide defaults:
 
 ```typescript
 export const seoConfig: SEOConfig = {
-  siteName: 'Your Site Name',
-  siteUrl: 'https://yoursite.com',
-  titleTemplate: '%s | Your Site Name',
-  defaultDescription: 'Your default meta description.',
-  defaultLang: 'en',
-  defaultLocale: 'en_US',
-  defaultImage: '/images/og-default.jpg',
-  defaultImageAlt: 'Your Site Name',
-  twitterSite: '@yourusername',
-  twitterCardType: 'summary_large_image',
-  defaultOgType: 'website',
-  defaultRobots: 'index, follow',
-  themeColor: '#1a365d',
+  siteName: "Your Site Name",
+  siteUrl: "https://yoursite.com",
+  titleTemplate: "%s | Your Site Name",
+  defaultDescription: "Your default meta description.",
+  defaultLang: "en",
+  defaultLocale: "en_US",
+  defaultImage: "/images/og-default.jpg",
+  defaultImageAlt: "Your Site Name",
+  twitterSite: "@yourusername",
+  twitterCardType: "summary_large_image",
+  defaultOgType: "website",
+  defaultRobots: "index, follow",
+  themeColor: "#1a365d",
   organization: {
     // Your organization details for JSON-LD
   },
@@ -547,8 +547,8 @@ For optimal social media sharing:
 1. View page source and check:
    - `<title>` tag
    - Meta description
-   - Open Graph tags (og:*)
-   - Twitter Card tags (twitter:*)
+   - Open Graph tags (og:\*)
+   - Twitter Card tags (twitter:\*)
    - Canonical link
    - JSON-LD scripts
 
@@ -581,6 +581,7 @@ For optimal social media sharing:
 ### Development Warnings
 
 The component logs warnings in development for:
+
 - Missing title or description
 - Title/description exceeding recommended lengths
 - Missing social sharing image

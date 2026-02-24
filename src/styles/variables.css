@@ -61,21 +61,21 @@
    */
 
   /* -----------------------------------------------------------------
-   * Primary Colors - Navy/Dark Blue Brand Palette
+   * Primary Colors - Navy/Dark Blue Brand Palette (from HTX Web Co. logo)
    * Main brand color with shade variations for different states
    * Contrast ratios calculated for WCAG AA compliance
    * ----------------------------------------------------------------- */
-  --color-primary-50: #e6eaf2;   /* Lightest - backgrounds, subtle tints */
-  --color-primary-100: #c2cbdf;  /* Light - hover backgrounds */
-  --color-primary-200: #9aa9ca;  /* Light - disabled backgrounds */
-  --color-primary-300: #7287b5;  /* Medium light */
+  --color-primary-50: #eef2f8;   /* Lightest - backgrounds, subtle tints */
+  --color-primary-100: #d5dded;  /* Light - hover backgrounds */
+  --color-primary-200: #b3c1dc;  /* Light - disabled backgrounds */
+  --color-primary-300: #8a9fc7;  /* Medium light */
   --color-primary-400: #546da5;  /* Medium */
-  --color-primary-500: #365395;  /* Base primary - main brand color */
-  --color-primary-600: #304b8d;  /* Slightly darker - hover states */
-  --color-primary-700: #284182;  /* Dark - active states */
-  --color-primary-800: #203777;  /* Darker - pressed states */
-  --color-primary-900: #132564;  /* Darkest - high contrast needs */
-  --color-primary-950: #0a1640;  /* Near black - maximum contrast */
+  --color-primary-500: #365395;  /* Base primary - main brand color (logo navy) */
+  --color-primary-600: #2d4680;  /* Slightly darker - hover states */
+  --color-primary-700: #243868;  /* Dark - active states */
+  --color-primary-800: #1b2a50;  /* Darker - pressed states */
+  --color-primary-900: #121c38;  /* Darkest - high contrast needs */
+  --color-primary-950: #090e1c;  /* Near black - maximum contrast */
 
   /* Semantic primary aliases for easy use */
   --color-primary: var(--color-primary-500);
@@ -111,7 +111,7 @@
   --color-text-link-hover: var(--color-primary-700);
 
   /* -----------------------------------------------------------------
-   * Accent Colors
+   * Accent Colors - Purple Brand Palette (complementary to navy)
    * Secondary actions, highlights, and decorative elements
    * ----------------------------------------------------------------- */
   --color-accent: #8b5cf6;          /* Purple accent */
@@ -120,7 +120,7 @@
   --color-accent-hover: #7c3aed;
   --color-accent-subtle: #ede9fe;   /* Light purple background */
 
-  /* Alternative accent (teal/cyan for variety) */
+  /* Alternative accent (Teal/Cyan for variety) */
   --color-accent-alt: #06b6d4;
   --color-accent-alt-light: #22d3ee;
   --color-accent-alt-dark: #0891b2;

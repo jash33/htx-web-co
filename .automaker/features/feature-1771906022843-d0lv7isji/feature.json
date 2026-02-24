@@ -1,0 +1,38 @@
+{
+  "category": "Uncategorized",
+  "description": "logo is super hard to see on light moe",
+  "title": "Fix logo visibility on light mode",
+  "images": [],
+  "imagePaths": [
+    {
+      "id": "img-1771906015523-lyarpnf23",
+      "path": "C:\\Users\\James\\Repos\\houston-web-services\\.automaker\\features\\feature-1771906022843-d0lv7isji\\images\\pasted-image-2026-02-24T04-06-55-503Z-1771906015521.png",
+      "filename": "pasted-image-2026-02-24T04-06-55-503Z.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1771906022843-d0lv7isji",
+  "descriptionHistory": [
+    {
+      "description": "logo is super hard to see on light moe",
+      "timestamp": "2026-02-24T04:07:02.858Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T04:11:10.218Z",
+  "updatedAt": "2026-02-24T04:12:21.662Z",
+  "justFinishedAt": "2026-02-24T04:12:21.662Z"
+}

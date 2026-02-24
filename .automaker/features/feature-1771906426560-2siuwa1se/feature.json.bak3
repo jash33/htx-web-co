@@ -1,0 +1,43 @@
+{
+  "category": "Uncategorized",
+  "description": "I've included screenshots of light mode and dark mode on the homepage hero section. Please note how the dark mode is basically unreadable because there's not enough contrast. I don't have a good solution for fixing this, but we need some way to improve the contrast.\n\n",
+  "title": "",
+  "images": [],
+  "imagePaths": [
+    {
+      "id": "img-1771906390748-7osudqqh7",
+      "path": "C:\\Users\\James\\Repos\\houston-web-services\\.automaker\\features\\feature-1771906426560-2siuwa1se\\images\\pasted-image-2026-02-24T04-13-10-702Z-1771906390746.png",
+      "filename": "pasted-image-2026-02-24T04-13-10-702Z.png",
+      "mimeType": "image/png"
+    },
+    {
+      "id": "img-1771906402699-xmuht572i",
+      "path": "C:\\Users\\James\\Repos\\houston-web-services\\.automaker\\features\\feature-1771906426560-2siuwa1se\\images\\pasted-image-2026-02-24T04-13-22-672Z-1771906402697.png",
+      "filename": "pasted-image-2026-02-24T04-13-22-672Z.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": "I've included screenshots of light mode and dark mode on the homepage hero section. Please note how the dark mode is basically unreadable because there's not enough contrast. I don't have a good solution for fixing this, but we need some way to improve the contrast.",
+  "status": "in_progress",
+  "id": "feature-1771906426560-2siuwa1se",
+  "descriptionHistory": [
+    {
+      "description": "I've included screenshots of light mode and dark mode on the homepage hero section. Please note how the dark mode is basically unreadable because there's not enough contrast. I don't have a good solution for fixing this, but we need some way to improve the contrast.\n\n",
+      "timestamp": "2026-02-24T04:13:46.584Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T04:13:46.607Z",
+  "updatedAt": "2026-02-24T04:13:46.972Z"
+}

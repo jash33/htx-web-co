@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "Please make the logo in the navbar bigger, like maybe double the size.",
+  "title": "",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": "Please make the logo in the navbar bigger, like maybe double the size.",
+  "status": "in_progress",
+  "id": "feature-1771910036259-6jdhagzf9qa",
+  "descriptionHistory": [
+    {
+      "description": "Please make the logo in the navbar bigger, like maybe double the size.",
+      "timestamp": "2026-02-24T05:13:56.276Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T05:13:56.305Z",
+  "updatedAt": "2026-02-24T05:13:56.822Z"
+}

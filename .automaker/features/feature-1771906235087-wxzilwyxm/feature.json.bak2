@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "Can you add more tilt to our little mini mockup in the hero section? It starts out like slightly tilted, I think, to one direction. I just want to add even more tilt and it kind of straightens up when you hover over it. I just want the default state to have a little extra tilt. Thank you.",
+  "title": "Increase hero mockup tilt on default state",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1771906235087-wxzilwyxm",
+  "descriptionHistory": [
+    {
+      "description": "Can you add more tilt to our little mini mockup in the hero section? It starts out like slightly tilted, I think, to one direction. I just want to add even more tilt and it kind of straightens up when you hover over it. I just want the default state to have a little extra tilt. Thank you.",
+      "timestamp": "2026-02-24T04:10:35.102Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T04:10:35.121Z",
+  "updatedAt": "2026-02-24T04:10:35.361Z"
+}

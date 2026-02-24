@@ -1,0 +1,38 @@
+{
+  "category": "Uncategorized",
+  "description": "I've added this logo, which I'd like you to use for this site. It's currently being used for the favicon, but the favicon kind of looks too small. So if we could address that, that would be nice. Also please add this logo wherever it makes sense throughout the site. Probably just like navbar and footer, but anywhere else you can think of too that makes sense.",
+  "title": "Add logo to navbar, footer, and favicon",
+  "images": [],
+  "imagePaths": [
+    {
+      "id": "img-1771904897727-uer679irq",
+      "path": "C:\\Users\\James\\Repos\\houston-web-services\\.automaker\\features\\feature-1771904926119-jgu2vtoo8\\images\\logo-1771904897723.png",
+      "filename": "logo.svg",
+      "mimeType": "image/png"
+    }
+  ],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1771904926119-jgu2vtoo8",
+  "descriptionHistory": [
+    {
+      "description": "I've added this logo, which I'd like you to use for this site. It's currently being used for the favicon, but the favicon kind of looks too small. So if we could address that, that would be nice. Also please add this logo wherever it makes sense throughout the site. Probably just like navbar and footer, but anywhere else you can think of too that makes sense.",
+      "timestamp": "2026-02-24T03:48:46.140Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T04:01:02.653Z",
+  "updatedAt": "2026-02-24T04:02:03.088Z",
+  "justFinishedAt": "2026-02-24T04:02:03.088Z"
+}

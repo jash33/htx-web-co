@@ -1,0 +1,37 @@
+{
+  "category": "Uncategorized",
+  "description": "let's make the navbar white on light mode. and the footer",
+  "title": "Make navbar white in light mode",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "custom",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771910485289-xrhyvei1qx",
+  "descriptionHistory": [
+    {
+      "description": "let's make the navbar white on light mode.",
+      "timestamp": "2026-02-24T05:21:25.309Z",
+      "source": "initial"
+    },
+    {
+      "description": "let's make the navbar white on light mode. and the footer",
+      "timestamp": "2026-02-24T05:21:55.337Z",
+      "source": "edit"
+    }
+  ],
+  "startedAt": "2026-02-24T05:21:25.339Z",
+  "updatedAt": "2026-02-24T05:23:25.263Z",
+  "justFinishedAt": "2026-02-24T05:23:25.251Z",
+  "summary": "## Summary: Make navbar white on light mode\n\n### Changes Implemented\n- Changed header background color from dark navy (`--color-primary-900`) to white (`#ffffff`) for light mode\n- Updated header border to use `--color-border` variable for light mode consistency\n- Updated navigation link text color from light text (`--color-primary-100`) to dark text (`--color-text-secondary`) for proper contrast on white background\n- Updated navigation link hover state to use primary color text with light background (`--color-primary-50`) in light mode\n- Updated active navigation link styling to match hover state styling in light mode\n- Updated hamburger menu bar color from light (`--color-primary-100`) to dark (`--color-text-primary`) for visibility on white background\n- Updated mobile menu toggle hover state to use light background in light mode\n- Added dark mode CSS overrides using `:global(html[data-theme=\"dark\"])` selectors to preserve the original dark navy styling when in dark mode\n\n### Files Modified\n- `C:\\Users\\James\\Repos\\houston-web-services\\src\\components\\Header.astro`\n\n### Notes for Developer\n- The implementation uses Astro's `:global()` selector to properly scope dark mode overrides\n- Light mode now has a clean white navbar with dark text that switches to the original navy navbar with light text in dark mode\n- All existing hover effects, transitions, and accessibility features remain intact\n- The mobile menu and hamburger icon are also properly styled for both modes"
+}

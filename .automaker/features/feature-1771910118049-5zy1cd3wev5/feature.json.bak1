@@ -1,0 +1,31 @@
+{
+  "category": "Uncategorized",
+  "description": "Please get rid of the Houston skyline thing in the hero section.",
+  "title": "Remove Houston skyline from hero section",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771910118049-5zy1cd3wev5",
+  "descriptionHistory": [
+    {
+      "description": "Please get rid of the Houston skyline thing in the hero section.",
+      "timestamp": "2026-02-24T05:15:18.067Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T05:15:24.167Z",
+  "updatedAt": "2026-02-24T05:17:59.336Z",
+  "justFinishedAt": "2026-02-24T05:17:59.336Z"
+}

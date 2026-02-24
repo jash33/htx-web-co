@@ -1,0 +1,32 @@
+{
+  "category": "Uncategorized",
+  "description": "svg logo is too large in the navbar",
+  "title": "Fix oversized SVG logo in navbar",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1771909614642-n4sb5ot1y1",
+  "descriptionHistory": [
+    {
+      "description": "svg logo is too large in the navbar",
+      "timestamp": "2026-02-24T05:06:54.662Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T05:16:00.899Z",
+  "updatedAt": "2026-02-24T05:08:15.214Z",
+  "justFinishedAt": "2026-02-24T05:08:15.201Z",
+  "summary": "## Summary: svg logo is too large in the navbar\n\n### Changes Implemented\n- Reduced the SVG logo height from 120px (mobile) / 140px (desktop) to 40px (mobile) / 48px (desktop)\n- Updated the HTML img tag's width/height attributes to match the new proportions (changed `width=\"140\" height=\"auto\"` to `width=\"auto\" height=\"48\"`)\n- The logo now fits properly within the 70px navbar height instead of overflowing\n\n### Files Modified\n- `src/components/Header.astro`\n  - Line 44: Updated img tag attributes for proper sizing\n  - Lines 180-192: Updated CSS `.header__logo-image` styles to use smaller height values\n\n### Notes for Developer\n- The logo now scales proportionally: 40px height on mobile (≤768px) and 48px height on desktop (>768px)\n- The logo fits comfortably within the 70px fixed navbar height with appropriate padding\n- All hover/active animations and accessibility features remain intact\n- The `object-fit: contain` property ensures the logo maintains its aspect ratio"
+}

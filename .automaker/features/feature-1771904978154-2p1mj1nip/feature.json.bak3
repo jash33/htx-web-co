@@ -1,0 +1,36 @@
+{
+  "category": "Uncategorized",
+  "description": " Please replace our theming with the orange and blue that the baseball team, the Houston Astros use. We basically want Astro's themed content throughout the site, not actual licensed Astro stuff. We don't want to get sued, but just like the same color blue and orange that they use.\n\n",
+  "title": "Update site theme to match logo colors",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "custom",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1771904978154-2p1mj1nip",
+  "descriptionHistory": [
+    {
+      "description": "From the logo file that was added to this project, I would like you to change our theming to fit the two colors that we have added in the logo. It should be roughly a blue and an orange, but those are the theming colors we should use throughout the site to kind of replace our blue that we're using.",
+      "timestamp": "2026-02-24T03:49:38.171Z",
+      "source": "initial"
+    },
+    {
+      "description": " Please replace our theming with the orange and blue that the baseball team, the Houston Astros use. We basically want Astro's themed content throughout the site, not actual licensed Astro stuff. We don't want to get sued, but just like the same color blue and orange that they use.\n\n",
+      "timestamp": "2026-02-24T03:52:04.614Z",
+      "source": "edit"
+    }
+  ],
+  "startedAt": "2026-02-24T03:56:05.840Z",
+  "updatedAt": "2026-02-24T03:54:24.063Z",
+  "justFinishedAt": "2026-02-24T03:54:24.063Z"
+}

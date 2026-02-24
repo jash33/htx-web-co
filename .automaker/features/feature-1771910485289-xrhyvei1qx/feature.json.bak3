@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "let's make the navbar white on light mode.",
+  "title": "Make navbar white in light mode",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1771910485289-xrhyvei1qx",
+  "descriptionHistory": [
+    {
+      "description": "let's make the navbar white on light mode.",
+      "timestamp": "2026-02-24T05:21:25.309Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T05:21:25.339Z",
+  "updatedAt": "2026-02-24T05:21:25.754Z"
+}

@@ -1,0 +1,22 @@
+<svg width="520" height="180" viewBox="0 0 520 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+	<!-- Wordmark -->
+	<text x="170" y="90"
+		font-family="Inter, Helvetica, Arial, sans-serif"
+		font-size="54"
+		font-weight="600"
+		letter-spacing="4"
+		fill="#0F172A">
+		HTX
+	</text>
+
+	<text x="170" y="125"
+		font-family="Inter, Helvetica, Arial, sans-serif"
+		font-size="20"
+		font-weight="500"
+		letter-spacing="6"
+		fill="#475569">
+		WEB CO.
+	</text>
+
+</svg>

@@ -1,0 +1,38 @@
+{
+  "category": "Uncategorized",
+  "description": "Please check the screenshot. All of these cards are, I guess need to be larger. Do you see how the learn more buttons at the bottom of the cards aren't visible for like half the cards?",
+  "title": "I'd be happy to help, but I don't see a screenshot attached to your message. Could you please share the screenshot so I can see the cards and the \"Learn More\" button visibility issue you're describing?\n\nOnce you provide the image, I'll generate a concise title for the feature.",
+  "images": [],
+  "imagePaths": [
+    {
+      "id": "img-1771910077274-5c9to7gy8",
+      "path": "C:\\Users\\James\\Repos\\houston-web-services\\.automaker\\features\\feature-1771910094265-ftemffrrgp9\\images\\pasted-image-2026-02-24T05-14-37-250Z-1771910077271.png",
+      "filename": "pasted-image-2026-02-24T05-14-37-250Z.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771910094265-ftemffrrgp9",
+  "descriptionHistory": [
+    {
+      "description": "Please check the screenshot. All of these cards are, I guess need to be larger. Do you see how the learn more buttons at the bottom of the cards aren't visible for like half the cards?",
+      "timestamp": "2026-02-24T05:14:54.289Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T05:14:54.319Z",
+  "updatedAt": "2026-02-24T05:16:36.182Z",
+  "justFinishedAt": "2026-02-24T05:16:36.182Z"
+}

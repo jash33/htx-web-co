@@ -4,74 +4,92 @@
  * Override these values per-page as needed
  */
 
-import type { SEOConfig, LocalBusinessSchema } from '../types/seo';
+import type { SEOConfig, LocalBusinessSchema } from "../types/seo";
 
 /**
  * Comprehensive LocalBusiness Schema Configuration
  * Enhanced structured data for Google local search results and rich snippets
  */
 export const localBusinessSchema: LocalBusinessSchema = {
-  type: 'ProfessionalService',
-  name: 'Houston Web Services',
-  legalName: 'Houston Web Services',
-  description: 'Professional web design and development services for small businesses in Houston. We specialize in custom websites, SEO optimization, and digital solutions for Houston businesses.',
-  slogan: 'Building Digital Success for Houston Businesses',
-  url: 'https://houstonwebservices.com',
-  telephone: '+1-832-XXX-XXXX', // TODO: Update with actual phone
-  email: 'info@houstonwebservices.com', // TODO: Update with actual email
+  type: "ProfessionalService",
+  name: "Houston Web Services",
+  legalName: "Houston Web Services",
+  description:
+    "Professional web design and development services for small businesses in Houston. We specialize in custom websites, SEO optimization, and digital solutions for Houston businesses.",
+  slogan: "Building Digital Success for Houston Businesses",
+  url: "https://houstonwebservices.com",
+  telephone: "+1-832-XXX-XXXX", // TODO: Update with actual phone
+  email: "james@htxweb.com", // TODO: Update with actual email
   address: {
-    streetAddress: '1234 Main Street', // TODO: Update with actual address
-    addressLocality: 'Houston',
-    addressRegion: 'TX',
-    postalCode: '77077',
-    addressCountry: 'US',
+    streetAddress: "1234 Main Street", // TODO: Update with actual address
+    addressLocality: "Houston",
+    addressRegion: "TX",
+    postalCode: "77077",
+    addressCountry: "US",
   },
   geo: {
     latitude: 29.7752, // TODO: Update with actual coordinates
     longitude: -95.6091,
   },
   areaServed: [
-    { type: 'City', name: 'Houston', addressLocality: 'Houston', addressRegion: 'TX', addressCountry: 'US' },
+    {
+      type: "City",
+      name: "Houston",
+      addressLocality: "Houston",
+      addressRegion: "TX",
+      addressCountry: "US",
+    },
   ],
   openingHoursSpecification: [
-    { dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:00' },
+    {
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
   ],
-  openingHours: ['Mo-Fr 09:00-17:00'],
-  logo: 'https://houstonwebservices.com/images/logo.png',
-  image: ['https://houstonwebservices.com/images/storefront.jpg'],
-  priceRange: '$$',
-  currenciesAccepted: 'USD',
-  paymentAccepted: ['Cash', 'Credit Card', 'Debit Card', 'Check', 'Invoice', 'Bank Transfer'],
+  openingHours: ["Mo-Fr 09:00-17:00"],
+  logo: "https://houstonwebservices.com/images/logo.svg",
+  image: ["https://houstonwebservices.com/images/storefront.jpg"],
+  priceRange: "$$",
+  currenciesAccepted: "USD",
+  paymentAccepted: [
+    "Cash",
+    "Credit Card",
+    "Debit Card",
+    "Check",
+    "Invoice",
+    "Bank Transfer",
+  ],
   sameAs: [],
   contactPoint: {
-    telephone: '+1-832-XXX-XXXX', // TODO: Update
-    email: 'info@houstonwebservices.com', // TODO: Update
-    contactType: 'customer service',
-    availableLanguage: ['English', 'Spanish'],
-    areaServed: ['Houston'],
+    telephone: "+1-832-XXX-XXXX", // TODO: Update
+    email: "james@htxweb.com", // TODO: Update
+    contactType: "customer service",
+    availableLanguage: ["English", "Spanish"],
+    areaServed: ["Houston"],
   },
   makesOffer: [
-    'Custom Website Design',
-    'Web Development',
-    'Website Maintenance',
-    'Web Hosting',
-    'SEO Optimization',
-    'E-commerce Website Development',
-    'Logo Design',
-    'Content Writing',
+    "Custom Website Design",
+    "Web Development",
+    "Website Maintenance",
+    "Web Hosting",
+    "SEO Optimization",
+    "E-commerce Website Development",
+    "Logo Design",
+    "Content Writing",
   ],
   knowsAbout: [
-    'Web Design',
-    'Web Development',
-    'Search Engine Optimization',
-    'User Experience Design',
-    'Responsive Design',
-    'Website Security',
-    'Website Performance Optimization',
-    'Small Business Websites',
-    'Houston Web Services',
+    "Web Design",
+    "Web Development",
+    "Search Engine Optimization",
+    "User Experience Design",
+    "Responsive Design",
+    "Website Security",
+    "Website Performance Optimization",
+    "Small Business Websites",
+    "Houston Web Services",
   ],
-  knowsLanguage: ['English', 'Spanish'],
+  knowsLanguage: ["English", "Spanish"],
 };
 
 /**
@@ -80,34 +98,34 @@ export const localBusinessSchema: LocalBusinessSchema = {
  */
 export const seoConfig: SEOConfig = {
   // Site Identity
-  siteName: 'Houston Web Services',
-  siteUrl: 'https://houstonwebservices.com', // Update with actual domain
+  siteName: "Houston Web Services",
+  siteUrl: "https://houstonwebservices.com", // Update with actual domain
 
   // Title Configuration
-  titleTemplate: '%s | Houston Web Services',
+  titleTemplate: "%s | Houston Web Services",
 
   // Default Meta Content
   defaultDescription:
-    'Professional web design and development services for small businesses in West Houston. Custom websites, SEO optimization, and digital solutions.',
-  defaultLang: 'en',
-  defaultLocale: 'en_US',
+    "Professional web design and development services for small businesses in West Houston. Custom websites, SEO optimization, and digital solutions.",
+  defaultLang: "en",
+  defaultLocale: "en_US",
 
   // Default Social Sharing Image
-  defaultImage: '/images/og-default.jpg', // Create this image (1200x630 recommended)
-  defaultImageAlt: 'Houston Web Services - Professional Web Design',
+  defaultImage: "/images/og-default.jpg", // Create this image (1200x630 recommended)
+  defaultImageAlt: "Houston Web Services - Professional Web Design",
 
   // Twitter Configuration
   twitterSite: undefined, // Add @username when available
-  twitterCardType: 'summary_large_image',
+  twitterCardType: "summary_large_image",
 
   // Open Graph Defaults
-  defaultOgType: 'website',
+  defaultOgType: "website",
 
   // Search Engine Directives
-  defaultRobots: 'index, follow',
+  defaultRobots: "index, follow",
 
   // Theme
-  themeColor: '#1a365d', // Navy blue - update to match brand
+  themeColor: "#1a365d", // Navy blue - update to match brand
 
   // LocalBusiness Schema (comprehensive, for JSON-LD)
   localBusiness: localBusinessSchema,
@@ -148,11 +166,11 @@ export function truncateText(text: string, maxLength: number): string {
   }
   // Find the last space before maxLength to avoid cutting words
   const truncated = text.substring(0, maxLength - 3);
-  const lastSpace = truncated.lastIndexOf(' ');
+  const lastSpace = truncated.lastIndexOf(" ");
   if (lastSpace > maxLength * 0.7) {
-    return truncated.substring(0, lastSpace) + '...';
+    return truncated.substring(0, lastSpace) + "...";
   }
-  return truncated + '...';
+  return truncated + "...";
 }
 
 /**
@@ -161,13 +179,13 @@ export function truncateText(text: string, maxLength: number): string {
  * @returns Escaped text
  */
 export function escapeHtml(text: string): string {
-  if (!text) return '';
+  if (!text) return "";
   return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 /**
@@ -176,15 +194,18 @@ export function escapeHtml(text: string): string {
  * @param baseUrl - Base URL of the site
  * @returns Absolute URL
  */
-export function toAbsoluteUrl(url: string | undefined, baseUrl: string): string | undefined {
+export function toAbsoluteUrl(
+  url: string | undefined,
+  baseUrl: string,
+): string | undefined {
   if (!url) return undefined;
-  if (url.startsWith('http://') || url.startsWith('https://')) {
+  if (url.startsWith("http://") || url.startsWith("https://")) {
     return url;
   }
   // Remove trailing slash from base URL
-  const cleanBase = baseUrl.replace(/\/$/, '');
+  const cleanBase = baseUrl.replace(/\/$/, "");
   // Ensure relative URL starts with /
-  const cleanPath = url.startsWith('/') ? url : `/${url}`;
+  const cleanPath = url.startsWith("/") ? url : `/${url}`;
   return `${cleanBase}${cleanPath}`;
 }
 
@@ -203,32 +224,34 @@ export function validateSEOProps(props: {
 
   // Title validation
   if (!props.title) {
-    warnings.push('SEO Warning: Title is required for optimal SEO.');
+    warnings.push("SEO Warning: Title is required for optimal SEO.");
   } else if (props.title.length > SEO_LIMITS.TITLE_MAX_LENGTH) {
     warnings.push(
-      `SEO Warning: Title is ${props.title.length} characters (recommended max: ${SEO_LIMITS.TITLE_MAX_LENGTH}).`
+      `SEO Warning: Title is ${props.title.length} characters (recommended max: ${SEO_LIMITS.TITLE_MAX_LENGTH}).`,
     );
   }
 
   // Description validation
   if (!props.description) {
-    warnings.push('SEO Warning: Description is required for optimal SEO.');
+    warnings.push("SEO Warning: Description is required for optimal SEO.");
   } else {
     if (props.description.length > SEO_LIMITS.DESCRIPTION_MAX_LENGTH) {
       warnings.push(
-        `SEO Warning: Description is ${props.description.length} characters (recommended max: ${SEO_LIMITS.DESCRIPTION_MAX_LENGTH}).`
+        `SEO Warning: Description is ${props.description.length} characters (recommended max: ${SEO_LIMITS.DESCRIPTION_MAX_LENGTH}).`,
       );
     }
     if (props.description.length < SEO_LIMITS.DESCRIPTION_MIN_LENGTH) {
       warnings.push(
-        `SEO Warning: Description is ${props.description.length} characters (recommended min: ${SEO_LIMITS.DESCRIPTION_MIN_LENGTH}).`
+        `SEO Warning: Description is ${props.description.length} characters (recommended min: ${SEO_LIMITS.DESCRIPTION_MIN_LENGTH}).`,
       );
     }
   }
 
   // Image validation
   if (!props.image) {
-    warnings.push('SEO Warning: No social sharing image provided. Using default.');
+    warnings.push(
+      "SEO Warning: No social sharing image provided. Using default.",
+    );
   }
 
   return warnings;
