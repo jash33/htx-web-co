@@ -63,6 +63,7 @@ export default defineConfig({
       // Customize sitemap entries if needed
       serialize(item) {
         // Default priority and changefreq
+        // @ts-ignore
         item.changefreq = "weekly";
         item.priority = 0.7;
         // Home page gets higher priority
