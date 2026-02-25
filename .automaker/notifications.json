@@ -374,6 +374,149 @@
       "dismissed": false,
       "featureId": "feature-1771990482678-xzx4f3dmm6",
       "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "01283cad-def5-4f5f-8389-91b7e5944d50",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771992997577-6xzmp5mmm0l\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T04:20:54.956Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771992997577-6xzmp5mmm0l",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "83ed1c19-3403-4a3e-a481-cac96e6b39ba",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771993049907-7tln8obpylm\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T04:22:05.122Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771993049907-7tln8obpylm",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "1d7e555f-afcb-498a-b537-746cf9b8a0bd",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771990482678-xzx4f3dmm6\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T04:47:32.537Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771990482678-xzx4f3dmm6",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "1f28662f-b658-40ff-91c0-547335c6eadd",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771995145710-8wlpon6uqzw\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T04:55:16.302Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771995145710-8wlpon6uqzw",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "b613d9a9-da13-492c-8b0c-b71c24d3f996",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771995246090-b07lbbctlea\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T04:57:48.680Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771995246090-b07lbbctlea",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "389d997a-4bf6-4d09-b33c-6d971817a323",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771995389638-jt98f5zm5lo\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T04:57:54.111Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771995389638-jt98f5zm5lo",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "825fc64f-390c-4551-8eb3-7b1fa3436baf",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771995246090-b07lbbctlea\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T04:59:28.609Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771995246090-b07lbbctlea",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "44de8583-a2ec-446b-bbec-422b115bbb6a",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771995246090-b07lbbctlea\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T05:25:53.437Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771995246090-b07lbbctlea",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "2617760a-a93a-4a12-b990-fc92c831d290",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771995246090-b07lbbctlea\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T05:27:05.221Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771995246090-b07lbbctlea",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "d940d30c-9195-4074-8266-53b954f051b3",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771997330199-zuveilssz49\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T05:30:50.221Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771997330199-zuveilssz49",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "4f501431-0a98-4cf0-aacf-f681b06de125",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771997662989-81hxez69ei\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T05:35:10.171Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771997662989-81hxez69ei",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "b3e21b07-962e-4e9b-be09-dd48d65bd3e7",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771997662989-81hxez69ei\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T05:37:23.431Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771997662989-81hxez69ei",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "e5ed2618-51c6-42e5-9b3a-9f39fa991ace",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771998267718-qe2ysupf47\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T05:45:15.856Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771998267718-qe2ysupf47",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
     }
   ]
 }

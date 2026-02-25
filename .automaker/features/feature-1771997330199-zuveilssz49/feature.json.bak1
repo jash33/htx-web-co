@@ -1,0 +1,32 @@
+{
+  "category": "Uncategorized",
+  "description": "Please remove entirely the \"Growing Customer Base\" and \"Grow Your Brand & Reputation\" cards.",
+  "title": "Remove Growing Customer Base and Reputation cards",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771997330199-zuveilssz49",
+  "descriptionHistory": [
+    {
+      "description": "Please remove entirely the \"Growing Customer Base\" and \"Grow Your Brand & Reputation\" cards.",
+      "timestamp": "2026-02-25T05:28:50.215Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-25T05:28:50.234Z",
+  "updatedAt": "2026-02-25T05:30:50.228Z",
+  "justFinishedAt": "2026-02-25T05:30:50.215Z",
+  "summary": "## Summary: Remove Growing Customer Base and Grow Your Brand Cards\n\n### Changes Implemented\n- Removed the \"Growing Customer Base\" card and \"Grow Your Brand & Reputation\" card entirely from the DifferentiatorsSection\n- Removed the `CustomerGrowthGraph` and `BrandGrowthGraphic` component imports\n- Removed the `showGrowthGraphics` prop from the component\n- Removed the Growth Graphics Section template markup\n- Removed all related CSS styles (grid layout, animations, reduced motion, print styles for growth graphics)\n- Deleted the `CustomerGrowthGraph.astro` component file\n- Deleted the `BrandGrowthGraphic.astro` component file\n\n### Files Modified\n- `src/components/DifferentiatorsSection.astro` - Removed imports, prop, template, and CSS for growth graphics\n\n### Files Deleted\n- `src/components/CustomerGrowthGraph.astro` - Removed entirely (no longer used)\n- `src/components/BrandGrowthGraphic.astro` - Removed entirely (no longer used)\n\n### Notes for Developer\n- The DifferentiatorsSection component now only displays the differentiator cards without the growth graphics section\n- No other files in the codebase referenced these components, so the deletion is safe\n- The component's core functionality (displaying differentiator cards) remains intact"
+}

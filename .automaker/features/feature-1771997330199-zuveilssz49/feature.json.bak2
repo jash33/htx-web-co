@@ -1,0 +1,31 @@
+{
+  "category": "Uncategorized",
+  "description": "Please remove entirely the \"Growing Customer Base\" and \"Grow Your Brand & Reputation\" cards.",
+  "title": "Remove Growing Customer Base and Reputation cards",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771997330199-zuveilssz49",
+  "descriptionHistory": [
+    {
+      "description": "Please remove entirely the \"Growing Customer Base\" and \"Grow Your Brand & Reputation\" cards.",
+      "timestamp": "2026-02-25T05:28:50.215Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-25T05:28:50.234Z",
+  "updatedAt": "2026-02-25T05:30:50.215Z",
+  "justFinishedAt": "2026-02-25T05:30:50.215Z"
+}

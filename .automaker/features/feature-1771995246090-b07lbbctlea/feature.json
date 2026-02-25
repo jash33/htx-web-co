@@ -1,0 +1,32 @@
+{
+  "category": "Uncategorized",
+  "description": "In the why choose us section, can you put a graph that is just supposed to indicate the number of customers increasing for a business? Like basically for advertising purposes. And also next to that some kind of graphic which says that we help grow your brand and reputation.\n",
+  "title": "Add customer growth graph and brand reputation graphic",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1771995246090-b07lbbctlea",
+  "descriptionHistory": [
+    {
+      "description": "In the why choose us section, can you put a graph that is just supposed to indicate the number of customers increasing for a business? Like basically for advertising purposes. And also next to that some kind of graphic which says that we help grow your brand and reputation.\n",
+      "timestamp": "2026-02-25T04:54:06.101Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-25T05:26:22.946Z",
+  "updatedAt": "2026-02-25T05:27:05.217Z",
+  "summary": "## Summary: Customer Growth Graph and Brand Graphic in Why Choose Us Section\n\n### Changes Implemented\n- Created `CustomerGrowthGraph.astro` component - An animated SVG line chart showing upward customer growth trajectory with:\n  - Animated line drawing effect\n  - Data points with hover interactions\n  - Growth area gradient fill\n  - \"+127%\" badge indicator\n  - Y-axis labels (100-500) and X-axis month labels\n  - Responsive design and reduced motion support\n\n- Created `BrandGrowthGraphic.astro` component - A visual brand/reputation growth graphic with:\n  - Central trophy/award icon with pulsing glow rings\n  - Orbiting satellite icons representing Trust, Recognition, Visibility, and Loyalty\n  - 5.0 star rating indicator with animated stars\n  - Benefits checklist (Build customer trust, Increase visibility, Stand out locally)\n  - Responsive design and reduced motion support\n\n- Updated `DifferentiatorsSection.astro` to include the new graphics:\n  - Added imports for both new components\n  - Added `showGrowthGraphics` prop (default: true) for optional display\n  - Added growth graphics grid below the differentiators cards\n  - Added responsive styles (1 column mobile, 2 columns tablet+)\n  - Added staggered fade-in animations\n  - Added reduced motion and print style support\n\n### Files Modified\n- `src/components/DifferentiatorsSection.astro` - Added imports and growth graphics section\n- `src/components/CustomerGrowthGraph.astro` - **NEW FILE** - Customer growth chart component\n- `src/components/BrandGrowthGraphic.astro` - **NEW FILE** - Brand reputation graphic component\n\n### Notes for Developer\n- Both graphics appear automatically below the \"Why Choose Us\" differentiator cards\n- Graphics are separated from the cards by a subtle top border for visual distinction\n- Animations respect `prefers-reduced-motion` for accessibility\n- The `showGrowthGraphics` prop can be set to `false` to hide the graphics if needed\n- All components follow the existing BEM naming conventions and use design system variables\n- Both graphics have hover effects that lift and add glow effects",
+  "justFinishedAt": "2026-02-25T05:27:05.217Z"
+}

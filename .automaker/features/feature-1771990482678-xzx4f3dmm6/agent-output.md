@@ -1042,3 +1042,184 @@ Input: {
 - Images use the SVG format for crisp scaling at any size
 - The project names were updated to match the actual featured projects from the config (Energy Consulting, Dental Care, Real Estate)
 </summary>
+
+---
+
+## Follow-up Session
+
+I'll make the "Our Services" cards use the dark navy color that's being used throughout the site. Let me first check what dark navy color is being used in the project.
+
+🔧 Tool: Read
+Input: {
+  "file_path": "C:\\Users\\James\\Repos\\houston-web-services\\public\\portfolio\\energy-consulting.svg"
+}
+
+🔧 Tool: Grep
+Input: {
+  "pattern": "--color-primary|navy|1e293b|0f172a",
+  "path": "C:\\Users\\James\\Repos\\houston-web-services\\src",
+  "output_mode": "content",
+  "-n": true,
+  "head_limit": 20
+}
+I can see the dark navy colors being used are `#1e293b` and `#0f172a`. Now I need to update the service cards in the energy-consulting.svg to use the dark navy color. I'll also check the other SVGs to see if they have service cards that need updating.
+
+🔧 Tool: TodoWrite
+Input: {
+  "todos": [
+    {
+      "content": "Update energy-consulting.svg service cards to dark navy",
+      "status": "in_progress",
+      "activeForm": "Updating energy-consulting service cards"
+    },
+    {
+      "content": "Update dental-care.svg service cards to dark navy",
+      "status": "pending",
+      "activeForm": "Updating dental-care service cards"
+    },
+    {
+      "content": "Update real-estate.svg property cards to dark navy (if applicable)",
+      "status": "pending",
+      "activeForm": "Updating real-estate property cards"
+    }
+  ]
+}
+
+🔧 Tool: Edit
+Input: {
+  "file_path": "C:\\Users\\James\\Repos\\houston-web-services\\public\\portfolio\\energy-consulting.svg",
+  "old_string": "  <!-- Services section -->\n  <rect fill=\"#f8fafc\" x=\"0\" y=\"258\" width=\"600\" height=\"142\"/>\n  <text x=\"300\" y=\"290\" font-family=\"system-ui, sans-serif\" font-size=\"16\" font-weight=\"bold\" fill=\"#1e293b\" text-anchor=\"middle\">Our Services</text>\n\n  <!-- Service cards -->\n  <rect fill=\"#ffffff\" x=\"30\" y=\"310\" width=\"160\" height=\"70\" rx=\"8\"/>\n  <rect fill=\"#3b82f6\" x=\"30\" y=\"310\" width=\"160\" height=\"4\" rx=\"2\"/>\n  <rect fill=\"#e2e8f0\" x=\"45\" y=\"325\" width=\"40\" height=\"8\" rx=\"2\"/>\n  <rect fill=\"#cbd5e1\" x=\"45\" y=\"340\" width=\"120\" height=\"6\" rx=\"2\"/>\n  <rect fill=\"#cbd5e1\" x=\"45\" y=\"352\" width=\"100\" height=\"6\" rx=\"2\"/>\n\n  <rect fill=\"#ffffff\" x=\"220\" y=\"310\" width=\"160\" height=\"70\" rx=\"8\"/>\n  <rect fill=\"#10b981\" x=\"220\" y=\"310\" width=\"160\" height=\"4\" rx=\"2\"/>\n  <rect fill=\"#e2e8f0\" x=\"235\" y=\"325\" width=\"40\" height=\"8\" rx=\"2\"/>\n  <rect fill=\"#cbd5e1\" x=\"235\" y=\"340\" width=\"120\" height=\"6\" rx=\"2\"/>\n  <rect fill=\"#cbd5e1\" x=\"235\" y=\"352\" width=\"100\" height=\"6\" rx=\"2\"/>\n\n  <rect fill=\"#ffffff\" x=\"410\" y=\"310\" width=\"160\" height=\"70\" rx=\"8\"/>\n  <rect fill=\"#f59e0b\" x=\"410\" y=\"310\" width=\"160\" height=\"4\" rx=\"2\"/>\n  <rect fill=\"#e2e8f0\" x=\"425\" y=\"325\" width=\"40\" height=\"8\" rx=\"2\"/>\n  <rect fill=\"#cbd5e1\" x=\"425\" y=\"340\" width=\"120\" height=\"6\" rx=\"2\"/>\n  <rect fill=\"#cbd5e1\" x=\"425\" y=\"352\" width=\"100\" height=\"6\" rx=\"2\"/>",
+  "new_string": "  <!-- Services section -->\n  <rect fill=\"#0f172a\" x=\"0\" y=\"258\" width=\"600\" height=\"142\"/>\n  <text x=\"300\" y=\"290\" font-family=\"system-ui, sans-serif\" font-size=\"16\" font-weight=\"bold\" fill=\"#ffffff\" text-anchor=\"middle\">Our Services</text>\n\n  <!-- Service cards - dark navy theme -->\n  <rect fill=\"#1e293b\" x=\"30\" y=\"310\" width=\"160\" height=\"70\" rx=\"8\"/>\n  <rect fill=\"#3b82f6\" x=\"30\" y=\"310\" width=\"160\" height=\"4\" rx=\"2\"/>\n  <rect fill=\"#3b82f6\" x=\"45\" y=\"325\" width=\"40\" height=\"8\" rx=\"2\"/>\n  <rect fill=\"#475569\" x=\"45\" y=\"340\" width=\"120\" height=\"6\" rx=\"2\"/>\n  <rect fill=\"#475569\" x=\"45\" y=\"352\" width=\"100\" height=\"6\" rx=\"2\"/>\n\n  <rect fill=\"#1e293b\" x=\"220\" y=\"310\" width=\"160\" height=\"70\" rx=\"8\"/>\n  <rect fill=\"#10b981\" x=\"220\" y=\"310\" width=\"160\" height=\"4\" rx=\"2\"/>\n  <rect fill=\"#10b981\" x=\"235\" y=\"325\" width=\"40\" height=\"8\" rx=\"2\"/>\n  <rect fill=\"#475569\" x=\"235\" y=\"340\" width=\"120\" height=\"6\" rx=\"2\"/>\n  <rect fill=\"#475569\" x=\"235\" y=\"352\" width=\"100\" height=\"6\" rx=\"2\"/>\n\n  <rect fill=\"#1e293b\" x=\"410\" y=\"310\" width=\"160\" height=\"70\" rx=\"8\"/>\n  <rect fill=\"#f59e0b\" x=\"410\" y=\"310\" width=\"160\" height=\"4\" rx=\"2\"/>\n  <rect fill=\"#f59e0b\" x=\"425\" y=\"325\" width=\"40\" height=\"8\" rx=\"2\"/>\n  <rect fill=\"#475569\" x=\"425\" y=\"340\" width=\"120\" height=\"6\" rx=\"2\"/>\n  <rect fill=\"#475569\" x=\"425\" y=\"352\" width=\"100\" height=\"6\" rx=\"2\"/>"
+}
+
+🔧 Tool: TodoWrite
+Input: {
+  "todos": [
+    {
+      "content": "Update energy-consulting.svg service cards to dark navy",
+      "status": "completed",
+      "activeForm": "Updating energy-consulting service cards"
+    },
+    {
+      "content": "Update dental-care.svg service cards to dark navy",
+      "status": "in_progress",
+      "activeForm": "Updating dental-care service cards"
+    },
+    {
+      "content": "Update real-estate.svg property cards to dark navy (if applicable)",
+      "status": "pending",
+      "activeForm": "Updating real-estate property cards"
+    }
+  ]
+}
+Now let me read the dental-care.svg to update its service cards:
+
+🔧 Tool: Read
+Input: {
+  "file_path": "C:\\Users\\James\\Repos\\houston-web-services\\public\\portfolio\\dental-care.svg"
+}
+
+🔧 Tool: Edit
+Input: {
+  "file_path": "C:\\Users\\James\\Repos\\houston-web-services\\public\\portfolio\\dental-care.svg",
+  "old_string": "  <!-- Services section -->\n  <rect fill=\"#ffffff\" x=\"0\" y=\"239\" width=\"600\" height=\"161\"/>\n  <text x=\"300\" y=\"268\" font-family=\"system-ui, sans-serif\" font-size=\"14\" font-weight=\"bold\" fill=\"#0f172a\" text-anchor=\"middle\">Our Services</text>\n\n  <!-- Service cards -->\n  <rect fill=\"#f8fafc\" x=\"30\" y=\"285\" width=\"120\" height=\"95\" rx=\"8\" stroke=\"#e2e8f0\"/>\n  <circle fill=\"#dbeafe\" cx=\"90\" cy=\"315\" r=\"16\"/>\n  <rect fill=\"#0891b2\" x=\"82\" y=\"310\" width=\"16\" height=\"10\" rx=\"2\"/>\n  <text x=\"90\" y=\"345\" font-family=\"system-ui, sans-serif\" font-size=\"10\" font-weight=\"600\" fill=\"#0f172a\" text-anchor=\"middle\">Cleaning</text>\n  <rect fill=\"#cbd5e1\" x=\"50\" y=\"358\" width=\"80\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#e2e8f0\" x=\"60\" y=\"368\" width=\"60\" height=\"4\" rx=\"2\"/>\n\n  <rect fill=\"#f8fafc\" x=\"170\" y=\"285\" width=\"120\" height=\"95\" rx=\"8\" stroke=\"#e2e8f0\"/>\n  <circle fill=\"#fef3c7\" cx=\"230\" cy=\"315\" r=\"16\"/>\n  <rect fill=\"#f59e0b\" x=\"222\" y=\"310\" width=\"16\" height=\"10\" rx=\"2\"/>\n  <text x=\"230\" y=\"345\" font-family=\"system-ui, sans-serif\" font-size=\"10\" font-weight=\"600\" fill=\"#0f172a\" text-anchor=\"middle\">Whitening</text>\n  <rect fill=\"#cbd5e1\" x=\"190\" y=\"358\" width=\"80\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#e2e8f0\" x=\"200\" y=\"368\" width=\"60\" height=\"4\" rx=\"2\"/>\n\n  <rect fill=\"#f8fafc\" x=\"310\" y=\"285\" width=\"120\" height=\"95\" rx=\"8\" stroke=\"#e2e8f0\"/>\n  <circle fill=\"#dcfce7\" cx=\"370\" cy=\"315\" r=\"16\"/>\n  <rect fill=\"#22c55e\" x=\"362\" y=\"310\" width=\"16\" height=\"10\" rx=\"2\"/>\n  <text x=\"370\" y=\"345\" font-family=\"system-ui, sans-serif\" font-size=\"10\" font-weight=\"600\" fill=\"#0f172a\" text-anchor=\"middle\">Implants</text>\n  <rect fill=\"#cbd5e1\" x=\"330\" y=\"358\" width=\"80\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#e2e8f0\" x=\"340\" y=\"368\" width=\"60\" height=\"4\" rx=\"2\"/>\n\n  <rect fill=\"#f8fafc\" x=\"450\" y=\"285\" width=\"120\" height=\"95\" rx=\"8\" stroke=\"#e2e8f0\"/>\n  <circle fill=\"#fce7f3\" cx=\"510\" cy=\"315\" r=\"16\"/>\n  <rect fill=\"#ec4899\" x=\"502\" y=\"310\" width=\"16\" height=\"10\" rx=\"2\"/>\n  <text x=\"510\" y=\"345\" font-family=\"system-ui, sans-serif\" font-size=\"10\" font-weight=\"600\" fill=\"#0f172a\" text-anchor=\"middle\">Orthodontics</text>\n  <rect fill=\"#cbd5e1\" x=\"470\" y=\"358\" width=\"80\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#e2e8f0\" x=\"480\" y=\"368\" width=\"60\" height=\"4\" rx=\"2\"/>",
+  "new_string": "  <!-- Services section - dark navy theme -->\n  <rect fill=\"#0f172a\" x=\"0\" y=\"239\" width=\"600\" height=\"161\"/>\n  <text x=\"300\" y=\"268\" font-family=\"system-ui, sans-serif\" font-size=\"14\" font-weight=\"bold\" fill=\"#ffffff\" text-anchor=\"middle\">Our Services</text>\n\n  <!-- Service cards - dark navy -->\n  <rect fill=\"#1e293b\" x=\"30\" y=\"285\" width=\"120\" height=\"95\" rx=\"8\"/>\n  <circle fill=\"#164e63\" cx=\"90\" cy=\"315\" r=\"16\"/>\n  <rect fill=\"#0891b2\" x=\"82\" y=\"310\" width=\"16\" height=\"10\" rx=\"2\"/>\n  <text x=\"90\" y=\"345\" font-family=\"system-ui, sans-serif\" font-size=\"10\" font-weight=\"600\" fill=\"#ffffff\" text-anchor=\"middle\">Cleaning</text>\n  <rect fill=\"#475569\" x=\"50\" y=\"358\" width=\"80\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#334155\" x=\"60\" y=\"368\" width=\"60\" height=\"4\" rx=\"2\"/>\n\n  <rect fill=\"#1e293b\" x=\"170\" y=\"285\" width=\"120\" height=\"95\" rx=\"8\"/>\n  <circle fill=\"#713f12\" cx=\"230\" cy=\"315\" r=\"16\"/>\n  <rect fill=\"#f59e0b\" x=\"222\" y=\"310\" width=\"16\" height=\"10\" rx=\"2\"/>\n  <text x=\"230\" y=\"345\" font-family=\"system-ui, sans-serif\" font-size=\"10\" font-weight=\"600\" fill=\"#ffffff\" text-anchor=\"middle\">Whitening</text>\n  <rect fill=\"#475569\" x=\"190\" y=\"358\" width=\"80\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#334155\" x=\"200\" y=\"368\" width=\"60\" height=\"4\" rx=\"2\"/>\n\n  <rect fill=\"#1e293b\" x=\"310\" y=\"285\" width=\"120\" height=\"95\" rx=\"8\"/>\n  <circle fill=\"#14532d\" cx=\"370\" cy=\"315\" r=\"16\"/>\n  <rect fill=\"#22c55e\" x=\"362\" y=\"310\" width=\"16\" height=\"10\" rx=\"2\"/>\n  <text x=\"370\" y=\"345\" font-family=\"system-ui, sans-serif\" font-size=\"10\" font-weight=\"600\" fill=\"#ffffff\" text-anchor=\"middle\">Implants</text>\n  <rect fill=\"#475569\" x=\"330\" y=\"358\" width=\"80\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#334155\" x=\"340\" y=\"368\" width=\"60\" height=\"4\" rx=\"2\"/>\n\n  <rect fill=\"#1e293b\" x=\"450\" y=\"285\" width=\"120\" height=\"95\" rx=\"8\"/>\n  <circle fill=\"#831843\" cx=\"510\" cy=\"315\" r=\"16\"/>\n  <rect fill=\"#ec4899\" x=\"502\" y=\"310\" width=\"16\" height=\"10\" rx=\"2\"/>\n  <text x=\"510\" y=\"345\" font-family=\"system-ui, sans-serif\" font-size=\"10\" font-weight=\"600\" fill=\"#ffffff\" text-anchor=\"middle\">Orthodontics</text>\n  <rect fill=\"#475569\" x=\"470\" y=\"358\" width=\"80\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#334155\" x=\"480\" y=\"368\" width=\"60\" height=\"4\" rx=\"2\"/>"
+}
+
+🔧 Tool: TodoWrite
+Input: {
+  "todos": [
+    {
+      "content": "Update energy-consulting.svg service cards to dark navy",
+      "status": "completed",
+      "activeForm": "Updating energy-consulting service cards"
+    },
+    {
+      "content": "Update dental-care.svg service cards to dark navy",
+      "status": "completed",
+      "activeForm": "Updating dental-care service cards"
+    },
+    {
+      "content": "Update real-estate.svg property cards to dark navy (if applicable)",
+      "status": "in_progress",
+      "activeForm": "Updating real-estate property cards"
+    }
+  ]
+}
+Now let me check the real-estate.svg to see if it has similar cards that should be updated:
+
+🔧 Tool: Read
+Input: {
+  "file_path": "C:\\Users\\James\\Repos\\houston-web-services\\public\\portfolio\\real-estate.svg"
+}
+The real-estate.svg has "Featured Listings" property cards. Let me update that section to use the dark navy theme as well:
+
+🔧 Tool: Edit
+Input: {
+  "file_path": "C:\\Users\\James\\Repos\\houston-web-services\\public\\portfolio\\real-estate.svg",
+  "old_string": "  <!-- Property listings section -->\n  <rect fill=\"#f8fafc\" x=\"0\" y=\"189\" width=\"600\" height=\"211\"/>\n  <text x=\"30\" y=\"215\" font-family=\"system-ui, sans-serif\" font-size=\"14\" font-weight=\"bold\" fill=\"#0f172a\">Featured Listings</text>\n  <text x=\"540\" y=\"215\" font-family=\"system-ui, sans-serif\" font-size=\"10\" fill=\"#059669\" text-anchor=\"end\">View all</text>\n\n  <!-- Property card 1 -->\n  <rect fill=\"#ffffff\" x=\"30\" y=\"230\" width=\"170\" height=\"150\" rx=\"8\"/>\n  <rect fill=\"#d1fae5\" x=\"30\" y=\"230\" width=\"170\" height=\"85\" rx=\"8\"/>\n  <rect fill=\"#d1fae5\" x=\"30\" y=\"307\" width=\"170\" height=\"8\"/>\n  <rect fill=\"#059669\" x=\"40\" y=\"240\" width=\"45\" height=\"18\" rx=\"3\"/>\n  <text x=\"62\" y=\"252\" font-family=\"system-ui, sans-serif\" font-size=\"8\" font-weight=\"600\" fill=\"#ffffff\" text-anchor=\"middle\">FOR SALE</text>\n  <text x=\"40\" y=\"335\" font-family=\"system-ui, sans-serif\" font-size=\"12\" font-weight=\"bold\" fill=\"#0f172a\">$425,000</text>\n  <rect fill=\"#e2e8f0\" x=\"40\" y=\"345\" width=\"100\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#f1f5f9\" x=\"40\" y=\"355\" width=\"80\" height=\"4\" rx=\"2\"/>\n  <text x=\"40\" y=\"375\" font-family=\"system-ui, sans-serif\" font-size=\"8\" fill=\"#64748b\">3 bed  |  2 bath  |  1,850 sqft</text>\n\n  <!-- Property card 2 -->\n  <rect fill=\"#ffffff\" x=\"215\" y=\"230\" width=\"170\" height=\"150\" rx=\"8\"/>\n  <rect fill=\"#dbeafe\" x=\"215\" y=\"230\" width=\"170\" height=\"85\" rx=\"8\"/>\n  <rect fill=\"#dbeafe\" x=\"215\" y=\"307\" width=\"170\" height=\"8\"/>\n  <rect fill=\"#3b82f6\" x=\"225\" y=\"240\" width=\"45\" height=\"18\" rx=\"3\"/>\n  <text x=\"247\" y=\"252\" font-family=\"system-ui, sans-serif\" font-size=\"8\" font-weight=\"600\" fill=\"#ffffff\" text-anchor=\"middle\">FOR RENT</text>\n  <text x=\"225\" y=\"335\" font-family=\"system-ui, sans-serif\" font-size=\"12\" font-weight=\"bold\" fill=\"#0f172a\">$2,200/mo</text>\n  <rect fill=\"#e2e8f0\" x=\"225\" y=\"345\" width=\"100\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#f1f5f9\" x=\"225\" y=\"355\" width=\"80\" height=\"4\" rx=\"2\"/>\n  <text x=\"225\" y=\"375\" font-family=\"system-ui, sans-serif\" font-size=\"8\" fill=\"#64748b\">2 bed  |  2 bath  |  1,200 sqft</text>\n\n  <!-- Property card 3 -->\n  <rect fill=\"#ffffff\" x=\"400\" y=\"230\" width=\"170\" height=\"150\" rx=\"8\"/>\n  <rect fill=\"#fef3c7\" x=\"400\" y=\"230\" width=\"170\" height=\"85\" rx=\"8\"/>\n  <rect fill=\"#fef3c7\" x=\"400\" y=\"307\" width=\"170\" height=\"8\"/>\n  <rect fill=\"#f59e0b\" x=\"410\" y=\"240\" width=\"55\" height=\"18\" rx=\"3\"/>\n  <text x=\"437\" y=\"252\" font-family=\"system-ui, sans-serif\" font-size=\"8\" font-weight=\"600\" fill=\"#ffffff\" text-anchor=\"middle\">NEW BUILD</text>\n  <text x=\"410\" y=\"335\" font-family=\"system-ui, sans-serif\" font-size=\"12\" font-weight=\"bold\" fill=\"#0f172a\">$650,000</text>\n  <rect fill=\"#e2e8f0\" x=\"410\" y=\"345\" width=\"100\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#f1f5f9\" x=\"410\" y=\"355\" width=\"80\" height=\"4\" rx=\"2\"/>\n  <text x=\"410\" y=\"375\" font-family=\"system-ui, sans-serif\" font-size=\"8\" fill=\"#64748b\">4 bed  |  3 bath  |  2,400 sqft</text>",
+  "new_string": "  <!-- Property listings section - dark navy theme -->\n  <rect fill=\"#0f172a\" x=\"0\" y=\"189\" width=\"600\" height=\"211\"/>\n  <text x=\"30\" y=\"215\" font-family=\"system-ui, sans-serif\" font-size=\"14\" font-weight=\"bold\" fill=\"#ffffff\">Featured Listings</text>\n  <text x=\"540\" y=\"215\" font-family=\"system-ui, sans-serif\" font-size=\"10\" fill=\"#10b981\" text-anchor=\"end\">View all</text>\n\n  <!-- Property card 1 - dark navy -->\n  <rect fill=\"#1e293b\" x=\"30\" y=\"230\" width=\"170\" height=\"150\" rx=\"8\"/>\n  <rect fill=\"#064e3b\" x=\"30\" y=\"230\" width=\"170\" height=\"85\" rx=\"8\"/>\n  <rect fill=\"#064e3b\" x=\"30\" y=\"307\" width=\"170\" height=\"8\"/>\n  <rect fill=\"#059669\" x=\"40\" y=\"240\" width=\"45\" height=\"18\" rx=\"3\"/>\n  <text x=\"62\" y=\"252\" font-family=\"system-ui, sans-serif\" font-size=\"8\" font-weight=\"600\" fill=\"#ffffff\" text-anchor=\"middle\">FOR SALE</text>\n  <text x=\"40\" y=\"335\" font-family=\"system-ui, sans-serif\" font-size=\"12\" font-weight=\"bold\" fill=\"#ffffff\">$425,000</text>\n  <rect fill=\"#475569\" x=\"40\" y=\"345\" width=\"100\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#334155\" x=\"40\" y=\"355\" width=\"80\" height=\"4\" rx=\"2\"/>\n  <text x=\"40\" y=\"375\" font-family=\"system-ui, sans-serif\" font-size=\"8\" fill=\"#94a3b8\">3 bed  |  2 bath  |  1,850 sqft</text>\n\n  <!-- Property card 2 - dark navy -->\n  <rect fill=\"#1e293b\" x=\"215\" y=\"230\" width=\"170\" height=\"150\" rx=\"8\"/>\n  <rect fill=\"#1e3a5f\" x=\"215\" y=\"230\" width=\"170\" height=\"85\" rx=\"8\"/>\n  <rect fill=\"#1e3a5f\" x=\"215\" y=\"307\" width=\"170\" height=\"8\"/>\n  <rect fill=\"#3b82f6\" x=\"225\" y=\"240\" width=\"45\" height=\"18\" rx=\"3\"/>\n  <text x=\"247\" y=\"252\" font-family=\"system-ui, sans-serif\" font-size=\"8\" font-weight=\"600\" fill=\"#ffffff\" text-anchor=\"middle\">FOR RENT</text>\n  <text x=\"225\" y=\"335\" font-family=\"system-ui, sans-serif\" font-size=\"12\" font-weight=\"bold\" fill=\"#ffffff\">$2,200/mo</text>\n  <rect fill=\"#475569\" x=\"225\" y=\"345\" width=\"100\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#334155\" x=\"225\" y=\"355\" width=\"80\" height=\"4\" rx=\"2\"/>\n  <text x=\"225\" y=\"375\" font-family=\"system-ui, sans-serif\" font-size=\"8\" fill=\"#94a3b8\">2 bed  |  2 bath  |  1,200 sqft</text>\n\n  <!-- Property card 3 - dark navy -->\n  <rect fill=\"#1e293b\" x=\"400\" y=\"230\" width=\"170\" height=\"150\" rx=\"8\"/>\n  <rect fill=\"#78350f\" x=\"400\" y=\"230\" width=\"170\" height=\"85\" rx=\"8\"/>\n  <rect fill=\"#78350f\" x=\"400\" y=\"307\" width=\"170\" height=\"8\"/>\n  <rect fill=\"#f59e0b\" x=\"410\" y=\"240\" width=\"55\" height=\"18\" rx=\"3\"/>\n  <text x=\"437\" y=\"252\" font-family=\"system-ui, sans-serif\" font-size=\"8\" font-weight=\"600\" fill=\"#ffffff\" text-anchor=\"middle\">NEW BUILD</text>\n  <text x=\"410\" y=\"335\" font-family=\"system-ui, sans-serif\" font-size=\"12\" font-weight=\"bold\" fill=\"#ffffff\">$650,000</text>\n  <rect fill=\"#475569\" x=\"410\" y=\"345\" width=\"100\" height=\"5\" rx=\"2\"/>\n  <rect fill=\"#334155\" x=\"410\" y=\"355\" width=\"80\" height=\"4\" rx=\"2\"/>\n  <text x=\"410\" y=\"375\" font-family=\"system-ui, sans-serif\" font-size=\"8\" fill=\"#94a3b8\">4 bed  |  3 bath  |  2,400 sqft</text>"
+}
+
+🔧 Tool: TodoWrite
+Input: {
+  "todos": []
+}
+All three portfolio SVGs have been updated with the dark navy theme for their service/listing cards. Let me verify the changes:
+
+🔧 Tool: Bash
+Input: {
+  "command": "grep -n \"0f172a\\|1e293b\" \"C:\\Users\\James\\Repos\\houston-web-services\\public\\portfolio\\energy-consulting.svg\" | head -10",
+  "description": "Verify dark navy colors in energy-consulting.svg"
+}
+
+🔧 Tool: Bash
+Input: {
+  "command": "grep -n \"0f172a\\|1e293b\" \"C:\\Users\\James\\Repos\\houston-web-services\\public\\portfolio\\dental-care.svg\" | head -10",
+  "description": "Verify dark navy colors in dental-care.svg"
+}
+
+🔧 Tool: Bash
+Input: {
+  "command": "grep -n \"0f172a\\|1e293b\" \"C:\\Users\\James\\Repos\\houston-web-services\\public\\portfolio\\real-estate.svg\" | head -10",
+  "description": "Verify dark navy colors in real-estate.svg"
+}
+All three SVG files now use the dark navy colors (`#0f172a` for section backgrounds and `#1e293b` for cards).
+
+<summary>
+## Summary: Updated "Our Services" Cards to Dark Navy Theme
+
+### Changes Implemented
+- **energy-consulting.svg**: Updated the "Our Services" section
+  - Changed section background from `#f8fafc` (light gray) to `#0f172a` (dark navy)
+  - Changed card backgrounds from `#ffffff` to `#1e293b` (dark navy card color)
+  - Updated icon backgrounds to use matching muted colors with accent color icons
+  - Changed text colors to white for contrast
+  - Updated placeholder lines to use `#475569` (muted gray)
+
+- **dental-care.svg**: Updated the "Our Services" section
+  - Changed section background from `#ffffff` to `#0f172a` (dark navy)
+  - Changed all 4 service card backgrounds from `#f8fafc` to `#1e293b`
+  - Updated icon circle backgrounds to darker tinted versions of their accent colors
+  - Changed service name text colors to white
+  - Updated placeholder lines to use dark theme colors
+
+- **real-estate.svg**: Updated the "Featured Listings" section
+  - Changed section background from `#f8fafc` to `#0f172a` (dark navy)
+  - Changed all 3 property card backgrounds from `#ffffff` to `#1e293b`
+  - Updated property image placeholder areas to use darker tinted colors matching their badges
+  - Changed price text to white for contrast
+  - Updated "View all" link to use green (`#10b981`) for better visibility on dark background
+  - Updated bed/bath/sqft text to `#94a3b8` (light gray)
+
+### Files Modified
+- `public/portfolio/energy-consulting.svg`
+- `public/portfolio/dental-care.svg`
+- `public/portfolio/real-estate.svg`
+
+### Notes for Developer
+- All service/listing cards now use the consistent dark navy theme (`#0f172a` backgrounds, `#1e293b` cards)
+- Text colors have been inverted to white/light gray for proper contrast on dark backgrounds
+- Icon backgrounds use darker tinted versions of their accent colors to maintain visual hierarchy
+- The dark navy theme matches the overall site design language being used throughout
+</summary>

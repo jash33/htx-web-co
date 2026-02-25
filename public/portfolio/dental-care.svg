@@ -59,36 +59,36 @@
   <rect fill="#cbd5e1" x="420" y="180" width="100" height="8" rx="2"/>
   <rect fill="#e2e8f0" x="435" y="195" width="70" height="6" rx="2"/>
 
-  <!-- Services section -->
-  <rect fill="#ffffff" x="0" y="239" width="600" height="161"/>
-  <text x="300" y="268" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#0f172a" text-anchor="middle">Our Services</text>
+  <!-- Services section - dark navy theme -->
+  <rect fill="#0f172a" x="0" y="239" width="600" height="161"/>
+  <text x="300" y="268" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">Our Services</text>
 
-  <!-- Service cards -->
-  <rect fill="#f8fafc" x="30" y="285" width="120" height="95" rx="8" stroke="#e2e8f0"/>
-  <circle fill="#dbeafe" cx="90" cy="315" r="16"/>
+  <!-- Service cards - dark navy -->
+  <rect fill="#1e293b" x="30" y="285" width="120" height="95" rx="8"/>
+  <circle fill="#164e63" cx="90" cy="315" r="16"/>
   <rect fill="#0891b2" x="82" y="310" width="16" height="10" rx="2"/>
-  <text x="90" y="345" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#0f172a" text-anchor="middle">Cleaning</text>
-  <rect fill="#cbd5e1" x="50" y="358" width="80" height="5" rx="2"/>
-  <rect fill="#e2e8f0" x="60" y="368" width="60" height="4" rx="2"/>
+  <text x="90" y="345" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">Cleaning</text>
+  <rect fill="#475569" x="50" y="358" width="80" height="5" rx="2"/>
+  <rect fill="#334155" x="60" y="368" width="60" height="4" rx="2"/>
 
-  <rect fill="#f8fafc" x="170" y="285" width="120" height="95" rx="8" stroke="#e2e8f0"/>
-  <circle fill="#fef3c7" cx="230" cy="315" r="16"/>
+  <rect fill="#1e293b" x="170" y="285" width="120" height="95" rx="8"/>
+  <circle fill="#713f12" cx="230" cy="315" r="16"/>
   <rect fill="#f59e0b" x="222" y="310" width="16" height="10" rx="2"/>
-  <text x="230" y="345" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#0f172a" text-anchor="middle">Whitening</text>
-  <rect fill="#cbd5e1" x="190" y="358" width="80" height="5" rx="2"/>
-  <rect fill="#e2e8f0" x="200" y="368" width="60" height="4" rx="2"/>
+  <text x="230" y="345" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">Whitening</text>
+  <rect fill="#475569" x="190" y="358" width="80" height="5" rx="2"/>
+  <rect fill="#334155" x="200" y="368" width="60" height="4" rx="2"/>
 
-  <rect fill="#f8fafc" x="310" y="285" width="120" height="95" rx="8" stroke="#e2e8f0"/>
-  <circle fill="#dcfce7" cx="370" cy="315" r="16"/>
+  <rect fill="#1e293b" x="310" y="285" width="120" height="95" rx="8"/>
+  <circle fill="#14532d" cx="370" cy="315" r="16"/>
   <rect fill="#22c55e" x="362" y="310" width="16" height="10" rx="2"/>
-  <text x="370" y="345" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#0f172a" text-anchor="middle">Implants</text>
-  <rect fill="#cbd5e1" x="330" y="358" width="80" height="5" rx="2"/>
-  <rect fill="#e2e8f0" x="340" y="368" width="60" height="4" rx="2"/>
+  <text x="370" y="345" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">Implants</text>
+  <rect fill="#475569" x="330" y="358" width="80" height="5" rx="2"/>
+  <rect fill="#334155" x="340" y="368" width="60" height="4" rx="2"/>
 
-  <rect fill="#f8fafc" x="450" y="285" width="120" height="95" rx="8" stroke="#e2e8f0"/>
-  <circle fill="#fce7f3" cx="510" cy="315" r="16"/>
+  <rect fill="#1e293b" x="450" y="285" width="120" height="95" rx="8"/>
+  <circle fill="#831843" cx="510" cy="315" r="16"/>
   <rect fill="#ec4899" x="502" y="310" width="16" height="10" rx="2"/>
-  <text x="510" y="345" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#0f172a" text-anchor="middle">Orthodontics</text>
-  <rect fill="#cbd5e1" x="470" y="358" width="80" height="5" rx="2"/>
-  <rect fill="#e2e8f0" x="480" y="368" width="60" height="4" rx="2"/>
+  <text x="510" y="345" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">Orthodontics</text>
+  <rect fill="#475569" x="470" y="358" width="80" height="5" rx="2"/>
+  <rect fill="#334155" x="480" y="368" width="60" height="4" rx="2"/>
 </svg>

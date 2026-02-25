@@ -1,0 +1,32 @@
+{
+  "category": "Uncategorized",
+  "description": "in the little mini-mockup we have on the hero:\n\n- the featured work section kind of isn't clear, it looks like little chunks of websites? we can do something a little more generic, just like a portfolio seciton with titles of work. Also, the top tagline \"build something amazing\" should say \"Your business\" or something like that",
+  "title": "Update hero section featured work display and tagline",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771992997577-6xzmp5mmm0l",
+  "descriptionHistory": [
+    {
+      "description": "in the little mini-mockup we have on the hero:\n\n- the featured work section kind of isn't clear, it looks like little chunks of websites? we can do something a little more generic, just like a portfolio seciton with titles of work. Also, the top tagline \"build something amazing\" should say \"Your business\" or something like that",
+      "timestamp": "2026-02-25T04:16:37.593Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-25T04:16:37.618Z",
+  "updatedAt": "2026-02-25T04:20:54.960Z",
+  "justFinishedAt": "2026-02-25T04:20:54.942Z",
+  "summary": "## Summary: Hero Mini-Mockup Updates\n\n### Changes Implemented\n- Changed the tagline in the hero mini-mockup from \"Build Something Amazing\" to \"Your Business Online\"\n- Replaced the \"Featured Work\" section with a cleaner \"Portfolio\" section\n- Removed the image-based project thumbnails that looked like \"chunks of websites\"\n- Added a simple text-based portfolio list with bullet points and project titles\n- Created new CSS styles for the portfolio list layout (`.hero__mock-portfolio-list`, `.hero__mock-portfolio-item`, `.hero__mock-portfolio-bullet`, `.hero__mock-portfolio-title`)\n- Portfolio now displays four generic project titles: \"E-Commerce Platform\", \"Healthcare Portal\", \"Real Estate Website\", \"Restaurant App\"\n\n### Files Modified\n- `src/components/HeroSection.astro`\n  - Line 181: Changed headline text from \"Build Something Amazing\" to \"Your Business Online\"\n  - Lines 261-284: Replaced Featured Work section with new Portfolio section using text-based list\n  - Lines 1477-1515: Added new CSS styles for portfolio list components\n\n### Notes for Developer\n- The new portfolio section uses a simple bullet-point list design instead of image thumbnails\n- Each portfolio item has a colored bullet (using primary color) and a title\n- The design is cleaner and more generic, avoiding the \"chunks of websites\" appearance\n- Hover effects are included on portfolio items for interactivity\n- The section header now reads \"Portfolio\" instead of \"Featured Work\""
+}

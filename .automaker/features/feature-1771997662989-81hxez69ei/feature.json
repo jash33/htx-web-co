@@ -1,0 +1,39 @@
+{
+  "category": "Uncategorized",
+  "description": "the logo at the bottom of the page has too much spacing around it",
+  "title": "Fix excessive spacing around footer logo",
+  "images": [],
+  "imagePaths": [
+    {
+      "id": "img-1771997661465-y5xnwqbwy",
+      "path": "C:\\Users\\James\\Repos\\houston-web-services\\.automaker\\features\\feature-1771997662989-81hxez69ei\\images\\pasted-image-2026-02-25T05-34-21-445Z-1771997661458.png",
+      "filename": "pasted-image-2026-02-25T05-34-21-445Z.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "verified",
+  "id": "feature-1771997662989-81hxez69ei",
+  "descriptionHistory": [
+    {
+      "description": "the logo at the bottom of the page has too much spacing around it",
+      "timestamp": "2026-02-25T05:34:23.004Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-25T05:36:24.449Z",
+  "updatedAt": "2026-02-25T05:37:23.429Z",
+  "summary": "## Summary: Reduce Footer Logo Spacing\n\n### Changes Implemented\n- Reduced footer logo height from 200px to 80px (mobile)\n- Reduced footer logo height from 240px to 100px (tablet and up)\n- Reduced logo margin-bottom from `var(--spacing-4)` to `var(--spacing-2)`\n- Reduced brand section margin-bottom from `var(--spacing-8)` to `var(--spacing-4)` (mobile)\n- Reduced brand section padding-bottom from `var(--spacing-8)` to `var(--spacing-4)` (mobile)\n- Reduced brand section margin-bottom from `var(--spacing-12)` to `var(--spacing-6)` (tablet)\n- Reduced brand section padding-bottom from `var(--spacing-12)` to `var(--spacing-6)` (tablet)\n\n### Files Modified\n- `src/components/Footer.astro`\n\n### Notes for Developer\n- The logo now takes up significantly less vertical space while remaining readable\n- All responsive breakpoints have been updated consistently\n- The logo maintains its aspect ratio with `width: auto` and `object-fit: contain`",
+  "justFinishedAt": "2026-02-25T05:37:23.429Z"
+}

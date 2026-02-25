@@ -1,0 +1,37 @@
+{
+  "category": "Uncategorized",
+  "description": "the logo at the top looks cut off - might need some padding? ",
+  "title": "Fix logo padding issue at top",
+  "images": [],
+  "imagePaths": [
+    {
+      "id": "img-1771998266728-hwyomeues",
+      "path": "C:\\Users\\James\\Repos\\houston-web-services\\.automaker\\features\\feature-1771998267718-qe2ysupf47\\images\\pasted-image-2026-02-25T05-44-26-395Z-1771998266726.png",
+      "filename": "pasted-image-2026-02-25T05-44-26-395Z.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1771998267718-qe2ysupf47",
+  "descriptionHistory": [
+    {
+      "description": "the logo at the top looks cut off - might need some padding? ",
+      "timestamp": "2026-02-25T05:44:27.730Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-25T05:44:27.746Z",
+  "updatedAt": "2026-02-25T05:44:28.061Z"
+}

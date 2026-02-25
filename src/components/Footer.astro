@@ -17,7 +17,7 @@
  */
 
 import { seoConfig } from '../config/seo.config';
-import logoImage from '../assets/logo.svg';
+import logoImageWhite from '../assets/logo-white.svg';
 
 // Define the social platform types
 type SocialPlatform = 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'youtube';
@@ -86,9 +86,9 @@ const platformNames: Record<SocialPlatform, string> = {
     <!-- Brand Section with Logo -->
     <div class="footer__brand">
       <a href="/htx-web-co/" class="footer__brand-link" aria-label="HTX Web Co. - Go to homepage">
-        <img src={logoImage.src} alt="HTX Web Co." class="footer__logo" width="180" height="auto" />
+        <img src={logoImageWhite.src} alt="HTX Web Co." class="footer__logo" width="160" height="80" />
       </a>
-      <p class="footer__tagline">Web design and digital solutions for Houston businesses</p>
+    
     </div>
 
     <div class="footer__content">
@@ -228,8 +228,8 @@ const platformNames: Record<SocialPlatform, string> = {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: var(--spacing-8);
-    padding-bottom: var(--spacing-8);
+    margin-bottom: var(--spacing-4);
+    padding-bottom: var(--spacing-4);
     border-bottom: 1px solid var(--color-primary-700);
   }
 
@@ -250,10 +250,10 @@ const platformNames: Record<SocialPlatform, string> = {
 
   .footer__logo {
     display: block;
-    height: 200px;
+    height: 80px;
     width: auto;
     object-fit: contain;
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-2);
   }
 
   .footer__tagline {
@@ -538,12 +538,12 @@ const platformNames: Record<SocialPlatform, string> = {
     .footer__brand {
       align-items: flex-start;
       text-align: left;
-      margin-bottom: var(--spacing-12);
-      padding-bottom: var(--spacing-12);
+      margin-bottom: var(--spacing-6);
+      padding-bottom: var(--spacing-6);
     }
 
     .footer__logo {
-      height: 240px;
+      height: 100px;
     }
 
     .footer__content {

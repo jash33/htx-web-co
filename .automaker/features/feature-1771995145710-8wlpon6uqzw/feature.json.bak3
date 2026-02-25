@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "On the homepage in the Hero section we have our little mini mockup. What I would like to see is the Our Services section of the mini mockup has a couple cards that look like they have white backgrounds. I would like them to have that darker navy background that the container that contains your business online in the mini mockup uses, the same background color. Those cards just need to look darker. Also the portfolio looks like it's literally a bulleted list. We need to to do something better than that.",
+  "title": "Update Hero section mockup cards styling and redesign portfolio display",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1771995145710-8wlpon6uqzw",
+  "descriptionHistory": [
+    {
+      "description": "On the homepage in the Hero section we have our little mini mockup. What I would like to see is the Our Services section of the mini mockup has a couple cards that look like they have white backgrounds. I would like them to have that darker navy background that the container that contains your business online in the mini mockup uses, the same background color. Those cards just need to look darker. Also the portfolio looks like it's literally a bulleted list. We need to to do something better than that.",
+      "timestamp": "2026-02-25T04:52:25.723Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-25T04:52:25.738Z",
+  "updatedAt": "2026-02-25T04:52:26.228Z"
+}

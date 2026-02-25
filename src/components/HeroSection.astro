@@ -178,7 +178,7 @@ const trustIcons: Record<string, string> = {
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="8" height="8"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                   <span>Trusted by 500+ clients</span>
                 </div>
-                <div class="hero__mock-headline">Build Something Amazing</div>
+                <div class="hero__mock-headline">Your Business Online</div>
                 <div class="hero__mock-subheadline">We create beautiful digital experiences</div>
                 <div class="hero__mock-text">Professional web design & development for businesses</div>
                 <div class="hero__mock-hero-buttons">
@@ -258,30 +258,48 @@ const trustIcons: Record<string, string> = {
               </div>
             </div>
 
-            <!-- Featured Work Preview with real project images -->
+            <!-- Portfolio Section - Visual grid with thumbnails -->
             <div class="hero__mock-featured">
               <div class="hero__mock-section-header">
-                <span class="hero__mock-section-title">Featured Work</span>
+                <span class="hero__mock-section-title">Portfolio</span>
                 <span class="hero__mock-section-link">View All →</span>
               </div>
-              <div class="hero__mock-projects">
-                <div class="hero__mock-project">
-                  <div class="hero__mock-project-thumb">
-                    <img src="/htx-web-co/portfolio/energy-consulting.svg" alt="Energy Consulting" class="hero__mock-project-img" />
+              <div class="hero__mock-portfolio-grid">
+                <div class="hero__mock-portfolio-card">
+                  <div class="hero__mock-portfolio-thumb hero__mock-portfolio-thumb--ecommerce">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
                   </div>
-                  <span class="hero__mock-project-name">Energy Consulting</span>
+                  <div class="hero__mock-portfolio-info">
+                    <span class="hero__mock-portfolio-name">E-Commerce</span>
+                    <span class="hero__mock-portfolio-tag">Retail</span>
+                  </div>
                 </div>
-                <div class="hero__mock-project">
-                  <div class="hero__mock-project-thumb">
-                    <img src="/htx-web-co/portfolio/dental-care.svg" alt="Dental Care" class="hero__mock-project-img" />
+                <div class="hero__mock-portfolio-card">
+                  <div class="hero__mock-portfolio-thumb hero__mock-portfolio-thumb--healthcare">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
                   </div>
-                  <span class="hero__mock-project-name">Dental Care</span>
+                  <div class="hero__mock-portfolio-info">
+                    <span class="hero__mock-portfolio-name">Healthcare</span>
+                    <span class="hero__mock-portfolio-tag">Medical</span>
+                  </div>
                 </div>
-                <div class="hero__mock-project">
-                  <div class="hero__mock-project-thumb">
-                    <img src="/htx-web-co/portfolio/real-estate.svg" alt="Real Estate" class="hero__mock-project-img" />
+                <div class="hero__mock-portfolio-card">
+                  <div class="hero__mock-portfolio-thumb hero__mock-portfolio-thumb--realestate">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
                   </div>
-                  <span class="hero__mock-project-name">Real Estate</span>
+                  <div class="hero__mock-portfolio-info">
+                    <span class="hero__mock-portfolio-name">Real Estate</span>
+                    <span class="hero__mock-portfolio-tag">Property</span>
+                  </div>
+                </div>
+                <div class="hero__mock-portfolio-card">
+                  <div class="hero__mock-portfolio-thumb hero__mock-portfolio-thumb--restaurant">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+                  </div>
+                  <div class="hero__mock-portfolio-info">
+                    <span class="hero__mock-portfolio-name">Restaurant</span>
+                    <span class="hero__mock-portfolio-tag">Food</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1268,17 +1286,17 @@ const trustIcons: Record<string, string> = {
     flex: 1;
     position: relative;
     padding: var(--spacing-2);
-    background: var(--color-background);
-    border: 1px solid var(--color-gray-200);
+    background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .hero__mock-card--featured {
-    border-color: var(--color-primary-300);
-    background: linear-gradient(180deg, var(--color-primary-50) 0%, var(--color-background) 100%);
-    box-shadow: 0 4px 12px rgba(54, 83, 149, 0.15);
+    border-color: rgba(54, 83, 149, 0.5);
+    background: linear-gradient(135deg, #1e293b 0%, #2d3a52 50%, #3d4f6f 100%);
+    box-shadow: 0 4px 16px rgba(54, 83, 149, 0.25);
   }
 
   .hero__mock-card-badge {
@@ -1303,10 +1321,10 @@ const trustIcons: Record<string, string> = {
   .hero__mock-card-price {
     margin-top: var(--spacing-1);
     padding-top: var(--spacing-1);
-    border-top: 1px dashed var(--color-gray-200);
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
     font-size: 5px;
     font-weight: 600;
-    color: var(--color-primary-600);
+    color: var(--color-accent);
   }
 
   .hero__mock-card-icon {
@@ -1316,31 +1334,31 @@ const trustIcons: Record<string, string> = {
     width: 22px;
     height: 22px;
     margin-bottom: var(--spacing-1);
-    background: var(--color-primary-100);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: var(--radius-md);
-    color: var(--color-primary-600);
+    color: var(--color-primary-200);
   }
 
   .hero__mock-card-icon--accent {
-    background: var(--color-accent-subtle);
+    background: rgba(255, 255, 255, 0.15);
     color: var(--color-accent);
   }
 
   .hero__mock-card-icon--alt {
-    background: var(--color-accent-alt-subtle);
+    background: rgba(255, 255, 255, 0.15);
     color: var(--color-accent-alt);
   }
 
   .hero__mock-card-title {
     font-size: 6px;
     font-weight: 600;
-    color: var(--color-gray-700);
+    color: #ffffff;
     margin-bottom: 2px;
   }
 
   .hero__mock-card-desc {
     font-size: 5px;
-    color: var(--color-gray-400);
+    color: rgba(255, 255, 255, 0.7);
   }
 
   /* =================================================================
@@ -1470,6 +1488,80 @@ const trustIcons: Record<string, string> = {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  /* =================================================================
+   * MOCK PORTFOLIO GRID (Visual thumbnails)
+   * =================================================================
+   */
+  .hero__mock-portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2);
+  }
+
+  .hero__mock-portfolio-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-background);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-gray-100);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hero__mock-portfolio-card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .hero__mock-portfolio-thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    color: white;
+  }
+
+  .hero__mock-portfolio-thumb--ecommerce {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  }
+
+  .hero__mock-portfolio-thumb--healthcare {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+
+  .hero__mock-portfolio-thumb--realestate {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  }
+
+  .hero__mock-portfolio-thumb--restaurant {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  }
+
+  .hero__mock-portfolio-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 6px;
+  }
+
+  .hero__mock-portfolio-name {
+    font-size: 5px;
+    font-weight: 600;
+    color: var(--color-gray-700);
+  }
+
+  .hero__mock-portfolio-tag {
+    font-size: 4px;
+    font-weight: 500;
+    color: var(--color-gray-500);
+    background: var(--color-gray-100);
+    padding: 1px 4px;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
   }
 
   /* =================================================================

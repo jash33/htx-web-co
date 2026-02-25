@@ -161,6 +161,40 @@ Once you provide the image, I&apos;ll generate a concise title for the feature.<
       <name>Enhance hero section mockup with visual definition and branding</name>
       <description>the little minature mock up that we h ave on our hero section is a great start, but it doesn&apos;t look much like a real website yet. I&apos;m okay wiht there being kind of placeholder-y stuff there, which there definiteyl is currently, but the whole thing looks kind of like a white blog. It needs some more definition and personality, too amorphous at the moment.</description>
     </feature>
+    <feature>
+      <name>Fix unclear featured work section design</name>
+      <description>hero mini-site-mockup has a really uncleaer &quot;featured work&quot; section. it&apos;s just some blobs.</description>
+    </feature>
+    <feature>
+      <name>Update hero section featured work display and tagline</name>
+      <description>in the little mini-mockup we have on the hero:
+
+- the featured work section kind of isn&apos;t clear, it looks like little chunks of websites? we can do something a little more generic, just like a portfolio seciton with titles of work. Also, the top tagline &quot;build something amazing&quot; should say &quot;Your business&quot; or something like that</description>
+    </feature>
+    <feature>
+      <name>Update logo to white for dark backgrounds</name>
+      <description>we should modify (or make another version) of the logo so that it becomes white on dark backgrounds. Important for dark mode</description>
+    </feature>
+    <feature>
+      <name>Update Hero section mockup cards styling and redesign portfolio display</name>
+      <description>On the homepage in the Hero section we have our little mini mockup. What I would like to see is the Our Services section of the mini mockup has a couple cards that look like they have white backgrounds. I would like them to have that darker navy background that the container that contains your business online in the mini mockup uses, the same background color. Those cards just need to look darker. Also the portfolio looks like it&apos;s literally a bulleted list. We need to to do something better than that.</description>
+    </feature>
+    <feature>
+      <name>Fix SVG alignment and reduce left margin</name>
+      <description>The SVG graphic in the bottom of hte page needs to be right aligned to the text below it, it&apos;s floating with too much left margin</description>
+    </feature>
+    <feature>
+      <name>Add customer growth graph and brand reputation graphic</name>
+      <description>In the why choose us section, can you put a graph that is just supposed to indicate the number of customers increasing for a business? Like basically for advertising purposes. And also next to that some kind of graphic which says that we help grow your brand and reputation.</description>
+    </feature>
+    <feature>
+      <name>Remove Growing Customer Base and Reputation cards</name>
+      <description>Please remove entirely the &quot;Growing Customer Base&quot; and &quot;Grow Your Brand &amp; Reputation&quot; cards.</description>
+    </feature>
+    <feature>
+      <name>Fix excessive spacing around footer logo</name>
+      <description>the logo at the bottom of the page has too much spacing around it</description>
+    </feature>
   </implemented_features>
 
   <additional_requirements>

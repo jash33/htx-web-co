@@ -1,0 +1,32 @@
+{
+  "category": "Uncategorized",
+  "description": "we should modify (or make another version) of the logo so that it becomes white on dark backgrounds. Important for dark mode",
+  "title": "Update logo to white for dark backgrounds",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "lite",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771993049907-7tln8obpylm",
+  "descriptionHistory": [
+    {
+      "description": "we should modify (or make another version) of the logo so that it becomes white on dark backgrounds. Important for dark mode",
+      "timestamp": "2026-02-25T04:17:29.924Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-25T04:17:29.951Z",
+  "updatedAt": "2026-02-25T04:22:05.129Z",
+  "justFinishedAt": "2026-02-25T04:22:05.118Z",
+  "summary": "## Summary: White Logo Variant for Dark Mode\n\n### Changes Implemented\n- Created a new white variant of the logo SVG (`logo-white.svg`) with white text (#FFFFFF for \"HTX\" and #E2E8F0 for \"WEB CO.\") suitable for dark backgrounds\n- Updated the Header component to include both logo variants with CSS-based visibility toggling based on the current theme (light mode shows dark logo, dark mode shows white logo)\n- Added CSS rules using `:global(html[data-theme=\"dark\"])` selector to automatically switch between logo variants when the theme changes\n- Updated the Footer component to always use the white logo variant since it has a dark background (`--color-primary-900`)\n\n### Files Modified\n- `src/assets/logo-white.svg` (NEW) - White variant of the logo for dark backgrounds\n- `src/components/Header.astro` - Added import for white logo, included both logo images in HTML, added CSS for theme-based logo switching\n- `src/components/Footer.astro` - Changed import from `logo.svg` to `logo-white.svg` for the dark footer background\n\n### Notes for Developer\n- The logo switching in the Header is handled purely via CSS `display` property, ensuring instant transitions when the theme changes\n- The white logo uses #FFFFFF for the main \"HTX\" text and #E2E8F0 (a light gray) for the \"WEB CO.\" subtitle to maintain visual hierarchy on dark backgrounds\n- The Footer always uses the white logo since its background is consistently dark (`--color-primary-900`) regardless of theme\n- Both logos are preloaded to prevent any flash when switching themes"
+}

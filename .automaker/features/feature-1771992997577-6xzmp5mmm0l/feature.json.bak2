@@ -1,0 +1,31 @@
+{
+  "category": "Uncategorized",
+  "description": "in the little mini-mockup we have on the hero:\n\n- the featured work section kind of isn't clear, it looks like little chunks of websites? we can do something a little more generic, just like a portfolio seciton with titles of work. Also, the top tagline \"build something amazing\" should say \"Your business\" or something like that",
+  "title": "Update hero section featured work display and tagline",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771992997577-6xzmp5mmm0l",
+  "descriptionHistory": [
+    {
+      "description": "in the little mini-mockup we have on the hero:\n\n- the featured work section kind of isn't clear, it looks like little chunks of websites? we can do something a little more generic, just like a portfolio seciton with titles of work. Also, the top tagline \"build something amazing\" should say \"Your business\" or something like that",
+      "timestamp": "2026-02-25T04:16:37.593Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-25T04:16:37.618Z",
+  "updatedAt": "2026-02-25T04:20:54.942Z",
+  "justFinishedAt": "2026-02-25T04:20:54.942Z"
+}

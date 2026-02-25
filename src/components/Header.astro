@@ -19,6 +19,7 @@
 
 import ThemeToggle from './ThemeToggle.astro';
 import logoImage from '../assets/logo.svg';
+import logoImageWhite from '../assets/logo-white.svg';
 
 interface Props {
   /** Current page path for active link styling (e.g., "/", "/about") */
@@ -41,7 +42,8 @@ const navLinks = [
   <div class="header__container">
     <!-- Logo/Brand -->
     <a href="/htx-web-co/" class="header__logo" aria-label="HTX Web Co. - Go to homepage">
-      <img src={logoImage.src} alt="HTX Web Co." class="header__logo-image" width="auto" height="86" />
+      <img src={logoImage.src} alt="HTX Web Co." class="header__logo-image header__logo-image--light" width="auto" height="86" />
+      <img src={logoImageWhite.src} alt="HTX Web Co." class="header__logo-image header__logo-image--dark" width="auto" height="86" />
     </a>
 
     <!-- Desktop Navigation -->
@@ -146,8 +148,8 @@ const navLinks = [
     gap: var(--spacing-4);
     max-width: var(--container-7xl);
     margin: 0 auto;
-    padding: var(--spacing-2) var(--spacing-4);
-    height: 70px; /* Fixed navbar height */
+    padding: var(--spacing-3) var(--spacing-4);
+    height: 80px; /* Fixed navbar height - increased for logo breathing room */
     position: relative;
   }
 
@@ -188,6 +190,23 @@ const navLinks = [
     height: 72px;
     width: auto;
     object-fit: contain;
+  }
+
+  /* Logo variant visibility - Light mode shows dark logo, dark mode shows white logo */
+  .header__logo-image--light {
+    display: block;
+  }
+
+  .header__logo-image--dark {
+    display: none;
+  }
+
+  :global(html[data-theme="dark"]) .header__logo-image--light {
+    display: none;
+  }
+
+  :global(html[data-theme="dark"]) .header__logo-image--dark {
+    display: block;
   }
 
   /* Responsive logo sizing */
@@ -372,7 +391,7 @@ const navLinks = [
 
   .header__mobile-nav {
     position: fixed;
-    top: 71px; /* Fixed header height (70px) + border (1px) */
+    top: 81px; /* Fixed header height (80px) + border (1px) */
     left: 0;
     right: 0;
     bottom: 0;

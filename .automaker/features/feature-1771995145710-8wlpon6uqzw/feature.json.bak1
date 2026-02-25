@@ -1,0 +1,32 @@
+{
+  "category": "Uncategorized",
+  "description": "On the homepage in the Hero section we have our little mini mockup. What I would like to see is the Our Services section of the mini mockup has a couple cards that look like they have white backgrounds. I would like them to have that darker navy background that the container that contains your business online in the mini mockup uses, the same background color. Those cards just need to look darker. Also the portfolio looks like it's literally a bulleted list. We need to to do something better than that.",
+  "title": "Update Hero section mockup cards styling and redesign portfolio display",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771995145710-8wlpon6uqzw",
+  "descriptionHistory": [
+    {
+      "description": "On the homepage in the Hero section we have our little mini mockup. What I would like to see is the Our Services section of the mini mockup has a couple cards that look like they have white backgrounds. I would like them to have that darker navy background that the container that contains your business online in the mini mockup uses, the same background color. Those cards just need to look darker. Also the portfolio looks like it's literally a bulleted list. We need to to do something better than that.",
+      "timestamp": "2026-02-25T04:52:25.723Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-25T04:52:25.738Z",
+  "updatedAt": "2026-02-25T04:55:16.313Z",
+  "justFinishedAt": "2026-02-25T04:55:16.298Z",
+  "summary": "## Summary: Hero Section Mini Mockup Styling Updates\n\n### Changes Implemented\n- Updated the \"Our Services\" cards in the mini mockup to use a dark navy gradient background (matching the \"Your Business Online\" container) instead of white backgrounds\n- Changed card text colors to white/light for proper contrast on dark backgrounds\n- Updated card icons to use semi-transparent white backgrounds with light colored icons\n- Updated card price text to use accent color for visibility on dark background\n- Updated card border dividers to use semi-transparent white instead of gray\n- Transformed the portfolio section from a simple bulleted list into a visually appealing 2x2 grid layout\n- Added colorful gradient thumbnail areas with relevant icons for each portfolio item (E-Commerce, Healthcare, Real Estate, Restaurant)\n- Added category tags (Retail, Medical, Property, Food) to each portfolio card\n- Added hover effects and smooth transitions to portfolio cards\n\n### Files Modified\n- `C:\\Users\\James\\Repos\\houston-web-services\\src\\components\\HeroSection.astro`\n  - Lines 261-305: Replaced portfolio HTML markup from bulleted list to grid cards with thumbnails\n  - Lines 1285-1300: Updated `.hero__mock-card` and `.hero__mock-card--featured` backgrounds to dark navy gradients\n  - Lines 1321-1349: Updated card element colors (price, icons, title, description) for dark background contrast\n  - Lines 1493-1565: Replaced portfolio CSS from list styling to grid layout with thumbnail cards and category tags\n\n### Notes for Developer\n- The service cards now use the same dark slate gradient colors (`#1e293b`, `#334155`, `#475569`) as the \"Your Business Online\" hero section container\n- Portfolio cards use distinct gradient colors for visual variety: purple (E-Commerce), green (Healthcare), amber (Real Estate), and red (Restaurant)\n- All changes maintain the existing BEM naming conventions and CSS variable usage where appropriate\n- The portfolio grid is responsive with a 2-column layout that should scale well within the mini mockup container"
+}
