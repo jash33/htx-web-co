@@ -23,7 +23,7 @@
   "dependencies": [],
   "workMode": "current",
   "titleGenerating": false,
-  "status": "in_progress",
+  "status": "waiting_approval",
   "id": "feature-1771910094265-ftemffrrgp9",
   "descriptionHistory": [
     {
@@ -33,5 +33,6 @@
     }
   ],
   "startedAt": "2026-02-24T05:14:54.319Z",
-  "updatedAt": "2026-02-24T05:14:54.685Z"
+  "updatedAt": "2026-02-24T05:16:36.182Z",
+  "justFinishedAt": "2026-02-24T05:16:36.182Z"
 }

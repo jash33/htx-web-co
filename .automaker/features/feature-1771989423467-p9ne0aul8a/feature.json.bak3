@@ -1,0 +1,30 @@
+{
+  "category": "Uncategorized",
+  "description": "the little minature mock up that we h ave on our hero section is a great start, but it doesn't look much like a real website yet. I'm okay wiht there being kind of placeholder-y stuff there, which there definiteyl is currently, but the whole thing looks kind of like a white blog. It needs some more definition and personality, too amorphous at the moment.",
+  "title": "Enhance hero section mockup with visual definition and branding",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "in_progress",
+  "id": "feature-1771989423467-p9ne0aul8a",
+  "descriptionHistory": [
+    {
+      "description": "the little minature mock up that we h ave on our hero section is a great start, but it doesn't look much like a real website yet. I'm okay wiht there being kind of placeholder-y stuff there, which there definiteyl is currently, but the whole thing looks kind of like a white blog. It needs some more definition and personality, too amorphous at the moment.",
+      "timestamp": "2026-02-25T03:17:03.483Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-25T03:17:03.506Z",
+  "updatedAt": "2026-02-25T03:17:04.044Z"
+}

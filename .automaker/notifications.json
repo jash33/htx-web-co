@@ -330,6 +330,50 @@
       "dismissed": false,
       "featureId": "feature-1771911027799-3i7fkpwcxmz",
       "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "684846b3-aeae-475d-98f2-76fb22a7392e",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771989423467-p9ne0aul8a\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T03:22:40.415Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771989423467-p9ne0aul8a",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "de98e201-8168-488a-a95f-94ea96553843",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771990482678-xzx4f3dmm6\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T03:37:01.135Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771990482678-xzx4f3dmm6",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "5587339d-a352-4ee3-9bed-9c19ac7ede4c",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771990482678-xzx4f3dmm6\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T03:40:48.653Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771990482678-xzx4f3dmm6",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
+    },
+    {
+      "id": "1a1f129c-d8f8-4b3c-83fb-04a2ff0cb1cf",
+      "type": "feature_waiting_approval",
+      "title": "Feature Ready for Review",
+      "message": "\"feature-1771990482678-xzx4f3dmm6\" is ready for your review and approval.",
+      "createdAt": "2026-02-25T03:52:17.751Z",
+      "read": false,
+      "dismissed": false,
+      "featureId": "feature-1771990482678-xzx4f3dmm6",
+      "projectPath": "C:\\Users\\James\\Repos\\houston-web-services"
     }
   ]
 }

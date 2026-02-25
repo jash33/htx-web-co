@@ -1,7 +1,7 @@
 {
   "category": "Uncategorized",
   "description": "Please check the screenshot. All of these cards are, I guess need to be larger. Do you see how the learn more buttons at the bottom of the cards aren't visible for like half the cards?",
-  "title": "",
+  "title": "I'd be happy to help, but I don't see a screenshot attached to your message. Could you please share the screenshot so I can see the cards and the \"Learn More\" button visibility issue you're describing?\n\nOnce you provide the image, I'll generate a concise title for the feature.",
   "images": [],
   "imagePaths": [
     {
@@ -22,7 +22,7 @@
   "requirePlanApproval": false,
   "dependencies": [],
   "workMode": "current",
-  "titleGenerating": "Please check the screenshot. All of these cards are, I guess need to be larger. Do you see how the learn more buttons at the bottom of the cards aren't visible for like half the cards?",
+  "titleGenerating": false,
   "status": "in_progress",
   "id": "feature-1771910094265-ftemffrrgp9",
   "descriptionHistory": [

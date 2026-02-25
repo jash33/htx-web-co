@@ -121,6 +121,46 @@ see screenshot</description>
       <name>Increase favicon size in browser tab</name>
       <description>can I enlarge how my favicon appears in the tab? it looks small</description>
     </feature>
+    <feature>
+      <name>Fix oversized SVG logo in navbar</name>
+      <description>svg logo is too large in the navbar</description>
+    </feature>
+    <feature>
+      <name>Increase navbar logo size to double</name>
+      <description>Please make the logo in the navbar bigger, like maybe double the size.</description>
+    </feature>
+    <feature>
+      <name>I&apos;d be happy to help, but I don&apos;t see a screenshot attached to your message. Could you please share the screenshot so I can see the cards and the &quot;Learn More&quot; button visibility issue you&apos;re describing?
+
+Once you provide the image, I&apos;ll generate a concise title for the feature.</name>
+      <description>Please check the screenshot. All of these cards are, I guess need to be larger. Do you see how the learn more buttons at the bottom of the cards aren&apos;t visible for like half the cards?</description>
+    </feature>
+    <feature>
+      <name>Remove Houston skyline from hero section</name>
+      <description>Please get rid of the Houston skyline thing in the hero section.</description>
+    </feature>
+    <feature>
+      <name>Fix contact email addresses to james@htxweb.com</name>
+      <description>fix all email addresses for contact on teh site to this:
+
+&quot;james@htxweb.com&quot;</description>
+    </feature>
+    <feature>
+      <name>Make navbar white in light mode</name>
+      <description>let&apos;s make the navbar white on light mode. and the footer</description>
+    </feature>
+    <feature>
+      <name>Update logo.svg right portion vertical alignment</name>
+      <description>can we modify the logo.svg so that we pull the portion on the right (outsidde the dark container) down a few pixels so it looks vertically centered?</description>
+    </feature>
+    <feature>
+      <name>Move logo left in navbar to align with hero text</name>
+      <description>Can you move the logo in the nav bar to the left so it lines up with the text that&apos;s actually on in the hero section?</description>
+    </feature>
+    <feature>
+      <name>Enhance hero section mockup with visual definition and branding</name>
+      <description>the little minature mock up that we h ave on our hero section is a great start, but it doesn&apos;t look much like a real website yet. I&apos;m okay wiht there being kind of placeholder-y stuff there, which there definiteyl is currently, but the whole thing looks kind of like a white blog. It needs some more definition and personality, too amorphous at the moment.</description>
+    </feature>
   </implemented_features>
 
   <additional_requirements>

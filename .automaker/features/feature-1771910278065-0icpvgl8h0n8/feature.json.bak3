@@ -1,7 +1,7 @@
 {
   "category": "Uncategorized",
   "description": "fix all email addresses for contact on teh site to this:\n\n\"james@htxweb.com\"",
-  "title": "",
+  "title": "Fix contact email addresses to james@htxweb.com",
   "images": [],
   "imagePaths": [],
   "textFilePaths": [],
@@ -15,7 +15,7 @@
   "requirePlanApproval": false,
   "dependencies": [],
   "workMode": "current",
-  "titleGenerating": "fix all email addresses for contact on teh site to this:\n\n\"james@htxweb.com\"",
+  "titleGenerating": false,
   "status": "in_progress",
   "id": "feature-1771910278065-0icpvgl8h0n8",
   "descriptionHistory": [

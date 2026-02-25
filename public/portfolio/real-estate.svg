@@ -1,17 +1,95 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <!-- Browser window frame -->
+  <rect fill="#f8fafc" width="600" height="400" rx="8"/>
+
+  <!-- Browser toolbar -->
+  <rect fill="#e2e8f0" x="0" y="0" width="600" height="28" rx="8"/>
+  <rect fill="#e2e8f0" x="0" y="20" width="600" height="8"/>
+
+  <!-- Window controls -->
+  <circle fill="#f87171" cx="16" cy="14" r="5"/>
+  <circle fill="#fbbf24" cx="32" cy="14" r="5"/>
+  <circle fill="#4ade80" cx="48" cy="14" r="5"/>
+
+  <!-- URL bar -->
+  <rect fill="#ffffff" x="70" y="6" width="460" height="16" rx="4"/>
+  <text x="80" y="17" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">texasrealtypartners.com</text>
+
+  <!-- Website header -->
+  <rect fill="#ffffff" x="0" y="28" width="600" height="50"/>
+  <rect fill="#e2e8f0" x="0" y="78" width="600" height="1"/>
+
+  <!-- Logo -->
+  <rect fill="#059669" x="20" y="40" width="20" height="28" rx="3"/>
+  <rect fill="#ffffff" x="24" y="52" width="12" height="8" rx="1"/>
+  <rect fill="#10b981" x="26" y="45" width="8" height="5" rx="1"/>
+  <text x="50" y="58" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#059669">Texas Realty</text>
+
+  <!-- Nav items -->
+  <text x="260" y="58" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Buy</text>
+  <text x="295" y="58" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Sell</text>
+  <text x="330" y="58" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Rent</text>
+  <text x="370" y="58" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Agents</text>
+
+  <!-- CTA button -->
+  <rect fill="#059669" x="480" y="42" width="100" height="28" rx="6"/>
+  <text x="530" y="60" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">List Property</text>
+
+  <!-- Hero section with search -->
   <defs>
-    <linearGradient id="bg7" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#059669"/>
-      <stop offset="100%" style="stop-color:#34d399"/>
+    <linearGradient id="realtyHero" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ecfdf5"/>
+      <stop offset="100%" style="stop-color:#d1fae5"/>
     </linearGradient>
   </defs>
-  <rect fill="url(#bg7)" width="600" height="400"/>
-  <g fill="#ffffff" opacity="0.1">
-    <circle cx="100" cy="300" r="90"/>
-    <circle cx="550" cy="80" r="70"/>
-  </g>
-  <text x="300" y="180" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">Texas Realty</text>
-  <text x="300" y="215" font-family="system-ui, sans-serif" font-size="18" fill="#d1fae5" text-anchor="middle">Property Platform</text>
-  <rect x="200" y="250" width="200" height="40" rx="8" fill="#ffffff" opacity="0.2"/>
-  <text x="300" y="277" font-family="system-ui, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">View Project</text>
+  <rect fill="url(#realtyHero)" x="0" y="79" width="600" height="110"/>
+
+  <!-- Hero content -->
+  <text x="300" y="110" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#0f172a" text-anchor="middle">Find Your Dream Home in Texas</text>
+  <text x="300" y="130" font-family="system-ui, sans-serif" font-size="11" fill="#475569" text-anchor="middle">Browse thousands of listings across Houston and beyond</text>
+
+  <!-- Search bar -->
+  <rect fill="#ffffff" x="80" y="145" width="440" height="36" rx="8"/>
+  <rect fill="#f1f5f9" x="86" y="151" width="280" height="24" rx="4"/>
+  <text x="96" y="167" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Enter location, ZIP, or address...</text>
+  <rect fill="#059669" x="380" y="151" width="130" height="24" rx="4"/>
+  <text x="445" y="167" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">Search Properties</text>
+
+  <!-- Property listings section -->
+  <rect fill="#f8fafc" x="0" y="189" width="600" height="211"/>
+  <text x="30" y="215" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#0f172a">Featured Listings</text>
+  <text x="540" y="215" font-family="system-ui, sans-serif" font-size="10" fill="#059669" text-anchor="end">View all</text>
+
+  <!-- Property card 1 -->
+  <rect fill="#ffffff" x="30" y="230" width="170" height="150" rx="8"/>
+  <rect fill="#d1fae5" x="30" y="230" width="170" height="85" rx="8"/>
+  <rect fill="#d1fae5" x="30" y="307" width="170" height="8"/>
+  <rect fill="#059669" x="40" y="240" width="45" height="18" rx="3"/>
+  <text x="62" y="252" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">FOR SALE</text>
+  <text x="40" y="335" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">$425,000</text>
+  <rect fill="#e2e8f0" x="40" y="345" width="100" height="5" rx="2"/>
+  <rect fill="#f1f5f9" x="40" y="355" width="80" height="4" rx="2"/>
+  <text x="40" y="375" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">3 bed  |  2 bath  |  1,850 sqft</text>
+
+  <!-- Property card 2 -->
+  <rect fill="#ffffff" x="215" y="230" width="170" height="150" rx="8"/>
+  <rect fill="#dbeafe" x="215" y="230" width="170" height="85" rx="8"/>
+  <rect fill="#dbeafe" x="215" y="307" width="170" height="8"/>
+  <rect fill="#3b82f6" x="225" y="240" width="45" height="18" rx="3"/>
+  <text x="247" y="252" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">FOR RENT</text>
+  <text x="225" y="335" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">$2,200/mo</text>
+  <rect fill="#e2e8f0" x="225" y="345" width="100" height="5" rx="2"/>
+  <rect fill="#f1f5f9" x="225" y="355" width="80" height="4" rx="2"/>
+  <text x="225" y="375" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">2 bed  |  2 bath  |  1,200 sqft</text>
+
+  <!-- Property card 3 -->
+  <rect fill="#ffffff" x="400" y="230" width="170" height="150" rx="8"/>
+  <rect fill="#fef3c7" x="400" y="230" width="170" height="85" rx="8"/>
+  <rect fill="#fef3c7" x="400" y="307" width="170" height="8"/>
+  <rect fill="#f59e0b" x="410" y="240" width="55" height="18" rx="3"/>
+  <text x="437" y="252" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">NEW BUILD</text>
+  <text x="410" y="335" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">$650,000</text>
+  <rect fill="#e2e8f0" x="410" y="345" width="100" height="5" rx="2"/>
+  <rect fill="#f1f5f9" x="410" y="355" width="80" height="4" rx="2"/>
+  <text x="410" y="375" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">4 bed  |  3 bath  |  2,400 sqft</text>
 </svg>

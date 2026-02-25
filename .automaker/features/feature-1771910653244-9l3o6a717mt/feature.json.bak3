@@ -1,7 +1,7 @@
 {
   "category": "Uncategorized",
   "description": "can we modify the logo.svg so that we pull the portion on the right (outsidde the dark container) down a few pixels so it looks vertically centered?",
-  "title": "",
+  "title": "Update logo.svg right portion vertical alignment",
   "images": [],
   "imagePaths": [],
   "textFilePaths": [],
@@ -15,7 +15,7 @@
   "requirePlanApproval": false,
   "dependencies": [],
   "workMode": "current",
-  "titleGenerating": "can we modify the logo.svg so that we pull the portion on the right (outsidde the dark container) down a few pixels so it looks vertically centered?",
+  "titleGenerating": false,
   "status": "in_progress",
   "id": "feature-1771910653244-9l3o6a717mt",
   "descriptionHistory": [
