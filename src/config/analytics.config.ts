@@ -113,7 +113,7 @@ export const consentBannerConfig: ConsentBannerConfig = {
   position: 'bottom',
   privacyPolicyUrl: '/privacy-policy',
   cookiePolicyUrl: '/cookie-policy',
-  companyName: 'Houston Web Services',
+  companyName: 'HTX Web Co.',
   consentVersion: '1.0.0',
   autoHide: true,
   cookieExpireDays: 365,

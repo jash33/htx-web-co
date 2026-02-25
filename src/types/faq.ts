@@ -60,7 +60,7 @@ export interface FAQAccordionItemState {
 }
 
 /**
- * Default FAQ items for Houston Web Services
+ * Default FAQ items for HTX Web Co.
  * Covering pricing, timelines, services, and process
  */
 export const DEFAULT_FAQ_ITEMS: FAQItem[] = [

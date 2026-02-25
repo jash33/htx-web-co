@@ -34,7 +34,7 @@ const {
   id="cookie-consent-banner"
   class="cookie-consent"
   role="dialog"
-  aria-modal="true"
+  aria-modal="false"
   aria-labelledby="cookie-consent-title"
   aria-describedby="cookie-consent-description"
   hidden
@@ -196,7 +196,7 @@ const {
     transition: transform var(--duration-300, 300ms) var(--ease-out, ease-out);
   }
 
-  /* Add a subtle backdrop overlay when banner is visible */
+  /* Backdrop overlay removed — banner is non-blocking */
   .cookie-consent::before {
     content: '';
     position: fixed;
@@ -204,10 +204,9 @@ const {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.15);
+    background: transparent;
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--duration-300, 300ms) var(--ease-out, ease-out);
     z-index: -1;
   }
 
@@ -215,9 +214,10 @@ const {
     transform: translateY(0);
   }
 
-  .cookie-consent[data-visible="true"]::before {
+  /* Backdrop transition removed — non-blocking banner */
+  /* .cookie-consent[data-visible="true"]::before {
     opacity: 1;
-  }
+  } */
 
   .cookie-consent__container {
     max-width: var(--container-xl, 1280px);
