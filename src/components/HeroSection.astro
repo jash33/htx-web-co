@@ -482,6 +482,18 @@ const trustIcons: Record<string, string> = {
     align-items: center;
     text-align: center;
     gap: var(--spacing-6);
+    animation: heroFadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes heroFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* =================================================================
@@ -586,32 +598,35 @@ const trustIcons: Record<string, string> = {
     max-width: 20rem;
   }
 
-  /* Override button styles for better contrast in hero */
+  /* Override button styles for maximum contrast in hero - solid white CTA */
   .hero :global(.btn--primary) {
-    background-color: var(--color-background);
-    color: var(--color-primary-700);
-    box-shadow: var(--shadow-lg);
+    background-color: #ffffff;
+    color: var(--color-primary-800);
+    font-weight: var(--font-weight-bold);
+    box-shadow:
+      0 4px 14px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hero :global(.btn--primary:hover:not(.btn--disabled)) {
-    background-color: var(--color-primary-50);
-    color: var(--color-primary-800);
+    background-color: #ffffff;
+    color: var(--color-primary-900);
     box-shadow:
-      var(--shadow-xl),
-      0 0 30px rgba(255, 255, 255, 0.3);
-    transform: translateY(-3px) scale(1.02);
+      0 8px 25px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px) scale(1.03);
   }
 
   .hero :global(.btn--primary:active:not(.btn--disabled)) {
-    background-color: var(--color-primary-100);
+    background-color: #f8fafc;
     transform: translateY(0) scale(1);
   }
 
   .hero :global(.btn--primary:focus-visible) {
     box-shadow:
       0 0 0 var(--focus-ring-offset) var(--color-primary-800),
-      0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--color-background);
+      0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) #ffffff;
   }
 
   .hero :global(.btn--secondary) {
@@ -1677,7 +1692,8 @@ const trustIcons: Record<string, string> = {
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
-    opacity: 0.75;
+    opacity: 0;
+    display: none; /* Removed grid pattern for cleaner look */
   }
 
   .hero__grid-lines {

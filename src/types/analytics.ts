@@ -146,7 +146,7 @@ export type GA4StandardEvent =
   | 'select_content';
 
 /**
- * Custom event names for Houston Web Services
+ * Custom event names for HTX Web Co.
  */
 export type CustomEventName =
   | 'contact_form_start'
