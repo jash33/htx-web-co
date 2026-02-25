@@ -1,0 +1,31 @@
+{
+  "category": "Uncategorized",
+  "description": "Can you move the logo in the nav bar to the left so it lines up with the text that's actually on in the hero section?",
+  "title": "Move logo left in navbar to align with hero text",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771911027799-3i7fkpwcxmz",
+  "descriptionHistory": [
+    {
+      "description": "Can you move the logo in the nav bar to the left so it lines up with the text that's actually on in the hero section?",
+      "timestamp": "2026-02-24T05:30:27.817Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T05:30:27.855Z",
+  "updatedAt": "2026-02-24T05:33:02.048Z",
+  "justFinishedAt": "2026-02-24T05:33:02.048Z"
+}

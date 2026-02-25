@@ -1,0 +1,32 @@
+{
+  "category": "Uncategorized",
+  "description": "Can you move the logo in the nav bar to the left so it lines up with the text that's actually on in the hero section?",
+  "title": "Move logo left in navbar to align with hero text",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "claude-opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "main",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "current",
+  "titleGenerating": false,
+  "status": "waiting_approval",
+  "id": "feature-1771911027799-3i7fkpwcxmz",
+  "descriptionHistory": [
+    {
+      "description": "Can you move the logo in the nav bar to the left so it lines up with the text that's actually on in the hero section?",
+      "timestamp": "2026-02-24T05:30:27.817Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-02-24T05:30:27.855Z",
+  "updatedAt": "2026-02-24T05:33:02.061Z",
+  "justFinishedAt": "2026-02-24T05:33:02.048Z",
+  "summary": "## Summary: Move logo to align with hero text\n\n### Changes Implemented\n- Updated the header container's horizontal padding to match the hero section's responsive padding values\n- Changed mobile base padding from `var(--spacing-6)` (24px) to `var(--spacing-4)` (16px)\n- Added responsive media query at 640px to set horizontal padding to `var(--spacing-6)` (24px)\n- Added responsive media query at 1024px to set horizontal padding to `var(--spacing-8)` (32px)\n\n### Files Modified\n- `src/components/Header.astro`\n\n### Notes for Developer\n- The header and hero section now use consistent horizontal padding at all breakpoints:\n  - Mobile (<640px): 16px padding on both sides\n  - Tablet (640px-1023px): 24px padding on both sides\n  - Desktop (1024px+): 32px padding on both sides\n- Both components use `max-width: var(--container-7xl)` (1280px), so the logo and hero text should now be perfectly left-aligned\n- The vertical padding of the header remains unchanged (`var(--spacing-2)` = 8px)"
+}

@@ -2,6 +2,20 @@
   "version": 1,
   "events": [
     {
+      "id": "evt-1771911182081-31d9c739",
+      "trigger": "feature_success",
+      "timestamp": "2026-02-24T05:33:02.081Z",
+      "featureName": "Move logo left in navbar to align with hero text",
+      "featureId": "feature-1771911027799-3i7fkpwcxmz"
+    },
+    {
+      "id": "evt-1771911027819-93cd60b3",
+      "trigger": "feature_created",
+      "timestamp": "2026-02-24T05:30:27.819Z",
+      "featureName": "Untitled Feature",
+      "featureId": "feature-1771911027799-3i7fkpwcxmz"
+    },
+    {
       "id": "evt-1771910690871-13fa4c84",
       "trigger": "feature_success",
       "timestamp": "2026-02-24T05:24:50.871Z",
