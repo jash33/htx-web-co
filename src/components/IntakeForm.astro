@@ -1,0 +1,1010 @@
+---
+/**
+ * Project Intake Form Component
+ * Captures all required information for automated website builds.
+ * 
+ * Sections:
+ * 1. Business Basics
+ * 2. Brand Identity
+ * 3. Site Structure
+ * 4. Content & Messaging
+ * 5. Audience & Goals
+ * 6. Technical Requirements
+ */
+
+const businessTypes = [
+  { value: '', label: 'Select business type...' },
+  { value: 'service', label: 'Service Business (plumber, electrician, consultant, etc.)' },
+  { value: 'retail', label: 'Retail / E-commerce' },
+  { value: 'restaurant', label: 'Restaurant / Food Service' },
+  { value: 'professional', label: 'Professional Services (law, accounting, medical)' },
+  { value: 'creative', label: 'Creative / Agency' },
+  { value: 'nonprofit', label: 'Non-Profit Organization' },
+  { value: 'other', label: 'Other' },
+];
+
+const brandPersonalities = [
+  { value: '', label: 'Select personality...' },
+  { value: 'professional', label: 'Professional & Trustworthy' },
+  { value: 'friendly', label: 'Friendly & Approachable' },
+  { value: 'luxury', label: 'Luxury & Premium' },
+  { value: 'playful', label: 'Playful & Fun' },
+  { value: 'bold', label: 'Bold & Energetic' },
+  { value: 'calm', label: 'Calm & Minimal' },
+  { value: 'technical', label: 'Technical & Precise' },
+  { value: 'warm', label: 'Warm & Personal' },
+];
+
+const ctaTypes = [
+  { value: '', label: 'Select primary action...' },
+  { value: 'contact-form', label: 'Fill out a contact form' },
+  { value: 'phone-call', label: 'Call us directly' },
+  { value: 'book-appointment', label: 'Book an appointment/consultation' },
+  { value: 'get-quote', label: 'Request a quote' },
+  { value: 'buy-product', label: 'Purchase a product' },
+  { value: 'sign-up', label: 'Sign up / Subscribe' },
+  { value: 'learn-more', label: 'Learn more about services' },
+];
+
+const budgetRanges = [
+  { value: '', label: 'Select budget range...' },
+  { value: '1000-2500', label: '$1,000 - $2,500' },
+  { value: '2500-5000', label: '$2,500 - $5,000' },
+  { value: '5000-10000', label: '$5,000 - $10,000' },
+  { value: '10000+', label: '$10,000+' },
+];
+
+const timelineOptions = [
+  { value: '', label: 'Select timeline...' },
+  { value: 'asap', label: 'ASAP (1-2 weeks)' },
+  { value: '1month', label: 'Within 1 month' },
+  { value: '2-3months', label: '2-3 months' },
+  { value: 'flexible', label: 'Flexible / No rush' },
+];
+---
+
+<section class="intake-form-section" aria-labelledby="intake-form-heading">
+  <div class="intake-form-container">
+    <div class="intake-form-header">
+      <h2 id="intake-form-heading" class="intake-form-title">Project Intake Form</h2>
+      <p class="intake-form-description">
+        Help us understand your business and vision. The more detail you provide, the better we can serve you.
+      </p>
+    </div>
+
+    <form id="intake-form" class="intake-form" novalidate>
+      <!-- Hidden fields for spam prevention -->
+      <input type="hidden" id="form-start-time" name="formStartTime" value="" />
+      <div class="intake-form__honeypot" aria-hidden="true" tabindex="-1">
+        <label for="website-url">Website URL</label>
+        <input type="text" id="website-url" name="websiteUrl" autocomplete="off" tabindex="-1" />
+      </div>
+
+      <!-- ============================================
+           SECTION 1: BUSINESS BASICS
+           ============================================ -->
+      <fieldset class="intake-form__section">
+        <legend class="intake-form__section-title">
+          <span class="intake-form__section-number">1</span>
+          Business Basics
+        </legend>
+
+        <div class="intake-form__grid">
+          <!-- Business Name -->
+          <div class="intake-form__field">
+            <label for="business-name" class="intake-form__label">
+              Business Name <span class="intake-form__required">*</span>
+            </label>
+            <input
+              type="text"
+              id="business-name"
+              name="businessName"
+              class="intake-form__input"
+              required
+              placeholder="Acme Plumbing Co."
+            />
+          </div>
+
+          <!-- Business Type -->
+          <div class="intake-form__field">
+            <label for="business-type" class="intake-form__label">
+              Business Type <span class="intake-form__required">*</span>
+            </label>
+            <select id="business-type" name="businessType" class="intake-form__select" required>
+              {businessTypes.map((opt) => (
+                <option value={opt.value} disabled={opt.value === ''} selected={opt.value === ''}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Location -->
+          <div class="intake-form__field">
+            <label for="location" class="intake-form__label">
+              Location / Service Area <span class="intake-form__required">*</span>
+            </label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              class="intake-form__input"
+              required
+              placeholder="Houston, TX or Greater Houston Area"
+            />
+          </div>
+
+          <!-- Contact Email -->
+          <div class="intake-form__field">
+            <label for="contact-email" class="intake-form__label">
+              Contact Email <span class="intake-form__required">*</span>
+            </label>
+            <input
+              type="email"
+              id="contact-email"
+              name="contactEmail"
+              class="intake-form__input"
+              required
+              placeholder="owner@business.com"
+            />
+          </div>
+
+          <!-- Contact Phone -->
+          <div class="intake-form__field">
+            <label for="contact-phone" class="intake-form__label">
+              Contact Phone
+            </label>
+            <input
+              type="tel"
+              id="contact-phone"
+              name="contactPhone"
+              class="intake-form__input"
+              placeholder="(713) 555-1234"
+            />
+          </div>
+
+          <!-- Existing Website -->
+          <div class="intake-form__field">
+            <label for="existing-website" class="intake-form__label">
+              Current Website (if any)
+            </label>
+            <input
+              type="url"
+              id="existing-website"
+              name="existingWebsite"
+              class="intake-form__input"
+              placeholder="https://currentsite.com"
+            />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ============================================
+           SECTION 2: BRAND IDENTITY
+           ============================================ -->
+      <fieldset class="intake-form__section">
+        <legend class="intake-form__section-title">
+          <span class="intake-form__section-number">2</span>
+          Brand Identity
+        </legend>
+
+        <div class="intake-form__grid">
+          <!-- Has Logo -->
+          <div class="intake-form__field intake-form__field--full">
+            <label class="intake-form__label">Do you have an existing logo?</label>
+            <div class="intake-form__radio-group">
+              <label class="intake-form__radio-label">
+                <input type="radio" name="hasLogo" value="yes" class="intake-form__radio" />
+                <span>Yes, I'll provide it</span>
+              </label>
+              <label class="intake-form__radio-label">
+                <input type="radio" name="hasLogo" value="no" class="intake-form__radio" />
+                <span>No, I need one created</span>
+              </label>
+              <label class="intake-form__radio-label">
+                <input type="radio" name="hasLogo" value="maybe" class="intake-form__radio" />
+                <span>Yes, but open to updating it</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Brand Colors -->
+          <div class="intake-form__field">
+            <label for="brand-colors" class="intake-form__label">
+              Existing Brand Colors
+              <span class="intake-form__hint">(if any)</span>
+            </label>
+            <input
+              type="text"
+              id="brand-colors"
+              name="brandColors"
+              class="intake-form__input"
+              placeholder="#1a5276, navy blue, gold"
+            />
+          </div>
+
+          <!-- Brand Fonts -->
+          <div class="intake-form__field">
+            <label for="brand-fonts" class="intake-form__label">
+              Existing Brand Fonts
+              <span class="intake-form__hint">(if any)</span>
+            </label>
+            <input
+              type="text"
+              id="brand-fonts"
+              name="brandFonts"
+              class="intake-form__input"
+              placeholder="Montserrat, Open Sans"
+            />
+          </div>
+
+          <!-- Brand Personality -->
+          <div class="intake-form__field">
+            <label for="brand-personality" class="intake-form__label">
+              Brand Personality <span class="intake-form__required">*</span>
+            </label>
+            <select id="brand-personality" name="brandPersonality" class="intake-form__select" required>
+              {brandPersonalities.map((opt) => (
+                <option value={opt.value} disabled={opt.value === ''} selected={opt.value === ''}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Inspiration Sites -->
+          <div class="intake-form__field intake-form__field--full">
+            <label for="inspiration-sites" class="intake-form__label">
+              Websites You Admire
+              <span class="intake-form__hint">(competitors or any sites with a look you like)</span>
+            </label>
+            <textarea
+              id="inspiration-sites"
+              name="inspirationSites"
+              class="intake-form__textarea"
+              rows="3"
+              placeholder="https://competitor1.com - I like their clean layout&#10;https://somesite.com - Love the color scheme"
+            ></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ============================================
+           SECTION 3: SITE STRUCTURE
+           ============================================ -->
+      <fieldset class="intake-form__section">
+        <legend class="intake-form__section-title">
+          <span class="intake-form__section-number">3</span>
+          Site Structure & Pages
+        </legend>
+
+        <div class="intake-form__grid">
+          <!-- Pages Needed -->
+          <div class="intake-form__field intake-form__field--full">
+            <label class="intake-form__label">
+              Which pages do you need? <span class="intake-form__required">*</span>
+            </label>
+            <div class="intake-form__checkbox-grid">
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="pages" value="home" class="intake-form__checkbox" checked />
+                <span>Home</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="pages" value="about" class="intake-form__checkbox" />
+                <span>About Us</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="pages" value="services" class="intake-form__checkbox" />
+                <span>Services</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="pages" value="portfolio" class="intake-form__checkbox" />
+                <span>Portfolio / Gallery</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="pages" value="pricing" class="intake-form__checkbox" />
+                <span>Pricing</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="pages" value="contact" class="intake-form__checkbox" />
+                <span>Contact</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="pages" value="blog" class="intake-form__checkbox" />
+                <span>Blog</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="pages" value="faq" class="intake-form__checkbox" />
+                <span>FAQ</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="pages" value="testimonials" class="intake-form__checkbox" />
+                <span>Testimonials</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="pages" value="team" class="intake-form__checkbox" />
+                <span>Team / Staff</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Additional Pages -->
+          <div class="intake-form__field intake-form__field--full">
+            <label for="additional-pages" class="intake-form__label">
+              Additional Pages or Sections
+              <span class="intake-form__hint">(describe any others you need)</span>
+            </label>
+            <input
+              type="text"
+              id="additional-pages"
+              name="additionalPages"
+              class="intake-form__input"
+              placeholder="e.g., Individual service pages, location pages, booking page"
+            />
+          </div>
+
+          <!-- Primary CTA -->
+          <div class="intake-form__field">
+            <label for="primary-cta" class="intake-form__label">
+              Primary Call-to-Action <span class="intake-form__required">*</span>
+              <span class="intake-form__hint">What's the #1 thing you want visitors to do?</span>
+            </label>
+            <select id="primary-cta" name="primaryCta" class="intake-form__select" required>
+              {ctaTypes.map((opt) => (
+                <option value={opt.value} disabled={opt.value === ''} selected={opt.value === ''}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <!-- CTA Text -->
+          <div class="intake-form__field">
+            <label for="cta-text" class="intake-form__label">
+              CTA Button Text
+              <span class="intake-form__hint">(what should the button say?)</span>
+            </label>
+            <input
+              type="text"
+              id="cta-text"
+              name="ctaText"
+              class="intake-form__input"
+              placeholder="Get a Free Quote, Book Now, Call Us"
+            />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ============================================
+           SECTION 4: CONTENT & MESSAGING
+           ============================================ -->
+      <fieldset class="intake-form__section">
+        <legend class="intake-form__section-title">
+          <span class="intake-form__section-number">4</span>
+          Content & Messaging
+        </legend>
+
+        <div class="intake-form__grid">
+          <!-- Main Headline -->
+          <div class="intake-form__field intake-form__field--full">
+            <label for="main-headline" class="intake-form__label">
+              Main Headline / Value Proposition <span class="intake-form__required">*</span>
+              <span class="intake-form__hint">What's the first thing visitors should understand about your business?</span>
+            </label>
+            <input
+              type="text"
+              id="main-headline"
+              name="mainHeadline"
+              class="intake-form__input"
+              required
+              placeholder="Houston's Most Trusted Plumbing Experts for 25 Years"
+            />
+          </div>
+
+          <!-- Services List -->
+          <div class="intake-form__field intake-form__field--full">
+            <label for="services-list" class="intake-form__label">
+              Services / Products Offered <span class="intake-form__required">*</span>
+              <span class="intake-form__hint">List your main offerings, one per line</span>
+            </label>
+            <textarea
+              id="services-list"
+              name="servicesList"
+              class="intake-form__textarea"
+              rows="4"
+              required
+              placeholder="Emergency Plumbing Repair&#10;Water Heater Installation&#10;Drain Cleaning&#10;Pipe Repair & Replacement"
+            ></textarea>
+          </div>
+
+          <!-- Differentiators -->
+          <div class="intake-form__field intake-form__field--full">
+            <label for="differentiators" class="intake-form__label">
+              What Makes You Different? <span class="intake-form__required">*</span>
+              <span class="intake-form__hint">Why should customers choose you over competitors?</span>
+            </label>
+            <textarea
+              id="differentiators"
+              name="differentiators"
+              class="intake-form__textarea"
+              rows="4"
+              required
+              placeholder="24/7 emergency service&#10;Licensed and insured since 1998&#10;Free estimates&#10;100% satisfaction guarantee"
+            ></textarea>
+          </div>
+
+          <!-- Testimonials -->
+          <div class="intake-form__field intake-form__field--full">
+            <label for="testimonials" class="intake-form__label">
+              Customer Testimonials
+              <span class="intake-form__hint">Include name and location if possible</span>
+            </label>
+            <textarea
+              id="testimonials"
+              name="testimonials"
+              class="intake-form__textarea"
+              rows="4"
+              placeholder='"They fixed our leak in under an hour. Amazing service!" - John D., Katy TX&#10;"Professional, on time, and fair pricing." - Maria S., Sugar Land'
+            ></textarea>
+          </div>
+
+          <!-- About Section -->
+          <div class="intake-form__field intake-form__field--full">
+            <label for="about-content" class="intake-form__label">
+              About Your Business
+              <span class="intake-form__hint">Brief history, mission, or background story</span>
+            </label>
+            <textarea
+              id="about-content"
+              name="aboutContent"
+              class="intake-form__textarea"
+              rows="4"
+              placeholder="Founded in 1998, Acme Plumbing has served the Greater Houston area for over 25 years..."
+            ></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ============================================
+           SECTION 5: AUDIENCE & GOALS
+           ============================================ -->
+      <fieldset class="intake-form__section">
+        <legend class="intake-form__section-title">
+          <span class="intake-form__section-number">5</span>
+          Audience & Goals
+        </legend>
+
+        <div class="intake-form__grid">
+          <!-- Target Audience -->
+          <div class="intake-form__field intake-form__field--full">
+            <label for="target-audience" class="intake-form__label">
+              Who Is Your Ideal Customer?
+              <span class="intake-form__hint">Describe your target audience</span>
+            </label>
+            <textarea
+              id="target-audience"
+              name="targetAudience"
+              class="intake-form__textarea"
+              rows="3"
+              placeholder="Homeowners in Houston suburbs, 35-65 years old, middle to upper income, who value quality and reliability over lowest price"
+            ></textarea>
+          </div>
+
+          <!-- Success Definition -->
+          <div class="intake-form__field intake-form__field--full">
+            <label for="success-definition" class="intake-form__label">
+              How Will You Measure Success?
+              <span class="intake-form__hint">What would make this project a huge success?</span>
+            </label>
+            <textarea
+              id="success-definition"
+              name="successDefinition"
+              class="intake-form__textarea"
+              rows="3"
+              placeholder="More phone calls from the website, better first impression, ranking higher in Google for 'Houston plumber'"
+            ></textarea>
+          </div>
+
+          <!-- SEO Keywords -->
+          <div class="intake-form__field intake-form__field--full">
+            <label for="seo-keywords" class="intake-form__label">
+              Target Keywords
+              <span class="intake-form__hint">What should people search to find you?</span>
+            </label>
+            <input
+              type="text"
+              id="seo-keywords"
+              name="seoKeywords"
+              class="intake-form__input"
+              placeholder="Houston plumber, emergency plumbing Houston, water heater repair Katy"
+            />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- ============================================
+           SECTION 6: TECHNICAL & TIMELINE
+           ============================================ -->
+      <fieldset class="intake-form__section">
+        <legend class="intake-form__section-title">
+          <span class="intake-form__section-number">6</span>
+          Technical & Timeline
+        </legend>
+
+        <div class="intake-form__grid">
+          <!-- Domain -->
+          <div class="intake-form__field">
+            <label for="domain" class="intake-form__label">
+              Domain Name
+              <span class="intake-form__hint">(if you have one)</span>
+            </label>
+            <input
+              type="text"
+              id="domain"
+              name="domain"
+              class="intake-form__input"
+              placeholder="yourbusiness.com"
+            />
+          </div>
+
+          <!-- Timeline -->
+          <div class="intake-form__field">
+            <label for="timeline" class="intake-form__label">
+              Desired Timeline
+            </label>
+            <select id="timeline" name="timeline" class="intake-form__select">
+              {timelineOptions.map((opt) => (
+                <option value={opt.value} selected={opt.value === ''}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Budget -->
+          <div class="intake-form__field">
+            <label for="budget" class="intake-form__label">
+              Budget Range <span class="intake-form__required">*</span>
+            </label>
+            <select id="budget" name="budget" class="intake-form__select" required>
+              {budgetRanges.map((opt) => (
+                <option value={opt.value} disabled={opt.value === ''} selected={opt.value === ''}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Integrations -->
+          <div class="intake-form__field intake-form__field--full">
+            <label class="intake-form__label">
+              Integrations Needed
+            </label>
+            <div class="intake-form__checkbox-grid">
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="integrations" value="booking" class="intake-form__checkbox" />
+                <span>Booking/Scheduling</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="integrations" value="ecommerce" class="intake-form__checkbox" />
+                <span>E-commerce/Payments</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="integrations" value="email" class="intake-form__checkbox" />
+                <span>Email Marketing</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="integrations" value="chat" class="intake-form__checkbox" />
+                <span>Live Chat</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="integrations" value="analytics" class="intake-form__checkbox" />
+                <span>Google Analytics</span>
+              </label>
+              <label class="intake-form__checkbox-label">
+                <input type="checkbox" name="integrations" value="social" class="intake-form__checkbox" />
+                <span>Social Media Feeds</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Additional Notes -->
+          <div class="intake-form__field intake-form__field--full">
+            <label for="additional-notes" class="intake-form__label">
+              Anything Else We Should Know?
+            </label>
+            <textarea
+              id="additional-notes"
+              name="additionalNotes"
+              class="intake-form__textarea"
+              rows="4"
+              placeholder="Any other details, concerns, or special requests..."
+            ></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Form Messages -->
+      <div id="form-error" class="intake-form__message intake-form__message--error" role="alert" hidden>
+        <span id="form-error-text">Please fill out all required fields.</span>
+      </div>
+
+      <div id="form-success" class="intake-form__message intake-form__message--success" role="status" hidden>
+        <strong>Thank you!</strong> We've received your project details and will be in touch within 24 hours.
+      </div>
+
+      <!-- Submit -->
+      <div class="intake-form__actions">
+        <button type="submit" id="submit-button" class="intake-form__submit">
+          <span class="intake-form__submit-text">Submit Project Details</span>
+          <span class="intake-form__submit-loading" aria-hidden="true">Submitting...</span>
+        </button>
+        <p class="intake-form__note">
+          We'll review your information and reach out to schedule a discovery call.
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+  /* Section Container */
+  .intake-form-section {
+    padding: var(--spacing-16) var(--spacing-4);
+    background-color: var(--color-background);
+  }
+
+  .intake-form-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .intake-form-header {
+    text-align: center;
+    margin-bottom: var(--spacing-10);
+  }
+
+  .intake-form-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .intake-form-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Form */
+  .intake-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+  }
+
+  /* Honeypot */
+  .intake-form__honeypot {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Section Fieldsets */
+  .intake-form__section {
+    border: var(--border-width-1) solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-6);
+    background-color: var(--color-background-subtle);
+  }
+
+  .intake-form__section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-6);
+  }
+
+  .intake-form__section-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+  }
+
+  /* Grid Layout */
+  .intake-form__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-5);
+  }
+
+  @media (min-width: 640px) {
+    .intake-form__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .intake-form__field--full {
+    grid-column: 1 / -1;
+  }
+
+  /* Field */
+  .intake-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+
+  .intake-form__label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+  }
+
+  .intake-form__required {
+    color: var(--color-error);
+  }
+
+  .intake-form__hint {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-tertiary);
+    margin-top: var(--spacing-1);
+  }
+
+  /* Inputs */
+  .intake-form__input,
+  .intake-form__select,
+  .intake-form__textarea {
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-4);
+    font-size: var(--font-size-base);
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    border: var(--border-width-1) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .intake-form__input::placeholder,
+  .intake-form__textarea::placeholder {
+    color: var(--color-text-placeholder);
+  }
+
+  .intake-form__input:focus,
+  .intake-form__select:focus,
+  .intake-form__textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-100);
+  }
+
+  .intake-form__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    padding-right: var(--spacing-10);
+    cursor: pointer;
+  }
+
+  .intake-form__textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  /* Checkboxes & Radios */
+  .intake-form__checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-3);
+  }
+
+  @media (min-width: 640px) {
+    .intake-form__checkbox-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .intake-form__checkbox-label,
+  .intake-form__radio-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    cursor: pointer;
+  }
+
+  .intake-form__checkbox,
+  .intake-form__radio {
+    width: 1.125rem;
+    height: 1.125rem;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+  }
+
+  .intake-form__radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-4);
+  }
+
+  /* Messages */
+  .intake-form__message {
+    padding: var(--spacing-4);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+  }
+
+  .intake-form__message[hidden] {
+    display: none;
+  }
+
+  .intake-form__message--success {
+    background-color: var(--color-success-light);
+    border: 1px solid var(--color-success-border);
+    color: var(--color-success-text);
+  }
+
+  .intake-form__message--error {
+    background-color: var(--color-error-light);
+    border: 1px solid var(--color-error-border);
+    color: var(--color-error-text);
+  }
+
+  /* Actions */
+  .intake-form__actions {
+    text-align: center;
+    padding-top: var(--spacing-4);
+  }
+
+  .intake-form__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+    padding: var(--spacing-4) var(--spacing-8);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-inverse);
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .intake-form__submit:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+  }
+
+  .intake-form__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .intake-form__submit-loading {
+    display: none;
+  }
+
+  .intake-form__submit[data-loading="true"] .intake-form__submit-text {
+    display: none;
+  }
+
+  .intake-form__submit[data-loading="true"] .intake-form__submit-loading {
+    display: inline;
+  }
+
+  .intake-form__note {
+    margin-top: var(--spacing-4);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .intake-form-section {
+      padding: var(--spacing-8) var(--spacing-4);
+    }
+
+    .intake-form-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .intake-form__section {
+      padding: var(--spacing-4);
+    }
+
+    .intake-form__submit {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('intake-form') as HTMLFormElement;
+  const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+  const formError = document.getElementById('form-error') as HTMLDivElement;
+  const formSuccess = document.getElementById('form-success') as HTMLDivElement;
+  const formStartTimeInput = document.getElementById('form-start-time') as HTMLInputElement;
+  const honeypotInput = document.getElementById('website-url') as HTMLInputElement;
+
+  let formStartTime = Date.now();
+  formStartTimeInput.value = formStartTime.toString();
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Spam check
+    if (honeypotInput?.value || Date.now() - formStartTime < 3000) {
+      formSuccess.hidden = false;
+      return;
+    }
+
+    // Basic validation
+    if (!form.checkValidity()) {
+      formError.hidden = false;
+      formSuccess.hidden = true;
+      return;
+    }
+
+    // Set loading
+    submitButton.disabled = true;
+    submitButton.setAttribute('data-loading', 'true');
+    formError.hidden = true;
+
+    try {
+      // Collect form data
+      const formData = new FormData(form);
+      const data: Record<string, any> = {};
+      
+      formData.forEach((value, key) => {
+        if (data[key]) {
+          // Handle multiple values (checkboxes)
+          if (Array.isArray(data[key])) {
+            data[key].push(value);
+          } else {
+            data[key] = [data[key], value];
+          }
+        } else {
+          data[key] = value;
+        }
+      });
+
+      // Simulate submission (replace with actual API call)
+      console.log('Intake form data:', JSON.stringify(data, null, 2));
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      formSuccess.hidden = false;
+      form.reset();
+      formStartTime = Date.now();
+      formStartTimeInput.value = formStartTime.toString();
+
+    } catch (error) {
+      console.error('Submission error:', error);
+      formError.hidden = false;
+    } finally {
+      submitButton.disabled = false;
+      submitButton.setAttribute('data-loading', 'false');
+    }
+  });
+</script>

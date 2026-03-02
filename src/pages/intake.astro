@@ -1,0 +1,114 @@
+---
+/**
+ * Project Intake Page
+ * A comprehensive intake form for collecting detailed project requirements.
+ * Used to gather all information needed for automated website builds.
+ */
+
+import Layout from '../layouts/Layout.astro';
+import IntakeForm from '../components/IntakeForm.astro';
+---
+
+<Layout
+  title="Project Intake"
+  description="Start your web design project with HTX Web Co. Fill out our detailed intake form so we can understand your business and build the perfect website."
+  openGraph={{
+    type: 'website',
+  }}
+  jsonLd={{
+    type: 'ContactPage',
+    name: 'Project Intake - HTX Web Co.',
+    description: 'Detailed project intake form for HTX Web Co. web design services.',
+  }}
+>
+  <main>
+    <!-- Hero Section -->
+    <section class="intake-hero" aria-labelledby="intake-hero-heading">
+      <div class="intake-hero__container">
+        <h1 id="intake-hero-heading" class="intake-hero__title">
+          Start Your Project
+        </h1>
+        <p class="intake-hero__subtitle">
+          Help us understand your business, brand, and goals. The more detail you provide, 
+          the better we can tailor your website to your needs.
+        </p>
+        <div class="intake-hero__time">
+          <svg class="intake-hero__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>Takes about 10-15 minutes</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intake Form -->
+    <IntakeForm />
+
+  </main>
+</Layout>
+
+<style>
+  /* Hero Section */
+  .intake-hero {
+    padding: var(--spacing-20) var(--spacing-4) var(--spacing-12);
+    background: linear-gradient(
+      to bottom,
+      var(--color-primary-50) 0%,
+      var(--color-background) 100%
+    );
+    text-align: center;
+  }
+
+  .intake-hero__container {
+    max-width: var(--container-2xl);
+    margin: 0 auto;
+  }
+
+  .intake-hero__title {
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4);
+    line-height: 1.1;
+  }
+
+  .intake-hero__subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    max-width: 650px;
+    margin: 0 auto var(--spacing-6);
+    line-height: 1.6;
+  }
+
+  .intake-hero__time {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-4);
+    background-color: var(--color-background);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .intake-hero__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .intake-hero {
+      padding: var(--spacing-12) var(--spacing-4) var(--spacing-8);
+    }
+
+    .intake-hero__title {
+      font-size: var(--font-size-3xl);
+    }
+
+    .intake-hero__subtitle {
+      font-size: var(--font-size-base);
+    }
+  }
+</style>
