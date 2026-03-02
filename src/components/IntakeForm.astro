@@ -61,6 +61,39 @@ const timelineOptions = [
   { value: '2-3months', label: '2-3 months' },
   { value: 'flexible', label: 'Flexible / No rush' },
 ];
+
+const domainSituations = [
+  { value: '', label: 'Select your situation...' },
+  { value: 'have-keep', label: 'I have a domain and want to keep it where it is' },
+  { value: 'have-transfer', label: 'I have a domain and am open to transferring it' },
+  { value: 'need-new', label: 'I need to purchase a new domain' },
+  { value: 'not-sure', label: 'Not sure / Need guidance' },
+];
+
+const updateFrequency = [
+  { value: '', label: 'Select frequency...' },
+  { value: 'rarely', label: 'Rarely (once a year or less)' },
+  { value: 'occasionally', label: 'Occasionally (a few times per year)' },
+  { value: 'monthly', label: 'Monthly' },
+  { value: 'weekly', label: 'Weekly or more often' },
+];
+
+const cmsOptions = [
+  { value: '', label: 'Select option...' },
+  { value: 'no', label: 'No — I won\'t need to edit content myself' },
+  { value: 'basic', label: 'Basic — I want to update text and images occasionally' },
+  { value: 'full', label: 'Full CMS — I need to manage content regularly (blog, products, etc.)' },
+  { value: 'not-sure', label: 'Not sure — help me decide' },
+];
+
+const storeOptions = [
+  { value: '', label: 'Select option...' },
+  { value: 'no', label: 'No — I don\'t sell products online' },
+  { value: 'simple', label: 'Simple — just a few products or services' },
+  { value: 'full', label: 'Full store — inventory, variants, shipping, etc.' },
+  { value: 'shopify', label: 'I already use (or want) Shopify' },
+  { value: 'not-sure', label: 'Not sure — help me decide' },
+];
 ---
 
 <section class="intake-form-section" aria-labelledby="intake-form-heading">
@@ -532,7 +565,7 @@ const timelineOptions = [
         </legend>
 
         <div class="intake-form__grid">
-          <!-- Domain -->
+          <!-- Domain Name -->
           <div class="intake-form__field">
             <label for="domain" class="intake-form__label">
               Domain Name
@@ -545,6 +578,63 @@ const timelineOptions = [
               class="intake-form__input"
               placeholder="yourbusiness.com"
             />
+          </div>
+
+          <!-- Domain Situation -->
+          <div class="intake-form__field">
+            <label for="domain-situation" class="intake-form__label">
+              Domain Hosting Situation
+            </label>
+            <select id="domain-situation" name="domainSituation" class="intake-form__select">
+              {domainSituations.map((opt) => (
+                <option value={opt.value} selected={opt.value === ''}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Update Frequency -->
+          <div class="intake-form__field">
+            <label for="update-frequency" class="intake-form__label">
+              How Often Will You Update Content?
+            </label>
+            <select id="update-frequency" name="updateFrequency" class="intake-form__select">
+              {updateFrequency.map((opt) => (
+                <option value={opt.value} selected={opt.value === ''}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <!-- CMS Needs -->
+          <div class="intake-form__field">
+            <label for="cms-needs" class="intake-form__label">
+              Do You Need a CMS?
+              <span class="intake-form__hint">(ability to edit content yourself)</span>
+            </label>
+            <select id="cms-needs" name="cmsNeeds" class="intake-form__select">
+              {cmsOptions.map((opt) => (
+                <option value={opt.value} selected={opt.value === ''}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Online Store -->
+          <div class="intake-form__field">
+            <label for="store-needs" class="intake-form__label">
+              Do You Need an Online Store?
+            </label>
+            <select id="store-needs" name="storeNeeds" class="intake-form__select">
+              {storeOptions.map((opt) => (
+                <option value={opt.value} selected={opt.value === ''}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
           </div>
 
           <!-- Timeline -->
