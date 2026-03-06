@@ -95,15 +95,15 @@ const canvasSize = sizeMap[size];
     const blockConfigs = [
       // Bottom layer - L-shape first
       { x: 0.55, y: -0.55, z: 0.55, topColor: colors.aqua, delay: 0 },             // corner block
-      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.aquaLight, delay: 0.42 },    // extends left
-      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.aqua, delay: 0.85 },         // extends back
-      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.aquaLight, delay: 1.27 },   // completes bottom
+      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.aquaLight, delay: 0.6 },     // extends left
+      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.aqua, delay: 1.2 },          // extends back
+      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.aquaLight, delay: 1.8 },    // completes bottom
       
       // Top layer
-      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.aqua, delay: 1.7 },            // top corner
-      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.aquaLight, delay: 2.12 },     // top left
-      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.aqua, delay: 2.55 },          // top back
-      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.aquaLight, delay: 2.97 },    // top final
+      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.aqua, delay: 2.4 },            // top corner
+      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.aquaLight, delay: 3.0 },      // top left
+      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.aqua, delay: 3.6 },           // top back
+      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.aquaLight, delay: 4.2 },     // top final
     ];
 
     // Create blocks group for rotation (cube is centered at origin)
@@ -139,16 +139,47 @@ const canvasSize = sizeMap[size];
       return 1 - Math.pow(1 - t, 3);
     }
     
-    // Animation timing
+    function easeInOutQuad(t: number): number {
+      return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    }
+    
+    // Animation timing - slower and smoother
     const clock = new THREE.Clock();
-    const animationDuration = 0.85; // seconds per block drop (15% faster)
-    const spinDuration = 1.27; // seconds for spin (15% faster)
+    const animationDuration = 1.2; // seconds per block drop
+    const spinDuration = 1.8; // seconds for spin
     const liftHeight = 0.8; // how high the cube lifts
-    const loopDelay = 0.85; // seconds to wait before looping (15% faster)
+    const loopDelay = 1.2; // seconds to wait before looping
     let loopStartTime = 0;
+    let animationStarted = false;
+    let isInView = false;
+
+    // Wait until fully in view before starting animation
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.95) {
+            isInView = true;
+            if (!animationStarted) {
+              animationStarted = true;
+              clock.start();
+            }
+          } else {
+            isInView = false;
+          }
+        });
+      },
+      { threshold: [0.95, 1.0] }
+    );
+    observer.observe(canvas);
 
     function animate() {
       requestAnimationFrame(animate);
+      
+      // Don't animate until in view
+      if (!animationStarted) {
+        renderer.render(scene, camera);
+        return;
+      }
       
       const elapsed = clock.getElapsedTime();
       const loopElapsed = elapsed - loopStartTime;
@@ -156,7 +187,7 @@ const canvasSize = sizeMap[size];
       // Timeline - spin includes the full arc (up and down with bounce)
       const lastBlockEndTime = blockConfigs[blockConfigs.length - 1].delay + animationDuration;
       const spinStartTime = lastBlockEndTime;
-      const totalSpinArc = spinDuration + 0.68; // Spin + landing with bounce (15% faster)
+      const totalSpinArc = spinDuration + 1.0; // Spin + landing with bounce (slower, smoother)
       const spinEndTime = spinStartTime + totalSpinArc;
       const totalCycleTime = spinEndTime + loopDelay;
       
@@ -306,6 +337,7 @@ const canvasSize = sizeMap[size];
     // Cleanup on page navigation
     document.addEventListener('astro:before-swap', () => {
       canvas.removeEventListener('click', onCanvasClick);
+      observer.disconnect();
       renderer.dispose();
     });
   }
