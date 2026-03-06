@@ -48,6 +48,7 @@
 
 import type { HeroSectionProps } from '../types/hero';
 import Button from './Button.astro';
+import BlockBuilder from './BlockBuilder.astro';
 
 interface Props extends HeroSectionProps {
   trustBadges?: Array<{ icon: 'experience' | 'projects' | 'tech'; text: string; }>;
@@ -119,6 +120,11 @@ const trustIcons: Record<string, string> = {
             )}
           </div>
         )}
+
+        <!-- Block Animation -->
+        <div class="hero__block-animation">
+          <BlockBuilder size="medium" />
+        </div>
 
         <div class="hero__location-cue">
           <svg class="hero__location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
@@ -755,6 +761,30 @@ const trustIcons: Record<string, string> = {
 
   .hero__trust-badge-text {
     font-weight: var(--font-weight-medium);
+  }
+
+  /* =================================================================
+   * BLOCK ANIMATION
+   * =================================================================
+   */
+
+  .hero__block-animation {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-6);
+    transform: scale(0.7);
+  }
+
+  @media screen and (min-width: 768px) {
+    .hero__block-animation {
+      transform: scale(0.9);
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .hero__block-animation {
+      transform: scale(1);
+    }
   }
 
   /* =================================================================

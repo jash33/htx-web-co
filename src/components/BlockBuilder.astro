@@ -59,7 +59,7 @@ const canvasSize = sizeMap[size];
 
     // Scene setup
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xffffff); // White background
+    scene.background = null; // Transparent background
     
     // Isometric-style camera (fixed position, no rotation)
     const aspect = 1;
@@ -78,7 +78,8 @@ const canvasSize = sizeMap[size];
     // Renderer
     const renderer = new THREE.WebGLRenderer({ 
       canvas, 
-      antialias: true 
+      antialias: true,
+      alpha: true 
     });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
