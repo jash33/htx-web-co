@@ -133,15 +133,31 @@ const canvasSize = sizeMap[size];
       blocks.push(block);
     });
 
-    // Smooth easing function
+    // Easing functions
     function easeOutCubic(t: number): number {
       return 1 - Math.pow(1 - t, 3);
     }
+    
+    function easeOutBounce(t: number): number {
+      const n1 = 7.5625;
+      const d1 = 2.75;
+      if (t < 1 / d1) {
+        return n1 * t * t;
+      } else if (t < 2 / d1) {
+        return n1 * (t -= 1.5 / d1) * t + 0.75;
+      } else if (t < 2.5 / d1) {
+        return n1 * (t -= 2.25 / d1) * t + 0.9375;
+      } else {
+        return n1 * (t -= 2.625 / d1) * t + 0.984375;
+      }
+    }
 
-    // Animation
+    // Animation timing
     const clock = new THREE.Clock();
-    const animationDuration = 1.0; // seconds per block
-    const spinDuration = 1.5; // seconds for spin (faster)
+    const animationDuration = 1.0; // seconds per block drop
+    const spinDuration = 1.5; // seconds for spin
+    const liftHeight = 0.6; // how high the cube lifts during spin
+    const dropDuration = 0.5; // seconds for drop + bounce
     const loopDelay = 1.0; // seconds to wait before looping
     let loopStartTime = 0;
 
@@ -153,31 +169,47 @@ const canvasSize = sizeMap[size];
       
       // Timeline
       const lastBlockEndTime = blockConfigs[blockConfigs.length - 1].delay + animationDuration;
-      const spinStartTime = lastBlockEndTime + 0.3;
+      const spinStartTime = lastBlockEndTime + 0.1; // Start spin quickly after last block
       const spinEndTime = spinStartTime + spinDuration;
-      const totalCycleTime = spinEndTime + loopDelay;
+      const dropEndTime = spinEndTime + dropDuration;
+      const totalCycleTime = dropEndTime + loopDelay;
       
       // Check if we should reset (loop)
       if (loopElapsed > totalCycleTime) {
-        // Reset all blocks and rotation
         loopStartTime = elapsed;
         blocks.forEach((block) => {
           block.position.y = block.userData.targetY + 6;
         });
         blocksGroup.rotation.y = 0;
+        blocksGroup.position.y = 0;
         return;
       }
       
-      // Spin phase - horizontal rotation around Y-axis (full 360° so end = start)
+      // Spin phase with lift
       if (loopElapsed > spinStartTime && loopElapsed < spinEndTime) {
         const spinProgress = (loopElapsed - spinStartTime) / spinDuration;
         const eased = easeOutCubic(spinProgress);
-        blocksGroup.rotation.y = eased * Math.PI * 2; // Full 360° horizontal spin
-      } else if (loopElapsed >= spinEndTime) {
-        blocksGroup.rotation.y = Math.PI * 2; // Lock at full rotation (same as start)
+        blocksGroup.rotation.y = eased * Math.PI * 2;
+        
+        // Lift: rise smoothly, peak at middle of spin
+        const liftProgress = Math.sin(spinProgress * Math.PI); // 0 -> 1 -> 0
+        blocksGroup.position.y = liftProgress * liftHeight;
+      } 
+      // Drop phase with bounce
+      else if (loopElapsed >= spinEndTime && loopElapsed < dropEndTime) {
+        blocksGroup.rotation.y = Math.PI * 2;
+        const dropProgress = (loopElapsed - spinEndTime) / dropDuration;
+        // Invert bounce: start at liftHeight, bounce down to 0
+        const bounceProgress = easeOutBounce(dropProgress);
+        blocksGroup.position.y = liftHeight * (1 - bounceProgress);
+      }
+      // Settled
+      else if (loopElapsed >= dropEndTime) {
+        blocksGroup.rotation.y = Math.PI * 2;
+        blocksGroup.position.y = 0;
       }
       
-      // Animate each block
+      // Animate each block dropping in
       blocks.forEach((block, index) => {
         const config = blockConfigs[index];
         const blockTime = loopElapsed - config.delay;
