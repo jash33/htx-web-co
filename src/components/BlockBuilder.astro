@@ -164,20 +164,22 @@ const canvasSize = sizeMap[size];
         blocks.forEach((block) => {
           block.position.y = block.userData.targetY + 6;
         });
-        blocksGroup.rotation.y = 0;
-        blocksGroup.rotation.x = 0;
+        blocksGroup.rotation.set(0, 0, 0);
         return;
       }
       
-      // Spin phase - diagonal rotation
+      // Spin phase - rotate around fixed diagonal axis
       if (loopElapsed > spinStartTime && loopElapsed < spinEndTime) {
         const spinProgress = (loopElapsed - spinStartTime) / spinDuration;
         const eased = easeOutCubic(spinProgress);
-        blocksGroup.rotation.y = eased * Math.PI * 2; // Full 360 on Y
-        blocksGroup.rotation.x = eased * Math.PI * 0.5; // Partial tilt on X
+        const angle = eased * Math.PI * 2;
+        
+        // Rotate around diagonal axis (1, 0.5, 0) normalized
+        const axis = new THREE.Vector3(1, 0.5, 0).normalize();
+        blocksGroup.setRotationFromAxisAngle(axis, angle);
       } else if (loopElapsed >= spinEndTime) {
-        blocksGroup.rotation.y = Math.PI * 2;
-        blocksGroup.rotation.x = Math.PI * 0.5;
+        const axis = new THREE.Vector3(1, 0.5, 0).normalize();
+        blocksGroup.setRotationFromAxisAngle(axis, Math.PI * 2);
       }
       
       // Animate each block
