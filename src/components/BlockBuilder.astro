@@ -174,8 +174,9 @@ const canvasSize = sizeMap[size];
       if (loopElapsed > spinStartTime && loopElapsed < spinEndTime) {
         const arcProgress = (loopElapsed - spinStartTime) / totalSpinArc;
         
-        // Rotation: complete in first portion, then hold
-        const rotationProgress = Math.min(arcProgress / (spinDuration / totalSpinArc), 1);
+        // Rotation: complete faster (in first 50% of arc), then hold
+        const rotationComplete = 0.5; // Complete rotation by this point in the arc
+        const rotationProgress = Math.min(arcProgress / rotationComplete, 1);
         const rotationEased = easeOutCubic(rotationProgress);
         blocksGroup.rotation.y = rotationEased * Math.PI * 2;
         
