@@ -175,10 +175,10 @@
 
   /* -----------------------------------------------------------------
    * Font Families
-   * Playfair Display (headings) - elegant serif with character
+   * Red Hat Display (headings) - refined, modern, editorial
    * Plus Jakarta Sans (body) - clean, modern, readable
    * ----------------------------------------------------------------- */
-  --font-family-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-family-heading: 'Red Hat Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-family-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-family-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
 
