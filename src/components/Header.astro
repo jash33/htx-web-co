@@ -150,6 +150,7 @@ const navLinks = [
     max-width: var(--container-7xl);
     margin: 0 auto;
     padding: var(--spacing-3) var(--spacing-4);
+    padding-left: var(--spacing-2); /* Tighter left padding on mobile */
     padding-bottom: var(--spacing-5);
     height: 90px; /* Fixed navbar height - increased for logo breathing room */
     position: relative;
@@ -510,6 +511,14 @@ const navLinks = [
     .header__container {
       padding-left: var(--spacing-6);
       padding-right: var(--spacing-6);
+    }
+  }
+  
+  /* Small mobile - logo flush to edge */
+  @media screen and (max-width: 639px) {
+    .header__logo {
+      margin-left: calc(var(--spacing-2) * -1);
+      padding-left: var(--spacing-2);
     }
   }
 
