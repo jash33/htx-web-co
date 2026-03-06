@@ -1,167 +1,180 @@
 ---
 /**
  * BlockBuilder Component
- * Animated isometric 3D blocks assembling in a row
- * Matches the HTX Web Co. logo style
+ * Rotating isometric pyramid made of 3D blocks
  */
 
 interface Props {
   size?: 'small' | 'medium' | 'large';
-  blocks?: number;
-  loop?: boolean;
   class?: string;
 }
 
 const {
   size = 'medium',
-  blocks = 5,
-  loop = true,
   class: className = '',
 } = Astro.props;
-
-const blockArray = Array.from({ length: blocks }, (_, i) => i);
 ---
 
-<div class={`block-builder block-builder--${size} ${loop ? 'block-builder--loop' : ''} ${className}`}>
-  <svg viewBox="0 0 320 120" class="block-builder__svg" preserveAspectRatio="xMidYMid meet">
-    <defs>
-      <!-- Isometric cube -->
-      <g id="iso-cube">
-        <!-- Top face (aqua) -->
-        <polygon class="cube-top" points="25,0 50,14 25,28 0,14" />
-        <!-- Left face (teal) -->
-        <polygon class="cube-left" points="0,14 25,28 25,56 0,42" />
-        <!-- Right face (midnight) -->
-        <polygon class="cube-right" points="25,28 50,14 50,42 25,56" />
-      </g>
-    </defs>
-
-    <!-- Row of blocks - positioned to form a clean row -->
-    {blockArray.map((i) => (
-      <use 
-        href="#iso-cube" 
-        class={`block block--${i + 1}`}
-        transform={`translate(${35 + i * 50}, ${60 - i * 0})`}
-        style={`--delay: ${i}`}
-      />
-    ))}
-  </svg>
+<div class={`block-builder block-builder--${size} ${className}`}>
+  <div class="pyramid">
+    <div class="pyramid__inner">
+      <!-- Bottom layer: 3 blocks in triangle -->
+      <div class="block block--1" style="--x: 0; --y: 0; --z: 0; --delay: 0;"></div>
+      <div class="block block--2" style="--x: 1; --y: 0; --z: 0; --delay: 1;"></div>
+      <div class="block block--3" style="--x: 0.5; --y: 1; --z: 0; --delay: 2;"></div>
+      
+      <!-- Top layer: 1 block -->
+      <div class="block block--4" style="--x: 0.5; --y: 0.33; --z: 1; --delay: 3;"></div>
+    </div>
+  </div>
 </div>
 
 <style>
   .block-builder {
-    display: inline-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 800px;
+  }
+
+  .block-builder--small {
+    --block-size: 35px;
+  }
+
+  .block-builder--medium {
+    --block-size: 50px;
+  }
+
+  .block-builder--large {
+    --block-size: 70px;
+  }
+
+  .pyramid {
+    width: calc(var(--block-size) * 3);
+    height: calc(var(--block-size) * 3);
+    display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .block-builder__svg {
-    overflow: visible;
+  .pyramid__inner {
+    position: relative;
+    width: calc(var(--block-size) * 2.5);
+    height: calc(var(--block-size) * 2.5);
+    transform-style: preserve-3d;
+    animation: rotatePyramid 8s ease-in-out infinite;
   }
 
-  .block-builder--small .block-builder__svg {
-    width: 200px;
-    height: 80px;
+  @keyframes rotatePyramid {
+    0%, 100% {
+      transform: rotateX(-15deg) rotateY(0deg);
+    }
+    25% {
+      transform: rotateX(-15deg) rotateY(90deg);
+    }
+    50% {
+      transform: rotateX(-15deg) rotateY(180deg);
+    }
+    75% {
+      transform: rotateX(-15deg) rotateY(270deg);
+    }
   }
 
-  .block-builder--medium .block-builder__svg {
-    width: 300px;
-    height: 110px;
-  }
-
-  .block-builder--large .block-builder__svg {
-    width: 400px;
-    height: 150px;
-  }
-
-  /* Cube faces with brand colors */
-  .cube-top {
-    fill: #33D6B5;
-  }
-
-  .cube-left {
-    fill: #015B77;
-  }
-
-  .cube-right {
-    fill: #011F4B;
-  }
-
-  /* Alternating colors for visual interest */
-  .block--2 .cube-top,
-  .block--4 .cube-top {
-    fill: #5EEBD0;
-  }
-  .block--2 .cube-left,
-  .block--4 .cube-left {
-    fill: #0288a0;
-  }
-  .block--2 .cube-right,
-  .block--4 .cube-right {
-    fill: #013a6b;
-  }
-
-  .block--3 .cube-top,
-  .block--5 .cube-top {
-    fill: #28c9a7;
-  }
-  .block--3 .cube-left,
-  .block--5 .cube-left {
-    fill: #014d65;
-  }
-  .block--3 .cube-right,
-  .block--5 .cube-right {
-    fill: #011a3d;
-  }
-
-  /* Drop animation */
+  /* Isometric block using CSS */
   .block {
+    --size: var(--block-size);
+    --top-color: #33D6B5;
+    --left-color: #015B77;
+    --right-color: #011F4B;
+    
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    transform-style: preserve-3d;
+    
+    /* Position based on grid coordinates */
+    left: calc(50% + (var(--x) - 0.75) * var(--size) * 0.9);
+    top: calc(50% + (var(--y) - 0.5) * var(--size) * 0.5 - var(--z) * var(--size) * 0.8);
+    
+    /* Drop-in animation */
     opacity: 0;
-    animation: blockDrop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: calc(var(--delay) * 0.12s);
+    animation: dropIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: calc(var(--delay) * 0.15s);
   }
 
-  @keyframes blockDrop {
+  @keyframes dropIn {
     0% {
       opacity: 0;
-      transform: translateY(-60px);
+      transform: translateY(-80px) scale(0.5);
     }
     100% {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
   }
 
-  /* Looping version */
-  .block-builder--loop .block {
-    animation: blockDropLoop 3s ease-in-out infinite;
-    animation-delay: calc(var(--delay) * 0.12s);
+  /* Top face */
+  .block::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    background: var(--top-color);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    top: 0;
+    left: 0;
   }
 
-  @keyframes blockDropLoop {
-    0%, 5% {
-      opacity: 0;
-      transform: translateY(-60px);
-    }
-    15%, 20% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    25%, 70% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    85%, 100% {
-      opacity: 0;
-      transform: translateY(-40px);
-    }
+  /* Left face */
+  .block::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 70%;
+    background: var(--left-color);
+    clip-path: polygon(0% 0%, 100% 35%, 100% 100%, 0% 65%);
+    bottom: 0;
+    left: 0;
+  }
+
+  /* Right face - using a pseudo element on a wrapper or gradient */
+  .block {
+    background: linear-gradient(to bottom right, transparent 50%, var(--right-color) 50%);
+    background-size: 50% 70%;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+  }
+
+  /* Color variations */
+  .block--2 {
+    --top-color: #5EEBD0;
+    --left-color: #0288a0;
+    --right-color: #013a6b;
+  }
+
+  .block--3 {
+    --top-color: #28c9a7;
+    --left-color: #014d65;
+    --right-color: #011a3d;
+  }
+
+  .block--4 {
+    --top-color: #66F2D5;
+    --left-color: #03a0b8;
+    --right-color: #024a7a;
   }
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
+    .pyramid__inner {
+      animation: none;
+      transform: rotateX(-15deg) rotateY(-20deg);
+    }
+    
     .block {
       animation: none;
       opacity: 1;
+      transform: translateY(0) scale(1);
     }
   }
 </style>
