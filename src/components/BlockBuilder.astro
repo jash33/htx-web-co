@@ -248,8 +248,64 @@ const canvasSize = sizeMap[size];
 
     animate();
 
+    // Click handling - change block colors on click
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    
+    // Color palette for random selection
+    const clickColors = [
+      0xFF6B6B, // coral red
+      0x4ECDC4, // teal
+      0xFFE66D, // yellow
+      0x95E1D3, // mint
+      0xF38181, // salmon
+      0xAA96DA, // lavender
+      0xFCBAD3, // pink
+      0x33D6B5, // aqua (original)
+      0x015B77, // teal (original)
+    ];
+    
+    function onCanvasClick(event: MouseEvent) {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(blocks);
+      
+      if (intersects.length > 0) {
+        const clickedBlock = intersects[0].object as THREE.Mesh;
+        const materials = clickedBlock.material as THREE.MeshBasicMaterial[];
+        
+        // Pick a random color from the palette
+        const newColor = clickColors[Math.floor(Math.random() * clickColors.length)];
+        
+        // Change all faces to variations of the new color
+        materials.forEach((mat, i) => {
+          if (i === 2) {
+            // Top face - brightest
+            mat.color.setHex(newColor);
+          } else if (i === 1 || i === 4) {
+            // Left/front faces - medium
+            const color = new THREE.Color(newColor);
+            color.multiplyScalar(0.7);
+            mat.color.copy(color);
+          } else {
+            // Other faces - darkest
+            const color = new THREE.Color(newColor);
+            color.multiplyScalar(0.4);
+            mat.color.copy(color);
+          }
+        });
+      }
+    }
+    
+    canvas.addEventListener('click', onCanvasClick);
+    canvas.style.cursor = 'pointer';
+
     // Cleanup on page navigation
     document.addEventListener('astro:before-swap', () => {
+      canvas.removeEventListener('click', onCanvasClick);
       renderer.dispose();
     });
   }
