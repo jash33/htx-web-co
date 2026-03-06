@@ -153,24 +153,34 @@ const canvasSize = sizeMap[size];
     let animationStarted = false;
     let isInView = false;
 
-    // Wait until fully in view before starting animation
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.95) {
-            isInView = true;
-            if (!animationStarted) {
-              animationStarted = true;
-              clock.start();
+    // Check if this is the navbar version (small size, inside header)
+    const isInNavbar = canvas.closest('.header__animation') !== null;
+    
+    // Navbar version starts immediately; others wait for visibility
+    if (isInNavbar) {
+      animationStarted = true;
+      isInView = true;
+      clock.start();
+    } else {
+      // Wait until fully in view before starting animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.95) {
+              isInView = true;
+              if (!animationStarted) {
+                animationStarted = true;
+                clock.start();
+              }
+            } else {
+              isInView = false;
             }
-          } else {
-            isInView = false;
-          }
-        });
-      },
-      { threshold: [0.95, 1.0] }
-    );
-    observer.observe(canvas);
+          });
+        },
+        { threshold: [0.95, 1.0] }
+      );
+      observer.observe(canvas);
+    }
 
     function animate() {
       requestAnimationFrame(animate);
@@ -337,7 +347,6 @@ const canvasSize = sizeMap[size];
     // Cleanup on page navigation
     document.addEventListener('astro:before-swap', () => {
       canvas.removeEventListener('click', onCanvasClick);
-      observer.disconnect();
       renderer.dispose();
     });
   }
