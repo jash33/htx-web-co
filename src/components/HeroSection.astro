@@ -568,32 +568,16 @@ const trustIcons: Record<string, string> = {
    * =================================================================
    */
 
-  /* Main Headline - H1 with gradient text */
+  /* Main Headline - H1 */
   .hero__headline {
     font-family: var(--font-heading);
     font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-medium);
     line-height: var(--line-height-tight);
     letter-spacing: var(--letter-spacing-tight);
     margin: 0;
-    /* Gradient text */
-    background: linear-gradient(
-      135deg,
-      #ffffff 0%,
-      #ffffff 30%,
-      var(--color-accent, #33D6B5) 60%,
-      #B5F1E9 100%
-    );
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientShift 8s ease-in-out infinite;
-  }
-  
-  @keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    color: rgba(255, 255, 255, 0.92);
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.92);
   }
   
   /* Emphasized accent word - simple color + italic */
