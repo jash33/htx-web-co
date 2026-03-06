@@ -138,22 +138,11 @@ const canvasSize = sizeMap[size];
       return 1 - Math.pow(1 - t, 3);
     }
     
-    // Gentle settle with very subtle bounce - slow and smooth
-    function easeOutSettle(t: number): number {
-      if (t >= 1) return 1;
-      // Smooth base curve
-      const base = 1 - Math.pow(1 - t, 3);
-      // Very subtle single bounce at the end (dampened sine)
-      const bounce = Math.sin(t * Math.PI * 1.5) * Math.pow(1 - t, 2) * 0.15;
-      return base + bounce;
-    }
-
     // Animation timing
     const clock = new THREE.Clock();
     const animationDuration = 1.0; // seconds per block drop
     const spinDuration = 1.5; // seconds for spin
-    const liftHeight = 0.6; // how high the cube lifts during spin
-    const dropDuration = 1.2; // seconds for drop + settle (slower)
+    const liftHeight = 0.8; // how high the cube lifts
     const loopDelay = 1.0; // seconds to wait before looping
     let loopStartTime = 0;
 
@@ -163,12 +152,12 @@ const canvasSize = sizeMap[size];
       const elapsed = clock.getElapsedTime();
       const loopElapsed = elapsed - loopStartTime;
       
-      // Timeline
+      // Timeline - spin includes the full arc (up and down with bounce)
       const lastBlockEndTime = blockConfigs[blockConfigs.length - 1].delay + animationDuration;
-      const spinStartTime = lastBlockEndTime; // Start spin immediately when last block lands
-      const spinEndTime = spinStartTime + spinDuration;
-      const dropEndTime = spinEndTime + dropDuration;
-      const totalCycleTime = dropEndTime + loopDelay;
+      const spinStartTime = lastBlockEndTime;
+      const totalSpinArc = spinDuration + 0.8; // Spin + landing with bounce
+      const spinEndTime = spinStartTime + totalSpinArc;
+      const totalCycleTime = spinEndTime + loopDelay;
       
       // Check if we should reset (loop)
       if (loopElapsed > totalCycleTime) {
@@ -181,27 +170,48 @@ const canvasSize = sizeMap[size];
         return;
       }
       
-      // Spin phase with lift
+      // Spin + arc phase (continuous motion)
       if (loopElapsed > spinStartTime && loopElapsed < spinEndTime) {
-        const spinProgress = (loopElapsed - spinStartTime) / spinDuration;
-        const eased = easeOutCubic(spinProgress);
-        blocksGroup.rotation.y = eased * Math.PI * 2;
+        const arcProgress = (loopElapsed - spinStartTime) / totalSpinArc;
         
-        // Lift: rise quickly at start, stay up during spin
-        const liftProgress = Math.min(spinProgress * 3, 1); // Rise in first third, then hold
-        const liftEased = easeOutCubic(liftProgress);
-        blocksGroup.position.y = liftEased * liftHeight;
-      } 
-      // Drop phase with gentle settle
-      else if (loopElapsed >= spinEndTime && loopElapsed < dropEndTime) {
-        blocksGroup.rotation.y = Math.PI * 2;
-        const dropProgress = (loopElapsed - spinEndTime) / dropDuration;
-        // Slow smooth drop with very subtle bounce
-        const settleProgress = easeOutSettle(dropProgress);
-        blocksGroup.position.y = liftHeight * (1 - settleProgress);
+        // Rotation: complete in first portion, then hold
+        const rotationProgress = Math.min(arcProgress / (spinDuration / totalSpinArc), 1);
+        const rotationEased = easeOutCubic(rotationProgress);
+        blocksGroup.rotation.y = rotationEased * Math.PI * 2;
+        
+        // Height: parabolic arc up then down, with bounce at end
+        // Peak at 35% through the arc
+        const peakPoint = 0.35;
+        let height: number;
+        
+        if (arcProgress < peakPoint) {
+          // Rising phase - smooth ease up
+          const riseProgress = arcProgress / peakPoint;
+          height = easeOutCubic(riseProgress) * liftHeight;
+        } else {
+          // Falling phase with bounce
+          const fallProgress = (arcProgress - peakPoint) / (1 - peakPoint);
+          
+          // Main fall
+          const fallCurve = fallProgress * fallProgress; // Accelerating fall (gravity-like)
+          
+          // Bounce: kicks in near the end
+          let bounce = 0;
+          if (fallProgress > 0.7) {
+            const bouncePhase = (fallProgress - 0.7) / 0.3;
+            // Two bounces, decreasing amplitude
+            bounce = Math.sin(bouncePhase * Math.PI * 2.5) * (1 - bouncePhase) * 0.15 * liftHeight;
+            bounce = Math.max(bounce, 0); // Only bounce up, not below ground
+          }
+          
+          height = liftHeight * (1 - fallCurve) + bounce;
+          height = Math.max(height, 0); // Don't go below 0
+        }
+        
+        blocksGroup.position.y = height;
       }
       // Settled
-      else if (loopElapsed >= dropEndTime) {
+      else if (loopElapsed >= spinEndTime) {
         blocksGroup.rotation.y = Math.PI * 2;
         blocksGroup.position.y = 0;
       }
