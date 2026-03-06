@@ -181,8 +181,9 @@ const platformNames: Record<SocialPlatform, string> = {
 
   .footer {
     position: relative;
-    background-color: var(--color-primary-900);
-    color: var(--color-text-inverse);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    border-top: 1px solid var(--color-border);
     padding: var(--spacing-12) var(--spacing-4);
     padding-top: calc(var(--spacing-12) + 4px); /* Account for accent line */
     margin-top: auto; /* Pushes footer to bottom when using flexbox on parent */
@@ -259,7 +260,7 @@ const platformNames: Record<SocialPlatform, string> = {
   }
 
   .footer__tagline {
-    color: var(--color-primary-200);
+    color: var(--color-text-tertiary);
     font-size: var(--font-size-base);
     margin: 0;
     max-width: 300px;
@@ -282,7 +283,7 @@ const platformNames: Record<SocialPlatform, string> = {
     font-family: var(--font-heading);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
-    color: var(--color-text-inverse);
+    color: var(--color-text-primary);
     margin: 0 0 var(--spacing-2);
     letter-spacing: var(--letter-spacing-wide);
     position: relative;
@@ -318,13 +319,13 @@ const platformNames: Record<SocialPlatform, string> = {
     display: flex;
     align-items: center;
     gap: var(--spacing-2);
-    color: var(--color-primary-100);
+    color: var(--color-text-secondary);
     font-size: var(--font-size-base);
     margin: 0;
   }
 
   .footer__contact-item--placeholder {
-    color: var(--color-primary-200);
+    color: var(--color-text-tertiary);
     font-style: italic;
   }
 
@@ -336,7 +337,7 @@ const platformNames: Record<SocialPlatform, string> = {
   }
 
   .footer__link {
-    color: var(--color-primary-100);
+    color: var(--color-text-secondary);
     text-decoration: none;
     position: relative;
     transition:
@@ -362,7 +363,7 @@ const platformNames: Record<SocialPlatform, string> = {
   }
 
   .footer__link:hover {
-    color: var(--color-text-inverse);
+    color: var(--color-text-primary);
   }
 
   .footer__link:hover::after {
@@ -386,7 +387,7 @@ const platformNames: Record<SocialPlatform, string> = {
   }
 
   .footer__area-item {
-    color: var(--color-primary-100);
+    color: var(--color-text-secondary);
     font-size: var(--font-size-base);
     padding-left: var(--spacing-4);
     position: relative;
@@ -430,7 +431,7 @@ const platformNames: Record<SocialPlatform, string> = {
     height: var(--spacing-10);
     background-color: var(--color-primary-700);
     border-radius: var(--radius-lg);
-    color: var(--color-primary-100);
+    color: var(--color-text-secondary);
     position: relative;
     overflow: hidden;
     transition:
@@ -475,7 +476,7 @@ const platformNames: Record<SocialPlatform, string> = {
 
   .footer__social-link:hover {
     background-color: var(--color-primary-600);
-    color: var(--color-text-inverse);
+    color: var(--color-text-primary);
     transform: translateY(-3px) scale(1.05);
     box-shadow: var(--glow-accent-md);
   }
@@ -520,7 +521,7 @@ const platformNames: Record<SocialPlatform, string> = {
 
   .footer__copyright {
     font-size: var(--font-size-sm);
-    color: var(--color-primary-200);
+    color: var(--color-text-tertiary);
     text-align: center;
     margin: 0;
   }
