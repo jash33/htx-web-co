@@ -1,57 +1,50 @@
 ---
 /**
  * BlockBuilder Component
- * Animated isometric 3D blocks that assemble quickly
+ * Animated isometric 3D blocks assembling in a row
  * Matches the HTX Web Co. logo style
  */
 
 interface Props {
   size?: 'small' | 'medium' | 'large';
+  blocks?: number;
   loop?: boolean;
   class?: string;
 }
 
 const {
   size = 'medium',
+  blocks = 5,
   loop = true,
   class: className = '',
 } = Astro.props;
 
-const sizeMap = { small: 24, medium: 36, large: 52 };
-const blockSize = sizeMap[size];
+const blockArray = Array.from({ length: blocks }, (_, i) => i);
 ---
 
 <div class={`block-builder block-builder--${size} ${loop ? 'block-builder--loop' : ''} ${className}`}>
-  <svg viewBox="0 0 200 220" class="block-builder__svg">
+  <svg viewBox="0 0 320 120" class="block-builder__svg" preserveAspectRatio="xMidYMid meet">
     <defs>
-      <!-- Block template -->
-      <g id="cube">
-        <!-- Top face (brightest - aqua) -->
-        <polygon class="cube-top" points="30,0 60,17 30,34 0,17" />
-        <!-- Left face (medium - teal) -->
-        <polygon class="cube-left" points="0,17 30,34 30,68 0,51" />
-        <!-- Right face (darkest - midnight) -->
-        <polygon class="cube-right" points="30,34 60,17 60,51 30,68" />
+      <!-- Isometric cube -->
+      <g id="iso-cube">
+        <!-- Top face (aqua) -->
+        <polygon class="cube-top" points="25,0 50,14 25,28 0,14" />
+        <!-- Left face (teal) -->
+        <polygon class="cube-left" points="0,14 25,28 25,56 0,42" />
+        <!-- Right face (midnight) -->
+        <polygon class="cube-right" points="25,28 50,14 50,42 25,56" />
       </g>
     </defs>
 
-    <!-- Layer 0 (bottom) -->
-    <use href="#cube" class="block block--1" transform="translate(70, 120)" style="--delay: 0" />
-    <use href="#cube" class="block block--2" transform="translate(100, 137)" style="--delay: 1" />
-    <use href="#cube" class="block block--3" transform="translate(40, 137)" style="--delay: 2" />
-    <use href="#cube" class="block block--4" transform="translate(70, 154)" style="--delay: 3" />
-
-    <!-- Layer 1 -->
-    <use href="#cube" class="block block--5" transform="translate(70, 86)" style="--delay: 4" />
-    <use href="#cube" class="block block--6" transform="translate(100, 103)" style="--delay: 5" />
-    <use href="#cube" class="block block--7" transform="translate(40, 103)" style="--delay: 6" />
-
-    <!-- Layer 2 -->
-    <use href="#cube" class="block block--8" transform="translate(70, 52)" style="--delay: 7" />
-    <use href="#cube" class="block block--9" transform="translate(100, 69)" style="--delay: 8" />
-
-    <!-- Layer 3 (top) -->
-    <use href="#cube" class="block block--10" transform="translate(70, 18)" style="--delay: 9" />
+    <!-- Row of blocks - positioned to form a clean row -->
+    {blockArray.map((i) => (
+      <use 
+        href="#iso-cube" 
+        class={`block block--${i + 1}`}
+        transform={`translate(${35 + i * 50}, ${60 - i * 0})`}
+        style={`--delay: ${i}`}
+      />
+    ))}
   </svg>
 </div>
 
@@ -62,23 +55,23 @@ const blockSize = sizeMap[size];
     justify-content: center;
   }
 
+  .block-builder__svg {
+    overflow: visible;
+  }
+
   .block-builder--small .block-builder__svg {
-    width: 100px;
-    height: 110px;
+    width: 200px;
+    height: 80px;
   }
 
   .block-builder--medium .block-builder__svg {
-    width: 150px;
-    height: 165px;
+    width: 300px;
+    height: 110px;
   }
 
   .block-builder--large .block-builder__svg {
-    width: 220px;
-    height: 242px;
-  }
-
-  .block-builder__svg {
-    overflow: visible;
+    width: 400px;
+    height: 150px;
   }
 
   /* Cube faces with brand colors */
@@ -94,55 +87,44 @@ const blockSize = sizeMap[size];
     fill: #011F4B;
   }
 
-  /* Color variations */
+  /* Alternating colors for visual interest */
   .block--2 .cube-top,
-  .block--5 .cube-top,
-  .block--9 .cube-top {
+  .block--4 .cube-top {
     fill: #5EEBD0;
   }
-
   .block--2 .cube-left,
-  .block--5 .cube-left,
-  .block--9 .cube-left {
+  .block--4 .cube-left {
     fill: #0288a0;
   }
-
   .block--2 .cube-right,
-  .block--5 .cube-right,
-  .block--9 .cube-right {
+  .block--4 .cube-right {
     fill: #013a6b;
   }
 
   .block--3 .cube-top,
-  .block--6 .cube-top {
+  .block--5 .cube-top {
     fill: #28c9a7;
   }
-
   .block--3 .cube-left,
-  .block--6 .cube-left {
+  .block--5 .cube-left {
     fill: #014d65;
   }
-
   .block--3 .cube-right,
-  .block--6 .cube-right {
+  .block--5 .cube-right {
     fill: #011a3d;
   }
 
-  /* Animation */
+  /* Drop animation */
   .block {
     opacity: 0;
-    animation: blockDrop 0.25s ease-out forwards;
-    animation-delay: calc(var(--delay) * 0.07s);
+    animation: blockDrop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: calc(var(--delay) * 0.12s);
   }
 
   @keyframes blockDrop {
     0% {
       opacity: 0;
-      transform: translateY(-40px);
-    }
-    70% {
-      opacity: 1;
-      transform: translateY(3px);
+      transform: translateY(-60px);
     }
     100% {
       opacity: 1;
@@ -150,34 +132,29 @@ const blockSize = sizeMap[size];
     }
   }
 
-  /* Looping animation */
+  /* Looping version */
   .block-builder--loop .block {
-    animation: blockDropLoop 2.5s ease-in-out infinite;
-    animation-delay: calc(var(--delay) * 0.07s);
+    animation: blockDropLoop 3s ease-in-out infinite;
+    animation-delay: calc(var(--delay) * 0.12s);
   }
 
   @keyframes blockDropLoop {
-    0%, 8% {
+    0%, 5% {
       opacity: 0;
-      transform: translateY(-40px);
+      transform: translateY(-60px);
     }
-    18% {
-      opacity: 1;
-      transform: translateY(3px);
-    }
-    22%, 65% {
+    15%, 20% {
       opacity: 1;
       transform: translateY(0);
     }
-    80%, 100% {
-      opacity: 0;
-      transform: translateY(-20px);
+    25%, 70% {
+      opacity: 1;
+      transform: translateY(0);
     }
-  }
-
-  /* Subtle hover interaction */
-  .block-builder:hover .block {
-    animation-play-state: running;
+    85%, 100% {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
   }
 
   /* Reduced motion */
@@ -185,7 +162,6 @@ const blockSize = sizeMap[size];
     .block {
       animation: none;
       opacity: 1;
-      transform: translateY(0);
     }
   }
 </style>
