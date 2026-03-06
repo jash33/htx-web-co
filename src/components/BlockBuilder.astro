@@ -187,9 +187,10 @@ const canvasSize = sizeMap[size];
         const eased = easeOutCubic(spinProgress);
         blocksGroup.rotation.y = eased * Math.PI * 2;
         
-        // Lift: rise smoothly, peak at middle of spin
-        const liftProgress = Math.sin(spinProgress * Math.PI); // 0 -> 1 -> 0
-        blocksGroup.position.y = liftProgress * liftHeight;
+        // Lift: rise quickly at start, stay up during spin
+        const liftProgress = Math.min(spinProgress * 3, 1); // Rise in first third, then hold
+        const liftEased = easeOutCubic(liftProgress);
+        blocksGroup.position.y = liftEased * liftHeight;
       } 
       // Drop phase with gentle settle
       else if (loopElapsed >= spinEndTime && loopElapsed < dropEndTime) {
