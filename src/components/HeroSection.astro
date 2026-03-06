@@ -596,31 +596,11 @@ const trustIcons: Record<string, string> = {
     50% { background-position: 100% 50%; }
   }
   
-  /* Emphasized accent word - highlight effect */
+  /* Emphasized accent word - simple color + italic */
   .hero__headline :global(.hero__headline-accent) {
-    position: relative;
     color: var(--color-accent, #33D6B5);
     -webkit-text-fill-color: var(--color-accent, #33D6B5);
     font-style: italic;
-  }
-  
-  /* Full-height highlight behind text */
-  .hero__headline :global(.hero__headline-accent)::before {
-    content: '';
-    position: absolute;
-    left: -6px;
-    right: -6px;
-    top: -0.05em;
-    bottom: -0.05em;
-    background: linear-gradient(
-      135deg,
-      rgba(51, 214, 181, 0.25) 0%,
-      rgba(51, 214, 181, 0.4) 50%,
-      rgba(51, 214, 181, 0.25) 100%
-    );
-    border-radius: 4px;
-    z-index: -1;
-    transform: skewX(-6deg);
   }
   
   .hero__headline {
