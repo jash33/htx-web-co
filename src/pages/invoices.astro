@@ -1,0 +1,502 @@
+---
+/**
+ * Invoices Page
+ * Client portal for viewing and paying invoices.
+ *
+ * Features:
+ * - Invoice listing and details
+ * - Payment processing (coming soon)
+ * - Secure client access
+ */
+
+import Layout from '../layouts/Layout.astro';
+
+// Sample invoice data (will be replaced with real data/API)
+const sampleInvoices = [
+  {
+    id: 'INV-001',
+    date: '2026-03-01',
+    description: 'Website Design - Phase 1',
+    amount: 1500.00,
+    status: 'paid',
+  },
+  {
+    id: 'INV-002',
+    date: '2026-03-15',
+    description: 'Website Development - Homepage & Contact',
+    amount: 2000.00,
+    status: 'pending',
+  },
+  {
+    id: 'INV-003',
+    date: '2026-03-20',
+    description: 'Monthly Maintenance - March 2026',
+    amount: 150.00,
+    status: 'draft',
+  },
+];
+
+const statusStyles: Record<string, { bg: string; text: string; label: string }> = {
+  paid: { bg: 'var(--color-success-100, #dcfce7)', text: 'var(--color-success-700, #15803d)', label: 'Paid' },
+  pending: { bg: 'var(--color-warning-100, #fef3c7)', text: 'var(--color-warning-700, #b45309)', label: 'Pending' },
+  draft: { bg: 'var(--color-gray-100)', text: 'var(--color-gray-600)', label: 'Draft' },
+  overdue: { bg: 'var(--color-error-100, #fee2e2)', text: 'var(--color-error-700, #b91c1c)', label: 'Overdue' },
+};
+
+function formatCurrency(amount: number): string {
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
+}
+
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+---
+
+<Layout
+  title="Invoices"
+  description="View and pay your invoices from HTX Web Co. Secure client portal for managing your web design project payments."
+  openGraph={{
+    type: 'website',
+  }}
+>
+  <main>
+    <!-- Hero Section -->
+    <section class="invoices-hero">
+      <div class="invoices-hero__container">
+        <h1 class="invoices-hero__title">Client Invoices</h1>
+        <p class="invoices-hero__subtitle">
+          View your project invoices and make secure payments.
+        </p>
+      </div>
+    </section>
+
+    <!-- Invoices Section -->
+    <section class="invoices-section">
+      <div class="invoices-section__container">
+        
+        <!-- Summary Cards -->
+        <div class="invoices-summary">
+          <div class="invoices-summary__card">
+            <span class="invoices-summary__label">Total Outstanding</span>
+            <span class="invoices-summary__value invoices-summary__value--pending">$2,150.00</span>
+          </div>
+          <div class="invoices-summary__card">
+            <span class="invoices-summary__label">Paid This Month</span>
+            <span class="invoices-summary__value invoices-summary__value--paid">$1,500.00</span>
+          </div>
+          <div class="invoices-summary__card">
+            <span class="invoices-summary__label">Total Invoices</span>
+            <span class="invoices-summary__value">3</span>
+          </div>
+        </div>
+
+        <!-- Invoice List -->
+        <div class="invoices-list">
+          <div class="invoices-list__header">
+            <h2 class="invoices-list__title">Recent Invoices</h2>
+          </div>
+          
+          <!-- Desktop Table -->
+          <div class="invoices-table-wrapper">
+            <table class="invoices-table">
+              <thead>
+                <tr>
+                  <th>Invoice</th>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sampleInvoices.map((invoice) => (
+                  <tr>
+                    <td class="invoices-table__id">{invoice.id}</td>
+                    <td>{formatDate(invoice.date)}</td>
+                    <td>{invoice.description}</td>
+                    <td class="invoices-table__amount">{formatCurrency(invoice.amount)}</td>
+                    <td>
+                      <span 
+                        class="invoices-status"
+                        style={`background: ${statusStyles[invoice.status].bg}; color: ${statusStyles[invoice.status].text};`}
+                      >
+                        {statusStyles[invoice.status].label}
+                      </span>
+                    </td>
+                    <td>
+                      {invoice.status === 'pending' ? (
+                        <button class="invoices-btn invoices-btn--primary">Pay Now</button>
+                      ) : invoice.status === 'paid' ? (
+                        <button class="invoices-btn invoices-btn--secondary">Download</button>
+                      ) : (
+                        <span class="invoices-table__na">—</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile Cards -->
+          <div class="invoices-cards">
+            {sampleInvoices.map((invoice) => (
+              <div class="invoices-card">
+                <div class="invoices-card__header">
+                  <span class="invoices-card__id">{invoice.id}</span>
+                  <span 
+                    class="invoices-status"
+                    style={`background: ${statusStyles[invoice.status].bg}; color: ${statusStyles[invoice.status].text};`}
+                  >
+                    {statusStyles[invoice.status].label}
+                  </span>
+                </div>
+                <p class="invoices-card__description">{invoice.description}</p>
+                <div class="invoices-card__footer">
+                  <div class="invoices-card__meta">
+                    <span class="invoices-card__date">{formatDate(invoice.date)}</span>
+                    <span class="invoices-card__amount">{formatCurrency(invoice.amount)}</span>
+                  </div>
+                  {invoice.status === 'pending' && (
+                    <button class="invoices-btn invoices-btn--primary">Pay Now</button>
+                  )}
+                  {invoice.status === 'paid' && (
+                    <button class="invoices-btn invoices-btn--secondary">Download</button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Info Notice -->
+        <div class="invoices-notice">
+          <svg class="invoices-notice__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+          <div class="invoices-notice__content">
+            <p class="invoices-notice__title">Secure Payment Processing</p>
+            <p class="invoices-notice__text">
+              All payments are processed securely. You'll receive a receipt via email for your records and tax documentation.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* =================================================================
+   * INVOICES PAGE STYLES
+   * ================================================================= */
+
+  /* Hero Section */
+  .invoices-hero {
+    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+    padding: var(--spacing-16) var(--spacing-4);
+    text-align: center;
+  }
+
+  .invoices-hero__container {
+    max-width: var(--container-4xl);
+    margin: 0 auto;
+  }
+
+  .invoices-hero__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: white;
+    margin: 0 0 var(--spacing-4);
+  }
+
+  .invoices-hero__subtitle {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    max-width: 50ch;
+    margin-inline: auto;
+  }
+
+  /* Main Section */
+  .invoices-section {
+    padding: var(--spacing-12) var(--spacing-4);
+    background: var(--color-gray-50);
+    min-height: 60vh;
+  }
+
+  .invoices-section__container {
+    max-width: var(--container-5xl);
+    margin: 0 auto;
+  }
+
+  /* Summary Cards */
+  .invoices-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-8);
+  }
+
+  .invoices-summary__card {
+    background: white;
+    padding: var(--spacing-5);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-gray-200);
+  }
+
+  .invoices-summary__label {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-500);
+    margin-bottom: var(--spacing-2);
+  }
+
+  .invoices-summary__value {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-900);
+  }
+
+  .invoices-summary__value--pending {
+    color: var(--color-warning-600, #d97706);
+  }
+
+  .invoices-summary__value--paid {
+    color: var(--color-success-600, #16a34a);
+  }
+
+  /* Invoice List Container */
+  .invoices-list {
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-gray-200);
+    overflow: hidden;
+  }
+
+  .invoices-list__header {
+    padding: var(--spacing-5);
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .invoices-list__title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-gray-900);
+    margin: 0;
+  }
+
+  /* Desktop Table */
+  .invoices-table-wrapper {
+    display: none;
+    overflow-x: auto;
+  }
+
+  .invoices-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .invoices-table th,
+  .invoices-table td {
+    padding: var(--spacing-4);
+    text-align: left;
+    border-bottom: 1px solid var(--color-gray-100);
+  }
+
+  .invoices-table th {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--color-gray-50);
+  }
+
+  .invoices-table td {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-700);
+  }
+
+  .invoices-table__id {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary-700);
+  }
+
+  .invoices-table__amount {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-gray-900);
+  }
+
+  .invoices-table__na {
+    color: var(--color-gray-400);
+  }
+
+  /* Mobile Cards */
+  .invoices-cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .invoices-card {
+    padding: var(--spacing-4);
+    border-bottom: 1px solid var(--color-gray-100);
+  }
+
+  .invoices-card:last-child {
+    border-bottom: none;
+  }
+
+  .invoices-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-2);
+  }
+
+  .invoices-card__id {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary-700);
+  }
+
+  .invoices-card__description {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-700);
+    margin: 0 0 var(--spacing-3);
+  }
+
+  .invoices-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .invoices-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+  }
+
+  .invoices-card__date {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-500);
+  }
+
+  .invoices-card__amount {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-900);
+  }
+
+  /* Status Badge */
+  .invoices-status {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Buttons */
+  .invoices-btn {
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+  }
+
+  .invoices-btn--primary {
+    background: var(--color-accent, #33D6B5);
+    color: var(--color-primary-900);
+  }
+
+  .invoices-btn--primary:hover {
+    background: var(--color-accent-dark, #2ab89a);
+    transform: translateY(-1px);
+  }
+
+  .invoices-btn--secondary {
+    background: var(--color-gray-100);
+    color: var(--color-gray-700);
+  }
+
+  .invoices-btn--secondary:hover {
+    background: var(--color-gray-200);
+  }
+
+  /* Notice */
+  .invoices-notice {
+    display: flex;
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-8);
+    padding: var(--spacing-5);
+    background: var(--color-primary-50);
+    border: 1px solid var(--color-primary-200);
+    border-radius: var(--radius-lg);
+  }
+
+  .invoices-notice__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary-600);
+  }
+
+  .invoices-notice__content {
+    flex: 1;
+  }
+
+  .invoices-notice__title {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary-900);
+    margin: 0 0 var(--spacing-1);
+  }
+
+  .invoices-notice__text {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary-700);
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media screen and (min-width: 768px) {
+    .invoices-hero {
+      padding: var(--spacing-20) var(--spacing-6);
+    }
+
+    .invoices-hero__title {
+      font-size: var(--font-size-4xl);
+    }
+
+    .invoices-section {
+      padding: var(--spacing-16) var(--spacing-6);
+    }
+
+    .invoices-table-wrapper {
+      display: block;
+    }
+
+    .invoices-cards {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .invoices-hero__title {
+      font-size: var(--font-size-5xl);
+    }
+  }
+</style>
