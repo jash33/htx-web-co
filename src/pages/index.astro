@@ -5,7 +5,6 @@ import ServicesSection from '../components/ServicesSection.astro';
 import DifferentiatorsSection from '../components/DifferentiatorsSection.astro';
 import FeaturedProjectsPreview from '../components/FeaturedProjectsPreview.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
-import BlockBuilder from '../components/BlockBuilder.astro';
 import type { Service } from '../types/service';
 import type { Differentiator } from '../types/differentiator';
 import { DEFAULT_FAQ_ITEMS } from '../types/faq';
@@ -168,39 +167,6 @@ const differentiators: Differentiator[] = [
 			initialExpanded={null}
 		/>
 
-		<!-- Block Animation Demo (temporary) -->
-		<section class="block-demo">
-			<div class="block-demo__container">
-				<h2 class="block-demo__heading">Building Your Vision</h2>
-				<p class="block-demo__text">We assemble your web presence piece by piece</p>
-				<BlockBuilder size="large" loop={true} />
-			</div>
-		</section>
-
 	</main>
 </Layout>
 
-<style>
-	.block-demo {
-		padding: var(--spacing-20) var(--spacing-4);
-		background: #ffffff;
-		text-align: center;
-	}
-
-	.block-demo__container {
-		max-width: var(--container-md);
-		margin: 0 auto;
-	}
-
-	.block-demo__heading {
-		color: var(--color-primary-900);
-		font-size: var(--font-size-3xl);
-		margin-bottom: var(--spacing-2);
-	}
-
-	.block-demo__text {
-		color: var(--color-text-secondary);
-		font-size: var(--font-size-lg);
-		margin-bottom: var(--spacing-8);
-	}
-</style>
