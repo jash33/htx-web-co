@@ -207,9 +207,9 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
     /* Positioning for pseudo-elements */
     position: relative;
 
-    /* Visual */
-    background-color: var(--color-background-elevated);
-    border: 1px solid var(--color-border);
+    /* Visual - White with blue border */
+    background-color: #ffffff;
+    border: 2px solid var(--color-primary-900);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
@@ -242,9 +242,9 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
   }
 
   .project-card:hover {
-    box-shadow: var(--shadow-lg), var(--glow-card-hover);
+    box-shadow: var(--shadow-lg);
     transform: translateY(-6px);
-    border-color: var(--color-primary-200);
+    border-color: var(--color-accent);
   }
 
   .project-card:hover::after {
@@ -252,11 +252,11 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
   }
 
   .project-card--featured {
-    border-color: var(--color-primary-300);
+    border-color: var(--color-primary-900);
   }
 
   .project-card--featured:hover {
-    border-color: var(--color-primary-400);
+    border-color: var(--color-accent);
     box-shadow: var(--shadow-xl), var(--shadow-primary), var(--glow-primary-sm);
   }
 
