@@ -167,6 +167,7 @@ const canvasSize = sizeMap[size];
         });
         blocksGroup.rotation.y = 0;
         blocksGroup.position.y = 0;
+        blocksGroup.scale.setScalar(1);
         return;
       }
       
@@ -179,6 +180,20 @@ const canvasSize = sizeMap[size];
         const rotationProgress = Math.min(arcProgress / rotationComplete, 1);
         const rotationEased = easeOutCubic(rotationProgress);
         blocksGroup.rotation.y = rotationEased * Math.PI * 2;
+        
+        // Scale: shrink during rotation, expand back as it finishes
+        const minScale = 0.75;
+        let scale: number;
+        if (rotationProgress < 0.5) {
+          // Shrinking phase (first half of rotation)
+          const shrinkProgress = rotationProgress / 0.5;
+          scale = 1 - (1 - minScale) * easeOutCubic(shrinkProgress);
+        } else {
+          // Expanding phase (second half of rotation)
+          const expandProgress = (rotationProgress - 0.5) / 0.5;
+          scale = minScale + (1 - minScale) * easeOutCubic(expandProgress);
+        }
+        blocksGroup.scale.setScalar(scale);
         
         // Height: quick rise, fast fall, then bounces
         const peakPoint = 0.25; // Peak earlier
@@ -209,6 +224,7 @@ const canvasSize = sizeMap[size];
       else if (loopElapsed >= spinEndTime) {
         blocksGroup.rotation.y = Math.PI * 2;
         blocksGroup.position.y = 0;
+        blocksGroup.scale.setScalar(1);
       }
       
       // Animate each block dropping in
