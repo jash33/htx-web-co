@@ -94,15 +94,15 @@ const canvasSize = sizeMap[size];
     const blockConfigs = [
       // Bottom layer - L-shape first
       { x: 0.55, y: -0.55, z: 0.55, topColor: colors.aqua, delay: 0 },             // corner block
-      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.aquaLight, delay: 0.5 },     // extends left
-      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.aqua, delay: 1.0 },          // extends back
-      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.aquaLight, delay: 1.5 },    // completes bottom
+      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.aquaLight, delay: 0.35 },    // extends left
+      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.aqua, delay: 0.7 },          // extends back
+      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.aquaLight, delay: 1.05 },   // completes bottom
       
       // Top layer
-      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.aqua, delay: 2.0 },            // top corner
-      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.aquaLight, delay: 2.5 },      // top left
-      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.aqua, delay: 3.0 },           // top back
-      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.aquaLight, delay: 3.5 },     // top final
+      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.aqua, delay: 1.4 },            // top corner
+      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.aquaLight, delay: 1.75 },     // top left
+      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.aqua, delay: 2.1 },           // top back
+      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.aquaLight, delay: 2.45 },    // top final
     ];
 
     // Create blocks group for rotation (cube is centered at origin)
@@ -140,10 +140,10 @@ const canvasSize = sizeMap[size];
     
     // Animation timing
     const clock = new THREE.Clock();
-    const animationDuration = 1.0; // seconds per block drop
-    const spinDuration = 1.5; // seconds for spin
+    const animationDuration = 0.7; // seconds per block drop (30% faster)
+    const spinDuration = 1.05; // seconds for spin (30% faster)
     const liftHeight = 0.8; // how high the cube lifts
-    const loopDelay = 1.0; // seconds to wait before looping
+    const loopDelay = 0.7; // seconds to wait before looping (30% faster)
     let loopStartTime = 0;
 
     function animate() {
@@ -155,7 +155,7 @@ const canvasSize = sizeMap[size];
       // Timeline - spin includes the full arc (up and down with bounce)
       const lastBlockEndTime = blockConfigs[blockConfigs.length - 1].delay + animationDuration;
       const spinStartTime = lastBlockEndTime;
-      const totalSpinArc = spinDuration + 0.8; // Spin + landing with bounce
+      const totalSpinArc = spinDuration + 0.56; // Spin + landing with bounce (30% faster)
       const spinEndTime = spinStartTime + totalSpinArc;
       const totalCycleTime = spinEndTime + loopDelay;
       
