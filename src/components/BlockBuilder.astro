@@ -138,18 +138,12 @@ const canvasSize = sizeMap[size];
       return 1 - Math.pow(1 - t, 3);
     }
     
-    function easeOutBounce(t: number): number {
-      const n1 = 7.5625;
-      const d1 = 2.75;
-      if (t < 1 / d1) {
-        return n1 * t * t;
-      } else if (t < 2 / d1) {
-        return n1 * (t -= 1.5 / d1) * t + 0.75;
-      } else if (t < 2.5 / d1) {
-        return n1 * (t -= 2.25 / d1) * t + 0.9375;
-      } else {
-        return n1 * (t -= 2.625 / d1) * t + 0.984375;
-      }
+    // Gentle elastic settle - smooth drop with subtle bounce at end
+    function easeOutElastic(t: number): number {
+      if (t === 0 || t === 1) return t;
+      const p = 0.4; // period - higher = gentler bounce
+      const s = p / 4;
+      return Math.pow(2, -10 * t) * Math.sin((t - s) * (2 * Math.PI) / p) + 1;
     }
 
     // Animation timing
@@ -157,7 +151,7 @@ const canvasSize = sizeMap[size];
     const animationDuration = 1.0; // seconds per block drop
     const spinDuration = 1.5; // seconds for spin
     const liftHeight = 0.6; // how high the cube lifts during spin
-    const dropDuration = 0.5; // seconds for drop + bounce
+    const dropDuration = 0.8; // seconds for drop + settle
     const loopDelay = 1.0; // seconds to wait before looping
     let loopStartTime = 0;
 
@@ -195,13 +189,13 @@ const canvasSize = sizeMap[size];
         const liftProgress = Math.sin(spinProgress * Math.PI); // 0 -> 1 -> 0
         blocksGroup.position.y = liftProgress * liftHeight;
       } 
-      // Drop phase with bounce
+      // Drop phase with gentle settle
       else if (loopElapsed >= spinEndTime && loopElapsed < dropEndTime) {
         blocksGroup.rotation.y = Math.PI * 2;
         const dropProgress = (loopElapsed - spinEndTime) / dropDuration;
-        // Invert bounce: start at liftHeight, bounce down to 0
-        const bounceProgress = easeOutBounce(dropProgress);
-        blocksGroup.position.y = liftHeight * (1 - bounceProgress);
+        // Smooth drop with subtle elastic settle at the end
+        const settleProgress = easeOutElastic(dropProgress);
+        blocksGroup.position.y = liftHeight * (1 - settleProgress);
       }
       // Settled
       else if (loopElapsed >= dropEndTime) {
