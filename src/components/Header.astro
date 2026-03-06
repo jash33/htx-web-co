@@ -19,6 +19,7 @@
 
 // Theme toggle hidden for now
 // import ThemeToggle from './ThemeToggle.astro';
+import BlockBuilder from './BlockBuilder.astro';
 
 // Use new brand logo from public folder
 const logoImage = '/htx-web-co/images/logo-full.png';
@@ -43,12 +44,7 @@ const navLinks = [
 
 <header class="header" role="banner">
   <div class="header__container">
-    <!-- Logo/Brand -->
-    <a href="/htx-web-co/" class="header__logo" aria-label="HTX Web Co. - Go to homepage">
-      <img src={logoImage} alt="HTX Web Co." class="header__logo-image" width="auto" height="86" />
-    </a>
-
-    <!-- Desktop Navigation -->
+    <!-- Desktop Navigation (Left) -->
     <nav class="header__nav" aria-label="Main navigation">
       <ul class="header__nav-list" role="list">
         {navLinks.map((link) => (
@@ -65,10 +61,15 @@ const navLinks = [
       </ul>
     </nav>
 
-    <!-- Theme Toggle (Desktop) - Hidden for now -->
-    <div class="header__actions">
-      <!-- <ThemeToggle class="header__theme-toggle" /> -->
+    <!-- Block Animation (Center) -->
+    <div class="header__animation" aria-hidden="true">
+      <BlockBuilder size="small" />
     </div>
+
+    <!-- Logo/Brand (Right) -->
+    <a href="/htx-web-co/" class="header__logo" aria-label="HTX Web Co. - Go to homepage">
+      <img src={logoImage} alt="HTX Web Co." class="header__logo-image" width="auto" height="86" />
+    </a>
 
     <!-- Mobile Menu Button -->
     <button
@@ -155,6 +156,24 @@ const navLinks = [
     padding-bottom: var(--spacing-5);
     height: 90px; /* Fixed navbar height - increased for logo breathing room */
     position: relative;
+  }
+
+  /* -----------------------------------------------------------------
+   * Header Animation
+   * ----------------------------------------------------------------- */
+
+  .header__animation {
+    display: none;
+    transform: scale(0.5);
+    margin: 0 var(--spacing-4);
+  }
+
+  @media screen and (min-width: 769px) {
+    .header__animation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   /* -----------------------------------------------------------------
