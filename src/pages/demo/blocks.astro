@@ -1,0 +1,122 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlockBuilder from '../../components/BlockBuilder.astro';
+---
+
+<Layout title="Block Animation Demo" disableAnalytics={true}>
+  <main class="demo">
+    <h1>Block Builder Animation</h1>
+    
+    <section class="demo-section">
+      <h2>Sizes</h2>
+      <div class="demo-row">
+        <div class="demo-item">
+          <p>Small</p>
+          <BlockBuilder size="small" />
+        </div>
+        <div class="demo-item">
+          <p>Medium</p>
+          <BlockBuilder size="medium" />
+        </div>
+        <div class="demo-item">
+          <p>Large</p>
+          <BlockBuilder size="large" />
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>Non-looping (plays once)</h2>
+      <div class="demo-row">
+        <BlockBuilder size="large" loop={false} />
+      </div>
+      <button id="replay">Replay Animation</button>
+    </section>
+
+    <section class="demo-section demo-section--dark">
+      <h2>On Dark Background</h2>
+      <div class="demo-row">
+        <BlockBuilder size="large" />
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .demo {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .demo-section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #f9fafb;
+  }
+
+  .demo-section--dark {
+    background: linear-gradient(135deg, #011F4B 0%, #015B77 100%);
+  }
+
+  .demo-section--dark h2 {
+    color: white;
+  }
+
+  .demo-section h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .demo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .demo-item {
+    text-align: center;
+  }
+
+  .demo-item p {
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  button {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 0.75rem 1.5rem;
+    background: #33D6B5;
+    color: #011F4B;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #28c9a7;
+  }
+</style>
+
+<script>
+  document.getElementById('replay')?.addEventListener('click', () => {
+    const section = document.querySelector('.demo-section:nth-of-type(2)');
+    const blocks = section?.querySelectorAll('.block');
+    blocks?.forEach((block) => {
+      const el = block as HTMLElement;
+      el.style.animation = 'none';
+      el.offsetHeight; // Trigger reflow
+      el.style.animation = '';
+    });
+  });
+</script>
