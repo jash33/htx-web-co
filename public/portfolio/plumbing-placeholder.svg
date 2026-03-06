@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
-  <rect width="600" height="400" fill="#011F4B"/>
-  <rect x="40" y="40" width="520" height="320" rx="8" fill="#015B77" fill-opacity="0.3"/>
-  <text x="300" y="180" text-anchor="middle" fill="#33D6B5" font-family="system-ui" font-size="32" font-weight="bold">HTX Plumbing Co.</text>
-  <text x="300" y="220" text-anchor="middle" fill="#B5F1E9" font-family="system-ui" font-size="16">Service Business Template</text>
+  <rect width="600" height="400" fill="#F0FDFA"/>
+  <rect x="40" y="40" width="520" height="320" rx="8" fill="#33D6B5" fill-opacity="0.15"/>
+  <text x="300" y="180" text-anchor="middle" fill="#015B77" font-family="system-ui" font-size="32" font-weight="bold">HTX Plumbing Co.</text>
+  <text x="300" y="220" text-anchor="middle" fill="#011F4B" font-family="system-ui" font-size="16">Service Business Template</text>
   <path d="M280 260h40v30c0 5.5-4.5 10-10 10h-20c-5.5 0-10-4.5-10-10v-30z" fill="#33D6B5"/>
   <circle cx="300" cy="250" r="15" fill="#33D6B5"/>
 </svg>

@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
-  <rect width="600" height="400" fill="#011F4B"/>
-  <rect x="40" y="40" width="520" height="320" rx="8" fill="#015B77" fill-opacity="0.3"/>
-  <text x="300" y="180" text-anchor="middle" fill="#33D6B5" font-family="system-ui" font-size="32" font-weight="bold">Athena Photography</text>
-  <text x="300" y="220" text-anchor="middle" fill="#B5F1E9" font-family="system-ui" font-size="16">Photography Portfolio</text>
+  <rect width="600" height="400" fill="#F0FDFA"/>
+  <rect x="40" y="40" width="520" height="320" rx="8" fill="#33D6B5" fill-opacity="0.15"/>
+  <text x="300" y="180" text-anchor="middle" fill="#015B77" font-family="system-ui" font-size="32" font-weight="bold">Athena Photography</text>
+  <text x="300" y="220" text-anchor="middle" fill="#011F4B" font-family="system-ui" font-size="16">Photography Portfolio</text>
   <rect x="265" y="250" width="70" height="50" rx="5" fill="#33D6B5"/>
-  <circle cx="300" cy="275" r="15" fill="#011F4B"/>
-  <circle cx="300" cy="275" r="10" fill="#B5F1E9"/>
+  <circle cx="300" cy="275" r="15" fill="#015B77"/>
+  <circle cx="300" cy="275" r="10" fill="#F0FDFA"/>
 </svg>
