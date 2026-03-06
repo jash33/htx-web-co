@@ -456,6 +456,7 @@ const cardClasses = [
 
 <script>
   // Mobile scroll-triggered hover effect for service cards
+  // Only ONE card can be highlighted at a time
   function initServiceCardInView() {
     // Only run on mobile
     if (window.innerWidth >= 768) return;
@@ -463,20 +464,62 @@ const cardClasses = [
     const cards = document.querySelectorAll('.service-card');
     if (!cards.length) return;
 
+    let activeCard: Element | null = null;
+
     const observer = new IntersectionObserver(
       (entries) => {
+        // Find the card closest to the center of the viewport
+        let bestCandidate: Element | null = null;
+        let bestDistance = Infinity;
+        const viewportCenter = window.innerHeight / 2;
+
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('service-card--in-view');
-          } else {
-            entry.target.classList.remove('service-card--in-view');
+            const rect = entry.boundingClientRect;
+            const cardCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(cardCenter - viewportCenter);
+            
+            if (distance < bestDistance) {
+              bestDistance = distance;
+              bestCandidate = entry.target;
+            }
           }
         });
+
+        // Also check currently visible cards not in this batch
+        cards.forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.top + rect.height / 2;
+          const inTriggerZone = cardCenter > viewportCenter - 100 && cardCenter < viewportCenter + 100;
+          
+          if (inTriggerZone) {
+            const distance = Math.abs(cardCenter - viewportCenter);
+            if (distance < bestDistance) {
+              bestDistance = distance;
+              bestCandidate = card;
+            }
+          }
+        });
+
+        // Update active card - only one at a time
+        if (bestCandidate && bestCandidate !== activeCard) {
+          // Remove from previous
+          if (activeCard) {
+            activeCard.classList.remove('service-card--in-view');
+          }
+          // Add to new
+          bestCandidate.classList.add('service-card--in-view');
+          activeCard = bestCandidate;
+        } else if (!bestCandidate && activeCard) {
+          // No card in zone, remove highlight
+          activeCard.classList.remove('service-card--in-view');
+          activeCard = null;
+        }
       },
       {
         root: null,
-        rootMargin: '-20% 0px -20% 0px', // Trigger when card is in middle 60% of viewport
-        threshold: 0.5,
+        rootMargin: '-40% 0px -40% 0px', // Trigger only in middle 20% of viewport
+        threshold: [0, 0.5, 1],
       }
     );
 
