@@ -90,11 +90,11 @@ const canvasSize = sizeMap[size];
       midnight: 0x011F4B,
     };
 
-    // Block positions - corner pointing toward viewer with spacing
+    // Block positions - L-shaped corner pointing toward viewer
     const blockConfigs = [
-      { x: 0, y: 0, z: 0, topColor: colors.aqua, delay: 0 },          // corner block (front)
-      { x: -1.2, y: 0, z: -1.2, topColor: colors.aquaLight, delay: 0.5 }, // back left
-      { x: 1.2, y: 0, z: -1.2, topColor: colors.aqua, delay: 1.0 },       // back right
+      { x: 0, y: 0, z: 0, topColor: colors.aqua, delay: 0 },           // corner block
+      { x: -1.1, y: 0, z: 0, topColor: colors.aquaLight, delay: 0.5 }, // extends left
+      { x: 0, y: 0, z: -1.1, topColor: colors.aqua, delay: 1.0 },      // extends back
     ];
 
     // Create blocks
