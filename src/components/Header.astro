@@ -17,7 +17,8 @@
  * ```
  */
 
-import ThemeToggle from './ThemeToggle.astro';
+// Theme toggle hidden for now
+// import ThemeToggle from './ThemeToggle.astro';
 
 // Use new brand logo from public folder
 const logoImage = '/htx-web-co/images/logo-full.png';
@@ -63,9 +64,9 @@ const navLinks = [
       </ul>
     </nav>
 
-    <!-- Theme Toggle (Desktop) -->
+    <!-- Theme Toggle (Desktop) - Hidden for now -->
     <div class="header__actions">
-      <ThemeToggle class="header__theme-toggle" />
+      <!-- <ThemeToggle class="header__theme-toggle" /> -->
     </div>
 
     <!-- Mobile Menu Button -->
@@ -106,13 +107,13 @@ const navLinks = [
         ))}
       </ul>
 
-      <!-- Mobile Theme Toggle Section -->
-      <div class="header__mobile-actions" style={`--item-index: ${navLinks.length}`}>
+      <!-- Mobile Theme Toggle Section - Hidden for now -->
+      <!-- <div class="header__mobile-actions" style={`--item-index: ${navLinks.length}`}>
         <div class="header__mobile-theme-toggle">
           <span class="header__mobile-theme-label">Theme</span>
           <ThemeToggle class="header__theme-toggle--mobile" />
         </div>
-      </div>
+      </div> -->
     </nav>
   </div>
 </header>

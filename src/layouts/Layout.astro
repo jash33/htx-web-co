@@ -56,8 +56,8 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- Dark Mode Initialization - Runs before render to prevent flash -->
-		<script is:inline>
+		<!-- Dark Mode disabled - forcing light theme -->
+		<!-- <script is:inline>
 			(function() {
 				const THEME_KEY = 'houston-theme';
 				const stored = localStorage.getItem(THEME_KEY);
@@ -67,7 +67,7 @@ const {
 					document.documentElement.setAttribute('data-theme', 'dark');
 				}
 			})();
-		</script>
+		</script> -->
 
 		<!-- Preconnect to external resources for performance -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
