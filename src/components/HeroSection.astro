@@ -445,7 +445,7 @@ const trustIcons: Record<string, string> = {
   .hero::after {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: -10%;
     background:
       /* Large organic blob - top right */
       radial-gradient(
@@ -478,18 +478,15 @@ const trustIcons: Record<string, string> = {
         transparent 50%
       );
     pointer-events: none;
-    animation: meshFloat 20s ease-in-out infinite;
+    animation: meshFloat 25s ease-in-out infinite;
   }
   
   @keyframes meshFloat {
     0%, 100% {
-      transform: scale(1) translate(0, 0);
+      transform: translate(0, 0);
     }
-    33% {
-      transform: scale(1.02) translate(-1%, 1%);
-    }
-    66% {
-      transform: scale(0.98) translate(1%, -1%);
+    50% {
+      transform: translate(-2%, 1%);
     }
   }
 
