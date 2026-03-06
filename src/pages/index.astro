@@ -20,10 +20,9 @@ import { FEATURED_PROJECTS, FEATURED_PROJECTS_CONFIG } from '../config/featured-
 // SVG Icons for services (optimized inline SVGs)
 const icons = {
 	webDesign: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2H4zm0 2h16v9H4V6zm0 11h16v1H4v-1z"/><path d="M6 8h3v3H6V8zm5 0h7v1h-7V8zm0 2h5v1h-5v-1z"/></svg>`,
-	maintenance: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>`,
-	hosting: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2 5a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm18 0H4v4h16V5zM2 15a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4zm18 0H4v4h16v-4z"/><circle cx="6" cy="7" r="1"/><circle cx="6" cy="17" r="1"/></svg>`,
-	existingWebsite: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>`,
-	automation: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>`,
+	ecommerce: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>`,
+	customApps: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>`,
+	aiAgent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z"/></svg>`,
 };
 
 // SVG Icons for differentiators (optimized inline SVGs)
@@ -39,7 +38,7 @@ const services: Service[] = [
 	{
 		id: 'website-design',
 		title: 'Website Design',
-		description: 'Custom, responsive websites that capture your brand identity and engage your visitors. We create modern designs optimized for all devices and screen sizes.',
+		description: 'Custom websites with hosting, maintenance, and ongoing support included. Need a CMS? Optional. Want to make your own updates? You can. Already have a site? I can add features or improve what you\'ve got.',
 		icon: icons.webDesign,
 		cta: {
 			text: 'Learn More',
@@ -47,43 +46,33 @@ const services: Service[] = [
 		},
 	},
 	{
-		id: 'maintenance',
-		title: 'Website Maintenance',
-		description: 'Keep your website running smoothly with regular updates, security patches, and performance optimization. Focus on your business while we handle the tech.',
-		icon: icons.maintenance,
+		id: 'ecommerce',
+		title: 'Ecommerce Setups',
+		description: 'Get your online store up and running with Wix or Shopify. From product listings to payment processing, I\'ll handle the technical setup so you can focus on selling.',
+		icon: icons.ecommerce,
 		cta: {
 			text: 'Learn More',
-			href: '/htx-web-co/services/maintenance',
+			href: '/htx-web-co/services/ecommerce',
 		},
 	},
 	{
-		id: 'hosting',
-		title: 'Web Hosting',
-		description: 'Fast, secure, and reliable hosting solutions tailored for small businesses. Enjoy peace of mind with 99.9% uptime and dedicated support.',
-		icon: icons.hosting,
+		id: 'custom-apps',
+		title: 'Custom Apps',
+		description: 'Need software tailored to your specific needs? I build custom web applications for personal use or business operations—dashboards, tools, workflows, and more.',
+		icon: icons.customApps,
 		cta: {
 			text: 'Learn More',
-			href: '/htx-web-co/services/hosting',
+			href: '/htx-web-co/services/custom-apps',
 		},
 	},
 	{
-		id: 'existing-website-support',
-		title: 'Existing Website Support',
-		description: 'Already have a website built on WordPress, Wix, Squarespace, or another platform? I can help with updates, fixes, and improvements—no matter who built it.',
-		icon: icons.existingWebsite,
+		id: 'ai-agents',
+		title: 'Personal AI Agents',
+		description: 'Your own AI assistant that works for you 24/7. Powered by OpenClaw, these agents can handle tasks, answer questions, and integrate with your business tools.',
+		icon: icons.aiAgent,
 		cta: {
 			text: 'Learn More',
-			href: '/htx-web-co/services/existing-website-support',
-		},
-	},
-	{
-		id: 'business-process-automation',
-		title: 'Business Process Automation',
-		description: 'Streamline your operations with custom automation solutions. From automated workflows and data syncing to AI-powered tools, we help you save time and reduce manual tasks.',
-		icon: icons.automation,
-		cta: {
-			text: 'Learn More',
-			href: '/htx-web-co/services/business-process-automation',
+			href: '/htx-web-co/services/ai-agents',
 		},
 	},
 ];
@@ -152,7 +141,7 @@ const differentiators: Differentiator[] = [
 			heading="Our Services"
 			subheading="Comprehensive web solutions to help your Houston business thrive online. From design to maintenance, we've got you covered."
 			services={services}
-			columns={5}
+			columns={4}
 		/>
 
 		<!-- Why Choose Us / Differentiators Section -->
