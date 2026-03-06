@@ -90,14 +90,11 @@ const canvasSize = sizeMap[size];
       midnight: 0x011F4B,
     };
 
-    // Block positions - pyramid formation
+    // Block positions - 3 blocks in triangle formation
     const blockConfigs = [
-      // Bottom layer (3 blocks)
       { x: -0.55, y: 0, z: 0.55, topColor: colors.aqua, delay: 0 },
-      { x: 0.55, y: 0, z: 0.55, topColor: colors.aquaLight, delay: 0.15 },
-      { x: 0, y: 0, z: -0.45, topColor: colors.aqua, delay: 0.3 },
-      // Top block
-      { x: 0, y: 1, z: 0.2, topColor: colors.aquaLight, delay: 0.5 },
+      { x: 0.55, y: 0, z: 0.55, topColor: colors.aquaLight, delay: 0.4 },
+      { x: 0, y: 0, z: -0.45, topColor: colors.aqua, delay: 0.8 },
     ];
 
     // Create blocks
@@ -115,7 +112,7 @@ const canvasSize = sizeMap[size];
       ];
       
       const block = new THREE.Mesh(blockGeometry, materials);
-      block.position.set(config.x, config.y + 8, config.z); // Start high above
+      block.position.set(config.x, config.y + 6, config.z); // Start above
       
       block.userData.targetY = config.y;
       block.userData.delay = config.delay;
@@ -125,26 +122,15 @@ const canvasSize = sizeMap[size];
       blocks.push(block);
     });
 
-    // Easing function - bounce at end
-    function easeOutBounce(t: number): number {
-      if (t < 1 / 2.75) {
-        return 7.5625 * t * t;
-      } else if (t < 2 / 2.75) {
-        t -= 1.5 / 2.75;
-        return 7.5625 * t * t + 0.75;
-      } else if (t < 2.5 / 2.75) {
-        t -= 2.25 / 2.75;
-        return 7.5625 * t * t + 0.9375;
-      } else {
-        t -= 2.625 / 2.75;
-        return 7.5625 * t * t + 0.984375;
-      }
+    // Smooth easing function
+    function easeOutCubic(t: number): number {
+      return 1 - Math.pow(1 - t, 3);
     }
 
     // Animation
     const clock = new THREE.Clock();
-    const animationDuration = 0.6; // seconds per block
-    const loopDelay = 2; // seconds to wait before looping
+    const animationDuration = 1.2; // seconds per block (slower)
+    const loopDelay = 2.5; // seconds to wait before looping
     let loopStartTime = 0;
 
     function animate() {
@@ -159,7 +145,7 @@ const canvasSize = sizeMap[size];
         // Reset all blocks
         loopStartTime = elapsed;
         blocks.forEach((block) => {
-          block.position.y = block.userData.targetY + 8;
+          block.position.y = block.userData.targetY + 6;
         });
         return;
       }
@@ -171,8 +157,8 @@ const canvasSize = sizeMap[size];
         
         if (blockTime > 0 && blockTime < animationDuration) {
           const t = blockTime / animationDuration;
-          const eased = easeOutBounce(t);
-          const startY = block.userData.targetY + 8;
+          const eased = easeOutCubic(t);
+          const startY = block.userData.targetY + 6;
           block.position.y = startY - (startY - block.userData.targetY) * eased;
         } else if (blockTime >= animationDuration) {
           block.position.y = block.userData.targetY;
