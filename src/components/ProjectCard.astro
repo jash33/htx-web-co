@@ -117,12 +117,22 @@ const secondaryLinks = links.filter(l => l !== primaryLink);
       </picture>
     </div>
 
-    <!-- Hover overlay -->
-    <div class="project-card__overlay" aria-hidden="true">
-      {primaryLink && (
+    <!-- Hover overlay - now clickable -->
+    {primaryLink ? (
+      <a 
+        href={primaryLink.href}
+        target={primaryLink.openInNewTab ? '_blank' : undefined}
+        rel={primaryLink.openInNewTab ? 'noopener noreferrer' : undefined}
+        class="project-card__overlay"
+        aria-label={`View ${title}`}
+      >
         <span class="project-card__overlay-text">View Project</span>
-      )}
-    </div>
+      </a>
+    ) : (
+      <div class="project-card__overlay" aria-hidden="true">
+        <span class="project-card__overlay-text">View Project</span>
+      </div>
+    )}
 
     <!-- Featured badge -->
     {featured && (
