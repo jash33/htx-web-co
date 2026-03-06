@@ -596,26 +596,57 @@ const trustIcons: Record<string, string> = {
     50% { background-position: 100% 50%; }
   }
   
-  /* Emphasized accent word */
+  /* Emphasized accent word - complex effect */
   .hero__headline :global(.hero__headline-accent) {
     position: relative;
+    color: var(--color-accent, #33D6B5);
+    -webkit-text-fill-color: var(--color-accent, #33D6B5);
+    font-style: italic;
+  }
+  
+  /* Animated highlight bar behind text */
+  .hero__headline :global(.hero__headline-accent)::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: 0.1em;
+    height: 0.35em;
     background: linear-gradient(
-      135deg,
-      var(--color-accent, #33D6B5) 0%,
-      #B5F1E9 50%,
-      var(--color-accent, #33D6B5) 100%
+      90deg,
+      rgba(51, 214, 181, 0.3) 0%,
+      rgba(51, 214, 181, 0.5) 50%,
+      rgba(51, 214, 181, 0.3) 100%
     );
-    background-size: 200% 200%;
+    border-radius: 2px;
+    z-index: -1;
+    transform: skewX(-6deg);
+  }
+  
+  /* Shine sweep across text */
+  .hero__headline :global(.hero__headline-accent)::after {
+    content: 'Elevate';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 35%,
+      rgba(255, 255, 255, 0.8) 50%,
+      transparent 65%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: accentShift 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 12px rgba(51, 214, 181, 0.5));
+    animation: shineSweep 4s ease-in-out infinite;
   }
   
-  @keyframes accentShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+  @keyframes shineSweep {
+    0%, 100% { background-position: 200% center; }
+    50% { background-position: -200% center; }
   }
   
   .hero__headline {
