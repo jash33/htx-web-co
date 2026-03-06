@@ -1802,9 +1802,9 @@ const trustIcons: Record<string, string> = {
     position: absolute;
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 8px;
-    border-radius: var(--radius-md);
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: var(--radius-lg);
     background: var(--color-background);
     box-shadow: var(--shadow-lg);
     z-index: 10;
@@ -1812,22 +1812,22 @@ const trustIcons: Record<string, string> = {
   }
 
   .hero__mockup-float--1 {
-    top: 20%;
-    right: -30px;
+    top: 15%;
+    right: -50px;
     transform: rotate(3deg);
     animation: float1 6s ease-in-out infinite;
   }
 
   .hero__mockup-float--2 {
-    bottom: 18%;
-    left: -25px;
+    bottom: 15%;
+    left: -45px;
     transform: rotate(-3deg);
     animation: float2 5s ease-in-out infinite;
   }
 
   .hero__mockup-float--3 {
     top: 55%;
-    right: -20px;
+    right: -40px;
     transform: rotate(-2deg);
     animation: float3 7s ease-in-out infinite;
   }
@@ -1836,10 +1836,15 @@ const trustIcons: Record<string, string> = {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 18px;
-    height: 18px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     flex-shrink: 0;
+  }
+  
+  .hero__float-icon svg {
+    width: 18px;
+    height: 18px;
   }
 
   .hero__float-icon--success {
@@ -1860,18 +1865,18 @@ const trustIcons: Record<string, string> = {
   .hero__float-content {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 2px;
   }
 
   .hero__float-title {
-    font-size: 6px;
+    font-size: 12px;
     font-weight: 700;
     color: var(--color-gray-800);
     white-space: nowrap;
   }
 
   .hero__float-text {
-    font-size: 4px;
+    font-size: 9px;
     color: var(--color-gray-500);
     white-space: nowrap;
   }
