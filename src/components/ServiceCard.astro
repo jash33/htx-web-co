@@ -157,17 +157,20 @@ const cardClasses = [
     z-index: 1;
   }
 
-  .service-card:hover {
+  .service-card:hover,
+  .service-card.service-card--highlight {
     box-shadow: var(--shadow-lg), var(--glow-card-hover);
     transform: translateY(-6px);
     border-color: var(--color-primary-300);
   }
 
-  .service-card:hover::before {
+  .service-card:hover::before,
+  .service-card.service-card--highlight::before {
     opacity: 0.35;
   }
 
-  .service-card:hover::after {
+  .service-card:hover::after,
+  .service-card.service-card--highlight::after {
     left: 150%;
   }
 
@@ -192,7 +195,8 @@ const cardClasses = [
       box-shadow var(--duration-300) var(--ease-out);
   }
 
-  .service-card:hover .service-card__icon {
+  .service-card:hover .service-card__icon,
+  .service-card.service-card--highlight .service-card__icon {
     background: linear-gradient(
       135deg,
       var(--color-primary-100) 0%,
@@ -208,7 +212,8 @@ const cardClasses = [
     transition: transform var(--duration-300) var(--ease-spring-soft);
   }
 
-  .service-card:hover .service-card__icon :global(svg) {
+  .service-card:hover .service-card__icon :global(svg),
+  .service-card.service-card--highlight .service-card__icon :global(svg) {
     transform: scale(1.05);
   }
 

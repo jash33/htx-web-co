@@ -347,3 +347,55 @@ const hasServices = services && services.length > 0;
     }
   }
 </style>
+
+<script>
+  function initServiceCardHighlight() {
+    // Only run on desktop
+    if (window.innerWidth < 1024) return;
+    
+    const section = document.querySelector('.services-section');
+    if (!section) return;
+    
+    const cards = section.querySelectorAll('.service-card');
+    if (cards.length === 0) return;
+    
+    let hasAnimated = false;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+          
+          // Highlight each card sequentially
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add('service-card--highlight');
+              
+              // Remove highlight after a brief moment
+              setTimeout(() => {
+                card.classList.remove('service-card--highlight');
+              }, 400);
+            }, index * 200); // 200ms delay between each card
+          });
+          
+          observer.disconnect();
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '0px'
+    });
+    
+    observer.observe(section);
+  }
+  
+  // Initialize
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceCardHighlight);
+  } else {
+    initServiceCardHighlight();
+  }
+  
+  // Re-init on Astro page navigation
+  document.addEventListener('astro:page-load', initServiceCardHighlight);
+</script>
