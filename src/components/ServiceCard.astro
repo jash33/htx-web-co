@@ -363,6 +363,40 @@ const cardClasses = [
   }
 
   /* =================================================================
+   * MOBILE IN-VIEW STATE (scroll-triggered hover effect)
+   * =================================================================
+   */
+  @media screen and (max-width: 767px) {
+    .service-card.service-card--in-view {
+      box-shadow: var(--shadow-lg), var(--glow-card-hover);
+      transform: translateY(-6px);
+      border-color: var(--color-primary-300);
+    }
+
+    .service-card.service-card--in-view::before {
+      opacity: 0.35;
+    }
+
+    .service-card.service-card--in-view .service-card__icon {
+      background: linear-gradient(
+        135deg,
+        var(--color-primary-100) 0%,
+        var(--color-primary-200) 100%
+      );
+      transform: scale(1.08) rotate(3deg);
+      box-shadow: var(--glow-primary-sm);
+    }
+
+    .service-card.service-card--in-view .service-card__title {
+      color: var(--color-primary);
+    }
+
+    .service-card.service-card--in-view .service-card__description {
+      color: var(--color-text-primary);
+    }
+  }
+
+  /* =================================================================
    * REDUCED MOTION
    * Respect user preferences for reduced motion
    * =================================================================
@@ -419,3 +453,43 @@ const cardClasses = [
     }
   }
 </style>
+
+<script>
+  // Mobile scroll-triggered hover effect for service cards
+  function initServiceCardInView() {
+    // Only run on mobile
+    if (window.innerWidth >= 768) return;
+
+    const cards = document.querySelectorAll('.service-card');
+    if (!cards.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('service-card--in-view');
+          } else {
+            entry.target.classList.remove('service-card--in-view');
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px -20% 0px', // Trigger when card is in middle 60% of viewport
+        threshold: 0.5,
+      }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+  }
+
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceCardInView);
+  } else {
+    initServiceCardInView();
+  }
+
+  // Re-initialize on Astro page transitions
+  document.addEventListener('astro:page-load', initServiceCardInView);
+</script>
