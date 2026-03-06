@@ -5,7 +5,6 @@ import ServicesSection from '../components/ServicesSection.astro';
 import DifferentiatorsSection from '../components/DifferentiatorsSection.astro';
 import FeaturedProjectsPreview from '../components/FeaturedProjectsPreview.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
-import ContactCTA from '../components/ContactCTA.astro';
 import type { Service } from '../types/service';
 import type { Differentiator } from '../types/differentiator';
 import { DEFAULT_FAQ_ITEMS } from '../types/faq';
@@ -171,18 +170,5 @@ const differentiators: Differentiator[] = [
 			initialExpanded={null}
 		/>
 
-		<!-- Contact CTA Section -->
-		<ContactCTA
-			headline="Ready to Grow Your Business Online?"
-			supportingText="Join dozens of successful Houston businesses who trust us to build their digital presence. We've helped local companies throughout Houston increase their online visibility and attract more customers. Let's discuss how we can help your business thrive."
-			primaryCTA={{
-				text: "Get Your Free Quote",
-				href: "/htx-web-co/contact",
-			}}
-			secondaryCTA={{
-				text: "Call Us Today",
-				href: "tel:+1-832-555-0123",
-			}}
-		/>
 	</main>
 </Layout>
