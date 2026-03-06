@@ -17,7 +17,9 @@
  */
 
 import { seoConfig } from '../config/seo.config';
-import logoImageWhite from '../assets/logo-white.svg';
+
+// Use new brand logo from public folder
+const logoImage = '/htx-web-co/images/logo-full.png';
 
 // Define the social platform types
 type SocialPlatform = 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'youtube';
@@ -86,7 +88,7 @@ const platformNames: Record<SocialPlatform, string> = {
     <!-- Brand Section with Logo -->
     <div class="footer__brand">
       <a href="/htx-web-co/" class="footer__brand-link" aria-label="HTX Web Co. - Go to homepage">
-        <img src={logoImageWhite.src} alt="HTX Web Co." class="footer__logo" width="160" height="80" />
+        <img src={logoImage} alt="HTX Web Co." class="footer__logo" width="180" height="auto" />
       </a>
     
     </div>
@@ -254,6 +256,8 @@ const platformNames: Record<SocialPlatform, string> = {
     width: auto;
     object-fit: contain;
     margin-bottom: var(--spacing-2);
+    /* Brighten logo for dark footer background */
+    filter: brightness(1.4) saturate(1.1);
   }
 
   .footer__tagline {

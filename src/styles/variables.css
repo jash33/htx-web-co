@@ -61,21 +61,21 @@
    */
 
   /* -----------------------------------------------------------------
-   * Primary Colors - Navy/Dark Blue Brand Palette (from HTX Web Co. logo)
+   * Primary Colors - Midnight Blue Brand Palette (HTX Web Co. rebrand)
    * Main brand color with shade variations for different states
-   * Contrast ratios calculated for WCAG AA compliance
+   * Brand colors: #011F4B (Midnight), #015B77 (Teal), #33D6B5 (Aqua), #B5F1E9 (Light Aqua)
    * ----------------------------------------------------------------- */
-  --color-primary-50: #eef2f8;   /* Lightest - backgrounds, subtle tints */
-  --color-primary-100: #d5dded;  /* Light - hover backgrounds */
-  --color-primary-200: #b3c1dc;  /* Light - disabled backgrounds */
-  --color-primary-300: #8a9fc7;  /* Medium light */
-  --color-primary-400: #546da5;  /* Medium */
-  --color-primary-500: #365395;  /* Base primary - main brand color (logo navy) */
-  --color-primary-600: #2d4680;  /* Slightly darker - hover states */
-  --color-primary-700: #243868;  /* Dark - active states */
-  --color-primary-800: #1b2a50;  /* Darker - pressed states */
-  --color-primary-900: #121c38;  /* Darkest - high contrast needs */
-  --color-primary-950: #090e1c;  /* Near black - maximum contrast */
+  --color-primary-50: #e6f7f5;   /* Lightest - backgrounds, subtle tints */
+  --color-primary-100: #cceeed;  /* Light - hover backgrounds */
+  --color-primary-200: #99ddd9;  /* Light - disabled backgrounds */
+  --color-primary-300: #66cbc4;  /* Medium light */
+  --color-primary-400: #33b9ae;  /* Medium */
+  --color-primary-500: #015B77;  /* Base primary - Teal Blue */
+  --color-primary-600: #014d65;  /* Slightly darker - hover states */
+  --color-primary-700: #013f53;  /* Dark - active states */
+  --color-primary-800: #012f3f;  /* Darker - pressed states */
+  --color-primary-900: #011F4B;  /* Darkest - Midnight Blue (brand dark) */
+  --color-primary-950: #001029;  /* Near black - maximum contrast */
 
   /* Semantic primary aliases for easy use */
   --color-primary: var(--color-primary-500);
@@ -111,20 +111,21 @@
   --color-text-link-hover: var(--color-primary-700);
 
   /* -----------------------------------------------------------------
-   * Accent Colors - Purple Brand Palette (complementary to navy)
-   * Secondary actions, highlights, and decorative elements
+   * Accent Colors - Aqua Green Brand Palette (HTX Web Co. rebrand)
+   * Primary accent for CTAs, highlights, and decorative elements
+   * Brand: #33D6B5 (Aqua Green), #B5F1E9 (Light Aqua)
    * ----------------------------------------------------------------- */
-  --color-accent: #8b5cf6;          /* Purple accent */
-  --color-accent-light: #a78bfa;
-  --color-accent-dark: #7c3aed;
-  --color-accent-hover: #7c3aed;
-  --color-accent-subtle: #ede9fe;   /* Light purple background */
+  --color-accent: #33D6B5;          /* Aqua Green accent - primary CTA */
+  --color-accent-light: #66E2C9;
+  --color-accent-dark: #2AC4A5;
+  --color-accent-hover: #2AC4A5;
+  --color-accent-subtle: #B5F1E9;   /* Light Aqua background */
 
-  /* Alternative accent (Teal/Cyan for variety) */
-  --color-accent-alt: #06b6d4;
-  --color-accent-alt-light: #22d3ee;
-  --color-accent-alt-dark: #0891b2;
-  --color-accent-alt-subtle: #cffafe;
+  /* Alternative accent (Teal Blue for variety) */
+  --color-accent-alt: #015B77;
+  --color-accent-alt-light: #017A9E;
+  --color-accent-alt-dark: #014d65;
+  --color-accent-alt-subtle: #e0f4f7;
 
   /* -----------------------------------------------------------------
    * Semantic Colors - UI Feedback States
@@ -174,11 +175,11 @@
 
   /* -----------------------------------------------------------------
    * Font Families
-   * Inter for body text, DM Sans for headings
+   * Montserrat for headings, Lato for body text (HTX Web Co. rebrand)
    * Comprehensive fallback stacks for system fonts
    * ----------------------------------------------------------------- */
-  --font-family-heading: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-body: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-family-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
 
   /* Semantic aliases */
@@ -312,8 +313,8 @@
   --shadow-none: 0 0 #0000;
 
   /* Colored shadows for elevated elements */
-  --shadow-primary: 0 4px 14px 0 rgb(54 83 149 / 0.25);
-  --shadow-primary-lg: 0 10px 25px -3px rgb(54 83 149 / 0.3);
+  --shadow-primary: 0 4px 14px 0 rgb(1 95 119 / 0.25);
+  --shadow-primary-lg: 0 10px 25px -3px rgb(1 95 119 / 0.3);
 
   /* =================================================================
    * 6. TRANSITIONS
@@ -443,45 +444,45 @@
    */
 
   /* -----------------------------------------------------------------
-   * Primary Glow - Brand-colored glow effects
+   * Primary Glow - Brand-colored glow effects (Teal Blue)
    * ----------------------------------------------------------------- */
-  --glow-primary-sm: 0 0 10px rgba(54, 83, 149, 0.3);
-  --glow-primary-md: 0 0 20px rgba(54, 83, 149, 0.4);
-  --glow-primary-lg: 0 0 30px rgba(54, 83, 149, 0.5);
-  --glow-primary-xl: 0 0 40px rgba(54, 83, 149, 0.5), 0 0 60px rgba(54, 83, 149, 0.3);
+  --glow-primary-sm: 0 0 10px rgba(1, 91, 119, 0.3);
+  --glow-primary-md: 0 0 20px rgba(1, 91, 119, 0.4);
+  --glow-primary-lg: 0 0 30px rgba(1, 91, 119, 0.5);
+  --glow-primary-xl: 0 0 40px rgba(1, 91, 119, 0.5), 0 0 60px rgba(1, 91, 119, 0.3);
 
   /* -----------------------------------------------------------------
-   * Accent Glow - Purple accent glow effects
+   * Accent Glow - Aqua Green accent glow effects
    * ----------------------------------------------------------------- */
-  --glow-accent-sm: 0 0 10px rgba(139, 92, 246, 0.3);
-  --glow-accent-md: 0 0 20px rgba(139, 92, 246, 0.4);
-  --glow-accent-lg: 0 0 30px rgba(139, 92, 246, 0.5);
-  --glow-accent-xl: 0 0 40px rgba(139, 92, 246, 0.5), 0 0 60px rgba(139, 92, 246, 0.3);
+  --glow-accent-sm: 0 0 10px rgba(51, 214, 181, 0.3);
+  --glow-accent-md: 0 0 20px rgba(51, 214, 181, 0.4);
+  --glow-accent-lg: 0 0 30px rgba(51, 214, 181, 0.5);
+  --glow-accent-xl: 0 0 40px rgba(51, 214, 181, 0.5), 0 0 60px rgba(51, 214, 181, 0.3);
 
   /* -----------------------------------------------------------------
-   * Alt Accent Glow - Teal/Cyan glow effects
+   * Alt Accent Glow - Midnight Blue glow effects
    * ----------------------------------------------------------------- */
-  --glow-accent-alt-sm: 0 0 10px rgba(6, 182, 212, 0.3);
-  --glow-accent-alt-md: 0 0 20px rgba(6, 182, 212, 0.4);
-  --glow-accent-alt-lg: 0 0 30px rgba(6, 182, 212, 0.5);
+  --glow-accent-alt-sm: 0 0 10px rgba(1, 31, 75, 0.3);
+  --glow-accent-alt-md: 0 0 20px rgba(1, 31, 75, 0.4);
+  --glow-accent-alt-lg: 0 0 30px rgba(1, 31, 75, 0.5);
 
   /* -----------------------------------------------------------------
    * Combined/Mixed Glow - Multi-color glow combinations
    * ----------------------------------------------------------------- */
-  --glow-mixed: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(6, 182, 212, 0.2);
-  --glow-mixed-lg: 0 0 30px rgba(139, 92, 246, 0.4), 0 0 60px rgba(6, 182, 212, 0.3);
+  --glow-mixed: 0 0 20px rgba(51, 214, 181, 0.3), 0 0 40px rgba(1, 91, 119, 0.2);
+  --glow-mixed-lg: 0 0 30px rgba(51, 214, 181, 0.4), 0 0 60px rgba(1, 91, 119, 0.3);
 
   /* -----------------------------------------------------------------
    * Card/Element Glow - For card hover states
    * ----------------------------------------------------------------- */
-  --glow-card-hover: 0 0 0 1px rgba(54, 83, 149, 0.1), 0 4px 20px rgba(54, 83, 149, 0.15);
-  --glow-card-active: 0 0 0 2px rgba(54, 83, 149, 0.2), 0 8px 30px rgba(54, 83, 149, 0.2);
+  --glow-card-hover: 0 0 0 1px rgba(1, 91, 119, 0.1), 0 4px 20px rgba(1, 91, 119, 0.15);
+  --glow-card-active: 0 0 0 2px rgba(1, 91, 119, 0.2), 0 8px 30px rgba(1, 91, 119, 0.2);
 
   /* -----------------------------------------------------------------
    * Text Glow - For glowing text effects (use sparingly)
    * ----------------------------------------------------------------- */
   --glow-text-subtle: 0 0 10px rgba(255, 255, 255, 0.5);
-  --glow-text-accent: 0 0 20px rgba(139, 92, 246, 0.6);
+  --glow-text-accent: 0 0 20px rgba(51, 214, 181, 0.6);
 
   /* =================================================================
    * 12. DESIGN FLAIR - ANIMATION TIMINGS
@@ -649,28 +650,28 @@ html[data-theme="dark"] {
   /* -----------------------------------------------------------------
    * Dark Mode - Glow Adjustments (more visible against dark backgrounds)
    * ----------------------------------------------------------------- */
-  --glow-primary-sm: 0 0 15px rgba(84, 109, 165, 0.4);
-  --glow-primary-md: 0 0 25px rgba(84, 109, 165, 0.5);
-  --glow-primary-lg: 0 0 35px rgba(84, 109, 165, 0.6);
-  --glow-primary-xl: 0 0 45px rgba(84, 109, 165, 0.6), 0 0 70px rgba(84, 109, 165, 0.4);
+  --glow-primary-sm: 0 0 15px rgba(1, 91, 119, 0.5);
+  --glow-primary-md: 0 0 25px rgba(1, 91, 119, 0.6);
+  --glow-primary-lg: 0 0 35px rgba(1, 91, 119, 0.7);
+  --glow-primary-xl: 0 0 45px rgba(1, 91, 119, 0.7), 0 0 70px rgba(1, 91, 119, 0.5);
 
-  --glow-accent-sm: 0 0 15px rgba(167, 139, 250, 0.4);
-  --glow-accent-md: 0 0 25px rgba(167, 139, 250, 0.5);
-  --glow-accent-lg: 0 0 35px rgba(167, 139, 250, 0.6);
-  --glow-accent-xl: 0 0 45px rgba(167, 139, 250, 0.6), 0 0 70px rgba(167, 139, 250, 0.4);
+  --glow-accent-sm: 0 0 15px rgba(51, 214, 181, 0.5);
+  --glow-accent-md: 0 0 25px rgba(51, 214, 181, 0.6);
+  --glow-accent-lg: 0 0 35px rgba(51, 214, 181, 0.7);
+  --glow-accent-xl: 0 0 45px rgba(51, 214, 181, 0.7), 0 0 70px rgba(51, 214, 181, 0.5);
 
-  --glow-accent-alt-sm: 0 0 15px rgba(34, 211, 238, 0.4);
-  --glow-accent-alt-md: 0 0 25px rgba(34, 211, 238, 0.5);
-  --glow-accent-alt-lg: 0 0 35px rgba(34, 211, 238, 0.6);
+  --glow-accent-alt-sm: 0 0 15px rgba(181, 241, 233, 0.4);
+  --glow-accent-alt-md: 0 0 25px rgba(181, 241, 233, 0.5);
+  --glow-accent-alt-lg: 0 0 35px rgba(181, 241, 233, 0.6);
 
-  --glow-mixed: 0 0 25px rgba(167, 139, 250, 0.4), 0 0 45px rgba(34, 211, 238, 0.3);
-  --glow-mixed-lg: 0 0 35px rgba(167, 139, 250, 0.5), 0 0 70px rgba(34, 211, 238, 0.4);
+  --glow-mixed: 0 0 25px rgba(51, 214, 181, 0.5), 0 0 45px rgba(1, 91, 119, 0.4);
+  --glow-mixed-lg: 0 0 35px rgba(51, 214, 181, 0.6), 0 0 70px rgba(1, 91, 119, 0.5);
 
-  --glow-card-hover: 0 0 0 1px rgba(84, 109, 165, 0.2), 0 4px 25px rgba(84, 109, 165, 0.25);
-  --glow-card-active: 0 0 0 2px rgba(84, 109, 165, 0.3), 0 8px 35px rgba(84, 109, 165, 0.3);
+  --glow-card-hover: 0 0 0 1px rgba(51, 214, 181, 0.2), 0 4px 25px rgba(1, 91, 119, 0.25);
+  --glow-card-active: 0 0 0 2px rgba(51, 214, 181, 0.3), 0 8px 35px rgba(1, 91, 119, 0.3);
 
   --glow-text-subtle: 0 0 15px rgba(248, 250, 252, 0.4);
-  --glow-text-accent: 0 0 25px rgba(167, 139, 250, 0.7);
+  --glow-text-accent: 0 0 25px rgba(51, 214, 181, 0.7);
 }
 
 /* Selection styling for dark mode */

@@ -18,8 +18,9 @@
  */
 
 import ThemeToggle from './ThemeToggle.astro';
-import logoImage from '../assets/logo.svg';
-import logoImageWhite from '../assets/logo-white.svg';
+
+// Use new brand logo from public folder
+const logoImage = '/htx-web-co/images/logo-full.png';
 
 interface Props {
   /** Current page path for active link styling (e.g., "/", "/about") */
@@ -42,8 +43,7 @@ const navLinks = [
   <div class="header__container">
     <!-- Logo/Brand -->
     <a href="/htx-web-co/" class="header__logo" aria-label="HTX Web Co. - Go to homepage">
-      <img src={logoImage.src} alt="HTX Web Co." class="header__logo-image header__logo-image--light" width="auto" height="86" />
-      <img src={logoImageWhite.src} alt="HTX Web Co." class="header__logo-image header__logo-image--dark" width="auto" height="86" />
+      <img src={logoImage} alt="HTX Web Co." class="header__logo-image" width="auto" height="86" />
     </a>
 
     <!-- Desktop Navigation -->
@@ -190,23 +190,12 @@ const navLinks = [
     height: 72px;
     width: auto;
     object-fit: contain;
+    transition: filter var(--animation-duration-fast) var(--ease-smooth);
   }
 
-  /* Logo variant visibility - Light mode shows dark logo, dark mode shows white logo */
-  .header__logo-image--light {
-    display: block;
-  }
-
-  .header__logo-image--dark {
-    display: none;
-  }
-
-  :global(html[data-theme="dark"]) .header__logo-image--light {
-    display: none;
-  }
-
-  :global(html[data-theme="dark"]) .header__logo-image--dark {
-    display: block;
+  /* Dark mode: brighten logo for visibility against dark header */
+  :global(html[data-theme="dark"]) .header__logo-image {
+    filter: brightness(1.3) saturate(1.1);
   }
 
   /* Responsive logo sizing */
