@@ -105,7 +105,11 @@ const canvasSize = sizeMap[size];
       { x: -1.1, y: 1.1, z: -1.1, topColor: colors.aquaLight, delay: 3.5 }, // top final
     ];
 
-    // Create blocks
+    // Create blocks group for rotation
+    const blocksGroup = new THREE.Group();
+    blocksGroup.position.set(0.55, -0.55, 0.55); // Center the cube
+    scene.add(blocksGroup);
+    
     const blocks: THREE.Mesh[] = [];
     const blockGeometry = new THREE.BoxGeometry(0.95, 0.95, 0.95);
     
@@ -126,7 +130,7 @@ const canvasSize = sizeMap[size];
       block.userData.delay = config.delay;
       block.userData.startTime = null;
       
-      scene.add(block);
+      blocksGroup.add(block);
       blocks.push(block);
     });
 
@@ -138,7 +142,8 @@ const canvasSize = sizeMap[size];
     // Animation
     const clock = new THREE.Clock();
     const animationDuration = 1.0; // seconds per block
-    const loopDelay = 2.0; // seconds to wait before looping
+    const spinDuration = 0.8; // seconds for spin
+    const loopDelay = 1.5; // seconds to wait before looping
     let loopStartTime = 0;
 
     function animate() {
@@ -147,15 +152,30 @@ const canvasSize = sizeMap[size];
       const elapsed = clock.getElapsedTime();
       const loopElapsed = elapsed - loopStartTime;
       
-      // Check if we should reset (loop)
+      // Timeline
       const lastBlockEndTime = blockConfigs[blockConfigs.length - 1].delay + animationDuration;
-      if (loopElapsed > lastBlockEndTime + loopDelay) {
-        // Reset all blocks
+      const spinStartTime = lastBlockEndTime + 0.3;
+      const spinEndTime = spinStartTime + spinDuration;
+      const totalCycleTime = spinEndTime + loopDelay;
+      
+      // Check if we should reset (loop)
+      if (loopElapsed > totalCycleTime) {
+        // Reset all blocks and rotation
         loopStartTime = elapsed;
         blocks.forEach((block) => {
           block.position.y = block.userData.targetY + 6;
         });
+        blocksGroup.rotation.y = 0;
         return;
+      }
+      
+      // Spin phase
+      if (loopElapsed > spinStartTime && loopElapsed < spinEndTime) {
+        const spinProgress = (loopElapsed - spinStartTime) / spinDuration;
+        const eased = easeOutCubic(spinProgress);
+        blocksGroup.rotation.y = eased * Math.PI * 2; // Full 360 spin
+      } else if (loopElapsed >= spinEndTime) {
+        blocksGroup.rotation.y = Math.PI * 2;
       }
       
       // Animate each block
