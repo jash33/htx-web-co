@@ -90,11 +90,19 @@ const canvasSize = sizeMap[size];
       midnight: 0x011F4B,
     };
 
-    // Block positions - L-shaped corner pointing toward viewer
+    // Block positions - builds a 2x2 cube
     const blockConfigs = [
-      { x: 0, y: 0, z: 0, topColor: colors.aqua, delay: 0 },           // corner block
-      { x: -1.1, y: 0, z: 0, topColor: colors.aquaLight, delay: 0.5 }, // extends left
-      { x: 0, y: 0, z: -1.1, topColor: colors.aqua, delay: 1.0 },      // extends back
+      // Bottom layer - L-shape first
+      { x: 0, y: 0, z: 0, topColor: colors.aqua, delay: 0 },             // corner block
+      { x: -1.1, y: 0, z: 0, topColor: colors.aquaLight, delay: 0.5 },   // extends left
+      { x: 0, y: 0, z: -1.1, topColor: colors.aqua, delay: 1.0 },        // extends back
+      { x: -1.1, y: 0, z: -1.1, topColor: colors.aquaLight, delay: 1.5 }, // completes bottom
+      
+      // Top layer
+      { x: 0, y: 1.1, z: 0, topColor: colors.aqua, delay: 2.0 },           // top corner
+      { x: -1.1, y: 1.1, z: 0, topColor: colors.aquaLight, delay: 2.5 },   // top left
+      { x: 0, y: 1.1, z: -1.1, topColor: colors.aqua, delay: 3.0 },        // top back
+      { x: -1.1, y: 1.1, z: -1.1, topColor: colors.aquaLight, delay: 3.5 }, // top final
     ];
 
     // Create blocks
@@ -129,8 +137,8 @@ const canvasSize = sizeMap[size];
 
     // Animation
     const clock = new THREE.Clock();
-    const animationDuration = 1.2; // seconds per block (slower)
-    const loopDelay = 2.5; // seconds to wait before looping
+    const animationDuration = 1.0; // seconds per block
+    const loopDelay = 2.0; // seconds to wait before looping
     let loopStartTime = 0;
 
     function animate() {
