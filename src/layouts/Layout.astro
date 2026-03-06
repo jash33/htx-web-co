@@ -110,6 +110,14 @@ const {
 		<!-- Performance Monitoring (Core Web Vitals) -->
 		{!disableAnalytics && <PerformanceMonitor />}
 
+		<!-- Force scroll to top on page load (prevents browser scroll restoration issues) -->
+		<script is:inline>
+			if (history.scrollRestoration) {
+				history.scrollRestoration = 'manual';
+			}
+			window.scrollTo(0, 0);
+		</script>
+
 		<!-- Scroll Reveal Animation Observer -->
 		<script>
 			// Initialize Intersection Observer for scroll-reveal animations
