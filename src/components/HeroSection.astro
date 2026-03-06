@@ -123,7 +123,7 @@ const trustIcons: Record<string, string> = {
 
         <!-- Block Animation -->
         <div class="hero__block-animation">
-          <BlockBuilder size="medium" />
+          <BlockBuilder size="small" />
         </div>
 
         <div class="hero__location-cue">
@@ -743,20 +743,24 @@ const trustIcons: Record<string, string> = {
   .hero__block-animation {
     display: flex;
     justify-content: center;
-    margin-top: calc(var(--spacing-2) * -1);
-    margin-bottom: calc(var(--spacing-4) * -1);
-    transform: scale(0.7);
+    margin-top: calc(var(--spacing-8) * -1);
+    margin-bottom: calc(var(--spacing-8) * -1);
+    transform: scale(0.6);
   }
 
   @media screen and (min-width: 768px) {
     .hero__block-animation {
-      transform: scale(0.9);
+      margin-top: calc(var(--spacing-6) * -1);
+      margin-bottom: calc(var(--spacing-6) * -1);
+      transform: scale(0.75);
     }
   }
 
   @media screen and (min-width: 1024px) {
     .hero__block-animation {
-      transform: scale(1);
+      margin-top: calc(var(--spacing-4) * -1);
+      margin-bottom: calc(var(--spacing-4) * -1);
+      transform: scale(0.85);
     }
   }
 
