@@ -86,9 +86,9 @@ const cardClasses = [
     /* Positioning for pseudo-elements */
     position: relative;
 
-    /* Visual */
-    background-color: var(--color-background-elevated);
-    border: 1px solid var(--color-border);
+    /* Visual - Dark blue theme */
+    background-color: var(--color-primary-900);
+    border: 1px solid var(--color-primary-800);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
 
@@ -123,9 +123,9 @@ const cardClasses = [
   }
 
   .differentiator-card:hover {
-    box-shadow: var(--shadow-lg), var(--glow-card-hover);
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(51, 214, 181, 0.3);
     transform: translateY(-6px);
-    border-color: var(--color-primary-300);
+    border-color: var(--color-accent);
   }
 
   .differentiator-card:hover::after {
@@ -141,11 +141,11 @@ const cardClasses = [
     height: var(--spacing-16);
     background: linear-gradient(
       135deg,
-      var(--color-primary-50) 0%,
-      var(--color-primary-100) 100%
+      rgba(51, 214, 181, 0.15) 0%,
+      rgba(51, 214, 181, 0.25) 100%
     );
     border-radius: var(--radius-full);
-    color: var(--color-primary);
+    color: var(--color-accent);
     position: relative;
     z-index: 2;
     transition:
@@ -161,7 +161,7 @@ const cardClasses = [
     inset: 0;
     border-radius: var(--radius-full);
     background: transparent;
-    border: 2px solid var(--color-primary-300);
+    border: 2px solid var(--color-accent);
     opacity: 0;
     transform: scale(1);
     transition:
@@ -172,11 +172,11 @@ const cardClasses = [
   .differentiator-card:hover .differentiator-card__icon {
     background: linear-gradient(
       135deg,
-      var(--color-primary-100) 0%,
-      var(--color-primary-200) 100%
+      rgba(51, 214, 181, 0.25) 0%,
+      rgba(51, 214, 181, 0.4) 100%
     );
     transform: scale(1.1);
-    box-shadow: var(--glow-primary-sm);
+    box-shadow: 0 0 20px rgba(51, 214, 181, 0.4);
   }
 
   .differentiator-card:hover .differentiator-card__icon::before {
@@ -221,27 +221,27 @@ const cardClasses = [
     font-family: var(--font-heading);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
-    color: var(--color-text-primary);
+    color: #ffffff;
     margin: 0;
     line-height: var(--line-height-tight);
     transition: color var(--duration-200) var(--ease-out);
   }
 
   .differentiator-card:hover .differentiator-card__title {
-    color: var(--color-primary);
+    color: var(--color-accent);
   }
 
   .differentiator-card__description {
     font-family: var(--font-body);
     font-size: var(--font-size-base);
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.8);
     line-height: var(--line-height-relaxed);
     margin: 0;
     transition: color var(--duration-200) var(--ease-out);
   }
 
   .differentiator-card:hover .differentiator-card__description {
-    color: var(--color-text-primary);
+    color: #ffffff;
   }
 
   /* =================================================================
