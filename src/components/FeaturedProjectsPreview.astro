@@ -125,10 +125,11 @@ const arrowIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" f
         <Button
           text={viewAllText}
           href={viewAllHref}
-          variant="secondary"
+          variant="primary"
           size="large"
           iconPosition="trailing"
           ariaLabel="View all portfolio projects"
+          class="featured-projects__btn"
         >
           <Fragment slot="icon" set:html={arrowIcon} />
         </Button>
@@ -237,6 +238,19 @@ const arrowIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" f
     display: flex;
     justify-content: center;
     margin-top: var(--spacing-10);
+  }
+
+  /* Aqua green primary button for dark background */
+  .featured-projects__cta :global(.featured-projects__btn) {
+    background-color: var(--color-accent); /* #33D6B5 aqua green */
+    color: var(--color-primary-900); /* Dark text for contrast */
+    border-color: var(--color-accent);
+  }
+
+  .featured-projects__cta :global(.featured-projects__btn:hover) {
+    background-color: var(--color-accent-alt); /* Lighter on hover */
+    border-color: var(--color-accent-alt);
+    color: var(--color-primary-900);
   }
 
   /* =================================================================
