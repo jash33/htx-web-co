@@ -44,7 +44,12 @@ const navLinks = [
 
 <header class="header" role="banner">
   <div class="header__container">
-    <!-- Desktop Navigation (Left) -->
+    <!-- Logo/Brand (Left) -->
+    <a href="/htx-web-co/" class="header__logo" aria-label="HTX Web Co. - Go to homepage">
+      <img src={logoImage} alt="HTX Web Co." class="header__logo-image" width="auto" height="86" />
+    </a>
+
+    <!-- Desktop Navigation (Center) -->
     <nav class="header__nav" aria-label="Main navigation">
       <ul class="header__nav-list" role="list">
         {navLinks.map((link) => (
@@ -61,15 +66,10 @@ const navLinks = [
       </ul>
     </nav>
 
-    <!-- Block Animation (Center) -->
+    <!-- Block Animation (Right) -->
     <div class="header__animation" aria-hidden="true">
       <BlockBuilder size="small" />
     </div>
-
-    <!-- Logo/Brand (Right) -->
-    <a href="/htx-web-co/" class="header__logo" aria-label="HTX Web Co. - Go to homepage">
-      <img src={logoImage} alt="HTX Web Co." class="header__logo-image" width="auto" height="86" />
-    </a>
 
     <!-- Mobile Menu Button -->
     <button
