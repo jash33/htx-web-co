@@ -366,24 +366,24 @@ const hasServices = services && services.length > 0;
         if (entry.isIntersecting && !hasAnimated) {
           hasAnimated = true;
           
-          // Highlight each card sequentially
+          // Highlight each card sequentially - slower and smoother
           cards.forEach((card, index) => {
             setTimeout(() => {
               card.classList.add('service-card--highlight');
               
-              // Remove highlight after a brief moment
+              // Remove highlight after a longer moment for smoother feel
               setTimeout(() => {
                 card.classList.remove('service-card--highlight');
-              }, 400);
-            }, index * 200); // 200ms delay between each card
+              }, 700);
+            }, index * 350); // 350ms delay between each card
           });
           
           observer.disconnect();
         }
       });
     }, {
-      threshold: 0.3,
-      rootMargin: '0px'
+      threshold: 0.6, // Section must be 60% visible before triggering
+      rootMargin: '-10% 0px -10% 0px' // Additional margin to ensure cards are fully in view
     });
     
     observer.observe(section);
