@@ -1,7 +1,7 @@
 ---
 /**
  * BlockBuilder Component
- * Rotating isometric pyramid made of 3D blocks
+ * Three.js rotating isometric blocks
  */
 
 interface Props {
@@ -13,20 +13,13 @@ const {
   size = 'medium',
   class: className = '',
 } = Astro.props;
+
+const sizeMap = { small: 200, medium: 300, large: 400 };
+const canvasSize = sizeMap[size];
 ---
 
 <div class={`block-builder block-builder--${size} ${className}`}>
-  <div class="pyramid">
-    <div class="pyramid__inner">
-      <!-- Bottom layer: 3 blocks in triangle -->
-      <div class="block block--1" style="--x: 0; --y: 0; --z: 0; --delay: 0;"></div>
-      <div class="block block--2" style="--x: 1; --y: 0; --z: 0; --delay: 1;"></div>
-      <div class="block block--3" style="--x: 0.5; --y: 1; --z: 0; --delay: 2;"></div>
-      
-      <!-- Top layer: 1 block -->
-      <div class="block block--4" style="--x: 0.5; --y: 0.33; --z: 1; --delay: 3;"></div>
-    </div>
-  </div>
+  <canvas id="block-canvas" width={canvasSize} height={canvasSize}></canvas>
 </div>
 
 <style>
@@ -34,147 +27,158 @@ const {
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 800px;
   }
 
-  .block-builder--small {
-    --block-size: 35px;
+  #block-canvas {
+    display: block;
   }
 
-  .block-builder--medium {
-    --block-size: 50px;
+  .block-builder--small #block-canvas {
+    width: 200px;
+    height: 200px;
   }
 
-  .block-builder--large {
-    --block-size: 70px;
+  .block-builder--medium #block-canvas {
+    width: 300px;
+    height: 300px;
   }
 
-  .pyramid {
-    width: calc(var(--block-size) * 3);
-    height: calc(var(--block-size) * 3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .pyramid__inner {
-    position: relative;
-    width: calc(var(--block-size) * 2.5);
-    height: calc(var(--block-size) * 2.5);
-    transform-style: preserve-3d;
-    animation: rotatePyramid 8s ease-in-out infinite;
-  }
-
-  @keyframes rotatePyramid {
-    0%, 100% {
-      transform: rotateX(-15deg) rotateY(0deg);
-    }
-    25% {
-      transform: rotateX(-15deg) rotateY(90deg);
-    }
-    50% {
-      transform: rotateX(-15deg) rotateY(180deg);
-    }
-    75% {
-      transform: rotateX(-15deg) rotateY(270deg);
-    }
-  }
-
-  /* Isometric block using CSS */
-  .block {
-    --size: var(--block-size);
-    --top-color: #33D6B5;
-    --left-color: #015B77;
-    --right-color: #011F4B;
-    
-    position: absolute;
-    width: var(--size);
-    height: var(--size);
-    transform-style: preserve-3d;
-    
-    /* Position based on grid coordinates */
-    left: calc(50% + (var(--x) - 0.75) * var(--size) * 0.9);
-    top: calc(50% + (var(--y) - 0.5) * var(--size) * 0.5 - var(--z) * var(--size) * 0.8);
-    
-    /* Drop-in animation */
-    opacity: 0;
-    animation: dropIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: calc(var(--delay) * 0.15s);
-  }
-
-  @keyframes dropIn {
-    0% {
-      opacity: 0;
-      transform: translateY(-80px) scale(0.5);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  /* Top face */
-  .block::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 60%;
-    background: var(--top-color);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    top: 0;
-    left: 0;
-  }
-
-  /* Left face */
-  .block::after {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 70%;
-    background: var(--left-color);
-    clip-path: polygon(0% 0%, 100% 35%, 100% 100%, 0% 65%);
-    bottom: 0;
-    left: 0;
-  }
-
-  /* Right face - using a pseudo element on a wrapper or gradient */
-  .block {
-    background: linear-gradient(to bottom right, transparent 50%, var(--right-color) 50%);
-    background-size: 50% 70%;
-    background-position: right bottom;
-    background-repeat: no-repeat;
-  }
-
-  /* Color variations */
-  .block--2 {
-    --top-color: #5EEBD0;
-    --left-color: #0288a0;
-    --right-color: #013a6b;
-  }
-
-  .block--3 {
-    --top-color: #28c9a7;
-    --left-color: #014d65;
-    --right-color: #011a3d;
-  }
-
-  .block--4 {
-    --top-color: #66F2D5;
-    --left-color: #03a0b8;
-    --right-color: #024a7a;
-  }
-
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .pyramid__inner {
-      animation: none;
-      transform: rotateX(-15deg) rotateY(-20deg);
-    }
-    
-    .block {
-      animation: none;
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+  .block-builder--large #block-canvas {
+    width: 400px;
+    height: 400px;
   }
 </style>
+
+<script>
+  import * as THREE from 'three';
+
+  function initBlockBuilder() {
+    const canvas = document.getElementById('block-canvas') as HTMLCanvasElement;
+    if (!canvas || canvas.dataset.initialized) return;
+    canvas.dataset.initialized = 'true';
+
+    // Scene setup
+    const scene = new THREE.Scene();
+    
+    // Isometric-style camera
+    const aspect = 1;
+    const frustumSize = 5;
+    const camera = new THREE.OrthographicCamera(
+      -frustumSize * aspect / 2,
+      frustumSize * aspect / 2,
+      frustumSize / 2,
+      -frustumSize / 2,
+      0.1,
+      100
+    );
+    camera.position.set(5, 5, 5);
+    camera.lookAt(0, 0, 0);
+
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ 
+      canvas, 
+      alpha: true,
+      antialias: true 
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+
+    // Brand colors
+    const colors = {
+      aqua: 0x33D6B5,
+      aquaLight: 0x5EEBD0,
+      teal: 0x015B77,
+      midnight: 0x011F4B,
+      midnightLight: 0x024a7a,
+    };
+
+    // Create blocks group
+    const blocksGroup = new THREE.Group();
+    scene.add(blocksGroup);
+
+    // Block positions for pyramid (3 bottom, 1 top)
+    const blockPositions = [
+      { x: -0.6, y: 0, z: 0.6, color: colors.aqua },
+      { x: 0.6, y: 0, z: 0.6, color: colors.aquaLight },
+      { x: 0, y: 0, z: -0.5, color: colors.teal },
+      { x: 0, y: 1, z: 0.2, color: colors.aqua },
+    ];
+
+    // Create blocks
+    const blockGeometry = new THREE.BoxGeometry(0.9, 0.9, 0.9);
+    
+    blockPositions.forEach((pos, index) => {
+      // Create materials for each face with gradient-like effect
+      const materials = [
+        new THREE.MeshBasicMaterial({ color: colors.midnight }), // right
+        new THREE.MeshBasicMaterial({ color: colors.teal }), // left
+        new THREE.MeshBasicMaterial({ color: pos.color }), // top
+        new THREE.MeshBasicMaterial({ color: colors.midnight }), // bottom
+        new THREE.MeshBasicMaterial({ color: colors.midnightLight }), // front
+        new THREE.MeshBasicMaterial({ color: colors.teal }), // back
+      ];
+      
+      const block = new THREE.Mesh(blockGeometry, materials);
+      block.position.set(pos.x, pos.y, pos.z);
+      
+      // Store initial Y for drop animation
+      block.userData.targetY = pos.y;
+      block.userData.delay = index * 0.2;
+      block.userData.dropped = false;
+      block.position.y = pos.y + 5; // Start above
+      block.scale.set(0, 0, 0); // Start invisible
+      
+      blocksGroup.add(block);
+    });
+
+    // Animation
+    const clock = new THREE.Clock();
+    let startTime = clock.getElapsedTime();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      const elapsed = clock.getElapsedTime();
+      
+      // Rotate the whole group
+      blocksGroup.rotation.y = elapsed * 0.5;
+      
+      // Drop animation for each block
+      blocksGroup.children.forEach((block) => {
+        const mesh = block as THREE.Mesh;
+        const delay = mesh.userData.delay;
+        const dropTime = elapsed - startTime - delay;
+        
+        if (dropTime > 0 && dropTime < 1) {
+          // Ease out bounce
+          const t = Math.min(dropTime / 0.5, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          
+          mesh.position.y = mesh.userData.targetY + 5 * (1 - eased);
+          mesh.scale.setScalar(Math.min(t * 2, 1));
+        } else if (dropTime >= 1) {
+          mesh.position.y = mesh.userData.targetY;
+          mesh.scale.setScalar(1);
+        }
+      });
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Cleanup on page navigation
+    document.addEventListener('astro:before-swap', () => {
+      renderer.dispose();
+    });
+  }
+
+  // Initialize
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBlockBuilder);
+  } else {
+    initBlockBuilder();
+  }
+  
+  document.addEventListener('astro:page-load', initBlockBuilder);
+</script>
