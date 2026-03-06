@@ -90,11 +90,11 @@ const canvasSize = sizeMap[size];
       midnight: 0x011F4B,
     };
 
-    // Block positions - 3 blocks in triangle formation
+    // Block positions - corner formation (L-shape)
     const blockConfigs = [
-      { x: -0.55, y: 0, z: 0.55, topColor: colors.aqua, delay: 0 },
-      { x: 0.55, y: 0, z: 0.55, topColor: colors.aquaLight, delay: 0.4 },
-      { x: 0, y: 0, z: -0.45, topColor: colors.aqua, delay: 0.8 },
+      { x: 0, y: 0, z: 0, topColor: colors.aqua, delay: 0 },        // corner block
+      { x: 1, y: 0, z: 0, topColor: colors.aquaLight, delay: 0.5 }, // right
+      { x: 0, y: 0, z: 1, topColor: colors.aqua, delay: 1.0 },      // front
     ];
 
     // Create blocks
