@@ -141,7 +141,7 @@ const canvasSize = sizeMap[size];
     // Animation
     const clock = new THREE.Clock();
     const animationDuration = 1.0; // seconds per block
-    const spinDuration = 3.0; // seconds for spin (much slower)
+    const spinDuration = 1.5; // seconds for spin (faster)
     const loopDelay = 1.0; // seconds to wait before looping
     let loopStartTime = 0;
 
@@ -164,22 +164,17 @@ const canvasSize = sizeMap[size];
         blocks.forEach((block) => {
           block.position.y = block.userData.targetY + 6;
         });
-        blocksGroup.rotation.set(0, 0, 0);
+        blocksGroup.rotation.y = 0;
         return;
       }
       
-      // Spin phase - rotate around fixed diagonal axis
+      // Spin phase - horizontal rotation around Y-axis (full 360° so end = start)
       if (loopElapsed > spinStartTime && loopElapsed < spinEndTime) {
         const spinProgress = (loopElapsed - spinStartTime) / spinDuration;
         const eased = easeOutCubic(spinProgress);
-        const angle = eased * Math.PI * 2;
-        
-        // Rotate around diagonal axis (1, 0.5, 0) normalized
-        const axis = new THREE.Vector3(1, 0.5, 0).normalize();
-        blocksGroup.setRotationFromAxisAngle(axis, angle);
+        blocksGroup.rotation.y = eased * Math.PI * 2; // Full 360° horizontal spin
       } else if (loopElapsed >= spinEndTime) {
-        const axis = new THREE.Vector3(1, 0.5, 0).normalize();
-        blocksGroup.setRotationFromAxisAngle(axis, Math.PI * 2);
+        blocksGroup.rotation.y = Math.PI * 2; // Lock at full rotation (same as start)
       }
       
       // Animate each block
