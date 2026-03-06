@@ -90,24 +90,23 @@ const canvasSize = sizeMap[size];
       midnight: 0x011F4B,
     };
 
-    // Block positions - builds a 2x2 cube
+    // Block positions - builds a 2x2 cube (centered at origin for proper rotation)
     const blockConfigs = [
       // Bottom layer - L-shape first
-      { x: 0, y: 0, z: 0, topColor: colors.aqua, delay: 0 },             // corner block
-      { x: -1.1, y: 0, z: 0, topColor: colors.aquaLight, delay: 0.5 },   // extends left
-      { x: 0, y: 0, z: -1.1, topColor: colors.aqua, delay: 1.0 },        // extends back
-      { x: -1.1, y: 0, z: -1.1, topColor: colors.aquaLight, delay: 1.5 }, // completes bottom
+      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.aqua, delay: 0 },             // corner block
+      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.aquaLight, delay: 0.5 },     // extends left
+      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.aqua, delay: 1.0 },          // extends back
+      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.aquaLight, delay: 1.5 },    // completes bottom
       
       // Top layer
-      { x: 0, y: 1.1, z: 0, topColor: colors.aqua, delay: 2.0 },           // top corner
-      { x: -1.1, y: 1.1, z: 0, topColor: colors.aquaLight, delay: 2.5 },   // top left
-      { x: 0, y: 1.1, z: -1.1, topColor: colors.aqua, delay: 3.0 },        // top back
-      { x: -1.1, y: 1.1, z: -1.1, topColor: colors.aquaLight, delay: 3.5 }, // top final
+      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.aqua, delay: 2.0 },            // top corner
+      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.aquaLight, delay: 2.5 },      // top left
+      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.aqua, delay: 3.0 },           // top back
+      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.aquaLight, delay: 3.5 },     // top final
     ];
 
-    // Create blocks group for rotation
+    // Create blocks group for rotation (cube is centered at origin)
     const blocksGroup = new THREE.Group();
-    blocksGroup.position.set(0.55, -0.55, 0.55); // Center the cube
     scene.add(blocksGroup);
     
     const blocks: THREE.Mesh[] = [];
