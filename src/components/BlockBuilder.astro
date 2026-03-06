@@ -179,33 +179,27 @@ const canvasSize = sizeMap[size];
         const rotationEased = easeOutCubic(rotationProgress);
         blocksGroup.rotation.y = rotationEased * Math.PI * 2;
         
-        // Height: parabolic arc up then down, with bounce at end
-        // Peak at 35% through the arc
-        const peakPoint = 0.35;
+        // Height: quick rise, fast fall, then bounces
+        const peakPoint = 0.25; // Peak earlier
         let height: number;
         
         if (arcProgress < peakPoint) {
           // Rising phase - smooth ease up
           const riseProgress = arcProgress / peakPoint;
           height = easeOutCubic(riseProgress) * liftHeight;
+        } else if (arcProgress < 0.5) {
+          // Fast falling phase (before landing)
+          const fallProgress = (arcProgress - peakPoint) / (0.5 - peakPoint);
+          const fallCurve = fallProgress * fallProgress * fallProgress; // Cubic fall (faster)
+          height = liftHeight * (1 - fallCurve);
         } else {
-          // Falling phase with bounce
-          const fallProgress = (arcProgress - peakPoint) / (1 - peakPoint);
-          
-          // Main fall
-          const fallCurve = fallProgress * fallProgress; // Accelerating fall (gravity-like)
-          
-          // Bounce: kicks in near the end
-          let bounce = 0;
-          if (fallProgress > 0.7) {
-            const bouncePhase = (fallProgress - 0.7) / 0.3;
-            // Two bounces, decreasing amplitude
-            bounce = Math.sin(bouncePhase * Math.PI * 2.5) * (1 - bouncePhase) * 0.15 * liftHeight;
-            bounce = Math.max(bounce, 0); // Only bounce up, not below ground
-          }
-          
-          height = liftHeight * (1 - fallCurve) + bounce;
-          height = Math.max(height, 0); // Don't go below 0
+          // Bounce phase - cube has "landed", now bouncing
+          const bounceProgress = (arcProgress - 0.5) / 0.5;
+          // Damped bounces
+          const bounceCount = 2;
+          const damping = Math.pow(1 - bounceProgress, 1.5);
+          const bounceWave = Math.abs(Math.sin(bounceProgress * Math.PI * bounceCount));
+          height = bounceWave * damping * liftHeight * 0.4; // 40% of original height for first bounce
         }
         
         blocksGroup.position.y = height;
