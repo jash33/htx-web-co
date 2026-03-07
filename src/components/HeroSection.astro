@@ -1839,8 +1839,8 @@ const trustIcons: Record<string, string> = {
   }
 
   .hero__mockup-float {
+    display: none; /* Hidden on mobile, shown with mockup on desktop */
     position: absolute;
-    display: flex;
     align-items: center;
     gap: 16px;
     padding: 16px 20px;
@@ -2554,6 +2554,10 @@ const trustIcons: Record<string, string> = {
 
     .hero__mockup {
       display: block;
+    }
+
+    .hero__mockup-float {
+      display: flex;
     }
 
     /* Floating Orbs - Desktop Enhancements */
