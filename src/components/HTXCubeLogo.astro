@@ -70,27 +70,27 @@ const { size = 200, class: className = '' } = Astro.props;
     });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Brand colors - Darker palette
+    // Brand colors - High contrast palette
     const colors = {
-      steelBlue: 0x3A7CA8,    // Top faces
-      mediumBlue: 0x4A90C4,   // Alternating tops
-      navy: 0x1E4B6E,         // Left/front faces
-      deepNavy: 0x14354F,     // Right/back faces
+      skyBlue: 0x67ACE0,      // Top faces (light)
+      steelBlue: 0x3A7CA8,    // Alternating tops (medium)
+      deepNavy: 0x14354F,     // Left/front faces (dark)
+      nearBlack: 0x0A1F2F,    // Right/back faces (darkest)
       white: 0xFFFFFF,
     };
 
     // Block positions - 2x2x2 cube in final state
     const blockConfigs = [
       // Bottom layer
-      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.steelBlue },
-      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.mediumBlue },
-      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.steelBlue },
-      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.mediumBlue },
+      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.skyBlue },
+      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.steelBlue },
+      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.skyBlue },
+      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.steelBlue },
       // Top layer
-      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.steelBlue },
-      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.mediumBlue },
-      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.steelBlue },
-      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.mediumBlue },
+      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.skyBlue },
+      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.steelBlue },
+      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.skyBlue },
+      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.steelBlue },
     ];
 
     // Create blocks group
@@ -101,12 +101,12 @@ const { size = 200, class: className = '' } = Astro.props;
     
     blockConfigs.forEach((config) => {
       const materials = [
-        new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // right (+X)
-        new THREE.MeshBasicMaterial({ color: colors.navy }),     // left (-X)
-        new THREE.MeshBasicMaterial({ color: config.topColor }), // top (+Y)
-        new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // bottom (-Y)
-        new THREE.MeshBasicMaterial({ color: colors.navy }),     // front (+Z)
-        new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // back (-Z)
+        new THREE.MeshBasicMaterial({ color: colors.nearBlack }), // right (+X)
+        new THREE.MeshBasicMaterial({ color: colors.deepNavy }),  // left (-X)
+        new THREE.MeshBasicMaterial({ color: config.topColor }),  // top (+Y)
+        new THREE.MeshBasicMaterial({ color: colors.nearBlack }), // bottom (-Y)
+        new THREE.MeshBasicMaterial({ color: colors.deepNavy }),  // front (+Z)
+        new THREE.MeshBasicMaterial({ color: colors.nearBlack }), // back (-Z)
       ];
       
       const block = new THREE.Mesh(blockGeometry, materials);
