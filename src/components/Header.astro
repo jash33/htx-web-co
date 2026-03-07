@@ -45,8 +45,7 @@ const navLinks = [
   <div class="header__container">
     <!-- Logo/Brand (Left) -->
     <a href="/htx-web-co/" class="header__logo" aria-label="HTX Web Co. - Go to homepage">
-      <HTXCubeLogo size={40} class="header__logo-cube header__logo-cube--mobile" />
-      <HTXCubeLogo size={110} class="header__logo-cube header__logo-cube--desktop" />
+      <HTXCubeLogo size={110} class="header__logo-cube" />
       <span class="header__logo-text">
         <span class="header__logo-htx">HTX</span>
         <span class="header__logo-webco">Web Co.</span>
@@ -224,13 +223,9 @@ const navLinks = [
     line-height: 1.1;
   }
 
-  /* Mobile: show small cube, hide large */
-  .header__logo-cube--mobile {
-    display: block;
-  }
-
-  .header__logo-cube--desktop {
-    display: none;
+  /* Mobile: smaller cube */
+  .header__logo-cube :global(canvas) {
+    width: 80px;
   }
 
   .header__logo-htx {
@@ -249,14 +244,10 @@ const navLinks = [
     letter-spacing: 0.02em;
   }
 
-  /* Desktop: show large cube, hide small */
+  /* Desktop: full size cube */
   @media screen and (min-width: 769px) {
-    .header__logo-cube--mobile {
-      display: none;
-    }
-
-    .header__logo-cube--desktop {
-      display: block;
+    .header__logo-cube :global(canvas) {
+      width: 110px;
     }
 
     .header__logo-htx {
