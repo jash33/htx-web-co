@@ -58,11 +58,11 @@ import BlockBuilder from '../../components/BlockBuilder.astro';
     margin-bottom: 4rem;
     padding: 2rem;
     border-radius: 12px;
-    background: #f9fafb;
+    background: var(--color-background-subtle);
   }
 
   .demo-section--dark {
-    background: linear-gradient(135deg, #011F4B 0%, #015B77 100%);
+    background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-600) 100%);
   }
 
   .demo-section--dark h2 {
@@ -95,8 +95,8 @@ import BlockBuilder from '../../components/BlockBuilder.astro';
     display: block;
     margin: 2rem auto 0;
     padding: 0.75rem 1.5rem;
-    background: #33D6B5;
-    color: #011F4B;
+    background: var(--color-accent);
+    color: var(--color-primary-900);
     border: none;
     border-radius: 8px;
     font-weight: 600;
@@ -104,7 +104,7 @@ import BlockBuilder from '../../components/BlockBuilder.astro';
   }
 
   button:hover {
-    background: #28c9a7;
+    background: var(--color-accent-dark);
   }
 </style>
 
