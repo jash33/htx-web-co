@@ -385,16 +385,16 @@ const hasServices = services && services.length > 0;
         if (entry.isIntersecting && !hasAnimated) {
           hasAnimated = true;
           
-          // Highlight each card sequentially - slower and smoother
+          // Highlight each card sequentially - snappy
           cards.forEach((card, index) => {
             setTimeout(() => {
               card.classList.add('service-card--highlight');
               
-              // Remove highlight after a longer moment for smoother feel
+              // Remove highlight quickly
               setTimeout(() => {
                 card.classList.remove('service-card--highlight');
-              }, 700);
-            }, index * 350); // 350ms delay between each card
+              }, 350);
+            }, index * 150); // 150ms delay between each card
           });
           
           observer.disconnect();

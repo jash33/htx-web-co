@@ -112,11 +112,11 @@ const cardClasses = [
     /* Overflow for shine effect */
     overflow: hidden;
 
-    /* Animation - slower and smoother for sequential highlight effect */
+    /* Animation - snappy sequential highlight effect */
     transition:
-      box-shadow var(--duration-500) var(--ease-smooth),
-      transform var(--duration-500) var(--ease-smooth),
-      border-color var(--duration-500) var(--ease-smooth);
+      box-shadow var(--duration-200) var(--ease-smooth),
+      transform var(--duration-200) var(--ease-smooth),
+      border-color var(--duration-200) var(--ease-smooth);
   }
 
   /* Gradient border glow effect - appears on hover */
@@ -134,7 +134,7 @@ const cardClasses = [
     opacity: 0;
     z-index: -1;
     filter: blur(8px);
-    transition: opacity var(--duration-500) var(--ease-smooth);
+    transition: opacity var(--duration-200) var(--ease-smooth);
   }
 
   /* Shine sweep effect */
@@ -152,7 +152,7 @@ const cardClasses = [
       transparent 100%
     );
     transform: skewX(-20deg);
-    transition: left var(--duration-1000) var(--ease-smooth);
+    transition: left var(--duration-500) var(--ease-smooth);
     pointer-events: none;
     z-index: 1;
   }
@@ -190,9 +190,9 @@ const cardClasses = [
     color: var(--color-primary);
     position: relative;
     transition:
-      background var(--duration-500) var(--ease-smooth),
-      transform var(--duration-500) var(--ease-smooth),
-      box-shadow var(--duration-500) var(--ease-smooth);
+      background var(--duration-200) var(--ease-smooth),
+      transform var(--duration-200) var(--ease-smooth),
+      box-shadow var(--duration-200) var(--ease-smooth);
   }
 
   .service-card:hover .service-card__icon,
@@ -209,7 +209,7 @@ const cardClasses = [
   .service-card__icon :global(svg) {
     width: var(--spacing-7);
     height: var(--spacing-7);
-    transition: transform var(--duration-500) var(--ease-smooth);
+    transition: transform var(--duration-200) var(--ease-smooth);
   }
 
   .service-card:hover .service-card__icon :global(svg),
@@ -232,7 +232,7 @@ const cardClasses = [
     color: var(--color-text-primary);
     margin: 0;
     line-height: var(--line-height-tight);
-    transition: color var(--duration-500) var(--ease-smooth);
+    transition: color var(--duration-200) var(--ease-smooth);
   }
 
   .service-card:hover .service-card__title {
@@ -245,7 +245,7 @@ const cardClasses = [
     color: var(--color-text-secondary);
     line-height: var(--line-height-relaxed);
     margin: 0;
-    transition: color var(--duration-500) var(--ease-smooth);
+    transition: color var(--duration-200) var(--ease-smooth);
     /* Limit description height to prevent card overflow */
     display: -webkit-box;
     -webkit-line-clamp: 4;
