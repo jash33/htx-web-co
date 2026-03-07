@@ -65,17 +65,17 @@
    * Main brand color based on #67ACE0 with smooth shade variations
    * Brand colors: #67ACE0 (Sky), #3A7CA8 (Steel), #1E4B6E (Navy), #B5D8F0 (Ice)
    * ----------------------------------------------------------------- */
-  --color-primary-50: #EBF5FC;   /* Lightest - backgrounds, subtle tints */
-  --color-primary-100: #D1E8F7;  /* Light - hover backgrounds */
-  --color-primary-200: #B5D8F0;  /* Ice blue - lighter than base */
-  --color-primary-300: #8DC4E8;  /* Light sky */
-  --color-primary-400: #67ACE0;  /* Base sky blue - brand primary */
-  --color-primary-500: #4A90C4;  /* Medium blue - primary actions */
-  --color-primary-600: #3A7CA8;  /* Steel blue - hover states */
-  --color-primary-700: #2B6690;  /* Dark - active states */
-  --color-primary-800: #1E4B6E;  /* Navy - pressed states */
-  --color-primary-900: #14354F;  /* Deep navy - dark backgrounds */
-  --color-primary-950: #0A1F2F;  /* Near black - maximum contrast */
+  --color-primary-50: #ebf5fc; /* Lightest - backgrounds, subtle tints */
+  --color-primary-100: #d1e8f7; /* Light - hover backgrounds */
+  --color-primary-200: #b5d8f0; /* Ice blue - lighter than base */
+  --color-primary-300: #8dc4e8; /* Light sky */
+  --color-primary-400: #67ace0; /* Base sky blue - brand primary */
+  --color-primary-500: #4a90c4; /* Medium blue - primary actions */
+  --color-primary-600: #3a7ca8; /* Steel blue - hover states */
+  --color-primary-700: #2b6690; /* Dark - active states */
+  --color-primary-800: #1e4b6e; /* Navy - pressed states */
+  --color-primary-900: #14354f; /* Deep navy - dark backgrounds */
+  --color-primary-950: #0a1f2f; /* Near black - maximum contrast */
 
   /* Semantic primary aliases for easy use */
   --color-primary: var(--color-primary-500);
@@ -90,23 +90,23 @@
    * White default with subtle variants for layering
    * ----------------------------------------------------------------- */
   --color-background: #ffffff;
-  --color-background-subtle: #f8fafc;      /* Slight gray tint for sections */
-  --color-background-muted: #f1f5f9;       /* More visible background distinction */
-  --color-background-elevated: #ffffff;     /* Cards, modals - usually white */
-  --color-background-overlay: rgba(0, 0, 0, 0.5);  /* Modal overlays */
-  --color-background-inverse: var(--color-primary-900);  /* Dark backgrounds */
+  --color-background-subtle: #f8fafc; /* Slight gray tint for sections */
+  --color-background-muted: #f1f5f9; /* More visible background distinction */
+  --color-background-elevated: #ffffff; /* Cards, modals - usually white */
+  --color-background-overlay: rgba(0, 0, 0, 0.5); /* Modal overlays */
+  --color-background-inverse: var(--color-primary-900); /* Dark backgrounds */
 
   /* -----------------------------------------------------------------
    * Text Colors
    * Hierarchy levels with appropriate contrast ratios (WCAG AA)
    * All colors tested against white background
    * ----------------------------------------------------------------- */
-  --color-text-primary: #111827;    /* Main text - 15.5:1 contrast */
-  --color-text-secondary: #4b5563;  /* Secondary text - 7.5:1 contrast */
-  --color-text-tertiary: #6b7280;   /* Tertiary/helper text - 5.4:1 contrast */
-  --color-text-disabled: #9ca3af;   /* Disabled text - 3.0:1 contrast (intentionally lower) */
+  --color-text-primary: #111827; /* Main text - 15.5:1 contrast */
+  --color-text-secondary: #4b5563; /* Secondary text - 7.5:1 contrast */
+  --color-text-tertiary: #6b7280; /* Tertiary/helper text - 5.4:1 contrast */
+  --color-text-disabled: #9ca3af; /* Disabled text - 3.0:1 contrast (intentionally lower) */
   --color-text-placeholder: #9ca3af; /* Placeholder text */
-  --color-text-inverse: #ffffff;    /* Text on dark backgrounds */
+  --color-text-inverse: #ffffff; /* Text on dark backgrounds */
   --color-text-link: var(--color-primary-500);
   --color-text-link-hover: var(--color-primary-700);
 
@@ -115,17 +115,17 @@
    * Primary accent for CTAs, highlights, and decorative elements
    * Brand: #5BC0C4 (Soft Teal), #A8E0E2 (Light Teal)
    * ----------------------------------------------------------------- */
-  --color-accent: #5BC0C4;          /* Soft teal - primary CTA */
-  --color-accent-light: #7DD0D3;    /* Lighter teal */
-  --color-accent-dark: #4AA8AC;     /* Darker teal for hover */
-  --color-accent-hover: #7DD0D3;    /* Lighter on hover */
-  --color-accent-subtle: #D4F1F2;   /* Very light teal background */
+  --color-accent: #5bc0c4; /* Soft teal - primary CTA */
+  --color-accent-light: #82d2d5; /* Lighter teal */
+  --color-accent-dark: #3e9fa3; /* Darker teal for hover/active */
+  --color-accent-hover: #73cbce; /* Slightly lighter than base */
+  --color-accent-subtle: #e6f6f7; /* Very light teal background */
 
   /* Alternative accent (Steel Blue for variety) */
-  --color-accent-alt: #3A7CA8;
-  --color-accent-alt-light: #5A9AC4;
-  --color-accent-alt-dark: #2B6690;
-  --color-accent-alt-subtle: #E8F2F8;
+  --color-accent-alt: #3a7ca8;
+  --color-accent-alt-light: #5a9ac4;
+  --color-accent-alt-dark: #2b6690;
+  --color-accent-alt-subtle: #e8f2f8;
 
   /* -----------------------------------------------------------------
    * Semantic Colors - UI Feedback States
@@ -163,10 +163,10 @@
   /* -----------------------------------------------------------------
    * Border Colors
    * ----------------------------------------------------------------- */
-  --color-border: #e5e7eb;          /* Default borders */
-  --color-border-light: #f3f4f6;    /* Subtle borders */
-  --color-border-dark: #d1d5db;     /* Emphasized borders */
-  --color-border-focus: var(--color-primary-500);  /* Focus rings */
+  --color-border: #e5e7eb; /* Default borders */
+  --color-border-light: #f3f4f6; /* Subtle borders */
+  --color-border-dark: #d1d5db; /* Emphasized borders */
+  --color-border-focus: var(--color-primary-500); /* Focus rings */
 
   /* =================================================================
    * 2. TYPOGRAPHY SYSTEM
@@ -178,9 +178,14 @@
    * Red Hat Display (headings) - refined, modern, editorial
    * Plus Jakarta Sans (body) - clean, modern, readable
    * ----------------------------------------------------------------- */
-  --font-family-heading: 'Red Hat Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-family-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-family-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+  --font-family-heading:
+    "Red Hat Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-family-body:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-family-mono:
+    ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
 
   /* Semantic aliases */
   --font-heading: var(--font-family-heading);
@@ -191,17 +196,17 @@
    * Font Sizes - Modular Type Scale
    * Base: 16px (1rem), Scale ratio: ~1.25 (Major Third)
    * ----------------------------------------------------------------- */
-  --font-size-xs: 0.75rem;      /* 12px - Fine print, captions */
-  --font-size-sm: 0.875rem;     /* 14px - Small text, labels */
-  --font-size-base: 1rem;       /* 16px - Body text */
-  --font-size-md: 1.125rem;     /* 18px - Large body, lead text */
-  --font-size-lg: 1.25rem;      /* 20px - H6, small headings */
-  --font-size-xl: 1.5rem;       /* 24px - H5 */
-  --font-size-2xl: 1.875rem;    /* 30px - H4 */
-  --font-size-3xl: 2.25rem;     /* 36px - H3 */
-  --font-size-4xl: 3rem;        /* 48px - H2 */
-  --font-size-5xl: 3.75rem;     /* 60px - H1 */
-  --font-size-6xl: 4.5rem;      /* 72px - Display headings */
+  --font-size-xs: 0.75rem; /* 12px - Fine print, captions */
+  --font-size-sm: 0.875rem; /* 14px - Small text, labels */
+  --font-size-base: 1rem; /* 16px - Body text */
+  --font-size-md: 1.125rem; /* 18px - Large body, lead text */
+  --font-size-lg: 1.25rem; /* 20px - H6, small headings */
+  --font-size-xl: 1.5rem; /* 24px - H5 */
+  --font-size-2xl: 1.875rem; /* 30px - H4 */
+  --font-size-3xl: 2.25rem; /* 36px - H3 */
+  --font-size-4xl: 3rem; /* 48px - H2 */
+  --font-size-5xl: 3.75rem; /* 60px - H1 */
+  --font-size-6xl: 4.5rem; /* 72px - Display headings */
 
   /* -----------------------------------------------------------------
    * Font Weights
@@ -218,11 +223,11 @@
    * Optimized for readability at each font size
    * ----------------------------------------------------------------- */
   --line-height-none: 1;
-  --line-height-tight: 1.25;    /* Headings */
-  --line-height-snug: 1.375;    /* Subheadings */
-  --line-height-normal: 1.5;    /* Body text - optimal for reading */
+  --line-height-tight: 1.25; /* Headings */
+  --line-height-snug: 1.375; /* Subheadings */
+  --line-height-normal: 1.5; /* Body text - optimal for reading */
   --line-height-relaxed: 1.625; /* Large text blocks */
-  --line-height-loose: 2;       /* Spacious text */
+  --line-height-loose: 2; /* Spacious text */
 
   /* -----------------------------------------------------------------
    * Letter Spacing (Tracking)
@@ -243,39 +248,39 @@
 
   --spacing-0: 0;
   --spacing-px: 1px;
-  --spacing-0-5: 0.125rem;  /* 2px */
-  --spacing-1: 0.25rem;     /* 4px - Base unit */
-  --spacing-1-5: 0.375rem;  /* 6px */
-  --spacing-2: 0.5rem;      /* 8px */
-  --spacing-2-5: 0.625rem;  /* 10px */
-  --spacing-3: 0.75rem;     /* 12px */
-  --spacing-3-5: 0.875rem;  /* 14px */
-  --spacing-4: 1rem;        /* 16px */
-  --spacing-5: 1.25rem;     /* 20px */
-  --spacing-6: 1.5rem;      /* 24px */
-  --spacing-7: 1.75rem;     /* 28px */
-  --spacing-8: 2rem;        /* 32px */
-  --spacing-9: 2.25rem;     /* 36px */
-  --spacing-10: 2.5rem;     /* 40px */
-  --spacing-11: 2.75rem;    /* 44px */
-  --spacing-12: 3rem;       /* 48px */
-  --spacing-14: 3.5rem;     /* 56px */
-  --spacing-16: 4rem;       /* 64px */
-  --spacing-20: 5rem;       /* 80px */
-  --spacing-24: 6rem;       /* 96px */
-  --spacing-28: 7rem;       /* 112px */
-  --spacing-32: 8rem;       /* 128px */
-  --spacing-36: 9rem;       /* 144px */
-  --spacing-40: 10rem;      /* 160px */
-  --spacing-44: 11rem;      /* 176px */
-  --spacing-48: 12rem;      /* 192px */
-  --spacing-52: 13rem;      /* 208px */
-  --spacing-56: 14rem;      /* 224px */
-  --spacing-60: 15rem;      /* 240px */
-  --spacing-64: 16rem;      /* 256px */
-  --spacing-72: 18rem;      /* 288px */
-  --spacing-80: 20rem;      /* 320px */
-  --spacing-96: 24rem;      /* 384px */
+  --spacing-0-5: 0.125rem; /* 2px */
+  --spacing-1: 0.25rem; /* 4px - Base unit */
+  --spacing-1-5: 0.375rem; /* 6px */
+  --spacing-2: 0.5rem; /* 8px */
+  --spacing-2-5: 0.625rem; /* 10px */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-3-5: 0.875rem; /* 14px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-5: 1.25rem; /* 20px */
+  --spacing-6: 1.5rem; /* 24px */
+  --spacing-7: 1.75rem; /* 28px */
+  --spacing-8: 2rem; /* 32px */
+  --spacing-9: 2.25rem; /* 36px */
+  --spacing-10: 2.5rem; /* 40px */
+  --spacing-11: 2.75rem; /* 44px */
+  --spacing-12: 3rem; /* 48px */
+  --spacing-14: 3.5rem; /* 56px */
+  --spacing-16: 4rem; /* 64px */
+  --spacing-20: 5rem; /* 80px */
+  --spacing-24: 6rem; /* 96px */
+  --spacing-28: 7rem; /* 112px */
+  --spacing-32: 8rem; /* 128px */
+  --spacing-36: 9rem; /* 144px */
+  --spacing-40: 10rem; /* 160px */
+  --spacing-44: 11rem; /* 176px */
+  --spacing-48: 12rem; /* 192px */
+  --spacing-52: 13rem; /* 208px */
+  --spacing-56: 14rem; /* 224px */
+  --spacing-60: 15rem; /* 240px */
+  --spacing-64: 16rem; /* 256px */
+  --spacing-72: 18rem; /* 288px */
+  --spacing-80: 20rem; /* 320px */
+  --spacing-96: 24rem; /* 384px */
 
   /* =================================================================
    * 4. BORDER & RADIUS
@@ -289,14 +294,14 @@
   --border-width-8: 8px;
 
   --radius-none: 0;
-  --radius-sm: 0.125rem;    /* 2px */
-  --radius-base: 0.25rem;   /* 4px */
-  --radius-md: 0.375rem;    /* 6px */
-  --radius-lg: 0.5rem;      /* 8px */
-  --radius-xl: 0.75rem;     /* 12px */
-  --radius-2xl: 1rem;       /* 16px */
-  --radius-3xl: 1.5rem;     /* 24px */
-  --radius-full: 9999px;    /* Pill/circle shapes */
+  --radius-sm: 0.125rem; /* 2px */
+  --radius-base: 0.25rem; /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-3xl: 1.5rem; /* 24px */
+  --radius-full: 9999px; /* Pill/circle shapes */
 
   /* =================================================================
    * 5. SHADOWS
@@ -306,8 +311,10 @@
   --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl:
+    0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
   --shadow-none: 0 0 #0000;
@@ -323,8 +330,12 @@
 
   --transition-none: none;
   --transition-all: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-default: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-colors: background-color, border-color, color, fill, stroke 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-default:
+    background-color, border-color, color, fill, stroke, opacity, box-shadow,
+    transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-colors:
+    background-color, border-color, color, fill,
+    stroke 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-opacity: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-shadow: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-transform: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -353,7 +364,7 @@
   --z-20: 20;
   --z-30: 30;
   --z-40: 40;
-  --z-50: 50;        /* Sticky elements */
+  --z-50: 50; /* Sticky elements */
   --z-dropdown: 100;
   --z-sticky: 200;
   --z-fixed: 300;
@@ -369,17 +380,17 @@
    * =================================================================
    */
 
-  --container-xs: 20rem;    /* 320px */
-  --container-sm: 24rem;    /* 384px */
-  --container-md: 28rem;    /* 448px */
-  --container-lg: 32rem;    /* 512px */
-  --container-xl: 36rem;    /* 576px */
-  --container-2xl: 42rem;   /* 672px */
-  --container-3xl: 48rem;   /* 768px */
-  --container-4xl: 56rem;   /* 896px */
-  --container-5xl: 64rem;   /* 1024px */
-  --container-6xl: 72rem;   /* 1152px */
-  --container-7xl: 80rem;   /* 1280px */
+  --container-xs: 20rem; /* 320px */
+  --container-sm: 24rem; /* 384px */
+  --container-md: 28rem; /* 448px */
+  --container-lg: 32rem; /* 512px */
+  --container-xl: 36rem; /* 576px */
+  --container-2xl: 42rem; /* 672px */
+  --container-3xl: 48rem; /* 768px */
+  --container-4xl: 56rem; /* 896px */
+  --container-5xl: 64rem; /* 1024px */
+  --container-6xl: 72rem; /* 1152px */
+  --container-7xl: 80rem; /* 1280px */
   --container-full: 100%;
 
   /* =================================================================
@@ -390,7 +401,10 @@
   --focus-ring-width: 2px;
   --focus-ring-offset: 2px;
   --focus-ring-color: var(--color-primary-500);
-  --focus-ring: 0 0 0 var(--focus-ring-offset) var(--color-background), 0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color);
+  --focus-ring:
+    0 0 0 var(--focus-ring-offset) var(--color-background),
+    0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width))
+      var(--focus-ring-color);
 
   /* =================================================================
    * 10. DESIGN FLAIR - GRADIENTS
@@ -402,39 +416,115 @@
   /* -----------------------------------------------------------------
    * Primary Gradients - Brand-aligned directional gradients
    * ----------------------------------------------------------------- */
-  --gradient-primary: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
-  --gradient-primary-reverse: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-500) 100%);
-  --gradient-primary-vertical: linear-gradient(180deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
-  --gradient-primary-horizontal: linear-gradient(90deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-primary-500) 0%,
+    var(--color-primary-700) 100%
+  );
+  --gradient-primary-reverse: linear-gradient(
+    135deg,
+    var(--color-primary-700) 0%,
+    var(--color-primary-500) 100%
+  );
+  --gradient-primary-vertical: linear-gradient(
+    180deg,
+    var(--color-primary-500) 0%,
+    var(--color-primary-700) 100%
+  );
+  --gradient-primary-horizontal: linear-gradient(
+    90deg,
+    var(--color-primary-500) 0%,
+    var(--color-primary-700) 100%
+  );
 
   /* -----------------------------------------------------------------
    * Accent Gradients - Purple/Teal accent combinations
    * ----------------------------------------------------------------- */
-  --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
-  --gradient-accent-alt: linear-gradient(135deg, var(--color-accent-alt) 0%, var(--color-accent-alt-dark) 100%);
-  --gradient-accent-mixed: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
+  --gradient-accent: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-accent-dark) 100%
+  );
+  --gradient-accent-alt: linear-gradient(
+    135deg,
+    var(--color-accent-alt) 0%,
+    var(--color-accent-alt-dark) 100%
+  );
+  --gradient-accent-mixed: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-accent-alt) 100%
+  );
 
   /* -----------------------------------------------------------------
    * Hero/Feature Gradients - Multi-stop gradients for hero sections
    * ----------------------------------------------------------------- */
-  --gradient-hero: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 50%, var(--color-primary-500) 100%);
-  --gradient-hero-animated: linear-gradient(270deg, var(--color-primary-900), var(--color-primary-700), var(--color-primary-500), var(--color-primary-700));
-  --gradient-hero-radial: radial-gradient(ellipse at 30% 20%, var(--color-primary-700) 0%, var(--color-primary-900) 50%, var(--color-primary-950) 100%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    var(--color-primary-900) 0%,
+    var(--color-primary-700) 50%,
+    var(--color-primary-500) 100%
+  );
+  --gradient-hero-animated: linear-gradient(
+    270deg,
+    var(--color-primary-900),
+    var(--color-primary-700),
+    var(--color-primary-500),
+    var(--color-primary-700)
+  );
+  --gradient-hero-radial: radial-gradient(
+    ellipse at 30% 20%,
+    var(--color-primary-700) 0%,
+    var(--color-primary-900) 50%,
+    var(--color-primary-950) 100%
+  );
 
   /* -----------------------------------------------------------------
    * Decorative Gradients - Subtle backgrounds and overlays
    * ----------------------------------------------------------------- */
-  --gradient-subtle: linear-gradient(180deg, var(--color-background-subtle) 0%, var(--color-background) 100%);
-  --gradient-section-fade: linear-gradient(180deg, transparent 0%, var(--color-background-subtle) 10%, var(--color-background-subtle) 90%, transparent 100%);
-  --gradient-overlay-dark: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
-  --gradient-overlay-light: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%);
+  --gradient-subtle: linear-gradient(
+    180deg,
+    var(--color-background-subtle) 0%,
+    var(--color-background) 100%
+  );
+  --gradient-section-fade: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--color-background-subtle) 10%,
+    var(--color-background-subtle) 90%,
+    transparent 100%
+  );
+  --gradient-overlay-dark: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  --gradient-overlay-light: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
 
   /* -----------------------------------------------------------------
    * Border/Accent Line Gradients - For decorative borders and lines
    * ----------------------------------------------------------------- */
-  --gradient-border-accent: linear-gradient(90deg, var(--color-primary-500) 0%, var(--color-accent) 50%, var(--color-accent-alt) 100%);
-  --gradient-border-fade: linear-gradient(90deg, transparent 0%, var(--color-primary-500) 50%, transparent 100%);
-  --gradient-underline: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
+  --gradient-border-accent: linear-gradient(
+    90deg,
+    var(--color-primary-500) 0%,
+    var(--color-accent) 50%,
+    var(--color-accent-alt) 100%
+  );
+  --gradient-border-fade: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-primary-500) 50%,
+    transparent 100%
+  );
+  --gradient-underline: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    var(--color-accent-alt) 100%
+  );
 
   /* =================================================================
    * 11. DESIGN FLAIR - GLOW EFFECTS
@@ -449,7 +539,8 @@
   --glow-primary-sm: 0 0 10px rgba(1, 91, 119, 0.3);
   --glow-primary-md: 0 0 20px rgba(1, 91, 119, 0.4);
   --glow-primary-lg: 0 0 30px rgba(1, 91, 119, 0.5);
-  --glow-primary-xl: 0 0 40px rgba(1, 91, 119, 0.5), 0 0 60px rgba(1, 91, 119, 0.3);
+  --glow-primary-xl:
+    0 0 40px rgba(1, 91, 119, 0.5), 0 0 60px rgba(1, 91, 119, 0.3);
 
   /* -----------------------------------------------------------------
    * Accent Glow - Aqua Green accent glow effects
@@ -457,7 +548,8 @@
   --glow-accent-sm: 0 0 10px rgba(51, 214, 181, 0.3);
   --glow-accent-md: 0 0 20px rgba(51, 214, 181, 0.4);
   --glow-accent-lg: 0 0 30px rgba(51, 214, 181, 0.5);
-  --glow-accent-xl: 0 0 40px rgba(51, 214, 181, 0.5), 0 0 60px rgba(51, 214, 181, 0.3);
+  --glow-accent-xl:
+    0 0 40px rgba(51, 214, 181, 0.5), 0 0 60px rgba(51, 214, 181, 0.3);
 
   /* -----------------------------------------------------------------
    * Alt Accent Glow - Midnight Blue glow effects
@@ -469,14 +561,18 @@
   /* -----------------------------------------------------------------
    * Combined/Mixed Glow - Multi-color glow combinations
    * ----------------------------------------------------------------- */
-  --glow-mixed: 0 0 20px rgba(51, 214, 181, 0.3), 0 0 40px rgba(1, 91, 119, 0.2);
-  --glow-mixed-lg: 0 0 30px rgba(51, 214, 181, 0.4), 0 0 60px rgba(1, 91, 119, 0.3);
+  --glow-mixed:
+    0 0 20px rgba(51, 214, 181, 0.3), 0 0 40px rgba(1, 91, 119, 0.2);
+  --glow-mixed-lg:
+    0 0 30px rgba(51, 214, 181, 0.4), 0 0 60px rgba(1, 91, 119, 0.3);
 
   /* -----------------------------------------------------------------
    * Card/Element Glow - For card hover states
    * ----------------------------------------------------------------- */
-  --glow-card-hover: 0 0 0 1px rgba(1, 91, 119, 0.1), 0 4px 20px rgba(1, 91, 119, 0.15);
-  --glow-card-active: 0 0 0 2px rgba(1, 91, 119, 0.2), 0 8px 30px rgba(1, 91, 119, 0.2);
+  --glow-card-hover:
+    0 0 0 1px rgba(1, 91, 119, 0.1), 0 4px 20px rgba(1, 91, 119, 0.15);
+  --glow-card-active:
+    0 0 0 2px rgba(1, 91, 119, 0.2), 0 8px 30px rgba(1, 91, 119, 0.2);
 
   /* -----------------------------------------------------------------
    * Text Glow - For glowing text effects (use sparingly)
@@ -541,15 +637,24 @@
    * Hover/Interaction Transitions - Pre-composed for common uses
    * ----------------------------------------------------------------- */
   --transition-hover: all var(--animation-duration-fast) var(--ease-smooth);
-  --transition-hover-lift: transform var(--animation-duration-fast) var(--ease-spring-soft), box-shadow var(--animation-duration-fast) var(--ease-smooth);
-  --transition-hover-glow: box-shadow var(--animation-duration-normal) var(--ease-smooth);
-  --transition-hover-color: color var(--animation-duration-fast) var(--ease-smooth), background-color var(--animation-duration-fast) var(--ease-smooth);
+  --transition-hover-lift:
+    transform var(--animation-duration-fast) var(--ease-spring-soft),
+    box-shadow var(--animation-duration-fast) var(--ease-smooth);
+  --transition-hover-glow: box-shadow var(--animation-duration-normal)
+    var(--ease-smooth);
+  --transition-hover-color:
+    color var(--animation-duration-fast) var(--ease-smooth),
+    background-color var(--animation-duration-fast) var(--ease-smooth);
 
   /* -----------------------------------------------------------------
    * Reveal/Entrance Transitions - For scroll-reveal and page transitions
    * ----------------------------------------------------------------- */
-  --transition-reveal: opacity var(--animation-duration-slow) var(--ease-enter), transform var(--animation-duration-slow) var(--ease-enter-emphasized);
-  --transition-reveal-fast: opacity var(--animation-duration-normal) var(--ease-enter), transform var(--animation-duration-normal) var(--ease-enter);
+  --transition-reveal:
+    opacity var(--animation-duration-slow) var(--ease-enter),
+    transform var(--animation-duration-slow) var(--ease-enter-emphasized);
+  --transition-reveal-fast:
+    opacity var(--animation-duration-normal) var(--ease-enter),
+    transform var(--animation-duration-normal) var(--ease-enter);
 
   /* -----------------------------------------------------------------
    * Transform Presets - Common transform values for animations
@@ -628,8 +733,10 @@ html[data-theme="dark"] {
   --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.15);
   --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.2), 0 1px 2px -1px rgb(0 0 0 / 0.2);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.2), 0 2px 4px -2px rgb(0 0 0 / 0.2);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.2);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.2);
+  --shadow-xl:
+    0 20px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2);
   --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.4);
   --shadow-primary: 0 4px 14px 0 rgb(84 109 165 / 0.35);
   --shadow-primary-lg: 0 10px 25px -3px rgb(84 109 165 / 0.4);
@@ -643,9 +750,21 @@ html[data-theme="dark"] {
   /* -----------------------------------------------------------------
    * Dark Mode - Gradient Adjustments
    * ----------------------------------------------------------------- */
-  --gradient-subtle: linear-gradient(180deg, var(--color-background-subtle) 0%, var(--color-background) 100%);
-  --gradient-overlay-dark: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-  --gradient-overlay-light: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.9) 100%);
+  --gradient-subtle: linear-gradient(
+    180deg,
+    var(--color-background-subtle) 0%,
+    var(--color-background) 100%
+  );
+  --gradient-overlay-dark: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  --gradient-overlay-light: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0) 0%,
+    rgba(15, 23, 42, 0.9) 100%
+  );
 
   /* -----------------------------------------------------------------
    * Dark Mode - Glow Adjustments (more visible against dark backgrounds)
@@ -653,22 +772,28 @@ html[data-theme="dark"] {
   --glow-primary-sm: 0 0 15px rgba(1, 91, 119, 0.5);
   --glow-primary-md: 0 0 25px rgba(1, 91, 119, 0.6);
   --glow-primary-lg: 0 0 35px rgba(1, 91, 119, 0.7);
-  --glow-primary-xl: 0 0 45px rgba(1, 91, 119, 0.7), 0 0 70px rgba(1, 91, 119, 0.5);
+  --glow-primary-xl:
+    0 0 45px rgba(1, 91, 119, 0.7), 0 0 70px rgba(1, 91, 119, 0.5);
 
   --glow-accent-sm: 0 0 15px rgba(51, 214, 181, 0.5);
   --glow-accent-md: 0 0 25px rgba(51, 214, 181, 0.6);
   --glow-accent-lg: 0 0 35px rgba(51, 214, 181, 0.7);
-  --glow-accent-xl: 0 0 45px rgba(51, 214, 181, 0.7), 0 0 70px rgba(51, 214, 181, 0.5);
+  --glow-accent-xl:
+    0 0 45px rgba(51, 214, 181, 0.7), 0 0 70px rgba(51, 214, 181, 0.5);
 
   --glow-accent-alt-sm: 0 0 15px rgba(181, 241, 233, 0.4);
   --glow-accent-alt-md: 0 0 25px rgba(181, 241, 233, 0.5);
   --glow-accent-alt-lg: 0 0 35px rgba(181, 241, 233, 0.6);
 
-  --glow-mixed: 0 0 25px rgba(51, 214, 181, 0.5), 0 0 45px rgba(1, 91, 119, 0.4);
-  --glow-mixed-lg: 0 0 35px rgba(51, 214, 181, 0.6), 0 0 70px rgba(1, 91, 119, 0.5);
+  --glow-mixed:
+    0 0 25px rgba(51, 214, 181, 0.5), 0 0 45px rgba(1, 91, 119, 0.4);
+  --glow-mixed-lg:
+    0 0 35px rgba(51, 214, 181, 0.6), 0 0 70px rgba(1, 91, 119, 0.5);
 
-  --glow-card-hover: 0 0 0 1px rgba(51, 214, 181, 0.2), 0 4px 25px rgba(1, 91, 119, 0.25);
-  --glow-card-active: 0 0 0 2px rgba(51, 214, 181, 0.3), 0 8px 35px rgba(1, 91, 119, 0.3);
+  --glow-card-hover:
+    0 0 0 1px rgba(51, 214, 181, 0.2), 0 4px 25px rgba(1, 91, 119, 0.25);
+  --glow-card-active:
+    0 0 0 2px rgba(51, 214, 181, 0.3), 0 8px 35px rgba(1, 91, 119, 0.3);
 
   --glow-text-subtle: 0 0 15px rgba(248, 250, 252, 0.4);
   --glow-text-accent: 0 0 25px rgba(51, 214, 181, 0.7);

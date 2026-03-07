@@ -22,10 +22,13 @@ const { size = 200, class: className = '' } = Astro.props;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
   }
 
   .htx-cube-logo__canvas {
     display: block;
+    width: 10vh;
+    margin-top: 0rem
   }
 </style>
 
@@ -72,25 +75,26 @@ const { size = 200, class: className = '' } = Astro.props;
 
     // Brand colors - Darker palette
     const colors = {
-      steelBlue: 0x3A7CA8,    // Top faces
-      mediumBlue: 0x4A90C4,   // Alternating tops
-      navy: 0x1E4B6E,         // Left/front faces
-      deepNavy: 0x14354F,     // Right/back faces
+      iceBlue: 0xB5D8F0,    // Top faces
+      baseSkyBlue: 0x67ACE0,   // Alternating tops
+      deepSteelBlue: 0x3A7CA8,         // Left/front faces
+      deepNavy: 0x1E4B6E,     // Right/back faces
+      softTeal: 0x5BC0C4,
       white: 0xFFFFFF,
     };
 
     // Block positions - 2x2x2 cube in final state
     const blockConfigs = [
       // Bottom layer
-      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.steelBlue },
-      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.mediumBlue },
-      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.steelBlue },
-      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.mediumBlue },
+      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.iceBlue },
+      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.iceBlue },
+      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.iceBlue },
+      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.iceBlue },
       // Top layer
-      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.steelBlue },
-      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.mediumBlue },
-      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.steelBlue },
-      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.mediumBlue },
+      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.iceBlue },
+      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.iceBlue },
+      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.iceBlue },
+      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.iceBlue },
     ];
 
     // Create blocks group
@@ -102,10 +106,10 @@ const { size = 200, class: className = '' } = Astro.props;
     blockConfigs.forEach((config) => {
       const materials = [
         new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // right (+X)
-        new THREE.MeshBasicMaterial({ color: colors.navy }),     // left (-X)
+        new THREE.MeshBasicMaterial({ color: colors.deepSteelBlue }),     // left (-X)
         new THREE.MeshBasicMaterial({ color: config.topColor }), // top (+Y)
         new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // bottom (-Y)
-        new THREE.MeshBasicMaterial({ color: colors.navy }),     // front (+Z)
+        new THREE.MeshBasicMaterial({ color: colors.deepSteelBlue }),     // front (+Z)
         new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // back (-Z)
       ];
       

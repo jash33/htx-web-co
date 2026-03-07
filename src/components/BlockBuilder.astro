@@ -84,26 +84,30 @@ const canvasSize = sizeMap[size];
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     // Brand colors - Darker palette
+    // Brand colors - Darker palette
     const colors = {
-      steelBlue: 0x3A7CA8,    // Top faces
-      mediumBlue: 0x4A90C4,   // Alternating tops
-      navy: 0x1E4B6E,         // Left/front faces
-      deepNavy: 0x14354F,     // Right/back faces
+      iceBlue: 0xB5D8F0,    // Top faces
+      baseSkyBlue: 0x67ACE0,   // Alternating tops
+      deepSteelBlue: 0x3A7CA8,         // Left/front faces
+      deepNavy: 0x1E4B6E,     // Right/back faces
+      softTeal: 0x5BC0C4,
+      white: 0xFFFFFF,
     };
+
 
     // Block positions - builds a 2x2 cube (centered at origin for proper rotation)
     const blockConfigs = [
       // Bottom layer - L-shape first
-      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.steelBlue, delay: 0 },         // corner block
-      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.mediumBlue, delay: 0.6 },     // extends left
-      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.steelBlue, delay: 1.2 },      // extends back
-      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.mediumBlue, delay: 1.8 },    // completes bottom
+      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.iceBlue, delay: 0 },         // corner block
+      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.iceBlue, delay: 0.6 },     // extends left
+      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.iceBlue, delay: 1.2 },      // extends back
+      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.iceBlue, delay: 1.8 },    // completes bottom
       
       // Top layer
-      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.steelBlue, delay: 2.4 },        // top corner
-      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.mediumBlue, delay: 3.0 },      // top left
-      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.steelBlue, delay: 3.6 },       // top back
-      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.mediumBlue, delay: 4.2 },     // top final
+      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.iceBlue, delay: 2.4 },        // top corner
+      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.iceBlue, delay: 3.0 },      // top left
+      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.iceBlue, delay: 3.6 },       // top back
+      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.iceBlue, delay: 4.2 },     // top final
     ];
 
     // Create blocks group for rotation (cube is centered at origin)
@@ -116,10 +120,10 @@ const canvasSize = sizeMap[size];
     blockConfigs.forEach((config) => {
       const materials = [
         new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // right
-        new THREE.MeshBasicMaterial({ color: colors.navy }),     // left
+        new THREE.MeshBasicMaterial({ color: colors.deepSteelBlue }),     // left
         new THREE.MeshBasicMaterial({ color: config.topColor }), // top
         new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // bottom
-        new THREE.MeshBasicMaterial({ color: colors.navy }),     // front
+        new THREE.MeshBasicMaterial({ color: colors.deepSteelBlue }),     // front
         new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // back
       ];
       
