@@ -18,8 +18,7 @@
 
 import { seoConfig } from '../config/seo.config';
 
-// Use new brand logo from public folder
-const logoImage = '/htx-web-co/images/logo-full.png';
+import HTXCubeLogo from './HTXCubeLogo.astro';
 
 // Define the social platform types
 type SocialPlatform = 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'youtube';
@@ -88,9 +87,8 @@ const platformNames: Record<SocialPlatform, string> = {
     <!-- Brand Section with Logo -->
     <div class="footer__brand">
       <a href="/htx-web-co/" class="footer__brand-link" aria-label="HTX Web Co. - Go to homepage">
-        <img src={logoImage} alt="HTX Web Co." class="footer__logo" width="180" height="auto" />
+        <HTXCubeLogo size={120} class="footer__logo-cube" />
       </a>
-    
     </div>
 
     <div class="footer__content">

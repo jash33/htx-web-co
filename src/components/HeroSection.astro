@@ -48,7 +48,6 @@
 
 import type { HeroSectionProps } from '../types/hero';
 import Button from './Button.astro';
-import HTXCubeLogo from './HTXCubeLogo.astro';
 
 interface Props extends HeroSectionProps {
   trustBadges?: Array<{ icon: 'experience' | 'projects' | 'tech'; text: string; }>;
@@ -80,11 +79,6 @@ const trustIcons: Record<string, string> = {
   <div class="hero__container">
     <div class="hero__grid">
       <div class="hero__content">
-        <!-- HTX Cube Logo Preview -->
-        <div class="hero__logo-preview">
-          <HTXCubeLogo size={180} />
-        </div>
-        
         <h1 id={`${id}-headline`} class="hero__headline" set:html={headline} />
 
         {valueProposition && (
@@ -537,14 +531,6 @@ const trustIcons: Record<string, string> = {
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  /* =================================================================
-   * LOGO PREVIEW
-   * =================================================================
-   */
-  .hero__logo-preview {
-    margin-bottom: var(--spacing-4);
   }
 
   /* =================================================================

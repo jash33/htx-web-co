@@ -21,8 +21,7 @@
 // import ThemeToggle from './ThemeToggle.astro';
 import BlockBuilder from './BlockBuilder.astro';
 
-// Use new brand logo from public folder
-const logoImage = '/htx-web-co/images/logo-full.png';
+import HTXCubeLogo from './HTXCubeLogo.astro';
 
 interface Props {
   /** Current page path for active link styling (e.g., "/", "/about") */
@@ -46,7 +45,7 @@ const navLinks = [
   <div class="header__container">
     <!-- Logo/Brand (Left) -->
     <a href="/htx-web-co/" class="header__logo" aria-label="HTX Web Co. - Go to homepage">
-      <img src={logoImage} alt="HTX Web Co." class="header__logo-image" width="auto" height="86" />
+      <HTXCubeLogo size={70} class="header__logo-cube" />
     </a>
 
     <!-- Desktop Navigation (Center) -->
