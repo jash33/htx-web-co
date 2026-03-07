@@ -11,8 +11,8 @@ interface Props {
 }
 
 const { size = 200, class: className = '' } = Astro.props;
-// Render at 3x resolution for crisp display on high-DPI screens
-const bufferSize = size * 3;
+// Render at 4x resolution for crisp display on high-DPI screens
+const bufferSize = size * 4;
 ---
 
 <div class={`htx-cube-logo ${className}`}>
