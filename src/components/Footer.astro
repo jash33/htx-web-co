@@ -87,7 +87,11 @@ const platformNames: Record<SocialPlatform, string> = {
     <!-- Brand Section with Logo -->
     <div class="footer__brand">
       <a href="/htx-web-co/" class="footer__brand-link" aria-label="HTX Web Co. - Go to homepage">
-        <HTXCubeLogo size={120} class="footer__logo-cube" />
+        <HTXCubeLogo size={80} class="footer__logo-cube" />
+        <span class="footer__logo-text">
+          <span class="footer__logo-htx">HTX</span>
+          <span class="footer__logo-webco">Web Co.</span>
+        </span>
       </a>
     </div>
 
@@ -247,6 +251,29 @@ const platformNames: Record<SocialPlatform, string> = {
     outline: var(--focus-ring-width) solid var(--color-primary-300);
     outline-offset: var(--focus-ring-offset);
     border-radius: var(--radius-md);
+  }
+
+  .footer__logo-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--spacing-3);
+    line-height: 1.1;
+  }
+
+  .footer__logo-htx {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary-800);
+    letter-spacing: 0.05em;
+  }
+
+  .footer__logo-webco {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary-600);
+    letter-spacing: 0.02em;
   }
 
   .footer__logo {

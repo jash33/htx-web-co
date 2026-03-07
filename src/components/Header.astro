@@ -45,7 +45,11 @@ const navLinks = [
   <div class="header__container">
     <!-- Logo/Brand (Left) -->
     <a href="/htx-web-co/" class="header__logo" aria-label="HTX Web Co. - Go to homepage">
-      <HTXCubeLogo size={100} class="header__logo-cube" />
+      <HTXCubeLogo size={70} class="header__logo-cube" />
+      <span class="header__logo-text">
+        <span class="header__logo-htx">HTX</span>
+        <span class="header__logo-webco">Web Co.</span>
+      </span>
     </a>
 
     <!-- Desktop Navigation (Center) -->
@@ -210,6 +214,29 @@ const navLinks = [
   .header__logo:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
+  }
+
+  .header__logo-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--spacing-2);
+    line-height: 1.1;
+  }
+
+  .header__logo-htx {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary-800);
+    letter-spacing: 0.05em;
+  }
+
+  .header__logo-webco {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary-600);
+    letter-spacing: 0.02em;
   }
 
   .header__logo-image {
