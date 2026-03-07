@@ -11,10 +11,12 @@ interface Props {
 }
 
 const { size = 200, class: className = '' } = Astro.props;
+// Render at 3x resolution for crisp display on high-DPI screens
+const bufferSize = size * 3;
 ---
 
 <div class={`htx-cube-logo ${className}`}>
-  <canvas class="htx-cube-logo__canvas" width={size} height={size}></canvas>
+  <canvas class="htx-cube-logo__canvas" width={bufferSize} height={bufferSize} data-display-size={size}></canvas>
 </div>
 
 <style>
@@ -62,19 +64,19 @@ const { size = 200, class: className = '' } = Astro.props;
     camera.position.set(5, 4, 5);
     camera.lookAt(0, 0, 0);
 
-    // Renderer - use high pixel ratio for sharp rendering
-    const dpr = Math.min(window.devicePixelRatio, 3);
-    const displaySize = canvas.width;
+    // Renderer - canvas is already 3x size for crisp rendering
+    const bufferSize = canvas.width;
+    const displaySize = parseInt(canvas.dataset.displaySize || '200', 10);
     
     const renderer = new THREE.WebGLRenderer({ 
       canvas, 
       antialias: true,
       alpha: true 
     });
-    renderer.setPixelRatio(dpr);
-    renderer.setSize(displaySize, displaySize, false);
+    renderer.setPixelRatio(1); // Buffer is already high-res
+    renderer.setSize(bufferSize, bufferSize, false);
     
-    // Set CSS size to match
+    // Set CSS size to display size (browser scales down the high-res buffer)
     canvas.style.width = `${displaySize}px`;
     canvas.style.height = `${displaySize}px`;
 
