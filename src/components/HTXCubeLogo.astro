@@ -1,8 +1,7 @@
 ---
 /**
  * HTX Cube Logo
- * Static version of BlockBuilder cube with H, T, X letters
- * Based on the completed state of the block animation
+ * Static version of BlockBuilder cube - same rendering approach as animated version
  */
 
 interface Props {
@@ -11,12 +10,10 @@ interface Props {
 }
 
 const { size = 200, class: className = '' } = Astro.props;
-// Render at 4x resolution for crisp display on high-DPI screens
-const bufferSize = size * 4;
 ---
 
-<div class={`htx-cube-logo ${className}`}>
-  <canvas class="htx-cube-logo__canvas" width={bufferSize} height={bufferSize} data-display-size={size}></canvas>
+<div class={`htx-cube-logo ${className}`} style={`--logo-size: ${size}px;`}>
+  <canvas class="htx-cube-logo__canvas" width={size} height={size}></canvas>
 </div>
 
 <style>
@@ -28,13 +25,13 @@ const bufferSize = size * 4;
 
   .htx-cube-logo__canvas {
     display: block;
+    width: var(--logo-size);
+    height: var(--logo-size);
   }
 </style>
 
 <script>
   import * as THREE from 'three';
-  import { FontLoader } from 'three/addons/loaders/FontLoader.js';
-  import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 
   function initHTXLogo() {
     const canvases = document.querySelectorAll('.htx-cube-logo__canvas:not([data-initialized])');
@@ -50,7 +47,7 @@ const bufferSize = size * 4;
     const scene = new THREE.Scene();
     scene.background = null;
     
-    // Isometric camera
+    // Isometric camera (same as BlockBuilder)
     const aspect = 1;
     const frustumSize = 6;
     const camera = new THREE.OrthographicCamera(
@@ -64,28 +61,20 @@ const bufferSize = size * 4;
     camera.position.set(5, 4, 5);
     camera.lookAt(0, 0, 0);
 
-    // Renderer - canvas is already 3x size for crisp rendering
-    const bufferSize = canvas.width;
-    const displaySize = parseInt(canvas.dataset.displaySize || '200', 10);
-    
+    // Renderer - same setup as BlockBuilder animated version
     const renderer = new THREE.WebGLRenderer({ 
       canvas, 
       antialias: true,
       alpha: true 
     });
-    renderer.setPixelRatio(1); // Buffer is already high-res
-    renderer.setSize(bufferSize, bufferSize, false);
-    
-    // Set CSS size to display size (browser scales down the high-res buffer)
-    canvas.style.width = `${displaySize}px`;
-    canvas.style.height = `${displaySize}px`;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Brand colors - High contrast palette
+    // Brand colors (same as BlockBuilder)
     const colors = {
-      iceBlue: 0xB5D8F0,    // Top faces
-      baseSkyBlue: 0x67ACE0,   // Alternating tops
-      deepSteelBlue: 0x3A7CA8,         // Left/front faces
-      deepNavy: 0x1E4B6E,     // Right/back faces
+      iceBlue: 0xB5D8F0,
+      baseSkyBlue: 0x67ACE0,
+      deepSteelBlue: 0x3A7CA8,
+      deepNavy: 0x1E4B6E,
       softTeal: 0x5BC0C4,
       white: 0xFFFFFF,
     };
@@ -113,15 +102,15 @@ const bufferSize = size * 4;
     blockConfigs.forEach((config) => {
       const materials = [
         new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // right (+X)
-        new THREE.MeshBasicMaterial({ color: colors.deepSteelBlue }),     // left (-X)
+        new THREE.MeshBasicMaterial({ color: colors.deepSteelBlue }), // left (-X)
         new THREE.MeshBasicMaterial({ color: config.topColor }), // top (+Y)
         new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // bottom (-Y)
-        new THREE.MeshBasicMaterial({ color: colors.deepSteelBlue }),     // front (+Z)
+        new THREE.MeshBasicMaterial({ color: colors.deepSteelBlue }), // front (+Z)
         new THREE.MeshBasicMaterial({ color: colors.deepNavy }), // back (-Z)
       ];
       
       const block = new THREE.Mesh(blockGeometry, materials);
-      block.position.set(config.x, config.y, config.z); // Final position (no animation)
+      block.position.set(config.x, config.y, config.z);
       blocksGroup.add(block);
     });
 
