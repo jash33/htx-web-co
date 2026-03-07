@@ -162,10 +162,12 @@ const trustIcons: Record<string, string> = {
                 </div>
               </div>
               <div class="hero__mock-hero-image">
-                <!-- Stock photo placeholder - bakery/coffee -->
-                <div class="hero__mock-stock-photo hero__mock-stock-photo--bakery">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21 5v6.59l-3-3.01-4 4.01-4-4-4 4-3-3.01V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2zm-3 6.42l3 3.01V19c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2v-6.58l3 2.99 4-4 4 4 4-3.99z"/></svg>
-                </div>
+                <img 
+                  src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=120&fit=crop&auto=format" 
+                  alt="Fresh baked bread" 
+                  class="hero__mock-stock-photo"
+                  loading="lazy"
+                />
               </div>
             </div>
 
@@ -179,17 +181,17 @@ const trustIcons: Record<string, string> = {
             <div class="hero__mock-cards">
               <div class="hero__mock-card hero__mock-card--featured">
                 <div class="hero__mock-card-badge">Best Seller</div>
-                <div class="hero__mock-card-photo"></div>
+                <img src="https://images.unsplash.com/photo-1509365390695-33aee754301f?w=80&h=50&fit=crop&auto=format" alt="Cinnamon roll" class="hero__mock-card-photo" loading="lazy" />
                 <div class="hero__mock-card-title">Cinnamon Roll</div>
                 <div class="hero__mock-card-desc">$4.50</div>
               </div>
               <div class="hero__mock-card">
-                <div class="hero__mock-card-photo"></div>
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=80&h=50&fit=crop&auto=format" alt="Croissant" class="hero__mock-card-photo" loading="lazy" />
                 <div class="hero__mock-card-title">Croissant</div>
                 <div class="hero__mock-card-desc">$3.25</div>
               </div>
               <div class="hero__mock-card">
-                <div class="hero__mock-card-photo"></div>
+                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=80&h=50&fit=crop&auto=format" alt="Latte" class="hero__mock-card-photo" loading="lazy" />
                 <div class="hero__mock-card-title">Latte</div>
                 <div class="hero__mock-card-desc">$5.00</div>
               </div>
@@ -1311,16 +1313,13 @@ const trustIcons: Record<string, string> = {
     color: rgba(255, 255, 255, 0.7);
   }
 
-  /* Stock photo placeholder in card */
+  /* Stock photo in card */
   .hero__mock-card-photo {
     width: 100%;
     height: 20px;
     margin-bottom: var(--spacing-1);
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
     border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    object-fit: cover;
   }
 
   /* Hero with split layout (content + image) */
@@ -1342,21 +1341,8 @@ const trustIcons: Record<string, string> = {
   .hero__mock-stock-photo {
     width: 100%;
     height: 50px;
-    background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-800) 100%);
     border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-primary-400);
-    overflow: hidden;
-    position: relative;
-  }
-
-  .hero__mock-stock-photo::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+    object-fit: cover;
   }
 
   /* About Section */
