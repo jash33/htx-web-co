@@ -114,6 +114,9 @@ const hasServices = services && services.length > 0;
   .services-section {
     padding: var(--spacing-16) var(--spacing-4);
     background-color: var(--color-background-subtle);
+    border: 2px solid var(--color-primary-900); /* Dark blue border */
+    border-radius: var(--radius-xl);
+    margin: var(--spacing-4);
   }
 
   .services-section__container {
@@ -202,6 +205,7 @@ const hasServices = services && services.length > 0;
   @media screen and (min-width: 768px) {
     .services-section {
       padding: var(--spacing-20) var(--spacing-8);
+      margin: var(--spacing-8);
     }
 
     .services-section__header {
