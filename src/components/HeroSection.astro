@@ -62,7 +62,6 @@ const {
   id = 'hero',
   class: className = '',
   trustBadges = [
-    { icon: 'experience', text: '10+ Years Experience' },
     { icon: 'tech', text: 'Fast & Search-Friendly Sites' },
   ],
 } = Astro.props;
@@ -125,7 +124,6 @@ const trustIcons: Record<string, string> = {
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
           </svg>
           <span class="hero__location-text">Serving the Greater Houston Area</span>
-          <span class="hero__coordinates">29.7604° N, 95.3698° W</span>
         </div>
       </div>
 
@@ -552,11 +550,10 @@ const trustIcons: Record<string, string> = {
     -webkit-text-fill-color: rgba(255, 255, 255, 0.92);
   }
   
-  /* Emphasized accent word - simple color + italic */
+  /* Emphasized accent word - simple color */
   .hero__headline :global(.hero__headline-accent) {
     color: var(--color-accent, #33D6B5);
     -webkit-text-fill-color: var(--color-accent, #33D6B5);
-    font-style: italic;
   }
   
   .hero__headline {
