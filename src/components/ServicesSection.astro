@@ -134,9 +134,24 @@ const hasServices = services && services.length > 0;
     font-family: var(--font-heading);
     font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
+    color: var(--color-primary-900); /* Dark navy */
     margin: 0 0 var(--spacing-4);
     line-height: var(--line-height-tight);
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Aqua green highlight underline */
+  .services-section__heading::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 4px;
+    background-color: var(--color-accent); /* #33D6B5 aqua green */
+    border-radius: var(--radius-full);
   }
 
   .services-section__subheading {
