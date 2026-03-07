@@ -628,37 +628,24 @@ const trustIcons: Record<string, string> = {
     max-width: 20rem;
   }
 
-  /* Override button styles for maximum contrast in hero - aqua green CTA */
+  /* Enhance primary button in hero with glow effect */
   .hero :global(.btn--primary) {
-    background-color: var(--color-accent); /* accent color */
-    color: var(--color-primary-900); /* Dark text for contrast */
     font-weight: var(--font-weight-bold);
-    border-color: var(--color-accent);
     box-shadow:
-      0 4px 14px rgba(91, 192, 196, 0.35),
-      0 0 0 1px rgba(91, 192, 196, 0.2);
+      var(--shadow-sm),
+      0 0 0 1px rgba(74, 144, 196, 0.2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hero :global(.btn--primary:hover:not(.btn--disabled)) {
-    background-color: var(--color-accent-light); /* Lighter aqua on hover */
-    color: var(--color-primary-900);
-    border-color: var(--color-accent-light);
     box-shadow:
-      0 8px 25px rgba(91, 192, 196, 0.4),
-      0 0 40px rgba(91, 192, 196, 0.3);
+      var(--shadow-md),
+      0 0 30px rgba(74, 144, 196, 0.3);
     transform: translateY(-3px) scale(1.03);
   }
 
   .hero :global(.btn--primary:active:not(.btn--disabled)) {
-    background-color: var(--color-accent);
     transform: translateY(0) scale(1);
-  }
-
-  .hero :global(.btn--primary:focus-visible) {
-    box-shadow:
-      0 0 0 var(--focus-ring-offset) var(--color-primary-800),
-      0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--color-accent);
   }
 
   .hero :global(.btn--secondary) {
