@@ -83,27 +83,27 @@ const canvasSize = sizeMap[size];
     });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Brand colors - Sky Blue palette
+    // Brand colors - Sky Blue palette (no teal)
     const colors = {
-      accent: 0x5BC0C4,       // Soft teal
-      accentLight: 0x7DD0D3,  // Light teal
-      primary: 0x67ACE0,      // Sky blue
-      navy: 0x1E4B6E,         // Deep navy
+      skyBlue: 0x67ACE0,      // Primary - top faces
+      iceBlue: 0xB5D8F0,      // Light - alternating tops
+      steelBlue: 0x4A90C4,    // Medium - left/front faces
+      navy: 0x1E4B6E,         // Dark - right/back faces
     };
 
     // Block positions - builds a 2x2 cube (centered at origin for proper rotation)
     const blockConfigs = [
       // Bottom layer - L-shape first
-      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.accent, delay: 0 },             // corner block
-      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.accentLight, delay: 0.6 },     // extends left
-      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.accent, delay: 1.2 },          // extends back
-      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.accentLight, delay: 1.8 },    // completes bottom
+      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.skyBlue, delay: 0 },           // corner block
+      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.iceBlue, delay: 0.6 },        // extends left
+      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.skyBlue, delay: 1.2 },        // extends back
+      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.iceBlue, delay: 1.8 },       // completes bottom
       
       // Top layer
-      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.accent, delay: 2.4 },            // top corner
-      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.accentLight, delay: 3.0 },      // top left
-      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.accent, delay: 3.6 },           // top back
-      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.accentLight, delay: 4.2 },     // top final
+      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.skyBlue, delay: 2.4 },          // top corner
+      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.iceBlue, delay: 3.0 },         // top left
+      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.skyBlue, delay: 3.6 },         // top back
+      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.iceBlue, delay: 4.2 },        // top final
     ];
 
     // Create blocks group for rotation (cube is centered at origin)
@@ -115,12 +115,12 @@ const canvasSize = sizeMap[size];
     
     blockConfigs.forEach((config) => {
       const materials = [
-        new THREE.MeshBasicMaterial({ color: colors.navy }), // right
-        new THREE.MeshBasicMaterial({ color: colors.primary }), // left
-        new THREE.MeshBasicMaterial({ color: config.topColor }), // top
-        new THREE.MeshBasicMaterial({ color: colors.navy }), // bottom
-        new THREE.MeshBasicMaterial({ color: colors.primary }), // front
-        new THREE.MeshBasicMaterial({ color: colors.navy }), // back
+        new THREE.MeshBasicMaterial({ color: colors.navy }),      // right
+        new THREE.MeshBasicMaterial({ color: colors.steelBlue }), // left
+        new THREE.MeshBasicMaterial({ color: config.topColor }),  // top
+        new THREE.MeshBasicMaterial({ color: colors.navy }),      // bottom
+        new THREE.MeshBasicMaterial({ color: colors.steelBlue }), // front
+        new THREE.MeshBasicMaterial({ color: colors.navy }),      // back
       ];
       
       const block = new THREE.Mesh(blockGeometry, materials);
@@ -296,14 +296,14 @@ const canvasSize = sizeMap[size];
     // Color palette for random selection
     const clickColors = [
       0xFF6B6B, // coral red
-      0x4ECDC4, // teal
       0xFFE66D, // yellow
       0x95E1D3, // mint
       0xF38181, // salmon
       0xAA96DA, // lavender
       0xFCBAD3, // pink
-      0x5BC0C4, // soft teal (brand accent)
       0x67ACE0, // sky blue (brand primary)
+      0xB5D8F0, // ice blue (brand light)
+      0x4A90C4, // steel blue (brand medium)
     ];
     
     function onCanvasClick(event: MouseEvent) {
