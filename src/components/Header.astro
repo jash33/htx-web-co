@@ -162,7 +162,7 @@ const navLinks = [
     padding: var(--spacing-3) var(--spacing-4);
     padding-left: var(--spacing-2); /* Tighter left padding on mobile */
     padding-bottom: var(--spacing-5);
-    height: 120px; /* Fixed navbar height - increased for larger cube logo */
+    height: 80px; /* Mobile navbar height */
     position: relative;
   }
 
@@ -223,9 +223,16 @@ const navLinks = [
     line-height: 1.1;
   }
 
+  /* Mobile: smaller logo */
+  .header__logo-cube {
+    transform: scale(0.55);
+    transform-origin: left center;
+    margin-right: -30px; /* Compensate for scaled whitespace */
+  }
+
   .header__logo-htx {
     font-family: var(--font-heading);
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-primary-800);
     letter-spacing: 0.05em;
@@ -233,10 +240,26 @@ const navLinks = [
 
   .header__logo-webco {
     font-family: var(--font-heading);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     color: var(--color-primary-600);
     letter-spacing: 0.02em;
+  }
+
+  /* Desktop: full size logo */
+  @media screen and (min-width: 769px) {
+    .header__logo-cube {
+      transform: scale(1);
+      margin-right: 0;
+    }
+
+    .header__logo-htx {
+      font-size: var(--font-size-3xl);
+    }
+
+    .header__logo-webco {
+      font-size: var(--font-size-lg);
+    }
   }
 
   .header__logo-image {
@@ -578,6 +601,10 @@ const navLinks = [
 
   /* Tablet and Desktop (>768px) */
   @media screen and (min-width: 769px) {
+    .header__container {
+      height: 120px; /* Taller navbar for larger logo */
+    }
+
     .header__nav {
       display: block;
     }
