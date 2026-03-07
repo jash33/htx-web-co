@@ -534,7 +534,8 @@
    */
 
   /* -----------------------------------------------------------------
-   * Primary Glow - Brand-colored glow effects (Teal Blue)
+   * Primary Glow - Steel Blue glow effects
+   * rgba(58, 124, 168) = #3A7CA8
    * ----------------------------------------------------------------- */
   --glow-primary-sm: 0 0 10px rgba(1, 91, 119, 0.3);
   --glow-primary-md: 0 0 20px rgba(1, 91, 119, 0.4);
@@ -543,7 +544,8 @@
     0 0 40px rgba(1, 91, 119, 0.5), 0 0 60px rgba(1, 91, 119, 0.3);
 
   /* -----------------------------------------------------------------
-   * Accent Glow - Aqua Green accent glow effects
+   * Accent Glow - Soft Teal glow effects
+   * rgba(91, 192, 196) = #5BC0C4
    * ----------------------------------------------------------------- */
   --glow-accent-sm: 0 0 10px rgba(51, 214, 181, 0.3);
   --glow-accent-md: 0 0 20px rgba(51, 214, 181, 0.4);
@@ -552,11 +554,12 @@
     0 0 40px rgba(51, 214, 181, 0.5), 0 0 60px rgba(51, 214, 181, 0.3);
 
   /* -----------------------------------------------------------------
-   * Alt Accent Glow - Midnight Blue glow effects
+   * Alt Accent Glow - Deep Navy glow effects
+   * rgba(20, 53, 79) = #14354F
    * ----------------------------------------------------------------- */
-  --glow-accent-alt-sm: 0 0 10px rgba(1, 31, 75, 0.3);
-  --glow-accent-alt-md: 0 0 20px rgba(1, 31, 75, 0.4);
-  --glow-accent-alt-lg: 0 0 30px rgba(1, 31, 75, 0.5);
+  --glow-accent-alt-sm: 0 0 10px rgba(20, 53, 79, 0.3);
+  --glow-accent-alt-md: 0 0 20px rgba(20, 53, 79, 0.4);
+  --glow-accent-alt-lg: 0 0 30px rgba(20, 53, 79, 0.5);
 
   /* -----------------------------------------------------------------
    * Combined/Mixed Glow - Multi-color glow combinations
@@ -578,7 +581,7 @@
    * Text Glow - For glowing text effects (use sparingly)
    * ----------------------------------------------------------------- */
   --glow-text-subtle: 0 0 10px rgba(255, 255, 255, 0.5);
-  --glow-text-accent: 0 0 20px rgba(51, 214, 181, 0.6);
+  --glow-text-accent: 0 0 20px rgba(91, 192, 196, 0.6);
 
   /* =================================================================
    * 12. DESIGN FLAIR - ANIMATION TIMINGS
@@ -768,6 +771,7 @@ html[data-theme="dark"] {
 
   /* -----------------------------------------------------------------
    * Dark Mode - Glow Adjustments (more visible against dark backgrounds)
+   * Steel Blue rgba(58, 124, 168), Soft Teal rgba(91, 192, 196)
    * ----------------------------------------------------------------- */
   --glow-primary-sm: 0 0 15px rgba(1, 91, 119, 0.5);
   --glow-primary-md: 0 0 25px rgba(1, 91, 119, 0.6);
@@ -781,9 +785,9 @@ html[data-theme="dark"] {
   --glow-accent-xl:
     0 0 45px rgba(51, 214, 181, 0.7), 0 0 70px rgba(51, 214, 181, 0.5);
 
-  --glow-accent-alt-sm: 0 0 15px rgba(181, 241, 233, 0.4);
-  --glow-accent-alt-md: 0 0 25px rgba(181, 241, 233, 0.5);
-  --glow-accent-alt-lg: 0 0 35px rgba(181, 241, 233, 0.6);
+  --glow-accent-alt-sm: 0 0 15px rgba(181, 216, 240, 0.4);
+  --glow-accent-alt-md: 0 0 25px rgba(181, 216, 240, 0.5);
+  --glow-accent-alt-lg: 0 0 35px rgba(181, 216, 240, 0.6);
 
   --glow-mixed:
     0 0 25px rgba(51, 214, 181, 0.5), 0 0 45px rgba(1, 91, 119, 0.4);
@@ -796,7 +800,7 @@ html[data-theme="dark"] {
     0 0 0 2px rgba(51, 214, 181, 0.3), 0 8px 35px rgba(1, 91, 119, 0.3);
 
   --glow-text-subtle: 0 0 15px rgba(248, 250, 252, 0.4);
-  --glow-text-accent: 0 0 25px rgba(51, 214, 181, 0.7);
+  --glow-text-accent: 0 0 25px rgba(91, 192, 196, 0.7);
 }
 
 /* Selection styling for dark mode */
