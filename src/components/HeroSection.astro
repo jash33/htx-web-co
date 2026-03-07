@@ -133,122 +133,86 @@ const trustIcons: Record<string, string> = {
             </div>
           </div>
           <div class="hero__browser-content">
-            <!-- Header - Generic Local Business -->
-            <div class="hero__mock-header-bar"></div>
-            <div class="hero__mock-header">
-              <div class="hero__mock-logo">
-                <!-- Coffee cup / bakery icon -->
-                <svg class="hero__mock-logo-icon" viewBox="0 0 24 24" width="14" height="14" fill="var(--color-primary-600)">
-                  <path d="M18.5 3H6c-1.1 0-2 .9-2 2v5.71c0 3.83 2.95 7.18 6.78 7.29 3.96.12 7.22-3.06 7.22-7v-1h.5c1.93 0 3.5-1.57 3.5-3.5S20.43 3 18.5 3zM16 5v3h2.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5H16v-1c0-2.76-2.24-5-5-5H6V5h10zM4 19h16v2H4z"/>
-                </svg>
-                <span>Sweet Bean Cafe</span>
+            <!-- Modern Minimal Header -->
+            <div class="hero__mock-header hero__mock-header--modern">
+              <div class="hero__mock-logo hero__mock-logo--modern">
+                <span class="hero__mock-logo-mark">SB</span>
               </div>
-              <div class="hero__mock-nav">
+              <div class="hero__mock-nav hero__mock-nav--modern">
                 <span>Menu</span>
-                <span>About</span>
-                <span>Catering</span>
-                <span>Contact</span>
+                <span>Story</span>
+                <span>Visit</span>
+                <span class="hero__mock-nav-cta">Order</span>
               </div>
             </div>
 
-            <!-- Hero Section - Bakery style with stock photo placeholder -->
-            <div class="hero__mock-hero hero__mock-hero--split">
-              <div class="hero__mock-hero-content">
-                <div class="hero__mock-headline">Fresh Baked <em>Daily</em></div>
-                <div class="hero__mock-subheadline">Artisan pastries & coffee in the heart of Houston</div>
-                <div class="hero__mock-hero-buttons">
-                  <div class="hero__mock-cta">View Our Menu</div>
-                  <div class="hero__mock-cta-secondary">Order Online</div>
+            <!-- Full-bleed Hero with Overlay Text -->
+            <div class="hero__mock-hero-modern">
+              <img 
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=200&fit=crop&auto=format" 
+                alt="Coffee shop interior" 
+                class="hero__mock-hero-bg"
+                loading="lazy"
+              />
+              <div class="hero__mock-hero-overlay">
+                <div class="hero__mock-hero-tag">Est. 1985</div>
+                <div class="hero__mock-hero-title">Sweet Bean</div>
+                <div class="hero__mock-hero-subtitle">Artisan Coffee & Pastries</div>
+              </div>
+            </div>
+
+            <!-- Bento Grid Layout -->
+            <div class="hero__mock-bento">
+              <!-- Large feature card -->
+              <div class="hero__mock-bento-card hero__mock-bento-card--large">
+                <img src="https://images.unsplash.com/photo-1509365390695-33aee754301f?w=160&h=100&fit=crop&auto=format" alt="Cinnamon roll" class="hero__mock-bento-img" loading="lazy" />
+                <div class="hero__mock-bento-content">
+                  <span class="hero__mock-bento-label">Signature</span>
+                  <span class="hero__mock-bento-name">Cinnamon Roll</span>
                 </div>
               </div>
-              <div class="hero__mock-hero-image">
-                <img 
-                  src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=120&fit=crop&auto=format" 
-                  alt="Fresh baked bread" 
-                  class="hero__mock-stock-photo"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <!-- Section Label -->
-            <div class="hero__mock-section-label">
-              <span class="hero__mock-section-label-text">Today's Specials</span>
-              <span class="hero__mock-section-label-line"></span>
-            </div>
-
-            <!-- Menu Cards - Simple product cards -->
-            <div class="hero__mock-cards">
-              <div class="hero__mock-card hero__mock-card--featured">
-                <div class="hero__mock-card-badge">Best Seller</div>
-                <img src="https://images.unsplash.com/photo-1509365390695-33aee754301f?w=80&h=50&fit=crop&auto=format" alt="Cinnamon roll" class="hero__mock-card-photo" loading="lazy" />
-                <div class="hero__mock-card-title">Cinnamon Roll</div>
-                <div class="hero__mock-card-desc">$4.50</div>
-              </div>
-              <div class="hero__mock-card">
-                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=80&h=50&fit=crop&auto=format" alt="Croissant" class="hero__mock-card-photo" loading="lazy" />
-                <div class="hero__mock-card-title">Croissant</div>
-                <div class="hero__mock-card-desc">$3.25</div>
-              </div>
-              <div class="hero__mock-card">
-                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=80&h=50&fit=crop&auto=format" alt="Latte" class="hero__mock-card-photo" loading="lazy" />
-                <div class="hero__mock-card-title">Latte</div>
-                <div class="hero__mock-card-desc">$5.00</div>
-              </div>
-            </div>
-
-            <!-- About Section with team photo -->
-            <div class="hero__mock-about">
-              <div class="hero__mock-about-image">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-              </div>
-              <div class="hero__mock-about-text">
-                <div class="hero__mock-about-title">Family Owned Since 1985</div>
-                <div class="hero__mock-about-desc">Three generations of bakers serving Houston</div>
-              </div>
-            </div>
-
-            <!-- Testimonial Preview -->
-            <div class="hero__mock-testimonial">
-              <div class="hero__mock-testimonial-stars">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="6" height="6"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="6" height="6"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="6" height="6"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="6" height="6"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="6" height="6"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              </div>
-              <div class="hero__mock-testimonial-quote">"Best croissants in Houston! We come here every weekend."</div>
-              <div class="hero__mock-testimonial-author">
-                <div class="hero__mock-avatar">SM</div>
-                <div class="hero__mock-author-info">
-                  <span class="hero__mock-author-name">Sarah M.</span>
-                  <span class="hero__mock-author-role">Local Customer</span>
+              <!-- Small cards stack -->
+              <div class="hero__mock-bento-stack">
+                <div class="hero__mock-bento-card hero__mock-bento-card--small">
+                  <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=80&h=60&fit=crop&auto=format" alt="Latte" class="hero__mock-bento-img" loading="lazy" />
+                  <span class="hero__mock-bento-name">Oat Latte</span>
+                </div>
+                <div class="hero__mock-bento-card hero__mock-bento-card--small">
+                  <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=80&h=60&fit=crop&auto=format" alt="Croissant" class="hero__mock-bento-img" loading="lazy" />
+                  <span class="hero__mock-bento-name">Croissant</span>
                 </div>
               </div>
             </div>
 
-            <!-- Contact / Hours Section -->
-            <div class="hero__mock-contact">
-              <div class="hero__mock-contact-item">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="8" height="8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-                <span>123 Main St, Houston</span>
+            <!-- Stats Row -->
+            <div class="hero__mock-stats">
+              <div class="hero__mock-stat">
+                <span class="hero__mock-stat-num">40+</span>
+                <span class="hero__mock-stat-label">Years</span>
               </div>
-              <div class="hero__mock-contact-item">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="8" height="8"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                <span>Open 7am - 6pm</span>
+              <div class="hero__mock-stat">
+                <span class="hero__mock-stat-num">5★</span>
+                <span class="hero__mock-stat-label">Rated</span>
+              </div>
+              <div class="hero__mock-stat">
+                <span class="hero__mock-stat-num">Local</span>
+                <span class="hero__mock-stat-label">Sourced</span>
               </div>
             </div>
 
-            <!-- Footer Preview -->
-            <div class="hero__mock-footer">
-              <div class="hero__mock-footer-brand">
-                <div class="hero__mock-footer-logo-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="8" height="8"><path d="M18.5 3H6c-1.1 0-2 .9-2 2v5.71c0 3.83 2.95 7.18 6.78 7.29 3.96.12 7.22-3.06 7.22-7v-1h.5c1.93 0 3.5-1.57 3.5-3.5S20.43 3 18.5 3z"/></svg>
-                </div>
-                <span class="hero__mock-footer-logo">Sweet Bean Cafe</span>
-              </div>
-              <div class="hero__mock-footer-links">
-                <span>Menu</span>
+            <!-- Modern Testimonial -->
+            <div class="hero__mock-review">
+              <div class="hero__mock-review-text">"The best coffee shop in Houston. Period."</div>
+              <div class="hero__mock-review-source">— Houston Chronicle</div>
+            </div>
+
+            <!-- Minimal Footer -->
+            <div class="hero__mock-footer hero__mock-footer--modern">
+              <span>Houston, TX</span>
+              <span>•</span>
+              <span>7am–6pm</span>
+              <span>•</span>
+              <span>@sweetbean</span>
                 <span>Terms</span>
                 <span>Contact</span>
               </div>
@@ -1313,97 +1277,230 @@ const trustIcons: Record<string, string> = {
     color: rgba(255, 255, 255, 0.7);
   }
 
-  /* Stock photo in card */
-  .hero__mock-card-photo {
-    width: 100%;
-    height: 20px;
-    margin-bottom: var(--spacing-1);
-    border-radius: var(--radius-sm);
-    object-fit: cover;
-  }
+  /* =================================================================
+   * MODERN MOCK WEBSITE STYLES
+   * =================================================================
+   */
 
-  /* Hero with split layout (content + image) */
-  .hero__mock-hero--split {
+  /* Modern Header */
+  .hero__mock-header--modern {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: var(--spacing-2);
-  }
-
-  .hero__mock-hero--split .hero__mock-hero-content {
-    flex: 1;
-  }
-
-  .hero__mock-hero-image {
-    flex: 1;
-    min-width: 60px;
-  }
-
-  .hero__mock-stock-photo {
-    width: 100%;
-    height: 50px;
-    border-radius: var(--radius-md);
-    object-fit: cover;
-  }
-
-  /* About Section */
-  .hero__mock-about {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-2);
     padding: var(--spacing-2);
-    margin-bottom: var(--spacing-3);
-    background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-background) 100%);
-    border-radius: var(--radius-md);
+    background: transparent;
   }
 
-  .hero__mock-about-image {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, var(--color-primary-200) 0%, var(--color-primary-300) 100%);
-    border-radius: var(--radius-md);
+  .hero__mock-logo--modern {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--color-primary-600);
-    flex-shrink: 0;
+    gap: 0;
   }
 
-  .hero__mock-about-text {
-    flex: 1;
-  }
-
-  .hero__mock-about-title {
-    font-size: 6px;
-    font-weight: 600;
+  .hero__mock-logo-mark {
+    font-size: 8px;
+    font-weight: 800;
     color: var(--color-primary-800);
-    margin-bottom: 2px;
+    letter-spacing: -0.5px;
   }
 
-  .hero__mock-about-desc {
+  .hero__mock-nav--modern {
+    display: flex;
+    gap: var(--spacing-2);
     font-size: 5px;
     color: var(--color-gray-600);
   }
 
-  /* Contact Section */
-  .hero__mock-contact {
-    display: flex;
-    gap: var(--spacing-3);
-    padding: var(--spacing-2);
-    margin-bottom: var(--spacing-3);
+  .hero__mock-nav-cta {
     background: var(--color-primary-800);
+    color: white;
+    padding: 2px 6px;
+    border-radius: var(--radius-full);
+  }
+
+  /* Full-bleed Hero */
+  .hero__mock-hero-modern {
+    position: relative;
+    margin: 0 calc(var(--spacing-2) * -1);
+    margin-bottom: var(--spacing-2);
+    overflow: hidden;
+  }
+
+  .hero__mock-hero-bg {
+    width: 100%;
+    height: 55px;
+    object-fit: cover;
+    filter: brightness(0.7);
+  }
+
+  .hero__mock-hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+
+  .hero__mock-hero-tag {
+    font-size: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    margin-bottom: 2px;
+  }
+
+  .hero__mock-hero-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+
+  .hero__mock-hero-subtitle {
+    font-size: 5px;
+    opacity: 0.9;
+    margin-top: 2px;
+  }
+
+  /* Bento Grid */
+  .hero__mock-bento {
+    display: flex;
+    gap: var(--spacing-1);
+    margin-bottom: var(--spacing-2);
+  }
+
+  .hero__mock-bento-card {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .hero__mock-bento-card--large {
+    flex: 1.5;
+  }
+
+  .hero__mock-bento-stack {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+  }
+
+  .hero__mock-bento-card--small {
+    flex: 1;
+  }
+
+  .hero__mock-bento-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero__mock-bento-card--large .hero__mock-bento-img {
+    height: 50px;
+  }
+
+  .hero__mock-bento-card--small .hero__mock-bento-img {
+    height: 24px;
+  }
+
+  .hero__mock-bento-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 4px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+  }
+
+  .hero__mock-bento-label {
+    display: block;
+    font-size: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+  }
+
+  .hero__mock-bento-name {
+    position: absolute;
+    bottom: 2px;
+    left: 4px;
+    font-size: 5px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  }
+
+  .hero__mock-bento-card--large .hero__mock-bento-name {
+    position: static;
+    display: block;
+    font-size: 6px;
+  }
+
+  /* Stats Row */
+  .hero__mock-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
+    background: var(--color-primary-50);
     border-radius: var(--radius-md);
   }
 
-  .hero__mock-contact-item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 5px;
-    color: var(--color-primary-200);
+  .hero__mock-stat {
+    text-align: center;
   }
 
-  .hero__mock-contact-item svg {
-    color: var(--color-accent);
+  .hero__mock-stat-num {
+    display: block;
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--color-primary-800);
+  }
+
+  .hero__mock-stat-label {
+    font-size: 4px;
+    color: var(--color-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Modern Review */
+  .hero__mock-review {
+    padding: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
+    background: var(--color-primary-800);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .hero__mock-review-text {
+    font-size: 6px;
+    font-style: italic;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .hero__mock-review-source {
+    font-size: 4px;
+    color: var(--color-primary-300);
+  }
+
+  /* Modern Footer */
+  .hero__mock-footer--modern {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2);
+    font-size: 5px;
+    color: var(--color-gray-500);
+    border-top: 1px solid var(--color-gray-200);
   }
 
   /* =================================================================
