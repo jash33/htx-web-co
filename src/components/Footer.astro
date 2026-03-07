@@ -239,7 +239,9 @@ const platformNames: Record<SocialPlatform, string> = {
   }
 
   .footer__brand-link {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
     transition: transform var(--animation-duration-fast) var(--ease-spring-soft);
   }
 
@@ -253,16 +255,23 @@ const platformNames: Record<SocialPlatform, string> = {
     border-radius: var(--radius-md);
   }
 
+  .footer__logo-cube :global(.htx-cube-logo__canvas) {
+    width: 80px;
+    height: auto;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
   .footer__logo-text {
     display: flex;
     flex-direction: column;
-    margin-left: var(--spacing-3);
+    margin-left: 0;
     line-height: 1.1;
   }
 
   .footer__logo-htx {
     font-family: var(--font-heading);
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-primary-800);
     letter-spacing: 0.05em;
@@ -270,7 +279,7 @@ const platformNames: Record<SocialPlatform, string> = {
 
   .footer__logo-webco {
     font-family: var(--font-heading);
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     color: var(--color-primary-600);
     letter-spacing: 0.02em;

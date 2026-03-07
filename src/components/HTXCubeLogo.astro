@@ -22,13 +22,10 @@ const { size = 200, class: className = '' } = Astro.props;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
   }
 
   .htx-cube-logo__canvas {
     display: block;
-    width: 10vh;
-    margin-top: 0rem
   }
 </style>
 
@@ -65,13 +62,21 @@ const { size = 200, class: className = '' } = Astro.props;
     camera.position.set(5, 4, 5);
     camera.lookAt(0, 0, 0);
 
-    // Renderer
+    // Renderer - use high pixel ratio for sharp rendering
+    const dpr = Math.min(window.devicePixelRatio, 3);
+    const displaySize = canvas.width;
+    
     const renderer = new THREE.WebGLRenderer({ 
       canvas, 
       antialias: true,
       alpha: true 
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(dpr);
+    renderer.setSize(displaySize, displaySize, false);
+    
+    // Set CSS size to match
+    canvas.style.width = `${displaySize}px`;
+    canvas.style.height = `${displaySize}px`;
 
     // Brand colors - High contrast palette
     const colors = {
