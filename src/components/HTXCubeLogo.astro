@@ -116,10 +116,21 @@ const { size = 200, class: className = '' } = Astro.props;
       canvas.height = height;
       const ctx = canvas.getContext('2d')!;
       
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
-      ctx.font = `bold ${height * 0.7}px Montserrat, sans-serif`;
+      // Clear with transparent background
+      ctx.clearRect(0, 0, width, height);
+      
+      // Draw white letter with shadow for visibility
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = `bold ${height * 0.8}px Arial, sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
+      
+      // Add shadow for depth
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+      ctx.shadowBlur = 4;
+      ctx.shadowOffsetX = 2;
+      ctx.shadowOffsetY = 2;
+      
       ctx.fillText(letter, width / 2, height / 2);
       
       const texture = new THREE.CanvasTexture(canvas);
@@ -127,40 +138,46 @@ const { size = 200, class: className = '' } = Astro.props;
       return texture;
     }
 
-    // H on left face (visible from isometric view)
-    const hTexture = createLetterTexture('H', 128, 128);
+    // H on left face (visible from isometric view) - positioned on -X face
+    const hTexture = createLetterTexture('H', 256, 256);
     const hMaterial = new THREE.MeshBasicMaterial({ 
       map: hTexture, 
       transparent: true,
-      side: THREE.DoubleSide 
+      side: THREE.DoubleSide,
+      depthTest: false
     });
-    const hPlane = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 1.4), hMaterial);
-    hPlane.position.set(-1.03, 0, 0);
-    hPlane.rotation.y = Math.PI / 2;
+    const hPlane = new THREE.Mesh(new THREE.PlaneGeometry(1.8, 1.8), hMaterial);
+    hPlane.position.set(-1.08, 0, 0);
+    hPlane.rotation.y = -Math.PI / 2; // Face outward from left
+    hPlane.renderOrder = 1;
     blocksGroup.add(hPlane);
 
-    // X on right face (visible from isometric view)
-    const xTexture = createLetterTexture('X', 128, 128);
+    // X on right/back face (visible from isometric view) - positioned on -Z face  
+    const xTexture = createLetterTexture('X', 256, 256);
     const xMaterial = new THREE.MeshBasicMaterial({ 
       map: xTexture, 
       transparent: true,
-      side: THREE.DoubleSide 
+      side: THREE.DoubleSide,
+      depthTest: false
     });
-    const xPlane = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 1.4), xMaterial);
-    xPlane.position.set(0, 0, -1.03);
-    xPlane.rotation.y = 0;
+    const xPlane = new THREE.Mesh(new THREE.PlaneGeometry(1.8, 1.8), xMaterial);
+    xPlane.position.set(0, 0, -1.08);
+    xPlane.rotation.y = Math.PI; // Face outward from back
+    xPlane.renderOrder = 1;
     blocksGroup.add(xPlane);
 
     // T on top face
-    const tTexture = createLetterTexture('T', 128, 128);
+    const tTexture = createLetterTexture('T', 256, 256);
     const tMaterial = new THREE.MeshBasicMaterial({ 
       map: tTexture, 
       transparent: true,
-      side: THREE.DoubleSide 
+      side: THREE.DoubleSide,
+      depthTest: false
     });
-    const tPlane = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 1.4), tMaterial);
-    tPlane.position.set(0, 1.03, 0);
-    tPlane.rotation.x = -Math.PI / 2;
+    const tPlane = new THREE.Mesh(new THREE.PlaneGeometry(1.8, 1.8), tMaterial);
+    tPlane.position.set(0, 1.08, 0);
+    tPlane.rotation.x = -Math.PI / 2; // Face upward
+    tPlane.renderOrder = 1;
     blocksGroup.add(tPlane);
 
     // Render once (static)
