@@ -224,15 +224,14 @@ const navLinks = [
     line-height: 1.1;
   }
 
-  /* Mobile: smaller cube */
+  /* Mobile: smaller cube - scale down the 110px component */
   .header__logo-cube {
-    width: 80px;
-    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     transform: scale(0.73); /* 80/110 to scale down from 110px component */
-    transform-origin: center;
+    transform-origin: left center;
+    margin-right: -30px; /* Compensate for scaled-down space */
   }
 
   .header__logo-htx {
@@ -254,9 +253,8 @@ const navLinks = [
   /* Desktop: full size cube */
   @media screen and (min-width: 769px) {
     .header__logo-cube {
-      width: 110px;
-      height: 110px;
       transform: scale(1); /* Full size on desktop */
+      margin-right: 0;
     }
 
     .header__logo-htx {
