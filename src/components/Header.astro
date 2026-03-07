@@ -224,8 +224,9 @@ const navLinks = [
   }
 
   /* Mobile: smaller cube */
-  .header__logo-cube :global(canvas) {
+  .header__logo-cube :global(.htx-cube-logo__canvas) {
     width: 80px;
+    height: auto;
   }
 
   .header__logo-htx {
@@ -246,8 +247,9 @@ const navLinks = [
 
   /* Desktop: full size cube */
   @media screen and (min-width: 769px) {
-    .header__logo-cube :global(canvas) {
+    .header__logo-cube :global(.htx-cube-logo__canvas) {
       width: 110px;
+      height: auto;
     }
 
     .header__logo-htx {

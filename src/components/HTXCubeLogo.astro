@@ -14,7 +14,7 @@ const { size = 200, class: className = '' } = Astro.props;
 ---
 
 <div class={`htx-cube-logo ${className}`}>
-  <canvas id="htx-logo-canvas" width={size} height={size}></canvas>
+  <canvas class="htx-cube-logo__canvas" width={size} height={size}></canvas>
 </div>
 
 <style>
@@ -24,7 +24,7 @@ const { size = 200, class: className = '' } = Astro.props;
     justify-content: center;
   }
 
-  #htx-logo-canvas {
+  .htx-cube-logo__canvas {
     display: block;
   }
 </style>
@@ -35,8 +35,13 @@ const { size = 200, class: className = '' } = Astro.props;
   import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 
   function initHTXLogo() {
-    const canvas = document.getElementById('htx-logo-canvas') as HTMLCanvasElement;
-    if (!canvas || canvas.dataset.initialized) return;
+    const canvases = document.querySelectorAll('.htx-cube-logo__canvas:not([data-initialized])');
+    canvases.forEach((canvas) => {
+      initSingleCube(canvas as HTMLCanvasElement);
+    });
+  }
+
+  function initSingleCube(canvas: HTMLCanvasElement) {
     canvas.dataset.initialized = 'true';
 
     // Scene setup
