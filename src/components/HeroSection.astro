@@ -133,126 +133,76 @@ const trustIcons: Record<string, string> = {
             </div>
           </div>
           <div class="hero__browser-content">
-            <!-- Header with HTX Web Co branding -->
+            <!-- Header - Generic Local Business -->
             <div class="hero__mock-header-bar"></div>
             <div class="hero__mock-header">
               <div class="hero__mock-logo">
-                <!-- Isometric cube icon -->
-                <svg class="hero__mock-logo-cube" viewBox="0 0 32 32" width="14" height="14">
-                  <path d="M16 4 L28 11 L16 18 L4 11 Z" fill="var(--color-accent)"/>
-                  <path d="M4 11 L16 18 L16 30 L4 23 Z" fill="var(--color-primary-600)"/>
-                  <path d="M16 18 L28 11 L28 23 L16 30 Z" fill="var(--color-primary-900)"/>
+                <!-- Coffee cup / bakery icon -->
+                <svg class="hero__mock-logo-icon" viewBox="0 0 24 24" width="14" height="14" fill="var(--color-primary-600)">
+                  <path d="M18.5 3H6c-1.1 0-2 .9-2 2v5.71c0 3.83 2.95 7.18 6.78 7.29 3.96.12 7.22-3.06 7.22-7v-1h.5c1.93 0 3.5-1.57 3.5-3.5S20.43 3 18.5 3zM16 5v3h2.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5H16v-1c0-2.76-2.24-5-5-5H6V5h10zM4 19h16v2H4z"/>
                 </svg>
-                <span>HTX Web Co</span>
+                <span>Sweet Bean Cafe</span>
               </div>
               <div class="hero__mock-nav">
-                <span>Pricing</span>
-                <span>Portfolio</span>
+                <span>Menu</span>
                 <span>About</span>
+                <span>Catering</span>
                 <span>Contact</span>
               </div>
             </div>
 
-            <!-- Hero Section matching actual site -->
-            <div class="hero__mock-hero">
+            <!-- Hero Section - Bakery style with stock photo placeholder -->
+            <div class="hero__mock-hero hero__mock-hero--split">
               <div class="hero__mock-hero-content">
-                <div class="hero__mock-badge">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="8" height="8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                  <span>10+ Years Experience</span>
-                </div>
-                <div class="hero__mock-headline">Web Products That <em>Elevate</em></div>
-                <div class="hero__mock-subheadline">Houston Businesses</div>
+                <div class="hero__mock-headline">Fresh Baked <em>Daily</em></div>
+                <div class="hero__mock-subheadline">Artisan pastries & coffee in the heart of Houston</div>
                 <div class="hero__mock-hero-buttons">
-                  <div class="hero__mock-cta">Get Your Free Consultation</div>
-                  <div class="hero__mock-cta-secondary">See How It Works</div>
+                  <div class="hero__mock-cta">View Our Menu</div>
+                  <div class="hero__mock-cta-secondary">Order Online</div>
                 </div>
               </div>
-              <div class="hero__mock-hero-visual">
-                <!-- Mini cube animation representation -->
-                <div class="hero__mock-cube-stack">
-                  <div class="hero__mock-mini-cube hero__mock-mini-cube--1"></div>
-                  <div class="hero__mock-mini-cube hero__mock-mini-cube--2"></div>
-                  <div class="hero__mock-mini-cube hero__mock-mini-cube--3"></div>
-                  <div class="hero__mock-mini-cube hero__mock-mini-cube--4"></div>
+              <div class="hero__mock-hero-image">
+                <!-- Stock photo placeholder - bakery/coffee -->
+                <div class="hero__mock-stock-photo hero__mock-stock-photo--bakery">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21 5v6.59l-3-3.01-4 4.01-4-4-4 4-3-3.01V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2zm-3 6.42l3 3.01V19c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2v-6.58l3 2.99 4-4 4 4 4-3.99z"/></svg>
                 </div>
               </div>
             </div>
 
             <!-- Section Label -->
             <div class="hero__mock-section-label">
-              <span class="hero__mock-section-label-text">Our Services</span>
+              <span class="hero__mock-section-label-text">Today's Specials</span>
               <span class="hero__mock-section-label-line"></span>
             </div>
 
-            <!-- Service Cards matching actual services -->
+            <!-- Menu Cards - Simple product cards -->
             <div class="hero__mock-cards">
               <div class="hero__mock-card hero__mock-card--featured">
-                <div class="hero__mock-card-badge">Popular</div>
-                <div class="hero__mock-card-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                </div>
-                <div class="hero__mock-card-title">Website Design</div>
-                <div class="hero__mock-card-desc">Custom sites</div>
+                <div class="hero__mock-card-badge">Best Seller</div>
+                <div class="hero__mock-card-photo"></div>
+                <div class="hero__mock-card-title">Cinnamon Roll</div>
+                <div class="hero__mock-card-desc">$4.50</div>
               </div>
               <div class="hero__mock-card">
-                <div class="hero__mock-card-icon hero__mock-card-icon--accent">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                </div>
-                <div class="hero__mock-card-title">Ecommerce</div>
-                <div class="hero__mock-card-desc">Online stores</div>
+                <div class="hero__mock-card-photo"></div>
+                <div class="hero__mock-card-title">Croissant</div>
+                <div class="hero__mock-card-desc">$3.25</div>
               </div>
               <div class="hero__mock-card">
-                <div class="hero__mock-card-icon hero__mock-card-icon--alt">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-                </div>
-                <div class="hero__mock-card-title">Custom Apps</div>
-                <div class="hero__mock-card-desc">Web apps</div>
+                <div class="hero__mock-card-photo"></div>
+                <div class="hero__mock-card-title">Latte</div>
+                <div class="hero__mock-card-desc">$5.00</div>
               </div>
             </div>
 
-            <!-- Portfolio Section - Visual grid with thumbnails -->
-            <div class="hero__mock-featured">
-              <div class="hero__mock-section-header">
-                <span class="hero__mock-section-title">Portfolio</span>
-                <span class="hero__mock-section-link">View All →</span>
+            <!-- About Section with team photo -->
+            <div class="hero__mock-about">
+              <div class="hero__mock-about-image">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
               </div>
-              <div class="hero__mock-portfolio-grid">
-                <div class="hero__mock-portfolio-card">
-                  <div class="hero__mock-portfolio-thumb hero__mock-portfolio-thumb--ecommerce">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                  </div>
-                  <div class="hero__mock-portfolio-info">
-                    <span class="hero__mock-portfolio-name">E-Commerce</span>
-                    <span class="hero__mock-portfolio-tag">Retail</span>
-                  </div>
-                </div>
-                <div class="hero__mock-portfolio-card">
-                  <div class="hero__mock-portfolio-thumb hero__mock-portfolio-thumb--healthcare">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
-                  </div>
-                  <div class="hero__mock-portfolio-info">
-                    <span class="hero__mock-portfolio-name">Healthcare</span>
-                    <span class="hero__mock-portfolio-tag">Medical</span>
-                  </div>
-                </div>
-                <div class="hero__mock-portfolio-card">
-                  <div class="hero__mock-portfolio-thumb hero__mock-portfolio-thumb--realestate">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                  </div>
-                  <div class="hero__mock-portfolio-info">
-                    <span class="hero__mock-portfolio-name">Real Estate</span>
-                    <span class="hero__mock-portfolio-tag">Property</span>
-                  </div>
-                </div>
-                <div class="hero__mock-portfolio-card">
-                  <div class="hero__mock-portfolio-thumb hero__mock-portfolio-thumb--restaurant">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
-                  </div>
-                  <div class="hero__mock-portfolio-info">
-                    <span class="hero__mock-portfolio-name">Restaurant</span>
-                    <span class="hero__mock-portfolio-tag">Food</span>
-                  </div>
-                </div>
+              <div class="hero__mock-about-text">
+                <div class="hero__mock-about-title">Family Owned Since 1985</div>
+                <div class="hero__mock-about-desc">Three generations of bakers serving Houston</div>
               </div>
             </div>
 
@@ -265,38 +215,38 @@ const trustIcons: Record<string, string> = {
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="6" height="6"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="6" height="6"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
               </div>
-              <div class="hero__mock-testimonial-quote">"Excellent work! They delivered beyond expectations."</div>
+              <div class="hero__mock-testimonial-quote">"Best croissants in Houston! We come here every weekend."</div>
               <div class="hero__mock-testimonial-author">
-                <div class="hero__mock-avatar">JD</div>
+                <div class="hero__mock-avatar">SM</div>
                 <div class="hero__mock-author-info">
-                  <span class="hero__mock-author-name">John Davis</span>
-                  <span class="hero__mock-author-role">CEO, TechStart</span>
+                  <span class="hero__mock-author-name">Sarah M.</span>
+                  <span class="hero__mock-author-role">Local Customer</span>
                 </div>
               </div>
             </div>
 
-            <!-- Newsletter Signup -->
-            <div class="hero__mock-newsletter">
-              <div class="hero__mock-newsletter-text">
-                <span class="hero__mock-newsletter-title">Stay Updated</span>
-                <span class="hero__mock-newsletter-desc">Get tips & insights</span>
+            <!-- Contact / Hours Section -->
+            <div class="hero__mock-contact">
+              <div class="hero__mock-contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="8" height="8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                <span>123 Main St, Houston</span>
               </div>
-              <div class="hero__mock-newsletter-form">
-                <div class="hero__mock-newsletter-input">your@email.com</div>
-                <div class="hero__mock-newsletter-btn">→</div>
+              <div class="hero__mock-contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="8" height="8"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                <span>Open 7am - 6pm</span>
               </div>
             </div>
 
-            <!-- Footer Preview with enhanced styling -->
+            <!-- Footer Preview -->
             <div class="hero__mock-footer">
               <div class="hero__mock-footer-brand">
                 <div class="hero__mock-footer-logo-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="8" height="8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="8" height="8"><path d="M18.5 3H6c-1.1 0-2 .9-2 2v5.71c0 3.83 2.95 7.18 6.78 7.29 3.96.12 7.22-3.06 7.22-7v-1h.5c1.93 0 3.5-1.57 3.5-3.5S20.43 3 18.5 3z"/></svg>
                 </div>
-                <span class="hero__mock-footer-logo">Acme Co</span>
+                <span class="hero__mock-footer-logo">Sweet Bean Cafe</span>
               </div>
               <div class="hero__mock-footer-links">
-                <span>Privacy</span>
+                <span>Menu</span>
                 <span>Terms</span>
                 <span>Contact</span>
               </div>
@@ -1359,6 +1309,115 @@ const trustIcons: Record<string, string> = {
   .hero__mock-card-desc {
     font-size: 5px;
     color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Stock photo placeholder in card */
+  .hero__mock-card-photo {
+    width: 100%;
+    height: 20px;
+    margin-bottom: var(--spacing-1);
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hero with split layout (content + image) */
+  .hero__mock-hero--split {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+  }
+
+  .hero__mock-hero--split .hero__mock-hero-content {
+    flex: 1;
+  }
+
+  .hero__mock-hero-image {
+    flex: 1;
+    min-width: 60px;
+  }
+
+  .hero__mock-stock-photo {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-800) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-400);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero__mock-stock-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+  }
+
+  /* About Section */
+  .hero__mock-about {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2);
+    margin-bottom: var(--spacing-3);
+    background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-background) 100%);
+    border-radius: var(--radius-md);
+  }
+
+  .hero__mock-about-image {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--color-primary-200) 0%, var(--color-primary-300) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-600);
+    flex-shrink: 0;
+  }
+
+  .hero__mock-about-text {
+    flex: 1;
+  }
+
+  .hero__mock-about-title {
+    font-size: 6px;
+    font-weight: 600;
+    color: var(--color-primary-800);
+    margin-bottom: 2px;
+  }
+
+  .hero__mock-about-desc {
+    font-size: 5px;
+    color: var(--color-gray-600);
+  }
+
+  /* Contact Section */
+  .hero__mock-contact {
+    display: flex;
+    gap: var(--spacing-3);
+    padding: var(--spacing-2);
+    margin-bottom: var(--spacing-3);
+    background: var(--color-primary-800);
+    border-radius: var(--radius-md);
+  }
+
+  .hero__mock-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 5px;
+    color: var(--color-primary-200);
+  }
+
+  .hero__mock-contact-item svg {
+    color: var(--color-accent);
   }
 
   /* =================================================================
