@@ -83,27 +83,27 @@ const canvasSize = sizeMap[size];
     });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Brand colors
+    // Brand colors - Sky Blue palette
     const colors = {
-      aqua: 0x33D6B5,
-      aquaLight: 0x5EEBD0,
-      teal: 0x015B77,
-      midnight: 0x011F4B,
+      accent: 0x5BC0C4,       // Soft teal
+      accentLight: 0x7DD0D3,  // Light teal
+      primary: 0x67ACE0,      // Sky blue
+      navy: 0x1E4B6E,         // Deep navy
     };
 
     // Block positions - builds a 2x2 cube (centered at origin for proper rotation)
     const blockConfigs = [
       // Bottom layer - L-shape first
-      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.aqua, delay: 0 },             // corner block
-      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.aquaLight, delay: 0.6 },     // extends left
-      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.aqua, delay: 1.2 },          // extends back
-      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.aquaLight, delay: 1.8 },    // completes bottom
+      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.accent, delay: 0 },             // corner block
+      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.accentLight, delay: 0.6 },     // extends left
+      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.accent, delay: 1.2 },          // extends back
+      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.accentLight, delay: 1.8 },    // completes bottom
       
       // Top layer
-      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.aqua, delay: 2.4 },            // top corner
-      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.aquaLight, delay: 3.0 },      // top left
-      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.aqua, delay: 3.6 },           // top back
-      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.aquaLight, delay: 4.2 },     // top final
+      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.accent, delay: 2.4 },            // top corner
+      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.accentLight, delay: 3.0 },      // top left
+      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.accent, delay: 3.6 },           // top back
+      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.accentLight, delay: 4.2 },     // top final
     ];
 
     // Create blocks group for rotation (cube is centered at origin)
@@ -115,12 +115,12 @@ const canvasSize = sizeMap[size];
     
     blockConfigs.forEach((config) => {
       const materials = [
-        new THREE.MeshBasicMaterial({ color: colors.midnight }), // right
-        new THREE.MeshBasicMaterial({ color: colors.teal }), // left
+        new THREE.MeshBasicMaterial({ color: colors.navy }), // right
+        new THREE.MeshBasicMaterial({ color: colors.primary }), // left
         new THREE.MeshBasicMaterial({ color: config.topColor }), // top
-        new THREE.MeshBasicMaterial({ color: colors.midnight }), // bottom
-        new THREE.MeshBasicMaterial({ color: colors.teal }), // front
-        new THREE.MeshBasicMaterial({ color: colors.midnight }), // back
+        new THREE.MeshBasicMaterial({ color: colors.navy }), // bottom
+        new THREE.MeshBasicMaterial({ color: colors.primary }), // front
+        new THREE.MeshBasicMaterial({ color: colors.navy }), // back
       ];
       
       const block = new THREE.Mesh(blockGeometry, materials);

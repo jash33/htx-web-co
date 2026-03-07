@@ -61,21 +61,21 @@
    */
 
   /* -----------------------------------------------------------------
-   * Primary Colors - Midnight Blue Brand Palette (HTX Web Co. rebrand)
-   * Main brand color with shade variations for different states
-   * Brand colors: #011F4B (Midnight), #015B77 (Teal), #33D6B5 (Aqua), #B5F1E9 (Light Aqua)
+   * Primary Colors - Sky Blue Brand Palette (HTX Web Co.)
+   * Main brand color based on #67ACE0 with smooth shade variations
+   * Brand colors: #67ACE0 (Sky), #3A7CA8 (Steel), #1E4B6E (Navy), #B5D8F0 (Ice)
    * ----------------------------------------------------------------- */
-  --color-primary-50: #e6f7f5;   /* Lightest - backgrounds, subtle tints */
-  --color-primary-100: #cceeed;  /* Light - hover backgrounds */
-  --color-primary-200: #99ddd9;  /* Light - disabled backgrounds */
-  --color-primary-300: #66cbc4;  /* Medium light */
-  --color-primary-400: #33b9ae;  /* Medium */
-  --color-primary-500: #015B77;  /* Base primary - Teal Blue */
-  --color-primary-600: #014d65;  /* Slightly darker - hover states */
-  --color-primary-700: #013f53;  /* Dark - active states */
-  --color-primary-800: #012f3f;  /* Darker - pressed states */
-  --color-primary-900: #011F4B;  /* Darkest - Midnight Blue (brand dark) */
-  --color-primary-950: #001029;  /* Near black - maximum contrast */
+  --color-primary-50: #EBF5FC;   /* Lightest - backgrounds, subtle tints */
+  --color-primary-100: #D1E8F7;  /* Light - hover backgrounds */
+  --color-primary-200: #B5D8F0;  /* Ice blue - lighter than base */
+  --color-primary-300: #8DC4E8;  /* Light sky */
+  --color-primary-400: #67ACE0;  /* Base sky blue - brand primary */
+  --color-primary-500: #4A90C4;  /* Medium blue - primary actions */
+  --color-primary-600: #3A7CA8;  /* Steel blue - hover states */
+  --color-primary-700: #2B6690;  /* Dark - active states */
+  --color-primary-800: #1E4B6E;  /* Navy - pressed states */
+  --color-primary-900: #14354F;  /* Deep navy - dark backgrounds */
+  --color-primary-950: #0A1F2F;  /* Near black - maximum contrast */
 
   /* Semantic primary aliases for easy use */
   --color-primary: var(--color-primary-500);
@@ -111,21 +111,21 @@
   --color-text-link-hover: var(--color-primary-700);
 
   /* -----------------------------------------------------------------
-   * Accent Colors - Aqua Green Brand Palette (HTX Web Co. rebrand)
+   * Accent Colors - Soft Teal (complements Sky Blue palette)
    * Primary accent for CTAs, highlights, and decorative elements
-   * Brand: #33D6B5 (Aqua Green), #B5F1E9 (Light Aqua)
+   * Brand: #5BC0C4 (Soft Teal), #A8E0E2 (Light Teal)
    * ----------------------------------------------------------------- */
-  --color-accent: #33D6B5;          /* Aqua Green accent - primary CTA */
-  --color-accent-light: #66E2C9;
-  --color-accent-dark: #2AC4A5;
-  --color-accent-hover: #2AC4A5;
-  --color-accent-subtle: #B5F1E9;   /* Light Aqua background */
+  --color-accent: #5BC0C4;          /* Soft teal - primary CTA */
+  --color-accent-light: #7DD0D3;    /* Lighter teal */
+  --color-accent-dark: #4AA8AC;     /* Darker teal for hover */
+  --color-accent-hover: #7DD0D3;    /* Lighter on hover */
+  --color-accent-subtle: #D4F1F2;   /* Very light teal background */
 
-  /* Alternative accent (Teal Blue for variety) */
-  --color-accent-alt: #015B77;
-  --color-accent-alt-light: #017A9E;
-  --color-accent-alt-dark: #014d65;
-  --color-accent-alt-subtle: #e0f4f7;
+  /* Alternative accent (Steel Blue for variety) */
+  --color-accent-alt: #3A7CA8;
+  --color-accent-alt-light: #5A9AC4;
+  --color-accent-alt-dark: #2B6690;
+  --color-accent-alt-subtle: #E8F2F8;
 
   /* -----------------------------------------------------------------
    * Semantic Colors - UI Feedback States
