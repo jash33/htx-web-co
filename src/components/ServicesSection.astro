@@ -385,16 +385,18 @@ const hasServices = services && services.length > 0;
         if (entry.isIntersecting && !hasAnimated) {
           hasAnimated = true;
           
-          // Highlight each card sequentially - snappy
+          // Highlight each card sequentially with shimmer
           cards.forEach((card, index) => {
             setTimeout(() => {
               card.classList.add('service-card--highlight');
+              card.classList.add('service-card--shimmer');
               
-              // Remove highlight quickly
+              // Remove highlight after shimmer completes
               setTimeout(() => {
                 card.classList.remove('service-card--highlight');
-              }, 350);
-            }, index * 150); // 150ms delay between each card
+                card.classList.remove('service-card--shimmer');
+              }, 600);
+            }, index * 250); // 250ms delay between each card
           });
           
           observer.disconnect();
