@@ -223,16 +223,14 @@ const navLinks = [
     line-height: 1.1;
   }
 
-  /* Mobile: much smaller logo */
-  .header__logo-cube,
-  .header__logo-cube :global(canvas) {
-    width: 45px !important;
-    height: 45px !important;
+  /* Mobile: hide cube, show text only */
+  .header__logo-cube {
+    display: none;
   }
 
   .header__logo-htx {
     font-family: var(--font-heading);
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-primary-800);
     letter-spacing: 0.05em;
@@ -240,18 +238,16 @@ const navLinks = [
 
   .header__logo-webco {
     font-family: var(--font-heading);
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     color: var(--color-primary-600);
     letter-spacing: 0.02em;
   }
 
-  /* Desktop: full size logo */
+  /* Desktop: show cube + larger text */
   @media screen and (min-width: 769px) {
-    .header__logo-cube,
-    .header__logo-cube :global(canvas) {
-      width: 110px !important;
-      height: 110px !important;
+    .header__logo-cube {
+      display: block;
     }
 
     .header__logo-htx {
