@@ -1,7 +1,8 @@
 ---
 /**
  * HTX Cube Logo
- * Solid isometric cube with H, T, X letters on faces
+ * Static version of BlockBuilder cube with H, T, X letters
+ * Based on the completed state of the block animation
  */
 
 interface Props {
@@ -12,96 +13,8 @@ interface Props {
 const { size = 200, class: className = '' } = Astro.props;
 ---
 
-<div class={`htx-cube-logo ${className}`} style={`width: ${size}px; height: ${size}px;`}>
-  <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
-    <!-- 
-      Solid isometric cube with HTX letters
-      - Top face: T bar going diagonal
-      - Left face: H letter
-      - Right face: X letter
-    -->
-    
-    <!-- CUBE FACES - Solid completed cube -->
-    <!-- Top face (diamond shape) -->
-    <polygon 
-      points="100,10 170,45 100,80 30,45" 
-      fill="var(--color-accent, #5BC0C4)"
-    />
-    
-    <!-- Left face (parallelogram) -->
-    <polygon 
-      points="30,45 100,80 100,150 30,115" 
-      fill="var(--color-primary-500, #4A90C4)"
-    />
-    
-    <!-- Right face (parallelogram) -->
-    <polygon 
-      points="100,80 170,45 170,115 100,150" 
-      fill="var(--color-primary-800, #1E4B6E)"
-    />
-    
-    <!-- LETTER T - on top face, bar going diagonal -->
-    <!-- T horizontal bar across top -->
-    <polygon 
-      points="55,32 100,10 145,32 145,38 100,16 55,38" 
-      fill="white"
-      opacity="0.95"
-    />
-    <!-- T vertical stem down center of top face -->
-    <polygon 
-      points="95,18 105,18 105,65 95,65" 
-      fill="white"
-      opacity="0.9"
-    />
-    
-    <!-- LETTER H - on left face -->
-    <!-- H left vertical stroke -->
-    <polygon 
-      points="45,55 52,59 52,105 45,101" 
-      fill="white"
-      opacity="0.95"
-    />
-    <!-- H right vertical stroke -->
-    <polygon 
-      points="75,72 82,76 82,122 75,118" 
-      fill="white"
-      opacity="0.95"
-    />
-    <!-- H horizontal bar -->
-    <polygon 
-      points="45,75 82,95 82,102 45,82" 
-      fill="white"
-      opacity="0.95"
-    />
-    
-    <!-- LETTER X - on right face -->
-    <!-- X diagonal stroke 1 (top-left to bottom-right) -->
-    <polygon 
-      points="118,55 126,51 155,105 147,109" 
-      fill="white"
-      opacity="0.95"
-    />
-    <!-- X diagonal stroke 2 (top-right to bottom-left) -->
-    <polygon 
-      points="147,55 155,51 126,105 118,109" 
-      fill="white"
-      opacity="0.95"
-    />
-    
-    <!-- WEB CO text below -->
-    <text 
-      x="100" 
-      y="172" 
-      text-anchor="middle" 
-      fill="var(--color-primary-900, #14354F)"
-      font-family="var(--font-heading, 'Montserrat', sans-serif)" 
-      font-weight="700"
-      font-size="18"
-      letter-spacing="4"
-    >
-      WEB CO
-    </text>
-  </svg>
+<div class={`htx-cube-logo ${className}`}>
+  <canvas id="htx-logo-canvas" width={size} height={size}></canvas>
 </div>
 
 <style>
@@ -110,9 +23,161 @@ const { size = 200, class: className = '' } = Astro.props;
     align-items: center;
     justify-content: center;
   }
-  
-  .htx-cube-logo svg {
-    width: 100%;
-    height: 100%;
+
+  #htx-logo-canvas {
+    display: block;
   }
 </style>
+
+<script>
+  import * as THREE from 'three';
+  import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+  import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+
+  function initHTXLogo() {
+    const canvas = document.getElementById('htx-logo-canvas') as HTMLCanvasElement;
+    if (!canvas || canvas.dataset.initialized) return;
+    canvas.dataset.initialized = 'true';
+
+    // Scene setup
+    const scene = new THREE.Scene();
+    scene.background = null;
+    
+    // Isometric camera
+    const aspect = 1;
+    const frustumSize = 6;
+    const camera = new THREE.OrthographicCamera(
+      -frustumSize * aspect / 2,
+      frustumSize * aspect / 2,
+      frustumSize / 2,
+      -frustumSize / 2,
+      0.1,
+      100
+    );
+    camera.position.set(5, 4, 5);
+    camera.lookAt(0, 0, 0);
+
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ 
+      canvas, 
+      antialias: true,
+      alpha: true 
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Brand colors
+    const colors = {
+      accent: 0x5BC0C4,
+      accentLight: 0x7DD0D3,
+      primary: 0x67ACE0,
+      navy: 0x1E4B6E,
+      white: 0xFFFFFF,
+    };
+
+    // Block positions - 2x2x2 cube in final state
+    const blockConfigs = [
+      // Bottom layer
+      { x: 0.55, y: -0.55, z: 0.55, topColor: colors.accent },
+      { x: -0.55, y: -0.55, z: 0.55, topColor: colors.accentLight },
+      { x: 0.55, y: -0.55, z: -0.55, topColor: colors.accent },
+      { x: -0.55, y: -0.55, z: -0.55, topColor: colors.accentLight },
+      // Top layer
+      { x: 0.55, y: 0.55, z: 0.55, topColor: colors.accent },
+      { x: -0.55, y: 0.55, z: 0.55, topColor: colors.accentLight },
+      { x: 0.55, y: 0.55, z: -0.55, topColor: colors.accent },
+      { x: -0.55, y: 0.55, z: -0.55, topColor: colors.accentLight },
+    ];
+
+    // Create blocks group
+    const blocksGroup = new THREE.Group();
+    scene.add(blocksGroup);
+    
+    const blockGeometry = new THREE.BoxGeometry(0.95, 0.95, 0.95);
+    
+    blockConfigs.forEach((config) => {
+      const materials = [
+        new THREE.MeshBasicMaterial({ color: colors.navy }),    // right (+X)
+        new THREE.MeshBasicMaterial({ color: colors.primary }), // left (-X)
+        new THREE.MeshBasicMaterial({ color: config.topColor }),// top (+Y)
+        new THREE.MeshBasicMaterial({ color: colors.navy }),    // bottom (-Y)
+        new THREE.MeshBasicMaterial({ color: colors.primary }), // front (+Z)
+        new THREE.MeshBasicMaterial({ color: colors.navy }),    // back (-Z)
+      ];
+      
+      const block = new THREE.Mesh(blockGeometry, materials);
+      block.position.set(config.x, config.y, config.z); // Final position (no animation)
+      blocksGroup.add(block);
+    });
+
+    // Create letters using simple plane geometry with canvas textures
+    function createLetterTexture(letter: string, width: number, height: number): THREE.CanvasTexture {
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d')!;
+      
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+      ctx.font = `bold ${height * 0.7}px Montserrat, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(letter, width / 2, height / 2);
+      
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.needsUpdate = true;
+      return texture;
+    }
+
+    // H on left face (visible from isometric view)
+    const hTexture = createLetterTexture('H', 128, 128);
+    const hMaterial = new THREE.MeshBasicMaterial({ 
+      map: hTexture, 
+      transparent: true,
+      side: THREE.DoubleSide 
+    });
+    const hPlane = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 1.4), hMaterial);
+    hPlane.position.set(-1.03, 0, 0);
+    hPlane.rotation.y = Math.PI / 2;
+    blocksGroup.add(hPlane);
+
+    // X on right face (visible from isometric view)
+    const xTexture = createLetterTexture('X', 128, 128);
+    const xMaterial = new THREE.MeshBasicMaterial({ 
+      map: xTexture, 
+      transparent: true,
+      side: THREE.DoubleSide 
+    });
+    const xPlane = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 1.4), xMaterial);
+    xPlane.position.set(0, 0, -1.03);
+    xPlane.rotation.y = 0;
+    blocksGroup.add(xPlane);
+
+    // T on top face
+    const tTexture = createLetterTexture('T', 128, 128);
+    const tMaterial = new THREE.MeshBasicMaterial({ 
+      map: tTexture, 
+      transparent: true,
+      side: THREE.DoubleSide 
+    });
+    const tPlane = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 1.4), tMaterial);
+    tPlane.position.set(0, 1.03, 0);
+    tPlane.rotation.x = -Math.PI / 2;
+    blocksGroup.add(tPlane);
+
+    // Render once (static)
+    renderer.render(scene, camera);
+
+    // Cleanup on page navigation
+    document.addEventListener('astro:before-swap', () => {
+      renderer.dispose();
+    });
+  }
+
+  // Initialize
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHTXLogo);
+  } else {
+    initHTXLogo();
+  }
+  
+  document.addEventListener('astro:page-load', initHTXLogo);
+</script>
