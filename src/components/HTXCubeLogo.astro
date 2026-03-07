@@ -1,0 +1,136 @@
+---
+/**
+ * HTX Cube Logo
+ * 8-block isometric cube with H, T, X letters
+ */
+
+interface Props {
+  size?: number;
+  class?: string;
+}
+
+const { size = 200, class: className = '' } = Astro.props;
+---
+
+<div class={`htx-cube-logo ${className}`} style={`width: ${size}px; height: ${size}px;`}>
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+      Isometric 2x2x2 cube with HTX letters
+      Cube is rotated 45° so we see 3 faces
+      Left face = H, Right face = X, Top = T bar
+    -->
+    
+    <!-- Define colors using CSS variables with fallbacks -->
+    <defs>
+      <style>
+        .cube-top { fill: var(--color-accent, #5BC0C4); }
+        .cube-top-alt { fill: var(--color-accent-light, #7DD0D3); }
+        .cube-left { fill: var(--color-primary-500, #4A90C4); }
+        .cube-left-alt { fill: var(--color-primary-400, #67ACE0); }
+        .cube-right { fill: var(--color-primary-800, #1E4B6E); }
+        .cube-right-alt { fill: var(--color-primary-900, #14354F); }
+        .letter { fill: white; font-family: var(--font-heading, 'Montserrat', sans-serif); font-weight: 700; }
+      </style>
+    </defs>
+    
+    <!-- Back row blocks (partially hidden) -->
+    <!-- Back-left-bottom -->
+    <g class="block back-left-bottom">
+      <polygon class="cube-top" points="70,65 100,50 130,65 100,80"/>
+      <polygon class="cube-left" points="70,65 70,95 100,110 100,80"/>
+      <polygon class="cube-right" points="100,80 100,110 130,95 130,65"/>
+    </g>
+    
+    <!-- Back-right-bottom -->
+    <g class="block back-right-bottom">
+      <polygon class="cube-top-alt" points="100,50 130,35 160,50 130,65"/>
+      <polygon class="cube-left-alt" points="100,50 100,80 130,65 130,35" opacity="0.5"/>
+      <polygon class="cube-right" points="130,65 130,95 160,80 160,50"/>
+    </g>
+    
+    <!-- Back-left-top -->
+    <g class="block back-left-top">
+      <polygon class="cube-top-alt" points="70,35 100,20 130,35 100,50"/>
+      <polygon class="cube-left" points="70,35 70,65 100,80 100,50"/>
+    </g>
+    
+    <!-- Back-right-top -->
+    <g class="block back-right-top">
+      <polygon class="cube-top" points="100,20 130,5 160,20 130,35"/>
+      <polygon class="cube-right-alt" points="130,35 130,65 160,50 160,20"/>
+    </g>
+    
+    <!-- Front row blocks -->
+    <!-- Front-left-bottom -->
+    <g class="block front-left-bottom">
+      <polygon class="cube-top-alt" points="40,95 70,80 100,95 70,110"/>
+      <polygon class="cube-left" points="40,95 40,125 70,140 70,110"/>
+      <polygon class="cube-right-alt" points="70,110 70,140 100,125 100,95"/>
+    </g>
+    
+    <!-- Front-right-bottom -->
+    <g class="block front-right-bottom">
+      <polygon class="cube-top" points="70,80 100,65 130,80 100,95"/>
+      <polygon class="cube-left-alt" points="70,80 70,110 100,125 100,95"/>
+      <polygon class="cube-right" points="100,95 100,125 130,110 130,80"/>
+    </g>
+    
+    <!-- Front-left-top -->
+    <g class="block front-left-top">
+      <polygon class="cube-top" points="40,65 70,50 100,65 70,80"/>
+      <polygon class="cube-left" points="40,65 40,95 70,110 70,80"/>
+      <polygon class="cube-right-alt" points="70,80 70,110 100,95 100,65"/>
+    </g>
+    
+    <!-- Front-right-top -->
+    <g class="block front-right-top">
+      <polygon class="cube-top-alt" points="70,50 100,35 130,50 100,65"/>
+      <polygon class="cube-left-alt" points="70,50 70,80 100,95 100,65"/>
+      <polygon class="cube-right" points="100,80 100,110 130,95 130,65"/>
+    </g>
+    
+    <!-- Letter H on left face -->
+    <g class="letter-h" transform="translate(42, 72)">
+      <!-- H left vertical -->
+      <polygon class="cube-left" points="0,0 0,45 8,50 8,5" fill="white" opacity="0.95"/>
+      <!-- H right vertical (on same face, offset) -->
+      <polygon class="cube-left" points="20,10 20,55 28,60 28,15" fill="white" opacity="0.95"/>
+      <!-- H horizontal bar -->
+      <polygon class="cube-left" points="0,20 28,35 28,42 0,27" fill="white" opacity="0.95"/>
+    </g>
+    
+    <!-- Letter X on right face -->
+    <g class="letter-x" transform="translate(102, 72)">
+      <!-- X diagonal 1 (top-left to bottom-right) -->
+      <polygon points="0,5 8,0 28,50 20,55" fill="white" opacity="0.95"/>
+      <!-- X diagonal 2 (top-right to bottom-left) -->
+      <polygon points="20,0 28,5 8,55 0,50" fill="white" opacity="0.95"/>
+    </g>
+    
+    <!-- Letter T across the top -->
+    <g class="letter-t">
+      <!-- T horizontal bar across top of cube -->
+      <polygon points="40,55 100,22 160,55 160,62 100,29 40,62" fill="white" opacity="0.9"/>
+      <!-- T vertical stem going down center -->
+      <polygon points="95,29 105,29 105,75 95,75" fill="white" opacity="0.85"/>
+    </g>
+    
+    <!-- HTX Text below cube -->
+    <text x="100" y="175" text-anchor="middle" class="letter" style="font-size: 24px; letter-spacing: 8px;">
+      WEB CO
+    </text>
+  </svg>
+</div>
+
+<style>
+  .htx-cube-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .htx-cube-logo svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>
