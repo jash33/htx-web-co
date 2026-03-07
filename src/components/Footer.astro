@@ -18,8 +18,6 @@
 
 import { seoConfig } from '../config/seo.config';
 
-import HTXCubeLogo from './HTXCubeLogo.astro';
-
 // Define the social platform types
 type SocialPlatform = 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'youtube';
 
@@ -87,7 +85,7 @@ const platformNames: Record<SocialPlatform, string> = {
     <!-- Brand Section with Logo -->
     <div class="footer__brand">
       <a href="/htx-web-co/" class="footer__brand-link" aria-label="HTX Web Co. - Go to homepage">
-        <HTXCubeLogo size={80} class="footer__logo-cube" />
+        <img src="/htx-web-co/images/htx-cube-logo.png" alt="HTX Web Co. Logo" class="footer__logo-cube" />
         <span class="footer__logo-text">
           <span class="footer__logo-htx">HTX</span>
           <span class="footer__logo-webco">Web Co.</span>
@@ -255,11 +253,10 @@ const platformNames: Record<SocialPlatform, string> = {
     border-radius: var(--radius-md);
   }
 
-  .footer__logo-cube :global(.htx-cube-logo__canvas) {
-    width: 80px !important;
-    height: 80px !important;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+  .footer__logo-cube {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
   }
 
   .footer__logo-text {

@@ -21,8 +21,6 @@
 // import ThemeToggle from './ThemeToggle.astro';
 import BlockBuilder from './BlockBuilder.astro';
 
-import HTXCubeLogo from './HTXCubeLogo.astro';
-
 interface Props {
   /** Current page path for active link styling (e.g., "/", "/about") */
   currentPath?: string;
@@ -45,7 +43,7 @@ const navLinks = [
   <div class="header__container">
     <!-- Logo/Brand (Left) -->
     <a href="/htx-web-co/" class="header__logo" aria-label="HTX Web Co. - Go to homepage">
-      <HTXCubeLogo size={110} class="header__logo-cube" />
+      <img src="/htx-web-co/images/htx-cube-logo.png" alt="HTX Web Co. Logo" class="header__logo-cube" />
       <span class="header__logo-text">
         <span class="header__logo-htx">HTX</span>
         <span class="header__logo-webco">Web Co.</span>
@@ -224,9 +222,10 @@ const navLinks = [
   }
 
   /* Mobile: smaller cube */
-  .header__logo-cube :global(.htx-cube-logo__canvas) {
-    width: 80px !important;
-    height: 80px !important;
+  .header__logo-cube {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
   }
 
   .header__logo-htx {
@@ -247,9 +246,9 @@ const navLinks = [
 
   /* Desktop: full size cube */
   @media screen and (min-width: 769px) {
-    .header__logo-cube :global(.htx-cube-logo__canvas) {
-      width: 110px !important;
-      height: 110px !important;
+    .header__logo-cube {
+      width: 110px;
+      height: 110px;
     }
 
     .header__logo-htx {
