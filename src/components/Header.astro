@@ -224,14 +224,22 @@ const navLinks = [
     line-height: 1.1;
   }
 
-  /* Mobile: smaller cube - scale down the 110px component */
+  /* Mobile: smaller cube */
   .header__logo-cube {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: scale(0.73); /* 80/110 to scale down from 110px component */
-    transform-origin: left center;
-    margin-right: -30px; /* Compensate for scaled-down space */
+    width: 80px;
+    height: 80px;
+  }
+  
+  .header__logo-cube :global(.htx-cube-logo) {
+    --logo-size: 80px !important;
+  }
+  
+  .header__logo-cube :global(canvas) {
+    width: 80px !important;
+    height: 80px !important;
   }
 
   .header__logo-htx {
@@ -253,8 +261,17 @@ const navLinks = [
   /* Desktop: full size cube */
   @media screen and (min-width: 769px) {
     .header__logo-cube {
-      transform: scale(1); /* Full size on desktop */
-      margin-right: 0;
+      width: 110px;
+      height: 110px;
+    }
+    
+    .header__logo-cube :global(.htx-cube-logo) {
+      --logo-size: 110px !important;
+    }
+    
+    .header__logo-cube :global(canvas) {
+      width: 110px !important;
+      height: 110px !important;
     }
 
     .header__logo-htx {

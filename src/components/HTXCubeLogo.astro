@@ -61,13 +61,15 @@ const { size = 200, class: className = '' } = Astro.props;
     camera.position.set(5, 4, 5);
     camera.lookAt(0, 0, 0);
 
-    // Renderer - same setup as BlockBuilder animated version
+    // Renderer - properly set size for crisp rendering
     const renderer = new THREE.WebGLRenderer({ 
       canvas, 
       antialias: true,
       alpha: true 
     });
+    const displaySize = parseInt(getComputedStyle(canvas).width) || canvas.width;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(displaySize, displaySize);
 
     // Brand colors (same as BlockBuilder)
     const colors = {
