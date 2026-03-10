@@ -327,9 +327,15 @@ const trustIcons: Record<string, string> = {
 
           <!-- Carousel Navigation -->
           <div class="hero__carousel-nav">
+            <button class="hero__carousel-arrow hero__carousel-arrow--prev" aria-label="Previous website">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
             <button class="hero__carousel-dot hero__carousel-dot--active" data-index="0" aria-label="View cafe website"></button>
             <button class="hero__carousel-dot" data-index="1" aria-label="View plumber website"></button>
             <button class="hero__carousel-dot" data-index="2" aria-label="View florist website"></button>
+            <button class="hero__carousel-arrow hero__carousel-arrow--next" aria-label="Next website">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
           </div>
         </div>
         <div class="hero__mockup-glow"></div>
@@ -2274,6 +2280,26 @@ const trustIcons: Record<string, string> = {
     border-color: white;
   }
 
+  .hero__carousel-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+
+  .hero__carousel-arrow:hover {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
   /* =================================================================
    * PLUMBER - CONTRACTOR STYLE
    * =================================================================
@@ -3811,11 +3837,25 @@ const trustIcons: Record<string, string> = {
       });
     });
 
-    // Auto-rotate every 5 seconds
+    // Arrow navigation
+    const prevBtn = carousel.querySelector('.hero__carousel-arrow--prev');
+    const nextBtn = carousel.querySelector('.hero__carousel-arrow--next');
+
+    prevBtn?.addEventListener('click', () => {
+      const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
+      showCard(prevIndex);
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      const nextIndex = (currentIndex + 1) % cards.length;
+      showCard(nextIndex);
+    });
+
+    // Auto-rotate every 6 seconds
     setInterval(() => {
       const nextIndex = (currentIndex + 1) % cards.length;
       showCard(nextIndex);
-    }, 5000);
+    }, 6000);
   }
 
   // Initialize
