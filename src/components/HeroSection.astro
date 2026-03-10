@@ -2216,36 +2216,38 @@ const trustIcons: Record<string, string> = {
     top: 0;
     left: 0;
     width: 100%;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: pointer;
+    transform-origin: center bottom;
   }
 
-  /* Stacked card positions */
+  /* Stacked card positions - back of the deck */
   .hero__carousel-card[data-card="0"] {
     z-index: 3;
-    transform: rotate(-2deg) translateY(0);
+    transform: rotate(-3deg) translateX(-20px) translateY(12px) scale(0.95);
   }
 
   .hero__carousel-card[data-card="1"] {
     z-index: 2;
-    transform: rotate(1deg) translateX(15px) translateY(8px);
+    transform: rotate(2deg) translateX(20px) translateY(20px) scale(0.92);
   }
 
   .hero__carousel-card[data-card="2"] {
     z-index: 1;
-    transform: rotate(3deg) translateX(30px) translateY(16px);
+    transform: rotate(-1deg) translateX(0px) translateY(28px) scale(0.89);
   }
 
-  /* Active card comes to front */
+  /* Active card comes to front with shuffle effect */
   .hero__carousel-card--active {
     z-index: 10 !important;
-    transform: rotate(0deg) translateX(0) translateY(0) !important;
+    transform: rotate(0deg) translateX(0) translateY(0) scale(1) !important;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4);
   }
 
   /* Non-active cards shift back */
   .hero__carousel-card:not(.hero__carousel-card--active) {
-    opacity: 0.7;
-    filter: brightness(0.9);
+    opacity: 0.85;
+    filter: brightness(0.95);
   }
 
   /* Carousel navigation dots */
@@ -2257,17 +2259,19 @@ const trustIcons: Record<string, string> = {
     transform: translateX(-50%);
     gap: 10px;
     z-index: 50;
+    align-items: center;
   }
 
   .hero__carousel-dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.5);
     background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0;
+    align-self: center;
   }
 
   .hero__carousel-dot:hover {
