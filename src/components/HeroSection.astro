@@ -2250,11 +2250,11 @@ const trustIcons: Record<string, string> = {
 
   /* Carousel navigation dots */
   .hero__carousel-nav {
+    display: none; /* Hidden by default, shown on desktop */
     position: absolute;
-    bottom: -50px;
+    top: -45px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
     gap: 10px;
     z-index: 50;
   }
@@ -3333,6 +3333,10 @@ const trustIcons: Record<string, string> = {
       display: block;
       align-self: flex-start;
       margin-top: -60px;
+    }
+
+    .hero__carousel-nav {
+      display: flex;
     }
 
     .hero__mockup-float {
