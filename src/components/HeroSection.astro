@@ -258,6 +258,18 @@ const trustIcons: Record<string, string> = {
                   <div class="hero__plumber-service">Leak Detection</div>
                   <div class="hero__plumber-service">Sewer Lines</div>
                 </div>
+                <!-- Review snippet -->
+                <div class="hero__plumber-review">
+                  <div class="hero__plumber-review-stars">★★★★★</div>
+                  <p>"Fixed our leak same day. Fair price, great work!"</p>
+                  <span class="hero__plumber-review-author">— Mike R., Heights</span>
+                </div>
+                <!-- Footer -->
+                <div class="hero__plumber-footer">
+                  <span>🔧 Reliable Plumbing HTX</span>
+                  <span>Serving Houston Since 2004</span>
+                  <span>TX License #12345</span>
+                </div>
               </div>
             </div>
           </div>
@@ -320,6 +332,18 @@ const trustIcons: Record<string, string> = {
                 <!-- Delivery banner -->
                 <div class="hero__florist-banner">
                   🚚 Free same-day delivery on orders over $75
+                </div>
+                <!-- Testimonial -->
+                <div class="hero__florist-testimonial">
+                  <div class="hero__florist-testimonial-stars">★★★★★</div>
+                  <p>"The arrangements are always stunning. My go-to florist!"</p>
+                  <span class="hero__florist-testimonial-author">— Jennifer L.</span>
+                </div>
+                <!-- Footer -->
+                <div class="hero__florist-footer">
+                  <span>🌸 Blossom Floral</span>
+                  <span>Montrose, Houston</span>
+                  <span>Open Daily 9am–7pm</span>
                 </div>
               </div>
             </div>
@@ -2450,6 +2474,42 @@ const trustIcons: Record<string, string> = {
     color: #1e3a5f;
   }
 
+  .hero__plumber-review {
+    padding: 12px 14px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+  }
+
+  .hero__plumber-review-stars {
+    color: #fbbf24;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .hero__plumber-review p {
+    font-size: 9px;
+    color: #475569;
+    font-style: italic;
+    margin: 0 0 4px 0;
+  }
+
+  .hero__plumber-review-author {
+    font-size: 8px;
+    color: #94a3b8;
+  }
+
+  .hero__plumber-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: #1e3a5f;
+    color: #94a3b8;
+    font-size: 7px;
+    margin-top: auto;
+  }
+
   /* =================================================================
    * FLORIST - E-COMMERCE STYLE
    * =================================================================
@@ -2582,6 +2642,41 @@ const trustIcons: Record<string, string> = {
     font-size: 8px;
     color: #9d174d;
     font-weight: 500;
+  }
+
+  .hero__florist-testimonial {
+    padding: 12px 14px;
+    background: #fdf2f8;
+    text-align: center;
+    border-top: 1px solid #fbcfe8;
+  }
+
+  .hero__florist-testimonial-stars {
+    color: #ec4899;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .hero__florist-testimonial p {
+    font-size: 9px;
+    color: #6b7280;
+    font-style: italic;
+    margin: 0 0 4px 0;
+  }
+
+  .hero__florist-testimonial-author {
+    font-size: 8px;
+    color: #9ca3af;
+  }
+
+  .hero__florist-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: #831843;
+    color: #fbcfe8;
+    font-size: 7px;
     margin-top: auto;
   }
 
